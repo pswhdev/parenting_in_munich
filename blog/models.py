@@ -22,6 +22,7 @@ class Post(models.Model):
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
+    excerpt = models.TextField(blank=True)
     
     # To override the save method to set the username field
     # so that if a user is deleted we can still see who wrote it
