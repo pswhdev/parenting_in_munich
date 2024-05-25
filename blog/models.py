@@ -14,7 +14,7 @@ class Post(models.Model):
         (1, 'Published')
         )
     
-    user = models.ForeignKey(User, on_delete=models.SET_NULL, null=False)
+    user = models.ForeignKey(User, on_delete=models.PROTECT, null=False)
     title = models.CharField(max_length=200, unique=True)
     slug = models.SlugField(max_length=200, unique=True)
     content = models.TextField()
