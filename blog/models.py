@@ -14,8 +14,8 @@ class Post(models.Model):
         (1, 'Published')
         )
     
-    user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
-    username = models.CharField(max_length=150, null=True, blank=True)
+    user = models.ForeignKey(User, on_delete=models.RESTRICT, related_name="blog_posts")
+    author = models.CharField(max_length=150, null=True, blank=True)
     title = models.CharField(max_length=200, unique=True)
     content = models.TextField()
     status = models.IntegerField(choices=STATUS, default=0)
@@ -27,10 +27,28 @@ class Post(models.Model):
     # To override the save method to set the username field
     # so that if a user is deleted we can still see who wrote it
     def save(self, *args, **kwargs):
-        if self.user and not self.username:
-            self.username = self.user.username
+        if self.user and not self.author:
+            self.author = self.user.username
         # Call the superclass's save method to save the object to the DB
         super().save(*args, **kwargs)    
 
     def __str__(self):
         return self.title
+
+
+class Comment(models.Model):
+    post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='comments')
+    user = models.ForeignKey(User, on_delete=models.RESTRICT, related_name='commenter')
+    author = models.CharField(max_length=150, null=True, blank=True)
+    content = models.TextField()
+    created_on = models.DateTimeField(auto_now_add=True)
+
+    def save(self, *args, **kwargs):
+        if self.user and not self.author:
+            self.author = self.user.username
+        # Call the superclass's save method to save the object to the DB
+        super().save(*args, **kwargs) 
+
+    def __str__(self):
+
+        return f"Comment by {self.author} on {self.post.title}"
