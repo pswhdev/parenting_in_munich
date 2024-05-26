@@ -10,17 +10,16 @@ class Category(models.Model):
     CATEGORIES = (
         (0, ""),
         (1, "Bullying"),
-        (2, "Childcare"),
-        (3, "Child Safety"),
+        (2, "Child Safety"),
+        (3, "Childcare"),
         (4, "Cultural Traditions"),
-        (5, "Daycare"),
-        (6, "Education and Development"),
-        (7, "Healthcare"),
-        (8, "Legal and Administrative Processes"),
-        (9, "Nutrition"),
-        (10, "Parental Benefits"),
-        (11, "Parenting Advice"),
-        (12, "Pregnancy and Birth"),
+        (5, "Education and Development"),
+        (6, "Healthcare"),
+        (7, "Legal and Administrative Processes"),
+        (8, "Nutrition"),
+        (9, "Parental Benefits"),
+        (10, "Parenting Advice"),
+        (11, "Pregnancy and Birth"),
     )
 
     name = models.IntegerField(choices=CATEGORIES, default=0)
