@@ -24,6 +24,7 @@
       <!-- Navbar -->
       <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
+          <!-- Logo -->
           <a class="navbar-brand" href="{% url 'home' %}">Parenting in Munich</a>
           <button
             class="navbar-toggler"
@@ -37,6 +38,7 @@
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <!-- Navigation items -->
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
                 <a class="nav-link {% if request.path == home_url %}active{% endif %}" aria-current="page" href="{% url 'home' %}">Home</a>
@@ -44,10 +46,8 @@
               <li class="nav-item">
                 <a class="nav-link" href="{% url 'posts' %}">Posts</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link disabled" aria-disabled="true">Disabled</a>
-              </li>
             </ul>
+            <!-- Search field form -->
             <form class="d-flex" role="search">
               <input
                 class="form-control me-2"

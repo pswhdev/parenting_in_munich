@@ -4,29 +4,24 @@
 <div class="container-fluid">
   <div class="row">
     <!-- Blog Entries Column -->
-    <div class="col-12 mt-3 left">
+    <div class="col-12 mt-3">
       <div class="row">
         {% for post in post_list %}
-        <div class="col-md-4">
+        <article class="col-md-4">
           <div class="card mb-4">
             <div class="card-body">
-              <div class="image-container">
+              <div class="card-img">
                 <div class="image-flash">
-                  <p class="category">{{ post.category }}</p>
+                  <p class="timeago">  {{ post.created_on | timesince }} ago in {{ post.category }}</p>
                 </div>
               </div>
               <a href="#" class="post-link">
                 <h2 class="card-title">{{ post.title }}</h2>
               </a>
               <p class="card-text">{{ post.excerpt }}</p>
-
-              <hr />
-              <p class="card-text text-muted">
-                Posted on {{ post.created_on }}
-              </p>
             </div>
           </div>
-        </div>
+        </article>
         {% if forloop.counter|divisibleby:3 %}
       </div>
       <div class="row">{% endif %} {% endfor %}</div>
