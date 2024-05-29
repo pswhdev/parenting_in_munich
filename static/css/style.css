@@ -3,6 +3,20 @@
 .image-flash {
 }
 
+.masthead {
+  margin-top: 10px;
+  overflow: hidden;
+  position: relative;
+  display: inline-block;
+  height: 33vh;
+  width: 100%;
+}
+
+.masthead-image {
+  position: relative;
+  overflow: hidden;
+}
+
 .post-link {
   text-decoration: none;
   color: #2a3035;
