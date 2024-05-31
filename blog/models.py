@@ -2,6 +2,8 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.db.models.signals import pre_delete
 from django.dispatch import receiver
+from cloudinary.models import CloudinaryField
+
 
 # Create your models here.
 class Category(models.Model):
@@ -22,6 +24,7 @@ class Post(models.Model):
     slug = models.SlugField(max_length=200, unique=True)
     user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, related_name="blog_posts")
     author = models.CharField(max_length=150, null=True, blank=True)
+    featured_image = CloudinaryField('image', default='placeholder')
     content = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)
     status = models.IntegerField(choices=STATUS, default=0)
