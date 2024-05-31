@@ -132,23 +132,8 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 AUTHENTICATION_BACKENDS = ("allauth.account.auth_backends.AuthenticationBackend",)
-# E-mail confirguration for development:
-# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-
-# E-mail confirguration for production:
-EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
-EMAIL_HOST = os.getenv("EMAIL_HOST")
-EMAIL_PORT = int(os.getenv("EMAIL_PORT", 587))
-EMAIL_USE_TLS = os.getenv("EMAIL_USE_TLS", "True") == "True"
-EMAIL_HOST_USER = os.getenv("EMAIL_HOST_USER")
-EMAIL_HOST_PASSWORD = os.getenv("EMAIL_HOST_PASSWORD")
 
 ACCOUNT_EMAIL_VERIFICATION = "none"
-
-# ACCOUNT_EMAIL_REQUIRED = True
-# ACCOUNT_EMAIL_VERIFICATION = "mandatory"
-# ACCOUNT_AUTHENTICATION_METHOD = "email"
-# ACCOUNT_UNIQUE_EMAIL = True
 
 
 # Internationalization
