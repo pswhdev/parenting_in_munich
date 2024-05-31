@@ -10,7 +10,6 @@ class PostList(generic.ListView):
     queryset = Post.objects.filter(status=1)
     template_name = "blog/posts.html"
     paginate_by = 6
-    context_object_name = 'posts'
 
 
 def post_detail(request, slug):
