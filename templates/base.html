@@ -54,13 +54,24 @@
                   >Home</a
                 >
               </li>
-              <li class="nav-item">
+              <!-- <li class="nav-item">
                 <a
                   class="nav-link {% if request.path == posts_url %}active{% endif %}"
                   aria-current="page"
                   href="{% url 'posts' %}"
                   >Posts</a
                 >
+              </li> -->
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle {% if request.path == posts_url %}active{% endif %}" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Categories
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="{% url 'posts' %}">All</a></li>
+                  {% for category in categories %}
+                  <li><a class="dropdown-item" href="{% url 'category_posts' category.id %}">{{ category.name }}</a></li>
+                  {% endfor %}
+                </ul>
               </li>
               <li class="nav-item">
                 <a
