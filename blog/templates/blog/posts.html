@@ -16,10 +16,6 @@ Parenting in Munich - Posts
           <article class="card mb-4">
             <header class="card-header">
               <div class="card-meta">
-                <time class="timeago" datetime="{{ post.created_on }}"
-                  >{{ post.created_on | timesince }}</time
-                >
-                in
                 <a href="{% url 'category_posts' post.category.id %}" class="category-link"
                   >{{ post.category }}</a
                 >
