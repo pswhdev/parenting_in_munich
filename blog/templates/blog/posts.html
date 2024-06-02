@@ -1,45 +1,59 @@
 {% extends "base.html" %}
 {% load static %}
-
-{% block title %} Parenting in Munich - Posts {% endblock %}
-
+{% block title %}
+Parenting in Munich - Posts
+{% endblock %}
 {% block content %}
 
 <!-- index.html content starts here -->
-<div class="container-fluid">
+<div class="container">
   <div class="row">
     <!-- Blog Entries Column -->
     <div class="col-12 mt-3">
       <div class="row">
         {% for post in post_list %}
-          <article class="col-md-4">
-            <div class="card mb-4">
-              <div class="card-body">
-                <div class="card-img">
-                  {% if "placeholder" in post.featured_image.url %}
-                  <img class="card-img-top" src="{% static 'images/kelly-sikkema-baby.webp' %}"
-                    alt="placeholder image">
-                  {% else %}
-                  <img class="card-img-top" src=" {{ post.featured_image.url }}"
-                    alt="{{ post.title }}">
-                  {% endif %}
-                  <div class="image-flash">
-                    <p class="timeago">  {{ post.created_on | timesince }} ago in {{ post.category }}</p>
-                  </div>
-                </div>
-                <a href="{% url 'post_detail' post.slug %}" class="post-link">
-                  <h2 class="card-title">{{ post.title }}</h2>
-                </a>
-                <p class="card-text">{{ post.excerpt }}</p>
+        <div class="col-md-4">
+          <article class="card mb-4">
+            <header class="card-header">
+              <div class="card-meta">
+                <time class="timeago" datetime="{{ post.created_on }}"
+                  >{{ post.created_on | timesince }}</time
+                >
+                in
+                <a href="{% url 'category_posts' post.category.id %}" class="category-link"
+                  >{{ post.category }}</a
+                >
               </div>
+              <a href="{% url 'post_detail' post.slug %}" class="post-link">
+                <h2 class="card-title">{{ post.title }}</h2>
+              </a>
+            </header>
+            <a href="{% url 'post_detail' post.slug %}" class="post-link">
+              {% if "placeholder" in post.featured_image.url %}
+              <img
+                class="card-img"
+                src="{% static 'images/kelly-sikkema-baby.webp' %}"
+                alt="placeholder image"
+              />
+              {% else %}
+              <img
+                class="card-img"
+                src=" {{ post.featured_image.url }}"
+                alt="{{ post.title }}"
+              />
+              {% endif %}
+            </a>
+            <div class="card-body">
+              <p class="card-text">{{ post.excerpt }}</p>
             </div>
           </article>
-          {% if forloop.counter|divisibleby:3 %}
+          <!-- /.card -->
         </div>
-        <div class="row">
-          {% endif %}
-        {% endfor %}
+
+        <!-- Defines how many articles per row will be shown -->
+        {% if forloop.counter|divisibleby:3 %}
       </div>
+      <div class="row">{% endif %} {% endfor %}</div>
     </div>
   </div>
   {% if is_paginated %}
@@ -61,25 +75,20 @@
           <span aria-hidden="true">&laquo; Prev</span>
         </a>
       </li>
-      {% endif %}
-
-      {% for num in page_obj.paginator.page_range %}
+      {% endif %} {% for num in page_obj.paginator.page_range %}
       <!-- Checks if the current page number (page_obj.number) is equal to the loop variable num (current page).
       generates a list element with the class active to visually indicate that this is the current page.-->
       {% if page_obj.number == num %}
       <li class="page-item active">
         <span class="page-link">{{ num }}</span>
       </li>
-    <!-- To limit the amount of pages shown as links. -->
-    <!-- If num is within this range, it displays the page number. -->
-    {% elif num > page_obj.number|add:'-5' and num < page_obj.number|add:'5' %}
+      <!-- To limit the amount of pages shown as links. -->
+      <!-- If num is within this range, it displays the page number. -->
+      {% elif num > page_obj.number|add:'-5' and num < page_obj.number|add:'5'%}
       <li class="page-item">
         <a class="page-link" href="?page={{ num }}">{{ num }}</a>
       </li>
-    {% endif %}
-      {% endfor %}
-      
-      {% if page_obj.has_next %}
+      {% endif %} {% endfor %} {% if page_obj.has_next %}
       <li class="page-item">
         <a
           class="page-link"
