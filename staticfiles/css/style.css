@@ -1,9 +1,102 @@
-/* From posts.html */
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=PT+Sans+Caption:wght@400;700&display=swap');
 
-.image-flash {
+:root {
+  /** Fonts */
+  --title: "EB Garamond", serif;
+  --main-font: "PT Sans Caption", sans-serif;
+
+  /* Colours */
+  --black: #000;
+  --dark-gray: #424242;
+  --off-white: #f2f2f2;
+  --white: #fff;
+
+  /* Utils */
+  --box-shadow: 0 18px 32px -18px var(--black);
+  --border: 1px solid #00000030;
 }
 
-.post-link {
+
+html, body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  font-family: var(--main-font);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--title);
+  font-weight: 700;
+}
+
+main {
+  flex: 1 0 auto;
+  background-color: var(--white);
+}
+
+.navbar, .card-header{
+  background-color: var(--white) !important;
+}
+
+.navbar {
+  border-bottom: 1px solid rgba(0, 0, 0, .1);
+}
+
+.card {
+  border: none;
+  border-radius: 0;
+}
+
+.pagination {
+  --bs-pagination-color: var(--black);
+  --bs-pagination-hover-color: var(--dark-gray);
+  --bs-pagination-focus-color: var(--dark-gray);
+  --bs-pagination-active-bg: var(--dark-gray);
+  --bs-pagination-active-border-color: var(--dark-gray);
+  --bs-pagination-border-width: 0.5px;
+  --bs-pagination-border-radius: 0;
+}
+
+/* Footer */
+footer {
+  flex-shrink: 0;
+  background-color: var(--off-white);
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border-top: var(--border);
+}
+
+/* From posts.html */
+.category-link:hover {
+  text-decoration: underline;
+  transition: all .25s ease-in-out;
+}
+
+
+.about-img{
+  width: 75%;
+}
+
+.masthead {
+  margin-top: 10px;
+  overflow: hidden;
+  position: relative;
+  display: inline-block;
+  height: 33vh;
+  width: 100%;
+}
+
+.masthead-image {
+  position: relative;
+  overflow: hidden;
+}
+
+.post-link, .category-link {
   text-decoration: none;
   color: #2a3035;
 }
@@ -19,9 +112,11 @@
 }
 
 .card-img {
+  border-radius: 0;
   transition: all 0.2s cubic-bezier(0.42, 0, 0.58, 1);
 }
+
 .card-img:hover {
-  box-shadow: 0 18px 32px -18px black;
+  box-shadow :var(--box-shadow);
   transform: translateY(-6px);
 }
