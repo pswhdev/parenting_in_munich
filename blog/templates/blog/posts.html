@@ -1,9 +1,4 @@
-{% extends "base.html" %}
-{% load static %}
-{% block title %}
-Parenting in Munich - Posts
-{% endblock %}
-{% block content %}
+{% extends "base.html" %} {% load static %} {% block title %} Parenting in Munich - Posts {% endblock %} {% block content %}
 
 <!-- index.html content starts here -->
 <div class="container">
@@ -11,12 +6,15 @@ Parenting in Munich - Posts
     <!-- Blog Entries Column -->
     <div class="col-12 mt-3">
       <div class="row">
+        <!-- Creates a card per post -->
         {% for post in post_list %}
         <div class="col-md-4">
           <article class="card mb-4">
             <header class="card-header">
               <div class="card-meta">
-                <a href="{% url 'category_posts' post.category.id %}" class="category-link"
+                <a
+                  href="{% url 'category_posts' post.category.id %}"
+                  class="category-link"
                   >{{ post.category }}</a
                 >
               </div>
