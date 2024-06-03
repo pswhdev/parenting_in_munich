@@ -17,42 +17,35 @@
       <div class="row">
         <!-- Loop through each post in page_obj -->
         {% for post in page_obj %}
-          <!-- Start a new column every 2 posts -->
-          {% if forloop.counter0|divisibleby:2 %}
-            <div class="col-md-4">
-          {% endif %}
-          
-          <div class="post-card mb-4">
-            <article class="card">
-              <!-- Post category -->
-              <header class="card-header">
-                <div class="card-meta">
-                  <a href="{% url 'category_posts' post.category.id %}" class="category-link">{{ post.category }}</a>
-                </div>
-                <!-- Post title -->
+          <!-- Start a new column every 3 posts -->
+          <div class="col-md-4 mb-4">
+            <div class="post-card">
+              <article class="card">
+                <!-- Post category -->
+                <header class="card-header">
+                  <div class="card-meta">
+                    <a href="{% url 'category_posts' post.category.id %}" class="category-link">{{ post.category }}</a>
+                  </div>
+                  <!-- Post title -->
+                  <a href="{% url 'post_detail' post.slug %}" class="post-link">
+                    <h2 class="card-title">{{ post.title }}</h2>
+                  </a>
+                </header>
+                <!-- Post image -->
                 <a href="{% url 'post_detail' post.slug %}" class="post-link">
-                  <h2 class="card-title">{{ post.title }}</h2>
+                  {% if "placeholder" in post.featured_image.url %}
+                  <img class="card-img" src="{% static 'images/kelly-sikkema-baby.webp' %}" alt="placeholder image" />
+                  {% else %}
+                  <img class="card-img" src="{{ post.featured_image.url }}" alt="{{ post.title }}" />
+                  {% endif %}
                 </a>
-              </header>
-              <!-- Post image -->
-              <a href="{% url 'post_detail' post.slug %}" class="post-link">
-                {% if "placeholder" in post.featured_image.url %}
-                <img class="card-img" src="{% static 'images/kelly-sikkema-baby.webp' %}" alt="placeholder image" />
-                {% else %}
-                <img class="card-img" src="{{ post.featured_image.url }}" alt="{{ post.title }}" />
-                {% endif %}
-              </a>
-              <!-- Post excerpt -->
-              <div class="card-body">
-                <p class="card-text">{{ post.excerpt }}</p>
-              </div>
-            </article>
-          </div>
-
-          <!-- Close the column after every 2 posts or if it's the last post -->
-          {% if forloop.counter0|add:'1'|divisibleby:2 or forloop.last %}
+                <!-- Post excerpt -->
+                <div class="card-body">
+                  <p class="card-text">{{ post.excerpt }}</p>
+                </div>
+              </article>
             </div>
-          {% endif %}
+          </div>
         {% endfor %}
       </div>
     </div>
