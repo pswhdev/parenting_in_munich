@@ -8,7 +8,7 @@ Munich - Posts {% endblock %} {% block content %}
       <div class="row">
         <!-- Loop through each post in page_obj and creates a card per post -->
         {% for post in page_obj %}
-        <!-- Starts a new column at the beginning of every pair of posts -->
+        <!-- Starts a new column at the beginning of every two posts -->
         {% if forloop.counter0|divisibleby:2 %}
         <div class="col-md-4">
         {% endif %}
