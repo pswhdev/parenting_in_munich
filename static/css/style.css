@@ -60,6 +60,14 @@ main {
   --bs-pagination-border-radius: 0;
 }
 
+.category-title{
+padding-bottom: 15px;
+}
+
+.post-card {
+  padding-bottom: 20px;
+}
+
 /* Footer */
 footer {
   flex-shrink: 0;

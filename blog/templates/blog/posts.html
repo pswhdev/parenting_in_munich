@@ -1,53 +1,61 @@
-{% extends "base.html" %} {% load static %} {% block title %} Parenting in Munich - Posts {% endblock %} {% block content %}
+{% extends "base.html" %} {% load static %} {% block title %} Parenting in
+Munich - Posts {% endblock %} {% block content %}
 
-<!-- index.html content starts here -->
 <div class="container">
   <div class="row">
-    <!-- Blog Entries Column -->
+    <!-- Posts Section -->
     <div class="col-12 mt-3">
       <div class="row">
-        <!-- Creates a card per post -->
-        {% for post in post_list %}
+        <!-- Loop through each post in page_obj and creates a card per post -->
+        {% for post in page_obj %}
+        <!-- Starts a new column at the beginning of every pair of posts -->
+        {% if forloop.counter0|divisibleby:2 %}
         <div class="col-md-4">
-          <article class="card mb-4">
-            <header class="card-header">
-              <div class="card-meta">
-                <a
-                  href="{% url 'category_posts' post.category.id %}"
-                  class="category-link"
-                  >{{ post.category }}</a
-                >
-              </div>
+        {% endif %}
+          <div class="post-card mb-4">
+            <article class="card">
+              <!-- Post category -->
+              <header class="card-header">
+                <div class="card-meta">
+                  <a
+                    href="{% url 'category_posts' post.category.id %}"
+                    class="category-link"
+                    >{{ post.category }}</a
+                  >
+                </div>
+                <!-- Post title -->
+                <a href="{% url 'post_detail' post.slug %}" class="post-link">
+                  <h2 class="card-title">{{ post.title }}</h2>
+                </a>
+              </header>
+              <!-- Post image -->
               <a href="{% url 'post_detail' post.slug %}" class="post-link">
-                <h2 class="card-title">{{ post.title }}</h2>
+                {% if "placeholder" in post.featured_image.url %}
+                <img
+                  class="card-img"
+                  src="{% static 'images/kelly-sikkema-baby.webp' %}"
+                  alt="placeholder image"
+                />
+                {% else %}
+                <img
+                  class="card-img"
+                  src="{{ post.featured_image.url }}"
+                  alt="{{ post.title }}"
+                />
+                {% endif %}
               </a>
-            </header>
-            <a href="{% url 'post_detail' post.slug %}" class="post-link">
-              {% if "placeholder" in post.featured_image.url %}
-              <img
-                class="card-img"
-                src="{% static 'images/kelly-sikkema-baby.webp' %}"
-                alt="placeholder image"
-              />
-              {% else %}
-              <img
-                class="card-img"
-                src=" {{ post.featured_image.url }}"
-                alt="{{ post.title }}"
-              />
-              {% endif %}
-            </a>
-            <div class="card-body">
-              <p class="card-text">{{ post.excerpt }}</p>
-            </div>
-          </article>
-          <!-- /.card -->
+              <!-- Post excerpt -->
+              <div class="card-body">
+                <p class="card-text">{{ post.excerpt }}</p>
+              </div>
+            </article>
+          </div>
+          <!-- Checks if the one-based index is divisible by 2 meaning it is the second of two posts or if it is the last post-->
+          {% if forloop.counter0|add:'1'|divisibleby:2 or forloop.last %}
+        <!-- If it is, close the column -->
         </div>
-
-        <!-- Defines how many articles per row will be shown -->
-        {% if forloop.counter|divisibleby:3 %}
+        {% endif %} {% endfor %}
       </div>
-      <div class="row">{% endif %} {% endfor %}</div>
     </div>
   </div>
   {% if is_paginated %}
