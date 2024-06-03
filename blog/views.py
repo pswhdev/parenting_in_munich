@@ -1,10 +1,9 @@
+from django.core.paginator import Paginator
 from django.shortcuts import render, get_object_or_404
 from django.views import generic
 from .models import Post, Category
 
-
 # Create your views here.
-
 
 class PostList(generic.ListView):
     """
@@ -17,7 +16,6 @@ class PostList(generic.ListView):
     queryset = Post.objects.filter(status=1)
     template_name = "blog/posts.html"
     paginate_by = 6
-
 
 def post_detail(request, slug):
     """
@@ -39,7 +37,6 @@ def post_detail(request, slug):
         {"post": post},
     )
 
-
 def category_posts(request, category_id):
     """
     Display posts belonging to a specific category.
@@ -53,5 +50,14 @@ def category_posts(request, category_id):
     """
     category = get_object_or_404(Category, id=category_id)
     posts = Post.objects.filter(category=category, status=1)
+    # Show 6 posts per page
+    paginator = Paginator(posts, 6)
 
-    return render(request, 'blog/category_posts.html', {'category': category, 'posts': posts,})
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+
+    return render(request, 'blog/category_posts.html', {
+        'category': category, 
+        'page_obj': page_obj, 
+        'is_paginated': page_obj.has_other_pages()
+    })
