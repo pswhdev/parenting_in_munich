@@ -20,24 +20,24 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}" />
 
     <title>{% block title %}Parenting in Munich{% endblock %}</title>
-        <!-- Favicon -->
-        <link
-        rel="apple-touch-icon"
-        sizes="180x180"
-        href="{% static 'favicon/apple-touch-icon.png.css' %} "
-      >
-      <link
-        rel="icon"
-        type="image/png"
-        sizes="32x32"
-        href="{% static 'favicon/favicon-32x32.png' %}"
-      >
-      <link
-        rel="icon"
-        type="image/png"
-        sizes="16x16"
-        href="{% static 'favicon/favicon-16x16.png' %}"
-      >
+    <!-- Favicon -->
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="{% static 'favicon/apple-touch-icon.png.css' %} "
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="{% static 'favicon/favicon-32x32.png' %}"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="{% static 'favicon/favicon-16x16.png' %}"
+    />
   </head>
 
   <!-- Main -->
@@ -48,7 +48,7 @@
         <div class="container-fluid">
           <!-- Logo -->
           <a class="navbar-brand" href="{% url 'home' %}"
-          ><h1>Parenting in Munich</h1></a
+            ><h1>Parenting in Munich</h1></a
           >
           <button
             class="navbar-toggler"
@@ -73,13 +73,29 @@
                 >
               </li>
               <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle {% if request.path == posts_url %}active{% endif %}" href="{% url 'posts' %}" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <a
+                  class="nav-link dropdown-toggle {% if request.path == posts_url %}active{% endif %}"
+                  href="{% url 'posts' %}"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
                   Posts
                 </a>
                 <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="{% url 'posts' %}">All Categories</a></li>
+                  <li>
+                    <a class="dropdown-item" href="{% url 'posts' %}"
+                      >All Categories</a
+                    >
+                  </li>
                   {% for category in categories %}
-                  <li><a class="dropdown-item" href="{% url 'category_posts' category.id %}">{{ category.name }}</a></li>
+                  <li>
+                    <a
+                      class="dropdown-item"
+                      href="{% url 'category_posts' category.id %}"
+                      >{{ category.name }}</a
+                    >
+                  </li>
                   {% endfor %}
                 </ul>
               </li>
@@ -91,7 +107,24 @@
                   >About</a
                 >
               </li>
+            </ul>
+            <!-- Search field form -->
+            <form class="d-flex" role="search">
+              <input class="form-control me-2" type="search" placeholder="Search"
+              aria-label="Search" />
+              <button class="btn btn-outline-success" type="submit">
+                Search
+              </button>
+            </form>
+            <!-- Authentication links -->
+            <ul class="navbar-nav ml-auto">
+              <!-- Logged in user -->
               {% if user.is_authenticated %}
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="#"
+                  >You are logged in as {{ user }}</a
+                >
+              </li>
               <li class="nav-item">
                 <a
                   class="nav-link {% if request.path == logout_url %}active{% endif %}"
@@ -100,6 +133,7 @@
                   >Logout</a
                 >
               </li>
+              <!-- Logged out user -->
               {% else %}
               <li class="nav-item">
                 <a
@@ -119,28 +153,10 @@
               </li>
               {% endif %}
             </ul>
-            <!-- Search field form -->
-            <form class="d-flex" role="search">
-              <input
-                class="form-control me-2"
-                type="search"
-                placeholder="Search"
-                aria-label="Search"
-              />
-              <button class="btn btn-outline-success" type="submit">
-                Search
-              </button>
-            </form>
           </div>
         </div>
       </nav>
     </header>
-    
-    {% if user.is_authenticated %}
-    <p class="text-end m-1">You are logged in as {{ user }}</p>
-    {% else %}
-    <p class="text-end m-1">You are not logged in</p>
-    {% endif %}
 
     <!-- Main -->
     <main>
