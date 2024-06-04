@@ -16,6 +16,9 @@
   --border: 1px solid #00000030;
 }
 
+*, ::after, ::before {
+  box-sizing: border-box;
+}
 
 html, body {
   height: 100%;
@@ -37,17 +40,36 @@ main {
   background-color: var(--white);
 }
 
+.text-end{
+  padding: 0;
+}
+
+.btn-outline {
+  border-color: var(--white);
+  border-radius: 0;
+}
+
 .navbar, .card-header{
   background-color: var(--white) !important;
 }
 
 .navbar {
   border-bottom: 1px solid rgba(0, 0, 0, .1);
+  padding: 0;
 }
 
 .card {
   border: none;
   border-radius: 0;
+}
+
+.card-img-overlay{
+  background: rgba(0, 0, 0, 0.4);
+  flex-direction: column;
+}
+
+.d-flex {
+  flex-direction: column;
 }
 
 .pagination {
@@ -58,6 +80,14 @@ main {
   --bs-pagination-active-border-color: var(--dark-gray);
   --bs-pagination-border-width: 0.5px;
   --bs-pagination-border-radius: 0;
+}
+
+.category-title{
+padding-bottom: 15px;
+}
+
+.post-card {
+  padding-bottom: 20px;
 }
 
 /* Footer */
@@ -82,29 +112,12 @@ footer {
   width: 75%;
 }
 
-.masthead {
-  margin-top: 10px;
-  overflow: hidden;
-  position: relative;
-  display: inline-block;
-  height: 33vh;
-  width: 100%;
-}
-
-.masthead-image {
-  position: relative;
-  overflow: hidden;
-}
 
 .post-link, .category-link {
   text-decoration: none;
   color: #2a3035;
 }
 
-.timeago {
-  margin-bottom: 0.5rem;
-  display: inline-block;
-}
 
 .card {
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
