@@ -1,3 +1,38 @@
-{% extends 'base.html' %} {% block content %}
-<h1>Something to test</h1>
+{% extends 'base.html' %} {% load static %} {% block content %}
+
+
+<div class="card text-bg-dark d-flex p-0">
+    <img src="{% static 'images/children-park2.jpg' %}" class="card-img" alt="children playing in a park">
+    <div class="card-img-overlay justify-content-center align-items-center text-center d-flex">
+
+        <p class="font-weight-medium text-uppercase text-white">
+            You are not alone
+        </p>   
+        <h1 class="text-white mb-3">
+            Wellcome to Parenting in Munich!
+        </h1>
+        <p class="text-white mb-3">
+            This website is dedicated to new parents, parents-to-be, and expat
+            families living in Munich
+        </p>
+        <!-- Button -->
+        <p class="btn btn-outline text-center">
+            <a href="{{ signup_url }}" class="btn text-white">
+                Join us!
+            </a>
+        </p>
+    </div>
+</div>
+
+<div>
+<p class="into-text">
+  Parenting comes with its own set of challenges, and being in a new city or
+  country can add to the complexity.
+</p>
+<p class="into-text">
+  Here you'll find guidance, support, and a sense of community to help you
+  feel at home and confident in your parenting journey.
+</p>
+</div>
+
 {% endblock %}
