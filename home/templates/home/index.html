@@ -1,38 +1,41 @@
 {% extends 'base.html' %} {% load static %} {% block content %}
 
+<section
+  id="hero"
+  class="d-flex align-items-center text-center justify-content-center"
+>
+  <div class="container text-center position-relative">
+    <h1 class="text-white mb-4">Wellcome to Parenting in Munich!</h1>
+    <p class="text-white mb-5">
+      This website is dedicated to new parents, parents-to-be, and expat
+      families living in Munich and the surrounding area.
+    </p>
 
-<div class="card text-bg-dark d-flex p-0">
-    <img src="{% static 'images/children-park2.jpg' %}" class="card-img" alt="children playing in a park">
-    <div class="card-img-overlay justify-content-center align-items-center text-center d-flex">
-
-        <p class="font-weight-medium text-uppercase text-white">
-            You are not alone
-        </p>   
-        <h1 class="text-white mb-3">
-            Wellcome to Parenting in Munich!
-        </h1>
-        <p class="text-white mb-3">
-            This website is dedicated to new parents, parents-to-be, and expat
-            families living in Munich
-        </p>
-        <!-- Button -->
-        <p class="btn btn-outline text-center">
-            <a href="{{ signup_url }}" class="btn text-white">
-                Join us!
-            </a>
-        </p>
-    </div>
-</div>
-
-<div>
-<p class="into-text">
-  Parenting comes with its own set of challenges, and being in a new city or
-  country can add to the complexity.
-</p>
-<p class="into-text">
-  Here you'll find guidance, support, and a sense of community to help you
-  feel at home and confident in your parenting journey.
-</p>
-</div>
+    <p class="btn btn-outline text-center">
+      <a href="{{ signup_url }}" class="btn text-white">Join us! </a>
+    </p>
+  </div>
+</section>
+<!-- Content after hero -->
+<section>
+  <p class="into-text">
+    Parenting is a journey filled with its own unique set of challenges, and
+    when you find yourself in a new city or country, those challenges can become
+    even more daunting. Whether it's navigating unfamiliar healthcare systems,
+    adjusting to cultural differences in parenting styles, or simply feeling
+    isolated without your usual support network, the journey of parenthood can
+    feel overwhelming.
+  </p>
+  <p class="into-text">
+    Here you'll discover more than just information and resources, you'll find a
+    supportive community ready to accompany you on your parenting journey. From
+    practical guidance on local childcare options to heartfelt encouragement
+    from fellow expat families, this platform is designed to help you feel at
+    home and confident in your parenting journey. Together, we'll navigate the
+    ups and downs of raising children in a new environment, offering guidance,
+    support, and a sense of belonging. Because no matter where you are in the
+    world, every parent deserves to feel supported and empowered.
+  </p>
+</section>
 
 {% endblock %}
