@@ -30,7 +30,7 @@ class Post(models.Model):
     status = models.IntegerField(choices=STATUS, default=0)
     excerpt = models.TextField(blank=True)
     updated_on = models.DateTimeField(auto_now=True)
-    category = models.ForeignKey(Category, on_delete=models.CASCADE)
+    category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True)
     
 
     def save(self, *args, **kwargs):
@@ -47,9 +47,10 @@ class Post(models.Model):
 
 class Comment(models.Model):
     post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='comments')
-    user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, related_name='commenter')
+    user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, related_name='comments_author')
     author = models.CharField(max_length=150, null=True, blank=True)
     content = models.TextField()
+    approved = models.BooleanField(default=False)
     created_on = models.DateTimeField(auto_now_add=True)
 
     def save(self, *args, **kwargs):
