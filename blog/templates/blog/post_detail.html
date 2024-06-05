@@ -1,29 +1,26 @@
 {% extends 'base.html' %} {% block content %} {% load static %}
 
 <main class="main pt-4">
-
   <div class="container">
-
     <div class="row justify-content-center">
       <div class="col-md-8">
-
         <article class="card mb-4">
           <header class="card-header text-center">
-              <h1 class="post-title">{{ post.title }}</h1>
+            <h1 class="post-title">{{ post.title }}</h1>
           </header>
-            {% if "placeholder" in post.featured_image.url %}
-            <img
-              src="{% static 'images/kelly-sikkema-baby.webp' %}"
-              class="scale"
-              alt="placeholder image"
-            />
-            {% else %}
-            <img
-              src="{{ post.featured_image.url }}"
-              class="scale"
-              alt="{{ post.title }}"
-            />
-            {% endif %}
+          {% if "placeholder" in post.featured_image.url %}
+          <img
+            src="{% static 'images/kelly-sikkema-baby.webp' %}"
+            class="scale"
+            alt="placeholder image"
+          />
+          {% else %}
+          <img
+            src="{{ post.featured_image.url }}"
+            class="scale"
+            alt="{{ post.title }}"
+          />
+          {% endif %}
 
           <p class="post-subtitle">
             {{ post.author }} |
@@ -31,22 +28,46 @@
               >Last updated on {{ post.updated_on|date:"F j, Y" }}</time
             >
             |
-            <a href="{% url 'category_posts' category_slug=category.slug %}" class="category-link">{{ category.name }}</a>
+            <a
+              href="{% url 'category_posts' category_slug=category.slug %}"
+              class="category-link"
+              >{{ category.name }}</a
+            >
           </p>
 
           <div class="card-body">
             <p class="card-text">{{ post.content | safe }}</p>
-            
-            <hr>
+            <hr />
+            <p><i class="fa-regular fa-comments"></i> {{ comment_count }}</p>
+            {% if user.is_authenticated %}
             <h3>Comments</h3>
+            <section id="comments">
+              {% for comment in comments %}
+              {% if comment.approved %}
+                <p>{{ comment.author }} posted on {{ comment.created_on }}:</p>
+                <p>{{ comment.content }}</p>
+                <hr />
+              {% elif comment.author == user.username %}
+                <p>Your comment is pending approval.</p>
+              {% endif %}
+              {% endfor %}
+            </section>
+          {% else %}
+            <section id="login-message">
+              <p>
+                
+                Please <a href="{% url 'account_login' %}?next={{ request.path }}">login</a> or
+                <a href="{% url 'account_signup' %}?next={{ request.path }}">sign up</a> to read and
+                participate in the discussion.
+              </p>
+            </section>
+          {% endif %}
           </div>
-        </article><!-- /.card -->
-
+        </article>
+        <!-- /.card -->
       </div>
-
     </div>
   </div>
-
 </main>
 
 {% endblock content %}

@@ -40,11 +40,18 @@ def post_detail(request, slug):
 
     # Get the category associated with the post
     category = post.category
-
+    comments = post.comments.all().order_by("-created_on")
+    comment_count = post.comments.filter(approved=True).count()
+    
     return render(
         request,
         "blog/post_detail.html",
-        {"post": post, "category": category},
+        {
+            "post": post,
+            "category": category,
+            "comments": comments,
+            "comment_count": comment_count,
+        },
     )
 
 
