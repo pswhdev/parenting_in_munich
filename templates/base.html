@@ -92,7 +92,7 @@
                   <li>
                     <a
                       class="dropdown-item"
-                      href="{% url 'category_posts' category.id %}"
+                      href="{% url 'category_posts' category_slug=category.slug %}"
                       >{{ category.name }}</a
                     >
                   </li>
