@@ -27,7 +27,7 @@
               <!-- Post category -->
               <header class="card-header">
                 <div class="card-meta">
-                  <a href="{% url 'category_posts' category.slug %}" class="category-link">{{ post.category }}</a>
+                  <a href="{% url 'category_posts' category_slug=category.slug %}" class="category-link">{{ post.category }}</a>
                 </div>
                 <!-- Post title -->
                 <a href="{% url 'post_detail' post.slug %}" class="post-link">
