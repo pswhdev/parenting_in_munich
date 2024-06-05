@@ -37,6 +37,7 @@ def post_detail(request, slug):
         {"post": post},
     )
 
+
 def category_posts(request, category_slug):
     """
     Display posts belonging to a specific category.
@@ -57,7 +58,7 @@ def category_posts(request, category_slug):
     page_obj = paginator.get_page(page_number)
 
     return render(request, 'blog/category_posts.html', {
-        'category': category, 
-        'page_obj': page_obj, 
+        'category': category,
+        'page_obj': page_obj,
         'is_paginated': page_obj.has_other_pages()
     })
