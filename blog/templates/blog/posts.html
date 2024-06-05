@@ -1,5 +1,7 @@
-{% extends "base.html" %} {% load static %} {% block title %} Parenting in
-Munich - Posts {% endblock %} {% block content %}
+{% extends "base.html" %}
+{% load static %}
+{% block title %} Parenting in Munich - Posts {% endblock %}
+{% block content %}
 
 <div class="container">
   <div class="row">
@@ -17,11 +19,7 @@ Munich - Posts {% endblock %} {% block content %}
               <!-- Post category -->
               <header class="card-header">
                 <div class="card-meta">
-                  <a
-                    href="{% url 'category_posts' category_slug=category.slug %}"
-                    class="category-link"
-                    >{{ category.name }}</a
-                  >
+                  <a href="{% url 'category_posts' category_slug=category.slug %}" class="category-link">{{ category.name }}</a>
                 </div>
                 <!-- Post title -->
                 <a href="{% url 'post_detail' post.slug %}" class="post-link">

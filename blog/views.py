@@ -5,6 +5,7 @@ from .models import Post, Category
 
 # Create your views here.
 
+
 class PostList(generic.ListView):
     """
     View to list all posts with a published status.
@@ -17,24 +18,33 @@ class PostList(generic.ListView):
     template_name = "blog/posts.html"
     paginate_by = 6
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["category"] = Category.objects.first()  # Fetch any specific category
+        return context
+
+
 def post_detail(request, slug):
     """
     Display an individual :model:`blog.Post`.
     **Context**
     ``post``
     An instance of :model:`blog.Post`.
+    ``category``
+    An instance of :model:`blog.Category` associated with the post.
     **Template:**
     :template:`blog/post_detail.html`
     """
+    # Fetch the post object
+    post = get_object_or_404(Post, slug=slug, status=1)
 
-    queryset = Post.objects.filter(status=1)
-    # Get the post or return 404
-    post = get_object_or_404(queryset, slug=slug)
+    # Get the category associated with the post
+    category = post.category
 
     return render(
         request,
         "blog/post_detail.html",
-        {"post": post},
+        {"post": post, "category": category},
     )
 
 

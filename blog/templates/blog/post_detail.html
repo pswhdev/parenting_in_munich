@@ -31,11 +31,7 @@
               >Last updated on {{ post.updated_on|date:"F j, Y" }}</time
             >
             |
-            <a
-              href="{% url 'category_posts' category_slug=category.slug %}"
-              class="category-link"
-              >{{ category.name }}</a
-            >
+            <a href="{% url 'category_posts' category_slug=category.slug %}" class="category-link">{{ category.name }}</a>
           </p>
 
           <div class="card-body">
