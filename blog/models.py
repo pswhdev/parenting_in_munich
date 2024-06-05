@@ -9,7 +9,7 @@ from cloudinary.models import CloudinaryField
 # Create your models here.
 class Category(models.Model):
     name = models.CharField(max_length=200)
-    slug = models.SlugField(max_length=200, unique=False, null=True, blank=True)
+    slug = models.SlugField(max_length=200, unique=True, blank=True)
 
     def save(self, *args, **kwargs):
         if not self.slug:
@@ -37,7 +37,7 @@ class Post(models.Model):
     status = models.IntegerField(choices=STATUS, default=0)
     excerpt = models.TextField(blank=True)
     updated_on = models.DateTimeField(auto_now=True)
-    category = models.ForeignKey(Category, on_delete=models.CASCADE, null=True)
+    category = models.ForeignKey(Category, on_delete=models.CASCADE)
 
     def save(self, *args, **kwargs):
         if self.user and not self.author:
