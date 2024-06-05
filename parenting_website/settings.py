@@ -49,6 +49,8 @@ INSTALLED_APPS = [
     "allauth",
     "allauth.account",
     "allauth.socialaccount",
+    "crispy_forms",
+    "crispy_bootstrap5",
     "django_summernote",
     # My Apps
     "home",
@@ -63,6 +65,9 @@ INSTALLED_APPS = [
 SITE_ID = 1
 LOGIN_REDIRECT_URL = "/"
 LOGOUT_REDIRECT_URL = "/"
+
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+CRISPY_TEMPLATE_PACK = "bootstrap5"
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
@@ -90,9 +95,8 @@ TEMPLATES = [
                 "django.contrib.auth.context_processors.auth",
                 "django.template.context_processors.static",
                 "django.contrib.messages.context_processors.messages",
-                
                 # My custom processor
-                'blog.context_processors.categories',
+                "blog.context_processors.categories",
             ],
         },
     },
@@ -104,9 +108,7 @@ WSGI_APPLICATION = "parenting_website.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-DATABASES = {
-        'default': dj_database_url.parse(os.getenv("DATABASE_URL"))
-    }
+DATABASES = {"default": dj_database_url.parse(os.getenv("DATABASE_URL"))}
 
 # if os.getenv("DATABASE_URL"):
 #     DATABASES = {"default": dj_database_url.parse(os.getenv("DATABASE_URL"))}

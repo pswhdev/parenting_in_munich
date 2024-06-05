@@ -1,4 +1,7 @@
-{% extends 'base.html' %} {% block content %} {% load static %}
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+{% load crispy_forms_tags %}
 
 <main class="main pt-4">
   <div class="container">
@@ -42,26 +45,46 @@
             {% if user.is_authenticated %}
             <h3>Comments</h3>
             <section id="comments">
-              {% for comment in comments %}
-              {% if comment.approved %}
-                <p>{{ comment.author }} posted on {{ comment.created_on }}:</p>
-                <p>{{ comment.content }}</p>
-                <hr />
+              {% for comment in comments %} {% if comment.approved %}
+              <p>{{ comment.author }} posted on {{ comment.created_on }}:</p>
+              <p>{{ comment.content }}</p>
+              <hr />
               {% elif comment.author == user.username %}
-                <p>Your comment is pending approval.</p>
-              {% endif %}
-              {% endfor %}
+              <p>Your comment is pending approval.</p>
+              {% endif %} {% endfor %}
             </section>
-          {% else %}
+            {% else %}
             <section id="login-message">
               <p>
-                
-                Please <a href="{% url 'account_login' %}?next={{ request.path }}">login</a> or
-                <a href="{% url 'account_signup' %}?next={{ request.path }}">sign up</a> to read and
-                participate in the discussion.
+                Please
+                <a href="{% url 'account_login' %}?next={{ request.path }}"
+                  >login</a
+                >
+                or
+                <a href="{% url 'account_signup' %}?next={{ request.path }}"
+                  >sign up</a
+                >
+                to read and participate in the discussion.
               </p>
             </section>
-          {% endif %}
+            {% endif %}
+            <!-- Form for new Comments -->
+            <div class="col-md-4 card mb-4 mt-3">
+              <div class="card-body">
+                <h3>Leave a comment:</h3>
+                <p>Posting as: {{ user.username }}</p>
+                <form id="commentForm" method="post" style="margin-top: 1.3em">
+                  {{ comment_form | crispy }} {% csrf_token %}
+                  <button
+                    id="submitButton"
+                    type="submit"
+                    class="btn btn-signup btn-lg"
+                  >
+                    Submit
+                  </button>
+                </form>
+              </div>
+            </div>
           </div>
         </article>
         <!-- /.card -->
