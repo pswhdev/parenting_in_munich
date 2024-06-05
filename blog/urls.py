@@ -7,5 +7,5 @@ urlpatterns = [
     # Detail page for an individual post
     path('<slug:slug>/', views.post_detail, name='post_detail'),
     # Posts by category
-    path('category/<int:category_id>/', views.category_posts, name='category_posts'),
+    path('category/<slug:category_slug>/', views.category_posts, name='category_posts'),
 ]

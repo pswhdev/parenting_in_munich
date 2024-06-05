@@ -37,7 +37,7 @@ def post_detail(request, slug):
         {"post": post},
     )
 
-def category_posts(request, category_id):
+def category_posts(request, category_slug):
     """
     Display posts belonging to a specific category.
     **Context:**
@@ -48,7 +48,7 @@ def category_posts(request, category_id):
     **Template:**
     :template:`blog/category_posts.html`
     """
-    category = get_object_or_404(Category, id=category_id)
+    category = get_object_or_404(Category, slug=category_slug)
     posts = Post.objects.filter(category=category, status=1)
     # Show 6 posts per page
     paginator = Paginator(posts, 6)

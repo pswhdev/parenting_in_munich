@@ -18,7 +18,7 @@ Munich - Posts {% endblock %} {% block content %}
               <header class="card-header">
                 <div class="card-meta">
                   <a
-                    href="{% url 'category_posts' post.category.id %}"
+                    href="{% url 'category_posts' category.slug %}"
                     class="category-link"
                     >{{ post.category }}</a
                   >

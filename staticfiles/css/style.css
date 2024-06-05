@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=PT+Sans+Caption:wght@400;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=PT+Sans+Caption:wght@400;700&display=swap");
 
 :root {
   /** Fonts */
@@ -16,11 +16,14 @@
   --border: 1px solid #00000030;
 }
 
-*, ::after, ::before {
+*,
+::after,
+::before {
   box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
   height: 100%;
 }
 
@@ -30,7 +33,12 @@ body {
   font-family: var(--main-font);
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: var(--title);
   font-weight: 700;
 }
@@ -40,8 +48,39 @@ main {
   background-color: var(--white);
 }
 
-.text-end{
-  padding: 0;
+/* Footer */
+footer {
+  flex-shrink: 0;
+  background-color: var(--off-white);
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border-top: var(--border);
+}
+
+/* Hero */
+#hero {
+  width: 100%;
+  height: 90vh;
+  background: url("../images/children-park2.jpg") center center;
+  background-size: cover;
+  position: relative;
+}
+
+#hero:before {
+  content: "";
+  background: rgba(0, 0, 0, 0.4);
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+section {
+  padding: 20px;
+  overflow: hidden;
 }
 
 .btn-outline {
@@ -49,12 +88,13 @@ main {
   border-radius: 0;
 }
 
-.navbar, .card-header{
+.navbar,
+.card-header {
   background-color: var(--white) !important;
 }
 
 .navbar {
-  border-bottom: 1px solid rgba(0, 0, 0, .1);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   padding: 0;
 }
 
@@ -63,9 +103,8 @@ main {
   border-radius: 0;
 }
 
-.card-img-overlay{
-  background: rgba(0, 0, 0, 0.4);
-  flex-direction: column;
+.align-items-center {
+  align-items: center !important;
 }
 
 .d-flex {
@@ -82,42 +121,29 @@ main {
   --bs-pagination-border-radius: 0;
 }
 
-.category-title{
-padding-bottom: 15px;
+.category-title {
+  padding-bottom: 15px;
 }
 
 .post-card {
   padding-bottom: 20px;
 }
 
-/* Footer */
-footer {
-  flex-shrink: 0;
-  background-color: var(--off-white);
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  border-top: var(--border);
-}
-
 /* From posts.html */
 .category-link:hover {
   text-decoration: underline;
-  transition: all .25s ease-in-out;
+  transition: all 0.25s ease-in-out;
 }
 
-
-.about-img{
+.about-img {
   width: 75%;
 }
 
-
-.post-link, .category-link {
+.post-link,
+.category-link {
   text-decoration: none;
   color: #2a3035;
 }
-
 
 .card {
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
@@ -130,6 +156,14 @@ footer {
 }
 
 .card-img:hover {
-  box-shadow :var(--box-shadow);
+  box-shadow: var(--box-shadow);
   transform: translateY(-6px);
+}
+
+/* Media queries */
+/* For small screens: */
+@media (max-width: 768px) {
+  #hero {
+    height: 100vh;
+  }
 }
