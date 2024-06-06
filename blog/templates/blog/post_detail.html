@@ -50,7 +50,9 @@
               <p>{{ comment.content }}</p>
               <hr />
               {% elif comment.author == user.username %}
-              <p>Your comment is pending approval.</p>
+              <p class="text-muted">{{ comment.author }} posted on {{ comment.created_on }}:</p>
+              <p class="text-muted">{{ comment.content }}</p>
+              <p>Comment pending approval.</p>
               {% endif %} {% endfor %}
             </section>
             {% else %}
