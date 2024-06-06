@@ -6,8 +6,10 @@
       <div class="col-md-8">
         <article class="card mb-4">
           <header class="card-header text-center">
+            <!-- Title -->
             <h1 class="post-title">{{ post.title }}</h1>
           </header>
+          <!-- Image -->
           {% if "placeholder" in post.featured_image.url %}
           <img
             src="{% static 'images/kelly-sikkema-baby.webp' %}"
@@ -21,7 +23,7 @@
             alt="{{ post.title }}"
           />
           {% endif %}
-
+          <!-- Info about author and last update and category -->
           <p class="post-subtitle">
             {{ post.author }} |
             <time class="time" datetime="{{ post.updated_on }}">
@@ -35,15 +37,20 @@
               {{ category.name }}
             </a>
           </p>
-
+          <!-- Post content -->
           <div class="card-body">
             <p class="card-text">{{ post.content | safe }}</p>
             <hr />
+            <!-- Comments section -->
+            <!-- comments count -->
             <p><i class="fa-regular fa-comments"></i> {{ comment_count }}</p>
+            <!-- Checks if the user is logged in -->
             {% if user.is_authenticated %}
             <h3>Comments</h3>
             <section id="comments-section">
-              {% for comment in comments %} {% if comment.approved %}
+              {% for comment in comments %}
+              <!-- if the comment is approved it can be seen by logged in users -->
+              {% if comment.approved %}
               <div class="p-2 comments">
                 <p>{{ comment.author }} posted on {{ comment.created_on }}:</p>
                 <div id="comment{{ comment.id }}">
@@ -51,16 +58,17 @@
                 </div>
                 <hr />
               </div>
+              <!-- If the comment is pending approval but the logged in user is the autor of the comment he can see the comment followed by "pending appoval" message -->
               {% elif comment.user == user %}
-              <div class="comment pending">
-                <p class="text-muted">
-                  {{ comment.author }} posted on {{ comment.created_on }}:
-                </p>
-                <p class="text-muted">{{ comment.content }}</p>
-                <p class="approval">Comment pending approval.</p>
+              <div class="p-2 comments-pending-aproval">
+                <p class="text-muted">{{ comment.author }} posted on {{ comment.created_on }}:</p>
+                <div id="comment{{ comment.id }}" class="text-muted">
+                  {{ comment.content | linebreaks }}
+                </div>
                 <hr />
               </div>
               {% endif %}
+              <!-- if the logged in user is the author of the post he can see the edit and delete buttons -->
               {% if comment.user == user %}
               <button
               class="btn btn-delete"
@@ -79,21 +87,8 @@
 
               {% endif %} {% endfor %}
             </section>
-            {% else %}
-            <section id="login-message">
-              <p>
-                Please
-                <a href="{% url 'account_login' %}?next={{ request.path }}"
-                  >login</a
-                >
-                or
-                <a href="{% url 'account_signup' %}?next={{ request.path }}"
-                  >sign up</a
-                >
-                to read and participate in the discussion.
-              </p>
-            </section>
-            {% endif %}
+            <!-- if the user is not logged in he is prommt to login or register to see comments  -->
+
 
             <!-- Form for new Comments -->
             <div class="col-md-4 card mb-4 mt-3">
@@ -112,6 +107,21 @@
                 </form>
               </div>
             </div>
+            {% else %}
+            <section id="login-message">
+              <p>
+                Please
+                <a href="{% url 'account_login' %}?next={{ request.path }}"
+                  >login</a
+                >
+                or
+                <a href="{% url 'account_signup' %}?next={{ request.path }}"
+                  >sign up</a
+                >
+                to read and participate in the discussion.
+              </p>
+            </section>
+            {% endif %}
 
             <!-- Delete confirmation modal -->
             <div
