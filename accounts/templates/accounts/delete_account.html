@@ -10,6 +10,6 @@
 <form method="POST">
   {% csrf_token %}
   <button type="submit" class="btn btn-danger">Delete Account</button>
-  <a href="{% url 'user:profile' %}" class="btn btn-secondary">Go Back</a>
+  <a href="{% url 'user_profiles:user_profile' username=request.user.username %}" class="btn btn-secondary">Go Back</a>
 </form>
 {% endblock %}

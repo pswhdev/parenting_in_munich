@@ -52,7 +52,11 @@
               <!-- if the comment is approved it can be seen by logged in users -->
               {% if comment.approved %}
               <div class="p-2 comments">
-                <p>{{ comment.author }} posted on {{ comment.created_on }}:</p>
+                <p><strong>
+                  <a href="{% url 'user_profiles:user_profile' comment.comments_author.username %}">
+                      {{ comment.comments_author.username }}
+                  </a>
+              </strong> posted on {{ comment.created_on }}:</p>
                 <div id="comment{{ comment.id }}">
                   {{ comment.content | linebreaks }}
                 </div>
@@ -61,7 +65,11 @@
               <!-- If the comment is pending approval but the logged in user is the autor of the comment he can see the comment followed by "pending appoval" message -->
               {% elif comment.user == user %}
               <div class="p-2 comments-pending-aproval">
-                <p class="text-muted">{{ comment.author }} posted on {{ comment.created_on }}:</p>
+                <p class="text-muted"><strong>
+                  <a href="{% url 'user_profiles:user_profile' comment.comments_author.username %}">
+                      {{ comment.comments_author.username }}
+                  </a>
+              </strong> posted on {{ comment.created_on }}:</p>
                 <div id="comment{{ comment.id }}" class="text-muted">
                   {{ comment.content | linebreaks }}
                   <p>Comment pending approval.</p>

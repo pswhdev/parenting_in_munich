@@ -1,42 +1,32 @@
 from django.contrib.auth.decorators import login_required
-from django.shortcuts import render, redirect
+from django.shortcuts import render, get_object_or_404, redirect
+from django.contrib.auth.models import User
 from django.contrib import messages
 from .forms import UserUpdateForm, ProfileUpdateForm
-
+from .models import Profile
 
 @login_required
-def profile(request):
-    if request.method == 'POST':
-        user_form = UserUpdateForm(request.POST, instance=request.user)
-        profile_form = ProfileUpdateForm(request.POST, request.FILES,
-                                         instance=request.user.profile)
-        if user_form.is_valid() and profile_form.is_valid():
-            user_form.save()
-            profile_form.save()
-            messages.success(request, 'Your profile has been updated!')
-            return redirect('user:profile')
-    else:
-        user_form = UserUpdateForm(instance=request.user)
-        profile_form = ProfileUpdateForm(instance=request.user.profile)
+def user_profile(request, username):
+    user = get_object_or_404(User, username=username)
+    profile = user.profile
+    is_current_user = (request.user == user)
 
     context = {
-        'user_form': user_form,
-        'profile_form': profile_form,
+        'profile': profile,
+        'is_current_user': is_current_user
     }
-    return render(request, 'accounts/profile.html', context)
-
+    return render(request, 'accounts/user_profile.html', context)
 
 @login_required
 def update_profile(request):
     if request.method == 'POST':
         user_form = UserUpdateForm(request.POST, instance=request.user)
-        profile_form = ProfileUpdateForm(request.POST, request.FILES,
-                                         instance=request.user.profile)
+        profile_form = ProfileUpdateForm(request.POST, request.FILES, instance=request.user.profile)
         if user_form.is_valid() and profile_form.is_valid():
             user_form.save()
             profile_form.save()
             messages.success(request, 'Your profile has been updated!')
-            return redirect('user:profile')
+            return redirect('user_profiles:user_profile', username=request.user.username)
     else:
         user_form = UserUpdateForm(instance=request.user)
         profile_form = ProfileUpdateForm(instance=request.user.profile)
@@ -46,7 +36,6 @@ def update_profile(request):
         'profile_form': profile_form,
     }
     return render(request, 'accounts/update_profile.html', context)
-
 
 @login_required
 def delete_account(request):

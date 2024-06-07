@@ -1,10 +1,10 @@
 from django.urls import path
 from . import views
 
-app_name = 'user'
+app_name = 'user_profiles'  # Use a unique namespace
 
 urlpatterns = [
-    path('profile/', views.profile, name='profile'),
     path('profile/update/', views.update_profile, name='update_profile'),
+    path('profile/<str:username>/', views.user_profile, name='user_profile'),
     path('delete_account/', views.delete_account, name='delete_account'),
 ]
