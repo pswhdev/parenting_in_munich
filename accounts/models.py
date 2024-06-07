@@ -51,8 +51,9 @@ DEFAULT_IMAGE_URL = (
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    photo = CloudinaryField("image", blank=True, null=True,
-                            default=DEFAULT_IMAGE_URL)
+    photo = CloudinaryField(
+        "image", blank=True, null=True, default=DEFAULT_IMAGE_URL
+        )
     location = models.CharField(
         max_length=100, choices=MUNICH_DISTRICTS, default="Others"
     )

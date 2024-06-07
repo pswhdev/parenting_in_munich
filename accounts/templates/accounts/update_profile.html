@@ -2,14 +2,16 @@
 
 {% block content %}
 <div class="container">
-    <h2>Profile</h2>
+    <h2>Edit Profile</h2>
     <form method="POST" enctype="multipart/form-data">
         {% csrf_token %}
         {{ user_form.as_p }}
         {{ profile_form.as_p }}
+        <div class="form-group">
+            <label for="id_custom_location">Custom Location</label>
+            <input type="text" name="custom_location" id="id_custom_location" class="form-control" placeholder="Enter your location if not listed">
+        </div>
         <button type="submit" class="btn btn-primary">Update Profile</button>
     </form>
-    <hr>
-    <a href="{% url 'user_profiles:delete_account' %}" class="btn btn-danger">Delete Account</a>
 </div>
 {% endblock %}
