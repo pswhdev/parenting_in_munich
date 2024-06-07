@@ -64,7 +64,9 @@
                 <p class="text-muted">{{ comment.author }} posted on {{ comment.created_on }}:</p>
                 <div id="comment{{ comment.id }}" class="text-muted">
                   {{ comment.content | linebreaks }}
+                  <p>Comment pending approval.</p>
                 </div>
+                
                 <hr />
               </div>
               {% endif %}
