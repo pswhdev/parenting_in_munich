@@ -1,0 +1,14 @@
+{% extends "base.html" %} {% block content %}
+<h2>Delete Account</h2>
+<p class="text-danger">
+  Are you sure you want to delete your account? This action cannot be undone.
+  Please note that all comments you have posted will remain on the website to
+  maintain the cohesion of discussions. These comments may be valuable for other
+  users. If you do not wish to keep your comments on the website, you will need
+  to manually delete each comment before proceeding with account deletion.
+</p>
+<form method="POST">
+  {% csrf_token %}
+  <button type="submit">Delete Account</button>
+</form>
+{% endblock %}
