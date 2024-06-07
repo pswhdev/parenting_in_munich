@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 from django.contrib import messages
 from .forms import UserUpdateForm, ProfileUpdateForm
 from .models import Profile
+from django.http import Http404
 
 
 @login_required

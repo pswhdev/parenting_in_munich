@@ -52,11 +52,18 @@
               <!-- if the comment is approved it can be seen by logged in users -->
               {% if comment.approved %}
               <div class="p-2 comments">
-                <p><strong>
-                  <a href="{% url 'userinfo:user_profile' comment.comments_author.username %}">
-                      {{ comment.comments_author.username }}
-                  </a>
-              </strong> posted on {{ comment.created_on }}:</p>
+                <p>
+                  <strong>
+                    {% if comment.user %}
+                    <a
+                      href="{% url 'userinfo:user_profile' comment.user.username %}"
+                    >
+                      {{ comment.user.username }}
+                    </a>
+                    {% else %} {{ comment.author }} {% endif %}
+                  </strong>
+                  posted on {{ comment.created_on }}:
+                </p>
                 <div id="comment{{ comment.id }}">
                   {{ comment.content | linebreaks }}
                 </div>
@@ -65,40 +72,46 @@
               <!-- If the comment is pending approval but the logged in user is the autor of the comment he can see the comment followed by "pending appoval" message -->
               {% elif comment.user == user %}
               <div class="p-2 comments-pending-aproval">
-                <p class="text-muted"><strong>
-                  <a href="{% url 'userinfo:user_profile' comment.comments_author.username %}">
-                      {{ comment.comments_author.username }}
-                  </a>
-              </strong> posted on {{ comment.created_on }}:</p>
+                <p class="text-muted">
+                  <strong>
+                    {% if comment.user %}
+                    <a
+                      href="{% url 'userinfo:user_profile' comment.user.username %}"
+                    >
+                      {{ comment.user.username }}
+                    </a>
+                    {% else %} {{ comment.author }} {% endif %}
+                  </strong>
+                  posted on {{ comment.created_on }}:
+                </p>
                 <div id="comment{{ comment.id }}" class="text-muted">
                   {{ comment.content | linebreaks }}
                   <p>Comment pending approval.</p>
                 </div>
-                
+
                 <hr />
               </div>
               {% endif %}
               <!-- if the logged in user is the author of the post he can see the edit and delete buttons -->
               {% if comment.user == user %}
               <button
-              class="btn btn-delete"
-              data-comment_id="{{ comment.id }}"
-              data-post_slug="{{ post.slug }}"
-            >
-              Delete
-            </button>
-            <button
-              class="btn btn-edit"
-              data-comment_id="{{ comment.id }}"
-              data-post_slug="{{ post.slug }}"
-            >
-              Edit
-            </button>
+                class="btn btn-delete"
+                data-comment_id="{{ comment.id }}"
+                data-post_slug="{{ post.slug }}"
+              >
+                Delete
+              </button>
+              <button
+                class="btn btn-edit"
+                data-comment_id="{{ comment.id }}"
+                data-post_slug="{{ post.slug }}"
+              >
+                Edit
+              </button>
 
               {% endif %} {% endfor %}
             </section>
             <!-- if the user is not logged in he is prommt to login or register to see comments  -->
-
 
             <!-- Form for new Comments -->
             <div class="col-md-4 card mb-4 mt-3">
@@ -173,7 +186,7 @@
                 </div>
               </div>
             </div>
-            
+
             {% endblock content %} {% block extras %}
             <script src="{% static 'js/comments.js' %}"></script>
             {% endblock %}
