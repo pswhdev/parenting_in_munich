@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
-from django.db.models.signals import pre_delete
+from django.db.models.signals import pre_delete, pre_save
 from django.dispatch import receiver
 from django.utils.text import slugify
 from cloudinary.models import CloudinaryField
@@ -74,12 +74,22 @@ class Comment(models.Model):
     class Meta:
         ordering = ["created_on"]
 
+# To keep track of usernames used on the website
+class UsedUsername(models.Model):
+    username = models.CharField(max_length=150, unique=True)
+
+    def __str__(self):
+        return self.username
+
 
 # Signal to update the author field before deleting the user
 # in order to keep the integrity of the database
 @receiver(pre_delete, sender=User)
 def update_author_before_user_delete(sender, instance, **kwargs):
     deactivated_username = f"{instance.username} [Deactivated]"
+
+    # Save the username to UsedUsername
+    UsedUsername.objects.get_or_create(username=instance.username)
 
     # Update Post author field
     posts = Post.objects.filter(user=instance)
@@ -92,3 +102,12 @@ def update_author_before_user_delete(sender, instance, **kwargs):
     for comment in comments:
         comment.author = deactivated_username
         comment.save()
+
+
+@receiver(pre_save, sender=User)
+def prevent_reused_usernames(sender, instance, **kwargs):
+    if UsedUsername.objects.filter(username=instance.username).exists():
+        raise ValueError(
+            f"The username '{instance.username}' "
+            "has been used previously and cannot be reused."
+            )
