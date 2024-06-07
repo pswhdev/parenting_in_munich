@@ -3,13 +3,14 @@
 {% block content %}
 <div class="container">
     <h2>Profile</h2>
-    <form method="POST" enctype="multipart/form-data">
-        {% csrf_token %}
-        {{ user_form.as_p }}
-        {{ profile_form.as_p }}
-        <button type="submit" class="btn btn-primary">Update Profile</button>
-    </form>
-    <hr>
-    <a href="{% url 'user:delete_account' %}" class="btn btn-danger">Delete Account</a>
+    <img src="{{ profile.image.url }}" alt="Profile Picture" class="img-thumbnail">
+    <p><strong>Username:</strong> {{ profile.user.username }}</p>
+    <p><strong>Email:</strong> {{ profile.user.email }}</p>
+    <p><strong>Location:</strong> {{ profile.location }}</p>
+    <p><strong>Bio:</strong> {{ profile.bio }}</p>
+    
+    {% if request.user == profile.user %}
+    <a href="{% url 'user:update_profile' %}" class="btn btn-primary">Edit Profile</a>
+    {% endif %}
 </div>
 {% endblock %}
