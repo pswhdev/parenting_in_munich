@@ -33,7 +33,7 @@ def update_profile(request):
             messages.success(request, "Your profile has been updated!")
             return redirect(
                 "userinfo:user_profile", username=request.user.username
-            )
+                )
     else:
         user_form = UserUpdateForm(instance=request.user)
         profile_form = ProfileUpdateForm(instance=request.user.profile)

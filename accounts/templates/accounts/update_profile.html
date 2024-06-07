@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block content %}
 <div class="container">
@@ -7,11 +8,12 @@
         {% csrf_token %}
         {{ user_form.as_p }}
         {{ profile_form.as_p }}
-        <div class="form-group">
-            <label for="id_custom_location">Custom Location</label>
-            <input type="text" name="custom_location" id="id_custom_location" class="form-control" placeholder="Enter your location if not listed">
-        </div>
         <button type="submit" class="btn btn-primary">Update Profile</button>
     </form>
 </div>
+
+{% endblock %}
+
+{% block extras %}
+<script src="{% static 'js/custom_location.js' %}"></script>
 {% endblock %}
