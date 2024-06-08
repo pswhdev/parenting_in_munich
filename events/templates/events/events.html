@@ -15,9 +15,16 @@
                 <p class="card-text"><strong>Location:</strong> {{ event.location }}</p>
                 <p class="card-text"><strong>Date:</strong> {{ event.date }}</p>
                 <p class="card-text"><strong>Time:</strong> {{ event.time }}</p>
+                {% if request.user.is_staff %}
+                <a href="{% url 'admin:events_event_change' event.id %}" class="btn btn-primary">Edit</a>
+                <a href="{% url 'admin:events_event_delete' event.id %}" class="btn btn-danger">Delete</a>
+                {% endif %}
             </div>
         </div>
     </div>
     {% endfor %}
 </div>
+{% if request.user.is_staff %}
+<a href="{% url 'admin:events_event_add' %}" class="btn btn-success mt-4">Add Event</a>
+{% endif %}
 {% endblock %}
