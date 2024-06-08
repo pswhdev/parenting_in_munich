@@ -1,3 +1,6 @@
+{% extends 'base.html' %}
+{% block content %}
+
 <h1>Useful Links</h1>
 {% for topic in topics %}
     <h2>{{ topic.name }}</h2>
@@ -11,3 +14,4 @@
         {% endfor %}
     </ul>
 {% endfor %}
+{% endblock %}

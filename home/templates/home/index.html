@@ -6,11 +6,22 @@
   id="hero"
   class="d-flex align-items-center text-center justify-content-center"
 >
-{% if user.is_authenticated %}
+{% if user.is_authenticated and user.is_staff %}
 <div class="container text-center position-relative">
-    <h1 class="text-white mb-4">Welcome back to Parenting in Munich, {{ user.username }}!</h1>
+    <h1 class="text-white mb-4">Welcome back, Admin {{ user.username }}!</h1>
     <p class="text-white mb-5">
-        We're thrilled to have you with us again! Explore our latest articles and events, tailored for new parents, parents-to-be, and expat families living in Munich and the surrounding area.
+        Thank you for managing our community. Click the button below to access the admin panel.
+    </p>
+    
+    <p class="btn btn-outline text-center">
+        <a href="{% url 'admin:index' %}" class="btn text-white" target="_blank">Go to Admin Panel</a>
+    </p>
+</div>
+{% elif user.is_authenticated %}
+<div class="container text-center position-relative">
+    <h1 class="text-white mb-4">Welcome to Parenting in Munich, {{ user.username }}!</h1>
+    <p class="text-white mb-5">
+        We're thrilled to have you with us! Explore our latest articles and events, tailored for new parents, parents-to-be, and expat families living in Munich and the surrounding area.
     </p>
     
     <p class="btn btn-outline text-center">
