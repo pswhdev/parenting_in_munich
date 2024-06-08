@@ -57,6 +57,7 @@ INSTALLED_APPS = [
     "blog",
     "about",
     "accounts",
+    "events",
     # Others
     "cloudinary",
     "cloudinary_storage",
@@ -151,8 +152,15 @@ AUTHENTICATION_BACKENDS = (
     )
 
 SITE_ID = 1
+
 LOGIN_REDIRECT_URL = "/"
 LOGOUT_REDIRECT_URL = "/"
+
+# To redirect unauthenticated users to the restricted_area
+# page when they try to access protected views
+LOGIN_URL = 'restricted_area'
+
+
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_USERNAME_REQUIRED = True
 ACCOUNT_AUTHENTICATION_METHOD = 'username'

@@ -1,0 +1,11 @@
+{% extends "base.html" %} {% block title %}Access Restricted{% endblock %} {%
+block content %}
+<div class="text-center">
+  <h1>Access Restricted</h1>
+  <p>
+    This area is only available to registered users. Please
+    <a href="{% url 'account_signup' %}?next={{ request.path }}">sign up</a> or
+    <a href="{% url 'account_login' %}?next={{ request.path }}">log in</a> to view the events.
+  </p>
+</div>
+{% endblock %}
