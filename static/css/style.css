@@ -98,6 +98,10 @@ section {
   padding: 0;
 }
 
+.form-control {
+  flex: 1;
+}
+
 .card {
   border: none;
   border-radius: 0;

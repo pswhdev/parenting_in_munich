@@ -1,10 +1,13 @@
+from typing import Any
 from django.core.paginator import Paginator
+from django.db.models.query import QuerySet
 from django.shortcuts import render, get_object_or_404, reverse
 from django.views import generic
 from django.contrib import messages
 from django.http import HttpResponseRedirect
 from .models import Post, Category, Comment
 from .forms import CommentForm
+from django.db.models import Q
 
 
 # Create your views here.
@@ -16,7 +19,7 @@ class PostList(generic.ListView):
     **Template:**
     :template:`blog/posts.html`
     """
-
+    model = Post
     # Only include published posts
     queryset = Post.objects.filter(status=1)
     template_name = "blog/posts.html"
@@ -26,7 +29,21 @@ class PostList(generic.ListView):
         context = super().get_context_data(**kwargs)
         # Fetch any specific category
         context["category"] = Category.objects.first()
+        # Indicate if there are no posts found
+        context["no_posts"] = not self.get_queryset().exists()
         return context
+
+    def get_queryset(self):
+        query = self.request.GET.get('q')
+        if query:
+            posts = self.model.objects.filter(
+                Q(title__icontains=query) |
+                Q(content__icontains=query),
+                status=1
+            )
+        else:
+            posts = self.model.objects.filter(status=1)
+        return posts
 
 
 def post_detail(request, slug):
@@ -55,8 +72,7 @@ def post_detail(request, slug):
             comment.post = post
             comment.save()
             messages.add_message(
-                request, messages.SUCCESS,
-                'Comment submitted and awaiting approval'
+                request, messages.SUCCESS, "Comment submitted and awaiting approval"
             )
 
     comment_form = CommentForm()
@@ -90,14 +106,18 @@ def category_posts(request, category_slug):
     # Show 6 posts per page
     paginator = Paginator(posts, 6)
 
-    page_number = request.GET.get('page')
+    page_number = request.GET.get("page")
     page_obj = paginator.get_page(page_number)
 
-    return render(request, 'blog/category_posts.html', {
-        'category': category,
-        'page_obj': page_obj,
-        'is_paginated': page_obj.has_other_pages()
-    })
+    return render(
+        request,
+        "blog/category_posts.html",
+        {
+            "category": category,
+            "page_obj": page_obj,
+            "is_paginated": page_obj.has_other_pages(),
+        },
+    )
 
 
 def comment_edit(request, slug, comment_id):
@@ -116,12 +136,13 @@ def comment_edit(request, slug, comment_id):
             comment.post = post
             comment.approved = False
             comment.save()
-            messages.add_message(request, messages.SUCCESS, 'Comment Updated!')
+            messages.add_message(request, messages.SUCCESS, "Comment Updated!")
         else:
-            messages.add_message(request, messages.ERROR,
-                                 'Error updating comment!')
+            messages.add_message(
+                request, messages.ERROR, "Error updating comment!"
+                )
 
-    return HttpResponseRedirect(reverse('post_detail', args=[slug]))
+    return HttpResponseRedirect(reverse("post_detail", args=[slug]))
 
 
 def comment_delete(request, slug, comment_id):
@@ -134,9 +155,10 @@ def comment_delete(request, slug, comment_id):
 
     if comment.user == request.user:
         comment.delete()
-        messages.add_message(request, messages.SUCCESS, 'Comment deleted!')
+        messages.add_message(request, messages.SUCCESS, "Comment deleted!")
     else:
-        messages.add_message(request, messages.ERROR,
-                             'You can only delete your own comments!')
+        messages.add_message(
+            request, messages.ERROR, "You can only delete your own comments!"
+        )
 
-    return HttpResponseRedirect(reverse('post_detail', args=[slug]))
+    return HttpResponseRedirect(reverse("post_detail", args=[slug]))
