@@ -6,17 +6,32 @@
   id="hero"
   class="d-flex align-items-center text-center justify-content-center"
 >
-  <div class="container text-center position-relative">
-    <h1 class="text-white mb-4">Wellcome to Parenting in Munich!</h1>
+{% if user.is_authenticated %}
+<div class="container text-center position-relative">
+    <h1 class="text-white mb-4">Welcome back to Parenting in Munich, {{ user.username }}!</h1>
     <p class="text-white mb-5">
-      This website is dedicated to new parents, parents-to-be, and expat
-      families living in Munich and the surrounding area.
+        We're thrilled to have you with us again! Explore our latest articles and events, tailored for new parents, parents-to-be, and expat families living in Munich and the surrounding area.
     </p>
-
+    
     <p class="btn btn-outline text-center">
-      <a href="{{ signup_url }}" class="btn text-white">Join us! </a>
+        <a href="{% url 'posts' %}" class="btn text-white">See Posts</a>
     </p>
-  </div>
+    <p class="btn btn-outline text-center">
+        <a href="{% url 'events' %}" class="btn text-white">See Events</a>
+    </p>
+</div>
+{% else %}
+<div class="container text-center position-relative">
+    <h1 class="text-white mb-4">Welcome to Parenting in Munich!</h1>
+    <p class="text-white mb-5">
+        This website is dedicated to new parents, parents-to-be, and expat families living in Munich and the surrounding area.
+    </p>
+    
+    <p class="btn btn-outline text-center">
+        <a href="{% url 'account_signup' %}" class="btn text-white">Join us!</a>
+    </p>
+</div>
+{% endif %}
 </section>
 <!-- Content after hero -->
 <section>
