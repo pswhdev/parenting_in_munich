@@ -69,6 +69,14 @@
             >Events</a
           >
         </li>
+        <li class="nav-item">
+          <a
+            class="nav-link {% if request.path == useful_links_url %}active{% endif %}"
+            aria-current="page"
+            href="{% url 'useful_links' %}"
+            >Useful Links</a
+          >
+        </li>
       </ul>
       <form class="d-flex" role="search" method="get" action="{% url 'posts' %}">
         <input class="form-control me-2" type="search" placeholder="Search in posts" aria-label="Search" name="q">

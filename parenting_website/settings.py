@@ -58,6 +58,7 @@ INSTALLED_APPS = [
     "about",
     "accounts",
     "events",
+    "useful_links",
     # Others
     "cloudinary",
     "cloudinary_storage",

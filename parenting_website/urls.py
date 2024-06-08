@@ -27,4 +27,5 @@ urlpatterns = [
     path("posts/", include("blog.urls"), name="blog-urls"),
     path("user_profiles/", include("accounts.urls", namespace="user_profiles")),
     path("events/", include('events.urls')),
+    path('useful_links/', include('useful_links.urls')),
 ]
