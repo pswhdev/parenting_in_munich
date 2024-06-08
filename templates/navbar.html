@@ -70,26 +70,10 @@
           >
         </li>
       </ul>
-      <!-- Search field form, visible only on the Posts - All categories page -->
-      {% if request.path == posts_url %}
-      <form
-        class="d-flex"
-        role="search"
-        method="GET"
-        action="{% url 'posts' %}"
-      >
-        <input
-          class="form-control me-2"
-          type="search"
-          name="q"
-          placeholder="Search"
-          aria-label="Search"
-        />
-        <button class="btn btn-outline-success" type="submit">
-          <i class="fa-solid fa-magnifying-glass"></i>
-        </button>
+      <form class="d-flex" role="search" method="get" action="{% url 'posts' %}">
+        <input class="form-control me-2" type="search" placeholder="Search in posts" aria-label="Search" name="q">
+        <button class="btn btn-outline-success" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
       </form>
-      {% endif %}
       <!-- Authentication links -->
       <ul class="navbar-nav ml-auto">
         <!-- Logged in user will see a message that they're logged in-->
