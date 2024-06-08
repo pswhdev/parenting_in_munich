@@ -146,8 +146,6 @@ AUTH_PASSWORD_VALIDATORS = [
 
 ACCOUNT_FORMS = {
     'signup': 'blog.forms.CustomSignupForm',
-    'reset_password': 'blog.forms.CustomResetPasswordForm',
-    'reset_password_from_key': 'blog.forms.CustomResetPasswordKeyForm',
 }
 
 AUTHENTICATION_BACKENDS = (
@@ -163,20 +161,10 @@ LOGOUT_REDIRECT_URL = "/"
 # page when they try to access protected views
 LOGIN_URL = 'restricted_area'
 
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-MAILGUN_API_KEY = os.getenv('MAILGUN_API_KEY')
-MAILGUN_DOMAIN = os.getenv('MAILGUN_DOMAIN')
-
-EMAIL_HOST = 'smtp.mailgun.org'
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
-EMAIL_HOST_USER = f'postmaster@{MAILGUN_DOMAIN}'
-EMAIL_HOST_PASSWORD = MAILGUN_API_KEY
-DEFAULT_FROM_EMAIL = f'postmaster@{MAILGUN_DOMAIN}'
 
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_USERNAME_REQUIRED = True
-ACCOUNT_AUTHENTICATION_METHOD = 'email'
+ACCOUNT_AUTHENTICATION_METHOD = 'username'
 ACCOUNT_EMAIL_VERIFICATION = "none"
 
 
