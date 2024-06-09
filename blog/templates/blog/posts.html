@@ -28,9 +28,9 @@
               <header class="card-header">
                 <div class="card-meta">
                   <a
-                    href="{% url 'category_posts' category_slug=category.slug %}"
+                    href="{% url 'category_posts' category_slug=post.category.slug %}"
                     class="category-link"
-                    >{{ category.name }}</a
+                    >{{ post.category.name }}</a
                   >
                 </div>
                 <!-- Post title -->
