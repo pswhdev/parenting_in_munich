@@ -50,6 +50,17 @@
           {% endif %}
         </div>
 
+        <!-- Display password requirements -->
+        <div class="alert alert-info mb-3" role="alert">
+          <h5>Password requirements:</h5>
+          <ul>
+              <li>Must be at least 8 characters long (MinimumLengthValidator)</li>
+              <li>Cannot be a commonly used password (CommonPasswordValidator)</li>
+              <li>Cannot be entirely numeric (NumericPasswordValidator)</li>
+              <li>Cannot be too similar to your other personal information (UserAttributeSimilarityValidator)</li>
+          </ul>
+        </div>
+
         <!-- Render the accept_rules field separately at the bottom with errors -->
         <div class="mb-3">
           {{ form.accept_rules.label_tag }} {{ form.accept_rules }}
