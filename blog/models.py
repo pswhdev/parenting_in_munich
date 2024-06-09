@@ -6,15 +6,24 @@ from django.utils.text import slugify
 from cloudinary.models import CloudinaryField
 
 
-# Create your models here.
 class Category(models.Model):
     name = models.CharField(max_length=200)
     slug = models.SlugField(max_length=200, unique=True, blank=True)
 
     def save(self, *args, **kwargs):
         if not self.slug:
-            self.slug = slugify(self.name)
+            self.slug, self.name = self.generate_unique_slug_and_name(slugify(self.name), self.name)
         super().save(*args, **kwargs)
+
+    def generate_unique_slug_and_name(self, slug, name):
+        unique_slug = slug
+        unique_name = name
+        num = 1
+        while Category.objects.filter(slug=unique_slug).exists():
+            unique_slug = f'{slug}-{num}'
+            unique_name = f'{name} {num}'
+            num += 1
+        return unique_slug, unique_name
 
     def __str__(self):
         return self.name
@@ -54,11 +63,9 @@ class Post(models.Model):
 
 
 class Comment(models.Model):
-    post = models.ForeignKey(Post, on_delete=models.CASCADE,
-                             related_name="comments")
+    post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name="comments")
     user = models.ForeignKey(
-        User, on_delete=models.SET_NULL, null=True,
-        related_name="comments_author"
+        User, on_delete=models.SET_NULL, null=True, related_name="comments_author"
     )
     author = models.CharField(max_length=150, null=True, blank=True)
     content = models.TextField()
@@ -78,10 +85,10 @@ class Comment(models.Model):
     class Meta:
         ordering = ["created_on"]
 
+
 # To keep track of usernames used on the website (used by the signal)
 class UsedUsername(models.Model):
     username = models.CharField(max_length=150, unique=True)
 
     def __str__(self):
         return self.username
-
