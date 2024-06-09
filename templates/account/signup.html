@@ -1,73 +1,74 @@
-<!-- posts/templates/account/signup.html -->
 {% extends "base.html" %}
+
 {% load i18n %}
-{% load account socialaccount %}
-{% block title %}Sign Up{% endblock %}
+
+{% block head_title %} - Signup{% endblock head_title %}
+
 {% block content %}
-<section>
-  <div class="container">
-    <div class="row">
-      <div class="col-md-8 mt-3 offset-md-2">
-        <h2>Sign Up</h2>
-        <form method="post" action="{% url 'account_signup' %}">
-          {% csrf_token %}
 
-          <!-- Render non-field errors -->
-          {% if form.non_field_errors %}
-          <div class="text-danger">{{ form.non_field_errors }}</div>
+<div class="container card">
+  <div class="row justify-content-center">
+    <div class="col-md-8 align-self-center no-border-card card-body">
+      <h2>Sign Up</h2>
+      <form method="post" action="{% url 'account_signup' %}">
+        {% csrf_token %}
+
+        <!-- Render non-field errors -->
+        {% if form.non_field_errors %}
+        <div class="text-danger">{{ form.non_field_errors }}</div>
+        {% endif %}
+
+        <!-- Render username field with errors -->
+        <div class="mb-3">
+          {{ form.username.label_tag }} {{ form.username }}
+          {% if form.username.errors %}
+          <div class="text-danger">{{ form.username.errors }}</div>
           {% endif %}
-
-          <!-- Render username field with errors -->
-          <div class="mb-3">
-            {{ form.username.label_tag }} {{ form.username }}
-            {% if form.username.errors %}
-            <div class="text-danger">{{ form.username.errors }}</div>
-            {% endif %}
-          </div>
-
-          <!-- Render email field with errors -->
-          <div class="mb-3">
-            {{ form.email.label_tag }} {{ form.email }}
-            {% if form.email.errors %}
-            <div class="text-danger">{{ form.email.errors }}</div>
-            {% endif %}
-          </div>
-
-          <!-- Render password1 field with errors -->
-          <div class="mb-3">
-            {{ form.password1.label_tag }} {{ form.password1 }}
-            {% if form.password1.errors %}
-            <div class="text-danger">{{ form.password1.errors }}</div>
-            {% endif %}
-          </div>
-
-          <!-- Render password2 field with errors -->
-          <div class="mb-3">
-            {{ form.password2.label_tag }} {{ form.password2 }}
-            {% if form.password2.errors %}
-            <div class="text-danger">{{ form.password2.errors }}</div>
-            {% endif %}
-          </div>
-
-          <!-- Render the accept_rules field separately at the bottom with errors -->
-          <div class="mb-3">
-            {{ form.accept_rules.label_tag }} {{ form.accept_rules }}
-            {% if form.accept_rules.errors %}
-            <div class="text-danger">{{ form.accept_rules.errors }}</div>
-            {% endif %}
-          </div>
-          <button class="btn btn-primary" type="submit">
-            {% trans "Sign Up" %}
-          </button>
-        </form>
-        <!-- Important Note -->
-        <div class="alert alert-warning mt-3">
-          <strong>Important Note:</strong> Please keep your password written
-          down in a safe place, as there is no possibility of recovery if
-          forgotten.
         </div>
+
+        <!-- Render email field with errors -->
+        <div class="mb-3">
+          {{ form.email.label_tag }} {{ form.email }}
+          {% if form.email.errors %}
+          <div class="text-danger">{{ form.email.errors }}</div>
+          {% endif %}
+        </div>
+
+        <!-- Render password1 field with errors -->
+        <div class="mb-3">
+          {{ form.password1.label_tag }} {{ form.password1 }}
+          {% if form.password1.errors %}
+          <div class="text-danger">{{ form.password1.errors }}</div>
+          {% endif %}
+        </div>
+
+        <!-- Render password2 field with errors -->
+        <div class="mb-3">
+          {{ form.password2.label_tag }} {{ form.password2 }}
+          {% if form.password2.errors %}
+          <div class="text-danger">{{ form.password2.errors }}</div>
+          {% endif %}
+        </div>
+
+        <!-- Render the accept_rules field separately at the bottom with errors -->
+        <div class="mb-3">
+          {{ form.accept_rules.label_tag }} {{ form.accept_rules }}
+          {% if form.accept_rules.errors %}
+          <div class="text-danger">{{ form.accept_rules.errors }}</div>
+          {% endif %}
+        </div>
+        <button class="btn btn-secondary" type="submit">
+          {% trans "Sign Up" %}
+        </button>
+      </form>
+      <!-- Important Note -->
+      <div class="alert alert-warning mt-3">
+        <strong>Important Note:</strong> Please keep your password written
+        down in a safe place, as there is no possibility of recovery if
+        forgotten.
       </div>
     </div>
   </div>
-</section>
+</div>
+
 {% endblock %}
