@@ -16,8 +16,8 @@ def about_site(request):
                 request,
                 messages.SUCCESS,
                 "Your message has been "
-                "successfully submitted. We will and get back to "
-                "you as soon as possible.",
+                "successfully submitted. "
+                "We will get in touch with you soon.",
             )
     about = About.objects.all().order_by("-updated_on").first()
     contact_us_form = ContactUsForm()
