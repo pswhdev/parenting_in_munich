@@ -1,10 +1,28 @@
-{% extends "base.html" %} {% block title %}Access Restricted{% endblock %} {% block content %}
-<div class="text-center">
-  <h1>Access Restricted</h1>
-  <p>
-    This area is only available to registered users. Please
-    <a href="{% url 'account_signup' %}?next={{ request.path }}">sign up</a> or
-    <a href="{% url 'account_login' %}?next={{ request.path }}">log in</a> to view the events.
-  </p>
+{% extends "base.html" %}
+{% block title %}Access Restricted{% endblock %}
+{% block content %}
+<div class="container text-center">
+  <div class="row justify-content-center">
+    <div class="col-md-8 align-self-center">
+      <div id="restricted-area" class="card mb-4">
+        <img
+          src="https://res.cloudinary.com/daluxpssk/image/upload/v1717939795/restricted-area_xbr0ig.webp"
+          class="card-img-top"
+          alt="Restricted area image"
+        />
+        <div class="card-body">
+          This area is only available to registered users. Please
+          <a href="{% url 'account_signup' %}?next={{ request.path }}"
+            >sign up</a
+          >
+          or
+          <a href="{% url 'account_login' %}?next={{ request.path }}">log in</a>
+          to view the events.
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 {% endblock %}
+
+

@@ -22,6 +22,7 @@
   box-sizing: border-box;
 }
 
+
 html,
 body {
   height: 100%;
@@ -56,6 +57,14 @@ footer {
   width: 100%;
 }
 
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
 #footer-links a {
   color: var(--dark-gray);
   text-decoration: none;
@@ -66,7 +75,7 @@ footer {
 #hero {
   width: 100%;
   height: 90vh;
-  background: url("https://res.cloudinary.com/daluxpssk/image/upload/v1717540539/vq3mhs6mfvf06isd9bp5.jpg")
+  background: url("https://res.cloudinary.com/daluxpssk/image/upload/v1717940049/children-park2_c5wppe.jpg")
     center center;
   background-size: cover;
   position: relative;
@@ -84,7 +93,7 @@ footer {
 
 section {
   padding: 20px;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 .btn-outline {
@@ -138,7 +147,8 @@ section {
 }
 
 /* From posts.html */
-.category-link:hover {
+.category-link:hover,
+.error-link:hover {
   text-decoration: underline;
   transition: all 0.25s ease-in-out;
 }
@@ -148,14 +158,19 @@ section {
 }
 
 .post-link,
-.category-link {
+.category-link,
+.error-link {
   text-decoration: none;
-  color: #2a3035;
+  color: var(--dark-gray);
 }
 
 .card {
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   padding: 10px;
+}
+
+.error-card{
+  border-bottom: none;
 }
 
 .card-img {
