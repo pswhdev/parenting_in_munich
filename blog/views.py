@@ -29,6 +29,8 @@ class PostList(generic.ListView):
         context["categories"] = Category.objects.all()
         # Indicate if there are no posts found
         context["no_posts"] = not self.get_queryset().exists()
+        # To include search results
+        context["search_query"] = self.request.GET.get('q', '')
         return context
 
     def get_queryset(self):
