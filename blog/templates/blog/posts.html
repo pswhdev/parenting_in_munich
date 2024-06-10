@@ -9,120 +9,106 @@
     <div class="col-12 mt-3">
       <div class="row">
         {% if no_posts %}
-        <h1>Search results:</h1>
-        <p>No posts found.</p>
-        <p>
-          Please start a new search or
-          <a href="{% url 'posts' %}">return to all posts</a>
-        </p>
+          <h1>Search results:</h1>
+          <p>No posts found.</p>
+          <p>
+            Please start a new search or
+            <a href="{% url 'posts' %}">return to all posts</a>
+          </p>
         {% else %}
-        <!-- Loop through each post in page_obj and creates a card per post -->
-        {% for post in page_obj %}
-        <!-- Starts a new column at the beginning of every two posts -->
-        {% if forloop.counter0|divisibleby:2 %}
-        <div class="col-md-4">
-          {% endif %}
-          <div class="post-card mb-4">
-            <article class="card">
-              <!-- Post category -->
-              <header class="card-header">
-                <div class="card-meta">
-                  <a
-                    href="{% url 'category_posts' category_slug=post.category.slug %}"
-                    class="category-link"
-                    >{{ post.category.name }}</a
-                  >
-                </div>
-                <!-- Post title -->
+          <!-- Loop through each post in page_obj and creates a card per post -->
+          {% for post in page_obj %}
+            <!-- Starts a new column at the beginning of every two posts -->
+            {% if forloop.counter0|divisibleby:2 %}
+              <div class="col-md-4">
+            {% endif %}
+            <div class="post-card mb-4">
+              <article class="card">
+                <!-- Post category -->
+                <header class="card-header">
+                  <div class="card-meta">
+                    <a href="{% url 'category_posts' category_slug=post.category.slug %}" class="category-link">{{ post.category.name }}</a>
+                  </div>
+                  <!-- Post title -->
+                  <a href="{% url 'post_detail' post.slug %}" class="post-link">
+                    <h2 class="card-title">{{ post.title }}</h2>
+                  </a>
+                </header>
+                <!-- Post image -->
                 <a href="{% url 'post_detail' post.slug %}" class="post-link">
-                  <h2 class="card-title">{{ post.title }}</h2>
+                  {% if "placeholder" in post.featured_image.url %}
+                    <img class="card-img" src="{% static 'images/kelly-sikkema-baby.webp' %}" alt="placeholder image" />
+                  {% else %}
+                    <img class="card-img" src="{{ post.featured_image.url }}" alt="{{ post.title }}" />
+                  {% endif %}
                 </a>
-              </header>
-              <!-- Post image -->
-              <a href="{% url 'post_detail' post.slug %}" class="post-link">
-                {% if "placeholder" in post.featured_image.url %}
-                <img
-                  class="card-img"
-                  src="{% static 'images/kelly-sikkema-baby.webp' %}"
-                  alt="placeholder image"
-                />
-                {% else %}
-                <img
-                  class="card-img"
-                  src="{{ post.featured_image.url }}"
-                  alt="{{ post.title }}"
-                />
-                {% endif %}
-              </a>
-              <!-- Post excerpt -->
-              <div class="card-body">
-                <p class="card-text">{{ post.excerpt }}</p>
+                <!-- Post excerpt -->
+                <div class="card-body">
+                  <p class="card-text">{{ post.excerpt }}</p>
+                </div>
+              </article>
+            </div>
+            <!-- Checks if the one-based index is divisible by 2 meaning it is the second of two posts or if it is the last post-->
+            {% if forloop.counter0|add:'1'|divisibleby:2 or forloop.last %}
+              <!-- If it is, close the column -->
               </div>
-            </article>
-          </div>
-          <!-- Checks if the one-based index is divisible by 2 meaning it is the second of two posts or if it is the last post-->
-          {% if forloop.counter0|add:'1'|divisibleby:2 or forloop.last %}
-          <!-- If it is, close the column -->
-        </div>
-        {% endif %} {% endfor %} {% endif %}
+            {% endif %}
+          {% endfor %}
+        {% endif %}
       </div>
     </div>
   </div>
   {% if is_paginated %}
-  <nav aria-label="Page navigation">
-    <ul class="pagination justify-content-center">
-      {% if page_obj.has_previous %}
-      <li class="page-item">
-        <!-- Link to first page -->
-        <a class="page-link" href="?page=1{% if search_query %}&q={{ search_query }}{% endif %}" aria-label="First">
-          <span aria-hidden="true">&laquo;&laquo; First</span>
-        </a>
-      </li>
-      <li class="page-item">
-        <a
-          class="page-link"
-          href="?page={{ page_obj.previous_page_number }}{% if search_query %}&q={{ search_query }}{% endif %}"
-          aria-label="Previous"
-        >
-          <span aria-hidden="true">&laquo; Prev</span>
-        </a>
-      </li>
-      {% endif %} {% for num in page_obj.paginator.page_range %}
-      <!-- Checks if the current page number (page_obj.number) is equal to the loop variable num (current page).
-      generates a list element with the class active to visually indicate that this is the current page.-->
-      {% if page_obj.number == num %}
-      <li class="page-item active">
-        <span class="page-link">{{ num }}</span>
-      </li>
-      <!-- To limit the amount of pages shown as links. -->
-      <!-- If num is within this range, it displays the page number. -->
-      {% elif num > page_obj.number|add:'-5' and num < page_obj.number|add:'5'%}
-      <li class="page-item">
-        <a class="page-link" href="?page={{ num }}{% if search_query %}&q={{ search_query }}{% endif %}">{{ num }}</a>
-      </li>
-      {% endif %} {% endfor %} {% if page_obj.has_next %}
-      <li class="page-item">
-        <a
-          class="page-link"
-          href="?page={{ page_obj.next_page_number }}{% if search_query %}&q={{ search_query }}{% endif %}"
-          aria-label="Next"
-        >
-          <span aria-hidden="true">Next &raquo;</span>
-        </a>
-      </li>
-      <!-- Link to last page -->
-      <li class="page-item">
-        <a
-          class="page-link"
-          href="?page={{ page_obj.paginator.num_pages }}{% if search_query %}&q={{ search_query }}{% endif %}"
-          aria-label="Last"
-        >
-          <span aria-hidden="true">Last &raquo;&raquo;</span>
-        </a>
-      </li>
-      {% endif %}
-    </ul>
-  </nav>
+    <nav aria-label="Page navigation">
+      <ul class="pagination justify-content-center">
+        <!-- Show First and Previous buttons if not on the first page -->
+        {% if page_obj.has_previous %}
+          <!-- Show First button if current page is greater than 2 (i.e., not displaying the first page) -->
+          {% if page_obj.number > 2 %}
+            <li class="page-item">
+              <a class="page-link" href="?page=1{% if search_query %}&q={{ search_query }}{% endif %}" aria-label="First">
+                <span aria-hidden="true">&laquo;&laquo; First</span>
+              </a>
+            </li>
+          {% endif %}
+          <li class="page-item">
+            <a class="page-link" href="?page={{ page_obj.previous_page_number }}{% if search_query %}&q={{ search_query }}{% endif %}" aria-label="Previous">
+              <span aria-hidden="true">&laquo; Prev</span>
+            </a>
+          </li>
+        {% endif %}
+
+        <!-- Display page numbers, limiting to a range around the current page -->
+        {% for num in page_obj.paginator.page_range %}
+          {% if page_obj.number == num %}
+            <li class="page-item active">
+              <span class="page-link">{{ num }}</span>
+            </li>
+          {% elif num > page_obj.number|add:'-5' and num < page_obj.number|add:'5' %}
+            <li class="page-item">
+              <a class="page-link" href="?page={{ num }}{% if search_query %}&q={{ search_query }}{% endif %}">{{ num }}</a>
+            </li>
+          {% endif %}
+        {% endfor %}
+
+        <!-- Show Next and Last buttons if not on the last page -->
+        {% if page_obj.has_next %}
+          <li class="page-item">
+            <a class="page-link" href="?page={{ page_obj.next_page_number }}{% if search_query %}&q={{ search_query }}{% endif %}" aria-label="Next">
+              <span aria-hidden="true">Next &raquo;</span>
+            </a>
+          </li>
+          <!-- Show Last button if current page is less than total pages minus 1 (i.e., not displaying the last page) -->
+          {% if page_obj.number < page_obj.paginator.num_pages|add:'-1' %}
+            <li class="page-item">
+              <a class="page-link" href="?page={{ page_obj.paginator.num_pages }}{% if search_query %}&q={{ search_query }}{% endif %}" aria-label="Last">
+                <span aria-hidden="true">Last &raquo;&raquo;</span>
+              </a>
+            </li>
+          {% endif %}
+        {% endif %}
+      </ul>
+    </nav>
   {% endif %}
 </div>
 

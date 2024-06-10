@@ -61,52 +61,55 @@
   {% if is_paginated %}
   <nav aria-label="Page navigation">
     <ul class="pagination justify-content-center">
-      {% if page_obj.paginator.num_pages > 2 %}
-        {% if page_obj.has_previous %}
-        {% if not page_obj.paginator.page_range|length == page_obj.paginator.num_pages %}
-        <li class="page-item">
-          <a class="page-link" href="?page=1" aria-label="First">
-            <span aria-hidden="true">&laquo;&laquo; First</span>
-          </a>
-        </li>
+      <!-- Show First and Previous buttons if not on the first page -->
+      {% if page_obj.has_previous %}
+        <!-- Show First button if current page is greater than 2 (i.e., not displaying the first page) -->
+        {% if page_obj.number > 2 %}
+          <li class="page-item">
+            <a class="page-link" href="?page=1" aria-label="First">
+              <span aria-hidden="true">&laquo;&laquo; First</span>
+            </a>
+          </li>
         {% endif %}
         <li class="page-item">
           <a class="page-link" href="?page={{ page_obj.previous_page_number }}" aria-label="Previous">
             <span aria-hidden="true">&laquo; Prev</span>
           </a>
         </li>
-        {% endif %}
       {% endif %}
+
+      <!-- Display page numbers, limiting to a range around the current page -->
       {% for num in page_obj.paginator.page_range %}
-      {% if page_obj.number == num %}
-      <li class="page-item active">
-        <span class="page-link">{{ num }}</span>
-      </li>
-      {% elif num > page_obj.number|add:'-5' and num < page_obj.number|add:'5'%}
-      <li class="page-item">
-        <a class="page-link" href="?page={{ num }}">{{ num }}</a>
-      </li>
-      {% endif %}
+        {% if page_obj.number == num %}
+          <li class="page-item active">
+            <span class="page-link">{{ num }}</span>
+          </li>
+        {% elif num > page_obj.number|add:'-5' and num < page_obj.number|add:'5' %}
+          <li class="page-item">
+            <a class="page-link" href="?page={{ num }}">{{ num }}</a>
+          </li>
+        {% endif %}
       {% endfor %}
-      {% if page_obj.paginator.num_pages > 2 %}
-        {% if page_obj.has_next %}
+
+      <!-- Show Next and Last buttons if not on the last page -->
+      {% if page_obj.has_next %}
         <li class="page-item">
           <a class="page-link" href="?page={{ page_obj.next_page_number }}" aria-label="Next">
             <span aria-hidden="true">Next &raquo;</span>
           </a>
         </li>
-        {% if not page_obj.paginator.page_range|length == page_obj.paginator.num_pages %}
-        <li class="page-item">
-          <a class="page-link" href="?page={{ page_obj.paginator.num_pages }}" aria-label="Last">
-            <span aria-hidden="true">Last &raquo;&raquo;</span>
-          </a>
-        </li>
-        {% endif %}
+        <!-- Show Last button if current page is less than total pages minus 1 (i.e., not displaying the last page) -->
+        {% if page_obj.number < page_obj.paginator.num_pages|add:'-1' %}
+          <li class="page-item">
+            <a class="page-link" href="?page={{ page_obj.paginator.num_pages }}" aria-label="Last">
+              <span aria-hidden="true">Last &raquo;&raquo;</span>
+            </a>
+          </li>
         {% endif %}
       {% endif %}
     </ul>
   </nav>
-  {% endif %}
+{% endif %}
 </div>
 
 {% endblock %}
