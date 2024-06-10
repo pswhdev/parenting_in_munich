@@ -1,29 +1,31 @@
 {% extends "base.html" %}
-
 {% load i18n %}
-
-{% block head_title %} - Logout{% endblock %}
-
+{% block title %} - Logout{% endblock %}
 {% block content %}
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 mt-3 offset-md-2">
-            <h3>Logout</h3>
 
-            <p>{% trans 'Are you sure you want to sign out?' %}</p>
-        </div>
-    </div>
+<main class="main pt-1">
+  <div class="container">
     <div class="row">
-        <div class="col-md-8 mt-3 offset-md-2">
-
+      <div class="col-md-8 mx-auto">
+        <article class="card mb-4 no-border-card">
+          <header class="card-header text-center">
+            <h1 class="card-title fs-2">Logout</h1>
+          </header>
+          <div class="card-body">
+            <p>{% trans 'Are you sure you want to log out?' %}</p>
             <form method="post" action="{% url 'account_logout' %}">
                 {% csrf_token %}
                 {% if redirect_field_value %}
                 <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
                 {% endif %}
-                <button class="btn btn-secondary right" type="submit">Logout</button>
+                <div class="text-center mt-3">
+                    <button class="btn btn-secondary" type="submit">Logout</button>
+                </div>
             </form>
-        </div>
+          </div>
+        </article><!-- /.card -->
+      </div>
     </div>
-</div>
+  </div>
+</main>
 {% endblock %}

@@ -9,24 +9,30 @@
   </head>
 
   <body>
-    <header>{% include 'navbar.html' %}
-      {% include 'messages.html' %}</header>
+    <div class="wrapper">
+      <header>
+        {% include 'navbar.html' %}
+        {% include 'messages.html' %}
+      </header>
 
-    <main>{% block content %}
-      {% endblock %}</main>
+      <main>
+        {% block content %}
+        {% endblock %}
+      </main>
 
-    {% include 'footer.html' %}
+      {% include 'footer.html' %}
 
-    <script
-      src="https://kit.fontawesome.com/e87966439a.js"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-      crossorigin="anonymous"
-    ></script>
-    {% block extras %}
-    {% endblock %}
+      <script
+        src="https://kit.fontawesome.com/e87966439a.js"
+        crossorigin="anonymous"
+      ></script>
+      <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"
+      ></script>
+      {% block extras %}
+      {% endblock %}
+    </div>
   </body>
 </html>
