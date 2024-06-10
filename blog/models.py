@@ -1,29 +1,27 @@
 from django.db import models
-from django.contrib.auth.models import User
-from django.db.models.signals import pre_delete, pre_save
-from django.dispatch import receiver
 from django.utils.text import slugify
+from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
+from django.core.exceptions import ValidationError
 
 
 class Category(models.Model):
-    name = models.CharField(max_length=200)
-    slug = models.SlugField(max_length=200, unique=True, blank=True)
+    name = models.CharField(max_length=100, unique=True)
+    slug = models.SlugField(max_length=100, unique=True, blank=True)
 
     def save(self, *args, **kwargs):
         if not self.slug:
-            self.slug, self.name = self.generate_unique_slug_and_name(slugify(self.name), self.name)
+            self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
-    def generate_unique_slug_and_name(self, slug, name):
-        unique_slug = slug
-        unique_name = name
-        num = 1
-        while Category.objects.filter(slug=unique_slug).exists():
-            unique_slug = f'{slug}-{num}'
-            unique_name = f'{name} {num}'
-            num += 1
-        return unique_slug, unique_name
+    # Allows to perform custom validation on the
+    # model instance before it is saved.
+    def clean(self):
+        # To avoid the same category being added multiple times
+        if Category.objects.filter(name=self.name).exclude(id=self.id).exists():
+            raise ValidationError(
+                f"The category with name '{self.name}' already exists."
+            )
 
     def __str__(self):
         return self.name
@@ -32,10 +30,10 @@ class Category(models.Model):
 class Post(models.Model):
     STATUS = ((0, "Draft"), (1, "Published"))
 
-    # To allow the post to remain on the database and the site
-    # even if the user is deleted
     title = models.CharField(max_length=200, unique=True)
     slug = models.SlugField(max_length=200, unique=True)
+    # To allow the post to remain on the database and the site
+    # even if the user is deleted
     user = models.ForeignKey(
         User, on_delete=models.SET_NULL, null=True, related_name="blog_posts"
     )
@@ -46,7 +44,9 @@ class Post(models.Model):
     status = models.IntegerField(choices=STATUS, default=0)
     excerpt = models.TextField(blank=True)
     updated_on = models.DateTimeField(auto_now=True)
-    category = models.ForeignKey(Category, on_delete=models.CASCADE)
+    category = models.ForeignKey(
+        Category, related_name="posts", on_delete=models.CASCADE
+    )
 
     # To make sure the author has the username so if the user account
     # is deleted the name is still saved on the system
@@ -58,8 +58,17 @@ class Post(models.Model):
     def __str__(self):
         return f"{self.title} | written by {self.author}"
 
+    # Allows to perform custom validation on the model
+    # instance before it is saved.
+    def clean(self):
+        # To avoid the same post being added multiple times
+        if Post.objects.filter(title=self.title).exclude(id=self.id).exists():
+            raise ValidationError(
+                f"A post with the title '{self.title}' already exists."
+            )
+
     class Meta:
-        ordering = ["-created_on"]
+        ordering = ["-updated_on"]
 
 
 class Comment(models.Model):

@@ -1,6 +1,4 @@
-from typing import Any
 from django.core.paginator import Paginator
-from django.db.models.query import QuerySet
 from django.shortcuts import render, get_object_or_404, reverse
 from django.views import generic
 from django.contrib import messages
@@ -28,7 +26,7 @@ class PostList(generic.ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         # Fetch any specific category
-        context["category"] = Category.objects.first()
+        context["categories"] = Category.objects.all()
         # Indicate if there are no posts found
         context["no_posts"] = not self.get_queryset().exists()
         return context
@@ -36,14 +34,12 @@ class PostList(generic.ListView):
     def get_queryset(self):
         query = self.request.GET.get('q')
         if query:
-            posts = self.model.objects.filter(
+            return Post.objects.filter(
                 Q(title__icontains=query) |
                 Q(content__icontains=query),
                 status=1
             )
-        else:
-            posts = self.model.objects.filter(status=1)
-        return posts
+        return Post.objects.filter(status=1)
 
 
 def post_detail(request, slug):

@@ -35,10 +35,10 @@
             </time>
             |
             <a
-              href="{% url 'category_posts' category_slug=category.slug %}"
+              href="{% url 'category_posts' post.category.slug %}"
               class="category-link"
             >
-              {{ category.name }}
+            {{ post.category.name }}
             </a>
           </p>
           <!-- Post content -->

@@ -10,8 +10,9 @@ class CommentForm(forms.ModelForm):
         model = Comment
         fields = ('content',)
 
-
+# To customize the signing up
 class CustomSignupForm(SignupForm):
+    # User needs to accept policy before signing up
     accept_rules = forms.BooleanField(
         label=mark_safe(
             'I accept the <a href="/site-rules/"'
@@ -19,7 +20,7 @@ class CustomSignupForm(SignupForm):
             ),
         required=True
     )
-
+    # Usernames cannot be reused even if the account has been deleted
     def clean_username(self):
         username = self.cleaned_data.get('username')
         if UsedUsername.objects.filter(username=username).exists():
