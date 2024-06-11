@@ -102,7 +102,8 @@ footer {
 
 #hero-logout {
   background: url("https://res.cloudinary.com/daluxpssk/image/upload/v1718108422/boys-playing-friends-children-playing-ecfc0c859c9f575352f9f012f6c97c60-2_cmybmu.jpg")
-    center center;
+    center center no-repeat;
+    
 }
 
 #hero:before, #hero-logout:before {

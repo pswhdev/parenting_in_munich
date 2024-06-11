@@ -50,6 +50,6 @@ def update_profile(request):
 def delete_account(request):
     if request.method == "POST":
         request.user.delete()
-        messages.success(request, "Your account has been deleted.")
+        messages.success(request, "Your account has been successfully deleted")
         return redirect("home")
     return render(request, "accounts/delete_account.html")
