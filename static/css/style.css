@@ -263,6 +263,16 @@ footer {
   transform: translateY(-6px);
 }
 
+.restricted-area-card-img,
+.error-page-card-img {
+  border-radius: 0;
+  transition: all 0.2s cubic-bezier(0.42, 0, 0.58, 1);
+  height: 75vh;
+  max-width: 100%;
+  /* Image covers the area without distortion */
+  object-fit: cover;
+}
+
 /* Media queries */
 /* For small screens: */
 @media (max-width: 768px) {
