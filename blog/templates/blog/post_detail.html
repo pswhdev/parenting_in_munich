@@ -1,11 +1,11 @@
 {% extends 'base.html' %}
-
 {% block title %} - {{ post.title }}{% endblock %}
+{% block content %}
+{% load static %}
+{% load crispy_forms_tags %}
 
-{% block content %} {% load static %} {% load crispy_forms_tags %}
-
-<main class="main pt-4">
-  <div class="container">
+<div class="pt-4">
+  <div class="container wrapper">
     <div class="row justify-content-center">
       <div class="col-md-8">
         <article class="card mb-4">
@@ -17,13 +17,13 @@
           {% if "placeholder" in post.featured_image.url %}
           <img
             src="{% static 'images/kelly-sikkema-baby.webp' %}"
-            class="scale"
+            class="scale card-img"
             alt="placeholder image"
           />
           {% else %}
           <img
             src="{{ post.featured_image.url }}"
-            class="scale"
+            class="scale card-img"
             alt="{{ post.title }}"
           />
           {% endif %}
@@ -200,4 +200,4 @@
       </div>
     </div>
   </div>
-</main>
+</div>
