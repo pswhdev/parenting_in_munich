@@ -1,17 +1,28 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<h1>Useful Links</h1>
-{% for topic in topics %}
-    <h2>{{ topic.name }}</h2>
-    <ul>
-        {% for link in topic.links.all %}
-            <li>
-                <a href="{{ link.url }}" target="_blank" rel="noopener noreferrer" aria-label="Open {{ link.title }} in a new tab">
-                    {{ link.title }}
-                </a>
-            </li>
+<div class="container my-5">
+    <h1 class="mb-4">Useful Links</h1>
+    <p class="mb-4">alphabetically ordered by Topic</p>
+    <div class="row">
+        {% for topic in topics %}
+            <div class="col-md-6 mb-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h2 class="card-title">{{ topic.name }}</h2>
+                        <ul class="list-group list-group-flush">
+                            {% for link in topic.links.all %}
+                                <li class="list-group-item">
+                                    <a href="{{ link.url }}" target="_blank" rel="noopener noreferrer" aria-label="Open {{ link.title }} in a new tab">
+                                        {{ link.title }}
+                                    </a>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
         {% endfor %}
-    </ul>
-{% endfor %}
+    </div>
+</div>
 {% endblock %}

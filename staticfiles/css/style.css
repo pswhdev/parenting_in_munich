@@ -22,7 +22,8 @@
   box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
   height: 100%;
   margin: 0;
 }
@@ -38,7 +39,6 @@ main {
   background-color: var(--white);
 }
 
-
 body {
   font-family: var(--main-font);
 }
@@ -51,6 +51,11 @@ h5,
 h6 {
   font-family: var(--title);
   font-weight: 700;
+}
+
+main {
+  flex: 1 0 auto;
+  background-color: var(--white);
 }
 
 /* Footer */
@@ -142,6 +147,11 @@ section {
   flex: 1;
 }
 
+.card {
+  border: none;
+  border-radius: 0;
+}
+
 .about-img {
   width: 80%;
 }
@@ -180,6 +190,24 @@ section {
 .error-link:hover {
   text-decoration: underline;
   transition: all 0.25s ease-in-out;
+}
+
+.about-img {
+  width: 75%;
+}
+
+.post-link,
+.category-link {
+  text-decoration: none;
+  color: #2a3035;
+}
+
+.list-group-item a {
+  color: var(--dark-gray);
+  text-decoration: none;
+}
+.list-group-item a:hover {
+  text-decoration: underline;
 }
 
 .card {

@@ -25,11 +25,21 @@
 html,
 body {
   height: 100%;
+  margin: 0;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
+  background-color: var(--white);
 }
 
 body {
-  display: flex;
-  flex-direction: column;
   font-family: var(--main-font);
 }
 
@@ -48,12 +58,21 @@ main {
   background-color: var(--white);
 }
 
- /* Footer */
+/* Footer */
 footer {
+  flex-shrink: 0;
   background-color: var(--off-white);
   border-top: var(--border);
   padding: 10px 0;
   width: 100%;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
 }
 
 #footer-links a {
@@ -66,7 +85,7 @@ footer {
 #hero {
   width: 100%;
   height: 90vh;
-  background: url("https://res.cloudinary.com/daluxpssk/image/upload/v1717540539/vq3mhs6mfvf06isd9bp5.jpg")
+  background: url("https://res.cloudinary.com/daluxpssk/image/upload/v1717940049/children-park2_c5wppe.jpg")
     center center;
   background-size: cover;
   position: relative;
@@ -82,9 +101,30 @@ footer {
   right: 0;
 }
 
+#id_username,
+#id_login,
+#id_password,
+#id_email,
+#id_password1,
+#id_password2 {
+  width: 100%;
+  border-radius: 0;
+}
+
+.btn {
+  border-radius: 0;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.alert {
+  border-radius: 0;
+  padding: 0.75rem;
+}
+
 section {
   padding: 20px;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 .btn-outline {
@@ -103,6 +143,7 @@ section {
 }
 
 .form-control {
+  border-radius: 0;
   flex: 1;
 }
 
@@ -137,8 +178,16 @@ section {
   padding-bottom: 20px;
 }
 
+.post-link,
+.category-link,
+.error-link {
+  text-decoration: none;
+  color: var(--dark-gray);
+}
+
 /* From posts.html */
-.category-link:hover {
+.category-link:hover,
+.error-link:hover {
   text-decoration: underline;
   transition: all 0.25s ease-in-out;
 }
@@ -153,9 +202,23 @@ section {
   color: #2a3035;
 }
 
+.list-group-item a {
+  color: var(--dark-gray);
+  text-decoration: none;
+}
+.list-group-item a:hover {
+  text-decoration: underline;
+}
+
 .card {
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   padding: 10px;
+  border: none;
+  border-radius: 0;
+}
+
+.no-border-card {
+  border-bottom: none;
 }
 
 .card-img {
