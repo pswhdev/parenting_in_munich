@@ -10,6 +10,8 @@
   --dark-gray: #424242;
   --off-white: #f2f2f2;
   --white: #fff;
+  --fair-blue: #f7fdff;
+  --blue: #043c4e;
 
   /* Utils */
   --box-shadow: 0 18px 32px -18px var(--black);
@@ -135,6 +137,15 @@ footer {
   border-radius: 0;
   padding: 0.75rem;
 }
+.alert-container {
+  position: fixed;
+  top: 70px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1050; /* Ensure it's above other content */
+  width: 100%;
+  max-width: 600px; /* Adjust max width as needed */
+}
 
 .btn-outline {
   border-color: var(--white);
@@ -163,6 +174,19 @@ footer {
 
 .about-img {
   width: 80%;
+}
+
+.useful-links {
+  color: var(--blue);
+  background-color: var(--fair-blue);
+  min-height: 100vh; 
+  width: 100%;
+}
+
+.useful-links .card,
+.useful-links .list-group-item {
+  background-color: inherit; 
+  color: inherit;
 }
 
 .align-items-center {
@@ -212,7 +236,7 @@ footer {
 }
 
 .list-group-item a {
-  color: var(--dark-gray);
+  color: var(--blue);
   text-decoration: none;
 }
 .list-group-item a:hover {

@@ -1,28 +1,35 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<div class="container my-5">
-    <h1 class="mb-4">Useful Links</h1>
-    <p class="mb-4">alphabetically ordered by Topic</p>
-    <div class="row">
-        {% for topic in topics %}
-            <div class="col-md-6 mb-4">
-                <div class="card h-100">
-                    <div class="card-body">
-                        <h2 class="card-title">{{ topic.name }}</h2>
-                        <ul class="list-group list-group-flush">
-                            {% for link in topic.links.all %}
-                                <li class="list-group-item">
-                                    <a href="{{ link.url }}" target="_blank" rel="noopener noreferrer" aria-label="Open {{ link.title }} in a new tab">
-                                        {{ link.title }}
-                                    </a>
-                                </li>
-                            {% endfor %}
-                        </ul>
+<div class="useful-links">
+    <section class="container my-4">
+        <header class="mb-4 text-center">
+            <h1 class="mb-2 fs-2">Useful Links</h1>
+            <p class="mb-4">Alphabetically ordered by Topic</p>
+            
+        </header>
+        <div class="row">
+            {% for topic in topics %}
+                <article class="col-md-6 mb-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <header>
+                                <h2 class="card-title fs-3">{{ topic.name }}</h2>
+                            </header>
+                            <ul class="list-group list-group-flush">
+                                {% for link in topic.links.all %}
+                                    <li class="list-group-item">
+                                        <a href="{{ link.url }}" target="_blank" rel="noopener noreferrer" aria-label="Open {{ link.title }} in a new tab">
+                                            {{ link.title }}
+                                        </a>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
                     </div>
-                </div>
-            </div>
-        {% endfor %}
-    </div>
+                </article>
+            {% endfor %}
+        </div>
+    </section>
 </div>
 {% endblock %}
