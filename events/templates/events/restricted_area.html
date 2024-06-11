@@ -12,9 +12,9 @@
       />
       <div class="card-body">
         This area is only available to registered users. Please
-        <a href="{% url 'account_signup' %}?next={{ request.path }}">sign up</a>
+        <a href="{% url 'account_signup' %}?next={% url 'events' %}">sign up</a>
         or
-        <a href="{% url 'account_login' %}?next={{ request.path }}">log in</a>
+        <a href="{% url 'account_login' %}?next={% url 'events' %}">log in</a>
         to view the events.
       </div>
     </div>
