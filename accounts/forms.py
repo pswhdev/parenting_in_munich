@@ -1,5 +1,7 @@
 from django import forms
 from django.contrib.auth.models import User
+from django.contrib.auth import get_user_model
+from allauth.account.forms import LoginForm
 from .models import Profile, MUNICH_DISTRICTS
 
 
@@ -38,3 +40,18 @@ class ProfileUpdateForm(forms.ModelForm):
                 "Custom location is required when Others is selected.",
             )
         return cleaned_data
+
+
+class CustomLoginForm(LoginForm):
+    def clean(self):
+        User = get_user_model()
+        username = self.cleaned_data.get('login')
+        password = self.cleaned_data.get('password')
+
+        if username and not User.objects.filter(username=username).exists():
+            raise forms.ValidationError(
+                "The username doesn't exist. Please check "
+                "or sign up to create an account."
+            )
+
+        return super().clean()

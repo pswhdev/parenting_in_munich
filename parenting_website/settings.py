@@ -150,6 +150,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 ACCOUNT_FORMS = {
     'signup': 'blog.forms.CustomSignupForm',
+    'login': 'accounts.forms.CustomLoginForm',
 }
 
 AUTHENTICATION_BACKENDS = (
