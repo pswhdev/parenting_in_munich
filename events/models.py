@@ -16,5 +16,8 @@ class Event(models.Model):
     time = models.TimeField()
     image = CloudinaryField("image", default=DEFAULT_IMAGE_URL)
 
+    class Meta:
+        unique_together = ('name', 'description', 'location', 'time', 'date')
+
     def __str__(self):
         return self.name
