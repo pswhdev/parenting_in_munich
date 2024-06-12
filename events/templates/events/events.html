@@ -11,8 +11,20 @@
                 <h5 class="card-title">{{ event.name }}</h5>
                 <p class="card-text">{{ event.description | safe }}</p>
                 <p class="card-text"><strong>Location:</strong> {{ event.location }}</p>
-                <p class="card-text"><strong>Date:</strong> {{ event.date }}</p>
-                <p class="card-text"><strong>Time:</strong> {{ event.time }}</p>
+                <p class="card-text">
+                    <strong>Date:</strong> 
+                    {{ event.start_date }}{% if event.start_date != event.end_date %} - {{ event.end_date }}{% endif %}
+                </p>
+                <p class="card-text">
+                    <strong>Time:</strong> 
+                    {{ event.start_time }}{% if event.start_time != event.end_time %} - {{ event.end_time }}{% endif %}
+                </p>
+                {% if event.website %}
+                <p class="card-text">
+                    <strong>Website:</strong> 
+                    <a href="{{ event.website }}" target="_blank">{{ event.website }}</a>
+                </p>
+                {% endif %}
             </div>
         </div>
     </div>
