@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 from django.contrib import messages
 from .forms import UserUpdateForm, ProfileUpdateForm
 from .models import Profile
+from blog.models import Comment
 from django.http import Http404
 
 
@@ -11,9 +12,14 @@ from django.http import Http404
 def user_profile(request, username):
     user = get_object_or_404(User, username=username)
     profile = user.profile
+    comments = Comment.objects.filter(user=user)
     is_current_user = request.user == user
 
-    context = {"profile": profile, "is_current_user": is_current_user}
+    context = {
+        "profile": profile,
+        "is_current_user": is_current_user,
+        "comments": comments,
+    }
     return render(request, "accounts/user_profile.html", context)
 
 

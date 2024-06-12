@@ -1,19 +1,21 @@
 {% extends "base.html" %}
 {% load static %}
-
-{% block title %} - Update Pofile{% endblock %}
+{% block title %} - Update Profile{% endblock %}
 
 {% block content %}
 <div class="container">
-    <h2>Edit Profile</h2>
+    <h2>Edit Your Profile</h2>
     <form method="POST" enctype="multipart/form-data">
         {% csrf_token %}
         {{ user_form.as_p }}
         {{ profile_form.as_p }}
+        <div class="form-group">
+            <label for="id_display_email">Display Email Publicly</label>
+            {{ profile_form.display_email }}
+        </div>
         <button type="submit" class="btn btn-primary">Update Profile</button>
     </form>
 </div>
-
 {% endblock %}
 
 {% block extras %}

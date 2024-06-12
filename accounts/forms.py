@@ -12,14 +12,20 @@ class UserUpdateForm(forms.ModelForm):
 
 
 class ProfileUpdateForm(forms.ModelForm):
-    location = forms.ChoiceField(
-        choices=[("Others", "Others")] + MUNICH_DISTRICTS
-        )
+    location = forms.ChoiceField(choices=[("Others", "Others")] + MUNICH_DISTRICTS)
     custom_location = forms.CharField(required=False)
+    display_email = forms.BooleanField(required=False)
 
     class Meta:
         model = Profile
-        fields = ["photo", "bio", "location",]
+        fields = [
+            "photo",
+            "full_name",
+            "display_email",
+            "bio",
+            "location",
+            "custom_location",
+        ]
 
     def clean(self):
         cleaned_data = super().clean()

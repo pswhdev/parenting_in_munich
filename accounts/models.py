@@ -59,6 +59,8 @@ class Profile(models.Model):
     )
     bio = models.TextField(blank=True, null=True)
     custom_location = models.CharField(max_length=100, blank=True, null=True)
+    full_name = models.CharField(max_length=255, blank=True, null=True)
+    display_email = models.BooleanField(default=False)  # New field to control email visibility
 
     def __str__(self):
         return f"{self.user.username} Profile"
