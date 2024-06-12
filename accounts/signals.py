@@ -7,11 +7,12 @@ from .models import Profile
 # Creates a profile when a user signs up via allauth
 @receiver(user_signed_up, sender=User)
 def create_profile_on_signup(request, user, **kwargs):
-    Profile.objects.create(user=user)
+    Profile.objects.get_or_create(user=user)
 
 # Creates a profile when a new User instance is saved
 # using django for create superusers for instance
 @receiver(post_save, sender=User)
 def create_profile(sender, instance, created, **kwargs):
     if created:
-        Profile.objects.create(user=instance)
+        Profile.objects.get_or_create(user=instance)
+

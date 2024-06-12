@@ -25,7 +25,7 @@
     <ul>
         {% for comment in comments %}
         <li>
-            <a href="{% url 'post_detail' comment.post.id %}#comment-{{ comment.id }}">{{ comment.content|truncatewords:20 }}</a>
+            <a href="{% url 'post_detail' comment.post.slug %}#comment{{ comment.id }}">{{ comment.content|truncatewords:20 }}</a>
             <small>on {{ comment.created_on }}</small>
         </li>
         {% empty %}
