@@ -7,12 +7,54 @@
     <h2>Edit Your Profile</h2>
     <form method="POST" enctype="multipart/form-data">
         {% csrf_token %}
-        {{ user_form.as_p }}
-        {{ profile_form.as_p }}
+
+        <!-- Full Name -->
         <div class="form-group">
-            <label for="id_display_email">Display Email Publicly</label>
+            <label for="id_full_name">Full Name:</label>
+            {{ profile_form.full_name }}
+        </div>
+
+        <!-- Email -->
+        <div class="form-group">
+            <label for="id_email">Email:</label>
+            {{ user_form.email }}
+        </div>
+
+        <!-- Display Email -->
+        <div class="form-group">
+            <label for="id_display_email">Display Email:</label>
             {{ profile_form.display_email }}
         </div>
+
+        <!-- Photo -->
+        <div class="form-group">
+            <label for="id_photo">Photo:</label>
+            {% if profile_form.instance.photo %}
+                <div>
+                    <img src="{{ profile_form.instance.photo.url }}" alt="Profile Picture" class="img-thumbnail" style="max-width: 150px;">
+                </div>
+            {% endif %}
+            {{ profile_form.photo }}
+        </div>
+
+        <!-- Bio -->
+        <div class="form-group">
+            <label for="id_bio">Bio:</label>
+            {{ profile_form.bio }}
+        </div>
+
+        <!-- Location -->
+        <div class="form-group">
+            <label for="id_location">Location:</label>
+            {{ profile_form.location }}
+        </div>
+
+        <!-- Custom Location -->
+        <div class="form-group">
+            <label for="id_custom_location">Custom Location:</label>
+            {{ profile_form.custom_location }}
+        </div>
+
         <button type="submit" class="btn btn-primary">Update Profile</button>
     </form>
 </div>
