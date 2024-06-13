@@ -3,6 +3,19 @@
  * It reads the selected file and displays a preview of the new photo.
  */
 function displayProfilePhotoPreview(event) {
+
+    const file = event.target.files[0];
+        // Check for file size greater than 2MB
+        if (file && file.size > 2 * 1024 * 1024) {
+            // Show the modal
+            var myModal = new bootstrap.Modal(document.getElementById('fileSizeModal'), {
+                keyboard: false
+            });
+            myModal.show();
+            event.target.value = "";
+            return;
+        }
+        
     // Create a new FileReader object (API provided by web browsers to 
     // read the contents of files stored on the user's computer) to read the selected file
     const fileReader = new FileReader();

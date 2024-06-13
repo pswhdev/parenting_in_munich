@@ -3,6 +3,9 @@ from django.contrib.auth.models import User
 from django.contrib.auth import get_user_model
 from allauth.account.forms import LoginForm
 from .models import Profile, MUNICH_DISTRICTS
+from PIL import Image
+import io
+from django.core.files.uploadedfile import InMemoryUploadedFile
 
 
 class UserUpdateForm(forms.ModelForm):
@@ -29,6 +32,30 @@ class ProfileUpdateForm(forms.ModelForm):
             "custom_location",
         ]
 
+    def clean_photo(self):
+        photo = self.cleaned_data.get('photo')
+
+        if photo:
+            # Check file size
+            if photo.size > 2 * 1024 * 1024:
+                raise forms.ValidationError("File size must be less than 2MB")
+
+            # Validate and convert image format
+            try:
+                image = Image.open(photo)
+                if image.format.lower() != 'webp':
+                    # Convert to WebP
+                    output = io.BytesIO()
+                    image.save(output, format='webp')
+                    output.seek(0)
+                    # Replace the uploaded file with the converted file
+                    photo = InMemoryUploadedFile(output, 'ImageField', f"{photo.name.split('.')[0]}.webp", 'image/webp', output.tell(), None)
+                    self.cleaned_data['photo'] = photo
+            except IOError:
+                raise forms.ValidationError("Invalid image file")
+
+        return photo
+
     def clean(self):
         cleaned_data = super().clean()
         location = cleaned_data.get("location")
@@ -45,8 +72,8 @@ class ProfileUpdateForm(forms.ModelForm):
 class CustomLoginForm(LoginForm):
     def clean(self):
         User = get_user_model()
-        username = self.cleaned_data.get('login')
-        password = self.cleaned_data.get('password')
+        username = self.cleaned_data.get("login")
+        password = self.cleaned_data.get("password")
 
         if username and not User.objects.filter(username=username).exists():
             raise forms.ValidationError(
