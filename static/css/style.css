@@ -273,6 +273,15 @@ footer {
   object-fit: cover;
 }
 
+/* Update profile */
+.img-update-profile {
+  max-width: 150px
+}
+
+.img-profile {
+  max-width: 300px;
+}
+
 /* Media queries */
 /* For small screens: */
 @media (max-width: 768px) {

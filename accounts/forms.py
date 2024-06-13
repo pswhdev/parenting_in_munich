@@ -16,7 +16,7 @@ class UserUpdateForm(forms.ModelForm):
 class ProfileUpdateForm(forms.ModelForm):
     location = forms.ChoiceField(choices=[("Others", "Others")] + MUNICH_DISTRICTS)
     custom_location = forms.CharField(required=False)
-    # display_email = forms.BooleanField(required=False)
+    display_email = forms.BooleanField(required=False)
 
     class Meta:
         model = Profile

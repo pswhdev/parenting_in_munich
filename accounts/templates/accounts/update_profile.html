@@ -22,7 +22,7 @@
 
         <!-- Display Email -->
         <div class="form-group">
-            <label for="id_display_email">Display Email:</label>
+            <label for="id_display_email">I would like for other users to see my e-mail</label>
             {{ profile_form.display_email }}
         </div>
 
@@ -31,10 +31,22 @@
             <label for="id_photo">Photo:</label>
             {% if profile_form.instance.photo %}
                 <div>
-                    <img src="{{ profile_form.instance.photo.url }}" alt="Profile Picture" class="img-thumbnail" style="max-width: 150px;">
+                    <!-- Current photo thumbnail -->
+                    <img id="profile-photo-preview" src="{{ profile_form.instance.photo.url }}" alt="Profile Picture" class="img-update-profile">
                 </div>
             {% endif %}
-            {{ profile_form.photo }}
+            <div>
+                <input type="file" name="photo" id="id_photo" accept="image/*" onchange="displayProfilePhotoPreview(event)">
+            </div>
+            <div>
+                <img id="preview-photo" class="img-update-profile" style="max-width: 150px; display: none;">
+            </div>
+            {% if profile_form.instance.photo %}
+                <div>
+                    <input type="checkbox" name="photo-clear" id="photo-clear_id">
+                    <label for="photo-clear_id">Delete photo</label><br>
+                </div>
+            {% endif %}
         </div>
 
         <!-- Bio -->
@@ -62,4 +74,5 @@
 
 {% block extras %}
 <script src="{% static 'js/custom_location.js' %}"></script>
+<script src="{% static 'js/preview_photo.js' %}"></script>
 {% endblock %}

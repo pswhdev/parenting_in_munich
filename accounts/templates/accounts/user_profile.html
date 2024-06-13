@@ -5,7 +5,7 @@
 {% block content %}
 <div class="container">
     <h2>Profile of {{ profile.user.username }}</h2>
-    <img src="{{ profile.photo.url }}" alt="Profile Picture" class="img-thumbnail">
+    <img src="{{ profile.photo.url }}" alt="Profile Picture" class="img-profile">
     <p><strong>Full Name:</strong> {{ profile.full_name }}</p>
     <p><strong>Username:</strong> {{ profile.user.username }}</p>
     {% if profile.display_email %}
