@@ -278,8 +278,12 @@ footer {
   max-width: 150px
 }
 
+#new-photo-preview {
+  display: none;
+}
+
 .img-profile {
-  max-width: 300px;
+  max-width: 400px;
 }
 
 /* Media queries */

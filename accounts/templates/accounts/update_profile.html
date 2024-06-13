@@ -26,25 +26,22 @@
             {{ profile_form.display_email }}
         </div>
 
-        <!-- Photo -->
+        <!-- Photo Upload Section -->
         <div class="form-group">
-            <label for="id_photo">Photo:</label>
+            <label for="id_profile_photo">Photo:</label>
+            
+            <div>
+                <img id="profile-photo-preview" src="{{ profile_form.instance.photo.url }}" alt="Profile Picture" class="img-update-profile" style="max-width: 150px;">
+            </div>
+            
+            <div>
+                <input type="file" name="photo" id="id_profile_photo" accept="image/*" onchange="displayProfilePhotoPreview(event)">
+            </div>
+            
             {% if profile_form.instance.photo %}
                 <div>
-                    <!-- Current photo thumbnail -->
-                    <img id="profile-photo-preview" src="{{ profile_form.instance.photo.url }}" alt="Profile Picture" class="img-update-profile">
-                </div>
-            {% endif %}
-            <div>
-                <input type="file" name="photo" id="id_photo" accept="image/*" onchange="displayProfilePhotoPreview(event)">
-            </div>
-            <div>
-                <img id="preview-photo" class="img-update-profile" style="max-width: 150px; display: none;">
-            </div>
-            {% if profile_form.instance.photo %}
-                <div>
-                    <input type="checkbox" name="photo-clear" id="photo-clear_id">
-                    <label for="photo-clear_id">Delete photo</label><br>
+                    <input type="checkbox" name="photo-clear" id="delete-photo-checkbox" onchange="handleDeletePhoto()">
+                    <label for="delete-photo-checkbox">Delete photo</label><br>
                 </div>
             {% endif %}
         </div>
@@ -72,7 +69,16 @@
 </div>
 {% endblock %}
 
+
 {% block extras %}
+<!-- Default photo URL -->
+<script type="text/javascript">
+    var defaultPhotoUrl = "https://res.cloudinary.com/daluxpssk/image/upload/v1717744760/nobody_jm5djw.jpg";
+    // Pass the current photo url to the template
+    var currentPhotoUrl = "{{ profile_form.instance.photo.url }}";
+</script>
 <script src="{% static 'js/custom_location.js' %}"></script>
 <script src="{% static 'js/preview_photo.js' %}"></script>
 {% endblock %}
+
+
