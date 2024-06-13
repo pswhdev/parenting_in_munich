@@ -30,16 +30,6 @@ def update_profile(request):
         profile_form = ProfileUpdateForm(
             request.POST, request.FILES, instance=request.user.profile
         )
-
-        # Check file size before form validation
-        photo = request.FILES.get('photo')
-        if photo and hasattr(photo, 'size') and photo.size > 2 * 1024 * 1024:
-            messages.error(request, "File size must be less than 2MB.")
-            return render(request, "accounts/update_profile.html", {
-                'user_form': user_form,
-                'profile_form': profile_form,
-            })
-
         if user_form.is_valid() and profile_form.is_valid():
             profile = profile_form.save(commit=False)
             custom_location = profile_form.cleaned_data.get("custom_location")
