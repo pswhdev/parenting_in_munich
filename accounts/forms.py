@@ -35,9 +35,9 @@ class ProfileUpdateForm(forms.ModelForm):
     def clean_photo(self):
         photo = self.cleaned_data.get('photo')
 
-        if photo:
+        if photo and isinstance(photo, InMemoryUploadedFile):
             # Check file size
-            if photo.size > 2 * 1024 * 1024:
+            if hasattr(photo, 'size') and photo.size > 2 * 1024 * 1024:
                 raise forms.ValidationError("File size must be less than 2MB")
 
             # Validate and convert image format
