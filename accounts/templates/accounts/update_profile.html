@@ -12,37 +12,46 @@
         <div class="form-group">
             <label for="id_full_name">Full Name:</label>
             {{ profile_form.full_name }}
+            {% if profile_form.full_name.errors %}
+                <div class="alert alert-danger">{{ profile_form.full_name.errors }}</div>
+            {% endif %}
         </div>
 
         <!-- Email -->
         <div class="form-group">
             <label for="id_email">Email:</label>
             {{ user_form.email }}
+            {% if user_form.email.errors %}
+                <div class="alert alert-danger">{{ user_form.email.errors }}</div>
+            {% endif %}
         </div>
 
         <!-- Display Email -->
         <div class="form-group">
             <label for="id_display_email">I would like for other users to see my e-mail</label>
             {{ profile_form.display_email }}
+            {% if profile_form.display_email.errors %}
+                <div class="alert alert-danger">{{ profile_form.display_email.errors }}</div>
+            {% endif %}
         </div>
 
         <!-- Photo Upload Section -->
         <div class="form-group">
             <label for="id_profile_photo">Photo:</label>
-            
             <div>
                 <img id="profile-photo-preview" src="{{ profile_form.instance.photo.url }}" alt="Profile Picture" class="img-update-profile" style="max-width: 150px;">
             </div>
-            
             <div>
                 <input type="file" name="photo" id="id_profile_photo" accept="image/*" onchange="displayProfilePhotoPreview(event)">
             </div>
-            
             {% if profile_form.instance.photo %}
                 <div>
                     <input type="checkbox" name="photo-clear" id="delete-photo-checkbox" onchange="handleDeletePhoto()">
                     <label for="delete-photo-checkbox">Delete photo</label><br>
                 </div>
+            {% endif %}
+            {% if profile_form.photo.errors %}
+                <div class="alert alert-danger">{{ profile_form.photo.errors }}</div>
             {% endif %}
         </div>
 
@@ -50,18 +59,27 @@
         <div class="form-group">
             <label for="id_bio">Bio:</label>
             {{ profile_form.bio }}
+            {% if profile_form.bio.errors %}
+                <div class="alert alert-danger">{{ profile_form.bio.errors }}</div>
+            {% endif %}
         </div>
 
         <!-- Location -->
         <div class="form-group">
             <label for="id_location">Location:</label>
             {{ profile_form.location }}
+            {% if profile_form.location.errors %}
+                <div class="alert alert-danger">{{ profile_form.location.errors }}</div>
+            {% endif %}
         </div>
 
         <!-- Custom Location -->
         <div class="form-group">
             <label for="id_custom_location">Custom Location:</label>
             {{ profile_form.custom_location }}
+            {% if profile_form.custom_location.errors %}
+                <div class="alert alert-danger">{{ profile_form.custom_location.errors }}</div>
+            {% endif %}
         </div>
 
         <button type="submit" class="btn btn-primary">Update Profile</button>
@@ -87,8 +105,6 @@
 </div>
 {% endblock %}
 
-
-
 {% block extras %}
 <!-- Default photo URL -->
 <script type="text/javascript">
@@ -99,5 +115,3 @@
 <script src="{% static 'js/custom_location.js' %}"></script>
 <script src="{% static 'js/preview_photo.js' %}"></script>
 {% endblock %}
-
-

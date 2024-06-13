@@ -38,7 +38,7 @@ function displayProfilePhotoPreview(event) {
 
     // Read the selected file as a Data URL (base64 encoded string)
     // This will trigger the onload event handler when finished reading
-    fileReader.readAsDataURL(event.target.files[0]);
+    fileReader.readAsDataURL(file);
 }
 
 /**
@@ -53,7 +53,8 @@ function handleDeletePhoto() {
     const deletePhotoCheckbox = document.getElementById('delete-photo-checkbox');
     const profilePhotoPreview = document.getElementById('profile-photo-preview');
     const newPhotoInput = document.getElementById('id_profile_photo');
-
+    const currentPhotoUrl = document.getElementById('current-photo').value;
+    
     if (deletePhotoCheckbox.checked) {
         // If the checkbox is checked, show the default photo
         profilePhotoPreview.src = defaultPhotoUrl;

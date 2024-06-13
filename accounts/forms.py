@@ -4,6 +4,7 @@ from django.contrib.auth import get_user_model
 from allauth.account.forms import LoginForm
 from .models import Profile, MUNICH_DISTRICTS
 from PIL import Image
+from django.core.files.uploadedfile import UploadedFile
 import io
 from django.core.files.uploadedfile import InMemoryUploadedFile
 
@@ -17,7 +18,9 @@ class UserUpdateForm(forms.ModelForm):
 
 
 class ProfileUpdateForm(forms.ModelForm):
-    location = forms.ChoiceField(choices=[("Others", "Others")] + MUNICH_DISTRICTS)
+    location = forms.ChoiceField(
+        choices=[("Others", "Others")] + MUNICH_DISTRICTS
+        )
     custom_location = forms.CharField(required=False)
     display_email = forms.BooleanField(required=False)
 
@@ -33,9 +36,9 @@ class ProfileUpdateForm(forms.ModelForm):
         ]
 
     def clean_photo(self):
-        photo = self.cleaned_data.get('photo')
+        photo = self.cleaned_data.get("photo")
 
-        if photo:
+        if photo and isinstance(photo, UploadedFile):
             # Check file size
             if photo.size > 2 * 1024 * 1024:
                 raise forms.ValidationError("File size must be less than 2MB")
@@ -43,14 +46,21 @@ class ProfileUpdateForm(forms.ModelForm):
             # Validate and convert image format
             try:
                 image = Image.open(photo)
-                if image.format.lower() != 'webp':
+                if image.format.lower() != "webp":
                     # Convert to WebP
                     output = io.BytesIO()
-                    image.save(output, format='webp')
+                    image.save(output, format="webp")
                     output.seek(0)
                     # Replace the uploaded file with the converted file
-                    photo = InMemoryUploadedFile(output, 'ImageField', f"{photo.name.split('.')[0]}.webp", 'image/webp', output.tell(), None)
-                    self.cleaned_data['photo'] = photo
+                    photo = InMemoryUploadedFile(
+                        output,
+                        "ImageField",
+                        f"{photo.name.split('.')[0]}.webp",
+                        "image/webp",
+                        output.tell(),
+                        None,
+                    )
+                    self.cleaned_data["photo"] = photo
             except IOError:
                 raise forms.ValidationError("Invalid image file")
 
