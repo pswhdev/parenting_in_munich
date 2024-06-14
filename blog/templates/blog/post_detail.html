@@ -77,7 +77,7 @@
                   <strong>
                     {% if comment.user %}
                     <a
-                      href="{% url 'userinfo:user_profile' comment.user.username %}"
+                      class="link-comment-author-profile" href="{% url 'userinfo:user_profile' comment.user.username %}"
                     >
                       {{ comment.user.username }}
                     </a>

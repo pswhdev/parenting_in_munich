@@ -209,7 +209,8 @@ footer {
 .post-link,
 .category-link,
 .error-link,
-.comments-link {
+.comments-link,
+.link-comment-author-profile {
   text-decoration: none;
   color: var(--black);
 }
@@ -217,7 +218,8 @@ footer {
 /* From posts.html */
 .category-link:hover,
 .error-link:hover,
-.comments-link:hover {
+.comments-link:hover,
+.link-comment-author-profile:hover {
   text-decoration: underline;
   transition: all 0.25s ease-in-out;
 }
