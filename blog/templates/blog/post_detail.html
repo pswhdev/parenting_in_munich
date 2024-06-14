@@ -50,6 +50,23 @@
             <p><i class="fa-regular fa-comments"></i> {{ comment_count }}</p>
             <!-- Checks if the user is logged in -->
             {% if user.is_authenticated %}
+
+            <!-- Form for new Comments -->
+            <aside id = "new-comment" class="col card mb-4 mt-3">
+              <div class="card-body">
+                <h3>Leave a comment:</h3>
+                <p>Posting as: {{ user.username }}</p>
+                <form id="commentForm" method="post" style="margin-top: 1.3em">
+                  {{ comment_form | crispy }}
+                  {% csrf_token %}
+                  <small id="contentHelp" class="form-text text-muted">Max 1000 characters.</small>
+                  <button id="submitButton" type="submit" class="btn btn-secondary px-4">
+                    Submit
+                  </button>
+                </form>
+              </div>
+            </aside>
+            <!-- Post's Comments -->
             <h3>Comments</h3>
             <section id="comments-section">
               {% for comment in comments %}
@@ -115,21 +132,6 @@
               {% endfor %}
             </section>
 
-            <!-- Form for new Comments -->
-            <aside class="col card mb-4 mt-3">
-              <div class="card-body">
-                <h3>Leave a comment:</h3>
-                <p>Posting as: {{ user.username }}</p>
-                <form id="commentForm" method="post" style="margin-top: 1.3em">
-                  {{ comment_form | crispy }}
-                  {% csrf_token %}
-                  <small id="contentHelp" class="form-text text-muted">Max 1000 characters.</small>
-                  <button id="submitButton" type="submit" class="btn btn-secondary px-4">
-                    Submit
-                  </button>
-                </form>
-              </div>
-            </aside>
             {% else %}
             <!-- if the user is not logged in he is prompted to login or register to see comments  -->
             <section id="login-message">

@@ -26,6 +26,8 @@ document.addEventListener("DOMContentLoaded", () => {
             commentText.value = commentContent;
             submitButton.innerText = "Update";
             commentForm.setAttribute("action", `edit_comment/${commentId}`);
+            // Scroll to the comment form section
+            document.getElementById("new-comment").scrollIntoView({ behavior: 'smooth' });
         });
     }
 
