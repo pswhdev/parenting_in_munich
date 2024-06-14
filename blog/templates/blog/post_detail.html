@@ -5,190 +5,143 @@
 {% load crispy_forms_tags %}
 
 <div class="pt-4">
-  <div class="container wrapper">
-    <div class="row justify-content-center">
-      <div class="col-md-8">
-        <section class="card mb-4">
-          <header class="card-header text-center">
-            <!-- Title -->
-            <h1 class="post-title">{{ post.title }}</h1>
-          </header>
-          <!-- Image -->
-          {% if "placeholder" in post.featured_image.url %}
-          <img
-            src="{% static 'images/kelly-sikkema-baby.webp' %}"
-            class="scale card-img"
-            alt="placeholder image"
-          />
-          {% else %}
-          <img
-            src="{{ post.featured_image.url }}"
-            class="scale card-img"
-            alt="{{ post.title }}"
-          />
-          {% endif %}
-          <!-- Info about author and last update and category -->
-          <p class="post-subtitle">
-            {{ post.author }} |
-            <time class="time" datetime="{{ post.updated_on }}">
-              Last updated on {{ post.updated_on|date:"F j, Y" }}
-            </time>
-            |
-            <a
-              href="{% url 'category_posts' post.category.slug %}"
-              class="category-link"
-            >
-            {{ post.category.name }}
-            </a>
-          </p>
-          <!-- Post content -->
-          <div class="card-body">
-            <p class="card-text">{{ post.content | safe }}</p>
-            <hr />
-            <!-- Comments section -->
-            <!-- comments count -->
-            <p><i class="fa-regular fa-comments"></i> {{ comment_count }}</p>
-            <!-- Checks if the user is logged in -->
-            {% if user.is_authenticated %}
-
-            <!-- Form for new Comments -->
-            <aside id = "new-comment" class="col card mb-4 mt-3">
-              <div class="card-body">
-                <h3>Leave a comment:</h3>
-                <p>Posting as: {{ user.username }}</p>
-                <form id="commentForm" method="post" style="margin-top: 1.3em">
-                  {{ comment_form | crispy }}
-                  {% csrf_token %}
-                  <small id="contentHelp" class="form-text text-muted">Max 1000 characters.</small>
-                  <button id="submitButton" type="submit" class="btn btn-secondary px-4">
-                    Submit
-                  </button>
-                </form>
-              </div>
-            </aside>
-            <!-- Post's Comments -->
-            <h3>Comments</h3>
-            <section id="comments-section">
-              {% for comment in comments %}
-              <!-- if the comment is approved it can be seen by logged in users -->
-              {% if comment.approved %}
-              <div class="p-2 comments">
-                <p>
-                  <strong>
-                    {% if comment.user %}
-                    <a
-                      class="link-comment-author-profile" href="{% url 'userinfo:user_profile' comment.user.username %}"
-                    >
-                      {{ comment.user.username }}
-                    </a>
-                    {% else %} {{ comment.author }} {% endif %}
-                  </strong>
-                  posted on {{ comment.created_on }}:
-                </p>
-                <div id="comment{{ comment.id }}">
-                  {{ comment.content | linebreaks }}
-                </div>
-                <hr />
-              </div>
-              <!-- If the comment is pending approval but the logged in user is the author of the comment he can see the comment followed by "pending approval" message -->
-              {% elif comment.user == user %}
-              <div class="p-2 comments-pending-approval">
-                <p class="text-muted">
-                  <strong>
-                    {% if comment.user %}
-                    <a
-                      href="{% url 'userinfo:user_profile' comment.user.username %}"
-                    >
-                      {{ comment.user.username }}
-                    </a>
-                    {% else %} {{ comment.author }} {% endif %}
-                  </strong>
-                  posted on {{ comment.created_on }}:
-                </p>
-                <div id="comment{{ comment.id }}" class="text-muted">
-                  {{ comment.content | linebreaks }}
-                  <p>Comment pending approval.</p>
-                </div>
-                <hr />
-              </div>
-              {% endif %}
-              <!-- if the logged in user is the author of the post he can see the edit and delete buttons -->
-              {% if comment.user == user %}
-              <button
-                class="btn btn-delete"
-                data-comment_id="{{ comment.id }}"
-                data-post_slug="{{ post.slug }}"
-              >
-                Delete
-              </button>
-              <button
-                class="btn btn-edit"
-                data-comment_id="{{ comment.id }}"
-                data-post_slug="{{ post.slug }}"
-              >
-                Edit
-              </button>
-              {% endif %}
-              {% endfor %}
-            </section>
-
-            {% else %}
-            <!-- if the user is not logged in he is prompted to login or register to see comments  -->
-            <section id="login-message">
-              <p>
-                Please
-                <a href="{% url 'account_login' %}?next={{ request.path }}">login</a>
-                or
-                <a href="{% url 'account_signup' %}?next={{ request.path }}">sign up</a>
-                to read and participate in the discussion.
-              </p>
-            </section>
-            {% endif %}
-            <!-- Delete confirmation modal -->
-            <div
-              class="modal fade"
-              id="deleteModal"
-              tabindex="-1"
-              aria-labelledby="deleteModalLabel"
-              aria-hidden="true"
-            >
-              <div class="modal-dialog">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title" id="deleteModalLabel">
-                      Delete comment?
-                    </h5>
-                    <button
-                      type="button"
-                      class="btn-close"
-                      data-bs-dismiss="modal"
-                      aria-label="Close"
-                    ></button>
-                  </div>
-                  <div class="modal-body">
-                    Are you sure you want to delete your comment? This action
-                    cannot be undone.
-                  </div>
-                  <div class="modal-footer">
-                    <button
-                      type="button"
-                      class="btn btn-secondary"
-                      data-bs-dismiss="modal"
-                    >
-                      Close
-                    </button>
-                    <a id="deleteConfirm" href="#" class="btn btn-danger">
-                      Delete
-                    </a>
-                  </div>
-                </div>
-              </div>
+    <div class="container wrapper">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <section class="card mb-4">
+                    <header class="card-header text-center">
+                        <!-- Title -->
+                        <h1 class="post-title">{{ post.title }}</h1>
+                    </header>
+                    <!-- Image -->
+                    {% if "placeholder" in post.featured_image.url %}
+                    <img src="{% static 'images/kelly-sikkema-baby.webp' %}" class="scale card-img" alt="placeholder image"/>
+                    {% else %}
+                    <img src="{{ post.featured_image.url }}" class="scale card-img" alt="{{ post.title }}"/>
+                    {% endif %}
+                    <!-- Info about author and last update and category -->
+                    <p class="post-subtitle">
+                        {{ post.author }} |
+                        <time class="time" datetime="{{ post.updated_on }}">
+                            Last updated on {{ post.updated_on|date:"F j, Y" }}
+                        </time> |
+                        <a href="{% url 'category_posts' post.category.slug %}" class="category-link">
+                            {{ post.category.name }}
+                        </a>
+                    </p>
+                    <!-- Post content -->
+                    <div class="card-body">
+                        <p class="card-text">{{ post.content | safe }}</p>
+                        <hr/>
+                        <!-- Comments section -->
+                        <!-- comments count -->
+                        <p><i class="fa-regular fa-comments"></i> {{ comment_count }}</p>
+                        <!-- Checks if the user is logged in -->
+                        {% if user.is_authenticated %}
+                        <!-- Form for new Comments -->
+                        <aside id="new-comment" class="col card mb-4 mt-3">
+                            <div class="card-body">
+                                <h3>Leave a comment:</h3>
+                                <p>Posting as: {{ user.username }}</p>
+                                <form id="commentForm" method="post" style="margin-top: 1.3em">
+                                    {{ comment_form | crispy }}
+                                    {% csrf_token %}
+                                    <small id="contentHelp" class="form-text text-muted">Max 1000 characters.</small>
+                                    <div class="d-flex justify-content-end">
+                                        <button id="submitButton" type="submit" class="btn btn-secondary px-4">Submit</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </aside>
+                        <!-- Post's Comments -->
+                        <section id="comments-section" class="col card mb-4 mt-3">
+                            <h2>Comments</h2>
+                            {% for comment in comments %}
+                            <!-- if the comment is approved it can be seen by logged in users -->
+                            {% if comment.approved %}
+                            <div class="p-2 comments">
+                                <hr/>
+                                <p>
+                                    <strong>
+                                        {% if comment.user %}
+                                        <a href="{% url 'userinfo:user_profile' comment.user.username %}">
+                                            {{ comment.user.username }}
+                                        </a>
+                                        {% else %}
+                                        {{ comment.author }}
+                                        {% endif %}
+                                    </strong>
+                                    posted on {{ comment.created_on }}:
+                                </p>
+                                <div id="comment{{ comment.id }}">
+                                    {{ comment.content | linebreaks }}
+                                </div>
+                            </div>
+                            <!-- If the comment is pending approval but the logged in user is the author of the comment he can see the comment followed by "pending approval" message -->
+                            {% elif comment.user == user %}
+                            <div class="p-2 comments-pending-approval">
+                                <p class="text-muted">
+                                    <strong>
+                                        {% if comment.user %}
+                                        <a href="{% url 'userinfo:user_profile' comment.user.username %}">
+                                            {{ comment.user.username }}
+                                        </a>
+                                        {% else %}
+                                        {{ comment.author }}
+                                        {% endif %}
+                                    </strong>
+                                    posted on {{ comment.created_on }}:
+                                </p>
+                                <div id="comment{{ comment.id }}" class="text-muted">
+                                    {{ comment.content | linebreaks }}
+                                    <p>Comment pending approval.</p>
+                                </div>
+                            </div>
+                            {% endif %}
+                            <!-- if the logged in user is the author of the comment he can see the edit and delete buttons -->
+                            {% if comment.user == user %}
+                            <div class="d-flex">
+                                <button class="btn btn-delete" data-comment_id="{{ comment.id }}" data-post_slug="{{ post.slug }}">Delete</button>
+                                <button class="btn btn-edit ms-3" data-comment_id="{{ comment.id }}" data-post_slug="{{ post.slug }}">Edit</button>
+                            </div>
+                            {% endif %}
+                            {% endfor %}
+                        </section>
+                        {% else %}
+                        <!-- if the user is not logged in he is prompted to login or register to see comments  -->
+                        <section id="login-message">
+                            <p>
+                                Please
+                                <a href="{% url 'account_login' %}?next={{ request.path }}">login</a>
+                                or
+                                <a href="{% url 'account_signup' %}?next={{ request.path }}">sign up</a>
+                                to read and participate in the discussion.
+                            </p>
+                        </section>
+                        {% endif %}
+                        <!-- Delete confirmation modal -->
+                        <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="deleteModalLabel">Delete comment?</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        Are you sure you want to delete your comment? This action cannot be undone.
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                        <a id="deleteConfirm" href="#" class="btn btn-danger">Delete</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
             </div>
-          </div>
-        </section>
-      </div>
+        </div>
     </div>
-  </div>
 </div>
 
 {% endblock content %}

@@ -12,6 +12,7 @@
   --white: #fff;
   --fair-blue: #f7fdff;
   --blue: #043c4e;
+  --red: #d50000;
 
   /* Utils */
   --box-shadow: 0 18px 32px -18px var(--black);
@@ -44,6 +45,17 @@ main {
   display: flex;
   flex-direction: column;
   min-height: 90vh;
+}
+
+a {
+  color: inherit; 
+  text-decoration: none; 
+}
+
+
+a:hover {
+  text-decoration: underline;
+  transition: all 0.25s ease-in-out;
 }
 
 body {
@@ -132,6 +144,20 @@ footer {
   font-weight: 700;
 }
 
+.btn-delete {
+  text-transform: capitalize;
+  color: var(--red);
+  border-color: var(--red);
+  border-radius: 0;
+}
+
+.btn-edit {
+  text-transform: capitalize;
+  color: var(--dark-gray);
+  border-color: var(--dark-gray);
+  border-radius: 0;
+}
+
 .alert {
   border-radius: 0;
   padding: 0.75rem;
@@ -209,8 +235,7 @@ footer {
 .post-link,
 .category-link,
 .error-link,
-.comments-link,
-.link-comment-author-profile {
+.comments-link {
   text-decoration: none;
   color: var(--black);
 }
@@ -218,8 +243,7 @@ footer {
 /* From posts.html */
 .category-link:hover,
 .error-link:hover,
-.comments-link:hover,
-.link-comment-author-profile:hover {
+.comments-link:hover {
   text-decoration: underline;
   transition: all 0.25s ease-in-out;
 }
