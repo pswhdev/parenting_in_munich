@@ -39,7 +39,7 @@
         <div class="form-group">
             <label for="id_profile_photo">Photo:</label>
             <div>
-                <img id="profile-photo-preview" src="{{ profile_form.instance.photo.url }}" alt="Profile Picture" class="img-update-profile" style="max-width: 150px;">
+                <img id="profile-photo-preview" src="{{ profile_form.instance.photo.url }}" alt="Profile Picture" class="img-update-profile">
             </div>
             <div>
                 <input type="file" name="photo" id="id_profile_photo" accept="image/*" onchange="displayProfilePhotoPreview(event)">

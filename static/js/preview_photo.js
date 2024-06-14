@@ -58,6 +58,8 @@ function handleDeletePhoto() {
     if (deletePhotoCheckbox.checked) {
         // If the checkbox is checked, show the default photo
         profilePhotoPreview.src = defaultPhotoUrl;
+        // Clear the file input when the delete photo checkbox is checked
+        newPhotoInput.value = "";
     } else {
         // If the checkbox is unchecked
         if (newPhotoInput.files && newPhotoInput.files[0]) {
