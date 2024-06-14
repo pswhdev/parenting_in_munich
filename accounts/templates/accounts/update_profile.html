@@ -39,14 +39,14 @@
         <div class="form-group">
             <label for="id_profile_photo">Photo:</label>
             <div>
-                <img id="profile-photo-preview" src="{{ profile_form.instance.photo.url }}" alt="Profile Picture" class="img-update-profile">
+                <img id="profile-photo-preview" src="{{ profile_form.instance.photo.url }}" alt="Profile Picture" class="img-update-profile" data-current-photo-url="{{ profile_form.instance.photo.url }}">
             </div>
             <div>
-                <input type="file" name="photo" id="id_profile_photo" accept="image/*" onchange="displayProfilePhotoPreview(event)">
+                <input type="file" name="photo" id="id_profile_photo" accept="image/*">
             </div>
             {% if profile_form.instance.photo %}
                 <div>
-                    <input type="checkbox" name="photo-clear" id="delete-photo-checkbox" onchange="handleDeletePhoto()">
+                    <input type="checkbox" name="photo-clear" id="delete-photo-checkbox">
                     <label for="delete-photo-checkbox">Delete photo</label><br>
                 </div>
             {% endif %}
@@ -106,12 +106,6 @@
 {% endblock %}
 
 {% block extras %}
-<!-- Default photo URL -->
-<script type="text/javascript">
-    var defaultPhotoUrl = "https://res.cloudinary.com/daluxpssk/image/upload/v1717744760/nobody_jm5djw.jpg";
-    // Pass the current photo url to the template
-    var currentPhotoUrl = "{{ profile_form.instance.photo.url }}";
-</script>
 <script src="{% static 'js/custom_location.js' %}"></script>
 <script src="{% static 'js/preview_photo.js' %}"></script>
 {% endblock %}
