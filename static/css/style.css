@@ -58,6 +58,10 @@ a:hover {
   transition: all 0.25s ease-in-out;
 }
 
+#logo {
+  text-decoration: none; 
+}
+
 body {
   font-family: var(--main-font);
 }
@@ -237,7 +241,7 @@ footer {
 .error-link,
 .comments-link {
   text-decoration: none;
-  color: var(--black);
+  color: inherit;
 }
 
 /* From posts.html */
@@ -253,7 +257,7 @@ footer {
 }
 
 .list-group-item a {
-  color: var(--blue);
+  color: inherit;
   text-decoration: none;
 }
 .list-group-item a:hover {
