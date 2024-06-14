@@ -1,36 +1,70 @@
 {% extends "base.html" %}
-
 {% block title %} - User Profile{% endblock %}
-
 {% block content %}
-<div class="container">
-    <h2>Profile of {{ profile.user.username }}</h2>
-    <img src="{{ profile.photo.url }}" alt="Profile Picture" class="img-profile">
-    <p><strong>Full Name:</strong> {{ profile.full_name }}</p>
-    <p><strong>Username:</strong> {{ profile.user.username }}</p>
-    {% if profile.display_email %}
-    <p><strong>Email:</strong> {{ profile.user.email }}</p>
-    {% endif %}
-    <p><strong>Location:</strong> {{ profile.location }}</p>
-    <p><strong>Bio:</strong> {{ profile.bio }}</p>
 
-    {% if is_current_user %}
-    <hr>
-    <a href="{% url 'userinfo:update_profile' %}" class="btn btn-primary">Edit Profile</a>
-    <a href="{% url 'userinfo:delete_account' %}" class="btn btn-danger">Delete Account</a>
-    <hr>
-    {% endif %}
-
-    <h3>Comments</h3>
-    <ul>
+<section class="container d-flex flex-column align-items-center pt-4">
+  <!-- Title -->
+  <div class="row justify-content-center mb-4">
+    <div class="col-md-12 text-center">
+      <header>
+        <h1 class="fs-2">Profile of {{ profile.user.username }}</h1>
+      </header>
+    </div>
+  </div>
+  <div class="row profile-container mb-4">
+    <!-- User's profile info -->
+    <div class="col-md-8 d-flex flex-column justify-content-center">
+      <div>
+        <p><strong>Full Name:</strong> {{ profile.full_name }}</p>
+        <p><strong>Username:</strong> {{ profile.user.username }}</p>
+        {% if profile.display_email %}
+        <p><strong>Email:</strong> {{ profile.user.email }}</p>
+        {% endif %}
+        <p><strong>Location:</strong> {{ profile.location }}</p>
+        <p><strong>Bio:</strong> {{ profile.bio }}</p>
+      </div>
+    </div>
+    <!-- Photo -->
+    <div class="col-md-4 d-flex justify-content-center">
+      <img
+        src="{{ profile.photo.url }}"
+        alt="Profile Picture"
+        class="rounded-circle img-profile"
+      />
+    </div>
+  </div>
+  <!-- Edit/Delete Profile -->
+  {% if is_current_user %}
+  <div class="row mb-4">
+    <div class="col-md-12 d-flex justify-space-between">
+      <a href="{% url 'userinfo:delete_account' %}" class="text-danger"
+      >Delete Account</a
+      >
+      <a href="{% url 'userinfo:update_profile' %}" class="btn btn-secondary"
+        >Edit Profile</a
+      >
+    </div>
+  </div>
+  {% endif %}
+  <!-- Comments -->
+  <div class="row profile-container">
+    <div class="col-md-12">
+      <h3>My Comments</h3>
+      <ul class="list-unstyled">
         {% for comment in comments %}
-        <li>
-            <a href="{% url 'post_detail' comment.post.slug %}#comment{{ comment.id }}">{{ comment.content|truncatewords:20 }}</a>
-            <small>on {{ comment.created_on }}</small>
+        <li class="mb-2">
+          <a class="comments-link"
+            href="{% url 'post_detail' comment.post.slug %}#comment{{ comment.id }}"
+            >{{ comment.content | truncatewords:10 }}</a
+          >
+          <small class="text-muted">on {{ comment.created_on }}</small>
         </li>
         {% empty %}
         <p>No comments yet.</p>
         {% endfor %}
-    </ul>
-</div>
+      </ul>
+    </div>
+  </div>
+</section>
+
 {% endblock %}

@@ -79,7 +79,7 @@ footer {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100%;
+  min-height: 100vh;
 }
 
 #footer-links a {
@@ -208,26 +208,22 @@ footer {
 
 .post-link,
 .category-link,
-.error-link {
+.error-link,
+.comments-link {
   text-decoration: none;
-  color: var(--dark-gray);
+  color: var(--black);
 }
 
 /* From posts.html */
 .category-link:hover,
-.error-link:hover {
+.error-link:hover,
+.comments-link:hover {
   text-decoration: underline;
   transition: all 0.25s ease-in-out;
 }
 
 .about-img {
   width: 75%;
-}
-
-.post-link,
-.category-link {
-  text-decoration: none;
-  color: #2a3035;
 }
 
 .list-group-item a {
@@ -283,7 +279,9 @@ footer {
 }
 
 .img-profile {
-  max-width: 400px;
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
 }
 
 /* Media queries */
