@@ -8,7 +8,7 @@
 >
   {% if user.is_authenticated and user.is_staff %}
   <div class="container text-center position-relative">
-    <h1 class="text-white mb-4">Welcome back, Admin {{ user.username }}!</h1>
+    <h1 class="text-white mb-4">Welcome back, Admin {{ user.username|truncatechars:50 }}!</h1>
     <p class="text-white mb-5">
       Thank you for managing our community. Click the button below to access the
       admin panel.
@@ -23,7 +23,7 @@
   {% elif user.is_authenticated %}
   <div class="container text-center position-relative">
     <h1 class="text-white mb-4">
-      Welcome to Parenting in Munich, {{ user.username }}!
+      Welcome to Parenting in Munich, {{ user.username|truncatechars:50 }}!
     </h1>
     <p class="text-white mb-5">
       We're thrilled to have you with us! Explore our latest articles and

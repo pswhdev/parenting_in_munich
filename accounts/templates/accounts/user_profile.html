@@ -7,7 +7,7 @@
   <div class="row justify-content-center mb-4">
     <div class="col-md-12 text-center">
       <header>
-        <h1 class="fs-2">Profile of {{ profile.user.username }}</h1>
+        <h1 class="fs-2">Profile of {{ profile.user.username|truncatechars:50 }}</h1>
       </header>
     </div>
   </div>
@@ -15,8 +15,8 @@
     <!-- User's profile info -->
     <div class="col-md-8 d-flex flex-column justify-content-center">
       <div>
-        <p><strong>Full Name:</strong> {{ profile.full_name }}</p>
-        <p><strong>Username:</strong> {{ profile.user.username }}</p>
+        <p><strong>Full Name:</strong> {{ profile.full_name|truncatechars:50 }}</p>
+        <p><strong>Username:</strong> {{ profile.user.username|truncatechars:50 }}</p>
         {% if profile.display_email %}
         <p><strong>Email:</strong> {{ profile.user.email }}</p>
         {% endif %}
