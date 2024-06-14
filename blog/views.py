@@ -62,6 +62,7 @@ def post_detail(request, slug):
     category = post.category
     comments = post.comments.all().order_by("-created_on")
     comment_count = post.comments.filter(approved=True).count()
+
     if request.method == "POST":
         comment_form = CommentForm(data=request.POST)
         if comment_form.is_valid():
@@ -73,8 +74,9 @@ def post_detail(request, slug):
                 request, messages.SUCCESS,
                 "Comment submitted and awaiting approval."
             )
-
-    comment_form = CommentForm()
+            return HttpResponseRedirect(reverse('post_detail', args=[slug]))
+    else:
+        comment_form = CommentForm()
 
     return render(
         request,
@@ -124,7 +126,6 @@ def comment_edit(request, slug, comment_id):
     view to edit comments
     """
     if request.method == "POST":
-
         queryset = Post.objects.filter(status=1)
         post = get_object_or_404(queryset, slug=slug)
         comment = get_object_or_404(Comment, pk=comment_id)
@@ -139,7 +140,7 @@ def comment_edit(request, slug, comment_id):
         else:
             messages.add_message(
                 request, messages.ERROR, "Error updating comment!"
-                )
+            )
 
     return HttpResponseRedirect(reverse("post_detail", args=[slug]))
 

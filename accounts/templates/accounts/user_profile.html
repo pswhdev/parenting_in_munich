@@ -48,8 +48,8 @@
   {% endif %}
   <!-- Comments -->
   <div class="row profile-container">
-    <div class="col-md-12 d-flex">
-        <button class="btn flex-start btn-secondary px-4" type="button" data-bs-toggle="collapse" data-bs-target="#commentsCollapse" aria-expanded="false" aria-controls="commentsCollapse">
+    <div class="col-md-12">
+        <button class="btn btn-secondary px-4" type="button" data-bs-toggle="collapse" data-bs-target="#commentsCollapse" aria-expanded="false" aria-controls="commentsCollapse">
           View My Comments
         </button>
       <div class="collapse" id="commentsCollapse">
@@ -58,7 +58,7 @@
           <li class="mb-2">
             <a class="comments-link"
               href="{% url 'post_detail' comment.post.slug %}#comment{{ comment.id }}"
-              ><strong>{{ comment.post.title }}</strong>: {{ comment.content|truncatewords:20 }}</a>
+              ><strong>{{ comment.post.title|truncatewords:7}}</strong>: {{ comment.content|truncatewords:10 }}</a>
             <small class="text-muted">on {{ comment.created_on }}</small>
           </li>
           {% empty %}

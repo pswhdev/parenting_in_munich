@@ -6,9 +6,15 @@ from django.utils.safestring import mark_safe
 
 
 class CommentForm(forms.ModelForm):
+    content = forms.CharField(
+        widget=forms.Textarea(attrs={'maxlength': 1000}),
+        required=False
+    )
+
     class Meta:
         model = Comment
-        fields = ('content',)
+        fields = ['content']
+
 
 # To customize the signing up
 class CustomSignupForm(SignupForm):
@@ -20,12 +26,14 @@ class CustomSignupForm(SignupForm):
             ),
         required=True
     )
+
     # Usernames cannot be reused even if the account has been deleted
     def clean_username(self):
         username = self.cleaned_data.get('username')
         if UsedUsername.objects.filter(username=username).exists():
             raise forms.ValidationError(
-                f"The username '{username}' has been used previously and cannot be reused."
+                f"The username '{username}' has been "
+                "used previously and cannot be reused."
             )
         return username
 

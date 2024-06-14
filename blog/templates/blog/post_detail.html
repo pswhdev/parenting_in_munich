@@ -8,7 +8,7 @@
   <div class="container wrapper">
     <div class="row justify-content-center">
       <div class="col-md-8">
-        <article class="card mb-4">
+        <section class="card mb-4">
           <header class="card-header text-center">
             <!-- Title -->
             <h1 class="post-title">{{ post.title }}</h1>
@@ -73,9 +73,9 @@
                 </div>
                 <hr />
               </div>
-              <!-- If the comment is pending approval but the logged in user is the autor of the comment he can see the comment followed by "pending appoval" message -->
+              <!-- If the comment is pending approval but the logged in user is the author of the comment he can see the comment followed by "pending approval" message -->
               {% elif comment.user == user %}
-              <div class="p-2 comments-pending-aproval">
+              <div class="p-2 comments-pending-approval">
                 <p class="text-muted">
                   <strong>
                     {% if comment.user %}
@@ -92,7 +92,6 @@
                   {{ comment.content | linebreaks }}
                   <p>Comment pending approval.</p>
                 </div>
-
                 <hr />
               </div>
               {% endif %}
@@ -112,44 +111,37 @@
               >
                 Edit
               </button>
-
-              {% endif %} {% endfor %}
+              {% endif %}
+              {% endfor %}
             </section>
-            <!-- if the user is not logged in he is prommt to login or register to see comments  -->
 
             <!-- Form for new Comments -->
-            <div class="col-md-4 card mb-4 mt-3">
+            <aside class="col card mb-4 mt-3">
               <div class="card-body">
                 <h3>Leave a comment:</h3>
                 <p>Posting as: {{ user.username }}</p>
                 <form id="commentForm" method="post" style="margin-top: 1.3em">
-                  {{ comment_form | crispy }} {% csrf_token %}
-                  <button
-                    id="submitButton"
-                    type="submit"
-                    class="btn btn-signup btn-lg"
-                  >
+                  {{ comment_form | crispy }}
+                  {% csrf_token %}
+                  <small id="contentHelp" class="form-text text-muted">Max 1000 characters.</small>
+                  <button id="submitButton" type="submit" class="btn btn-secondary px-4">
                     Submit
                   </button>
                 </form>
               </div>
-            </div>
+            </aside>
             {% else %}
+            <!-- if the user is not logged in he is prompted to login or register to see comments  -->
             <section id="login-message">
               <p>
                 Please
-                <a href="{% url 'account_login' %}?next={{ request.path }}"
-                  >login</a
-                >
+                <a href="{% url 'account_login' %}?next={{ request.path }}">login</a>
                 or
-                <a href="{% url 'account_signup' %}?next={{ request.path }}"
-                  >sign up</a
-                >
+                <a href="{% url 'account_signup' %}?next={{ request.path }}">sign up</a>
                 to read and participate in the discussion.
               </p>
             </section>
             {% endif %}
-
             <!-- Delete confirmation modal -->
             <div
               class="modal fade"
@@ -183,21 +175,21 @@
                     >
                       Close
                     </button>
-                    <a id="deleteConfirm" href="#" class="btn btn-danger"
-                      >Delete</a
-                    >
+                    <a id="deleteConfirm" href="#" class="btn btn-danger">
+                      Delete
+                    </a>
                   </div>
                 </div>
               </div>
             </div>
-
-            {% endblock content %}
-            {% block extras %}
-            <script src="{% static 'js/comments.js' %}"></script>
-            {% endblock %}
           </div>
-        </article>
+        </section>
       </div>
     </div>
   </div>
 </div>
+
+{% endblock content %}
+{% block extras %}
+<script src="{% static 'js/comments.js' %}"></script>
+{% endblock %}

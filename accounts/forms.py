@@ -24,7 +24,7 @@ class ProfileUpdateForm(forms.ModelForm):
     custom_location = forms.CharField(required=False)
     display_email = forms.BooleanField(required=False)
     bio = forms.CharField(
-        widget=forms.Textarea(attrs={'maxlength': 500}),  # Limit bio to 500 characters
+        widget=forms.Textarea(attrs={'maxlength': 500}),
         required=False
     )
 
