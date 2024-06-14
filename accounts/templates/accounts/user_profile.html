@@ -2,7 +2,7 @@
 {% block title %} - User Profile{% endblock %}
 {% block content %}
 
-<section class="container d-flex flex-column align-items-center pt-4">
+<section class="container d-flex flex-column align-items-center">
   <!-- Title -->
   <div class="row justify-content-center mb-4">
     <div class="col-md-12 text-center">
@@ -36,33 +36,36 @@
   <!-- Edit/Delete Profile -->
   {% if is_current_user %}
   <div class="row mb-4">
-    <div class="col-md-12 d-flex justify-space-between">
-      <a href="{% url 'userinfo:delete_account' %}" class="text-danger"
-      >Delete Account</a
-      >
+    <div class="col-md-12 d-flex justify-content-between">
       <a href="{% url 'userinfo:update_profile' %}" class="btn btn-secondary"
         >Edit Profile</a
+      >
+      <a href="{% url 'userinfo:delete_account' %}" class="text-danger"
+        >Delete Account</a
       >
     </div>
   </div>
   {% endif %}
   <!-- Comments -->
   <div class="row profile-container">
-    <div class="col-md-12">
-      <h3>My Comments</h3>
-      <ul class="list-unstyled">
-        {% for comment in comments %}
-        <li class="mb-2">
-          <a class="comments-link"
-            href="{% url 'post_detail' comment.post.slug %}#comment{{ comment.id }}"
-            >{{ comment.content | truncatewords:10 }}</a
-          >
-          <small class="text-muted">on {{ comment.created_on }}</small>
-        </li>
-        {% empty %}
-        <p>No comments yet.</p>
-        {% endfor %}
-      </ul>
+    <div class="col-md-12 d-flex">
+        <button class="btn flex-start btn-secondary px-4" type="button" data-bs-toggle="collapse" data-bs-target="#commentsCollapse" aria-expanded="false" aria-controls="commentsCollapse">
+          View My Comments
+        </button>
+      <div class="collapse" id="commentsCollapse">
+        <ul class="list-unstyled">
+          {% for comment in comments %}
+          <li class="mb-2">
+            <a class="comments-link"
+              href="{% url 'post_detail' comment.post.slug %}#comment{{ comment.id }}"
+              ><strong>{{ comment.post.title }}</strong>: {{ comment.content|truncatewords:20 }}</a>
+            <small class="text-muted">on {{ comment.created_on }}</small>
+          </li>
+          {% empty %}
+          <p>No comments yet.</p>
+          {% endfor %}
+        </ul>
+      </div>
     </div>
   </div>
 </section>
