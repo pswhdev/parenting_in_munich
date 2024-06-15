@@ -99,11 +99,13 @@ a.btn:hover,
 }
 
 .post-link,
-.category-link {
+.category-link,
+.comments-link {
   color: inherit;
 }
 
-.list-group-item a:hover {
+.list-group-item a:hover,
+.comments-link:hover {
   text-decoration: underline;
 }
 
@@ -310,6 +312,7 @@ a.btn:hover,
   height: 300px;
   object-fit: cover;
 }
+
 
 /* Media queries */
 /* For small screens: */
