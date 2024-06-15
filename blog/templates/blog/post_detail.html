@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% block title %} - {{ post.title }}{% endblock %}
+{% block title %}{{ post.title }}{% endblock %}
 {% block content %}
 {% load static %}
 {% load crispy_forms_tags %}
@@ -19,7 +19,7 @@
                     {% else %}
                     <img src="{{ post.featured_image.url }}" class="scale card-img" alt="{{ post.title }}"/>
                     {% endif %}
-                    <!-- Info about author and last update and category -->
+                    <!-- Info about author, last update, and category -->
                     <p class="post-subtitle">
                         {{ post.author }} |
                         <time class="time" datetime="{{ post.updated_on }}">
@@ -34,11 +34,9 @@
                         <p class="card-text">{{ post.content | safe }}</p>
                         <hr/>
                         <!-- Comments section -->
-                        <!-- comments count -->
                         <p><i class="fa-regular fa-comments"></i> {{ comment_count }}</p>
-                        <!-- Checks if the user is logged in -->
                         {% if user.is_authenticated %}
-                        <!-- Form for new Comments -->
+                        <!-- Form for new comments -->
                         <aside id="new-comment" class="col card mb-4 mt-3">
                             <div class="card-body">
                                 <h3>Leave a comment:</h3>
@@ -53,53 +51,61 @@
                                 </form>
                             </div>
                         </aside>
-                        <!-- Post's Comments -->
+                        <!-- Post's comments -->
                         <section id="comments-section" class="col card mb-4 mt-3">
                             <h2>Comments</h2>
                             {% for comment in comments %}
-                            <!-- if the comment is approved it can be seen by logged in users -->
                             {% if comment.approved %}
                             <div class="p-2 comments">
                                 <hr/>
-                                <p>
-                                    <strong>
-                                        {% if comment.user %}
-                                        <a href="{% url 'userinfo:user_profile' comment.user.username %}">
-                                            {{ comment.user.username }}
+                                <div class="d-flex align-items-start">
+                                    <div class="me-3">
+                                        <a id="link-post-comment" href="{% url 'userinfo:user_profile' comment.user.username %}">
+                                            <img id="thumbnail-post-comment" src="{{ comment.user.profile.photo.url }}" class="rounded-circle" alt="{{ comment.user.username }}" onerror="this.onerror=null; this.src='{{ DEFAULT_IMAGE_URL }}';">
                                         </a>
-                                        {% else %}
-                                        {{ comment.author }}
-                                        {% endif %}
-                                    </strong>
-                                    posted on {{ comment.created_on }}:
-                                </p>
-                                <div id="comment{{ comment.id }}">
-                                    {{ comment.content | linebreaks }}
+                                    </div>
+                                    <div>
+                                        <p>
+                                            <strong>
+                                                <a id="link-post-comment" href="{% url 'userinfo:user_profile' comment.user.username %}">
+                                                    {{ comment.user.username }}
+                                                </a>
+                                            </strong>
+                                            posted on {{ comment.created_on }}:
+                                        </p>
+                                        <div id="comment{{ comment.id }}">
+                                            {{ comment.content | linebreaks }}
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                             <!-- If the comment is pending approval but the logged in user is the author of the comment he can see the comment followed by "pending approval" message -->
                             {% elif comment.user == user %}
                             <div class="p-2 comments-pending-approval">
-                              <hr/>
-                                <p class="text-muted">
-                                    <strong>
-                                        {% if comment.user %}
-                                        <a href="{% url 'userinfo:user_profile' comment.user.username %}">
-                                            {{ comment.user.username }}
+                                <hr/>
+                                <div class="d-flex align-items-start">
+                                    <div class="me-3">
+                                        <a id="link-post-comment" href="{% url 'userinfo:user_profile' comment.user.username %}">
+                                            <img id="thumbnail-post-comment" src="{{ comment.user.profile.photo.url }}" class="rounded-circle" alt="{{ comment.user.username }}" onerror="this.onerror=null; this.src='{{ DEFAULT_IMAGE_URL }}';">
                                         </a>
-                                        {% else %}
-                                        {{ comment.author }}
-                                        {% endif %}
-                                    </strong>
-                                    posted on {{ comment.created_on }}:
-                                </p>
-                                <div id="comment{{ comment.id }}" class="text-muted">
-                                    {{ comment.content | linebreaks }}
+                                    </div>
+                                    <div>
+                                        <p class="text-muted">
+                                            <strong>
+                                                <a id="link-post-comment" href="{% url 'userinfo:user_profile' comment.user.username %}">
+                                                    {{ comment.user.username }}
+                                                </a>
+                                            </strong>
+                                            posted on {{ comment.created_on }}:
+                                        </p>
+                                        <div id="comment{{ comment.id }}" class="text-muted">
+                                            {{ comment.content | linebreaks }}
+                                        </div>
+                                        <p>Comment pending approval.</p>
+                                    </div>
                                 </div>
-                                <p>Comment pending approval.</p>
                             </div>
                             {% endif %}
-                            <!-- if the logged in user is the author of the comment he can see the edit and delete buttons -->
                             {% if comment.user == user %}
                             <div class="d-flex">
                                 <button class="btn btn-delete" data-comment_id="{{ comment.id }}" data-post_slug="{{ post.slug }}">Delete</button>
@@ -107,9 +113,9 @@
                             </div>
                             {% endif %}
                             {% endfor %}
-                        </section>
+                        </section>                        
                         {% else %}
-                        <!-- if the user is not logged in he is prompted to login or register to see comments  -->
+                        <!-- If the user is not logged in -->
                         <section id="login-message">
                             <p>
                                 Please
@@ -122,23 +128,22 @@
                         {% endif %}
                         <!-- Delete confirmation modal -->
                         <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
-                          <div class="modal-dialog modal-dialog-centered">
-                              <div class="modal-content">
-                                  <div class="modal-header">
-                                      <h2 class="modal-title" id="deleteModalLabel">Delete comment?</h2>
-                                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                  </div>
-                                  <div class="modal-body">
-                                      Are you sure you want to delete your comment? This action cannot be undone.
-                                  </div>
-                                  <div class="modal-footer">
-                                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                      <a id="deleteConfirm" href="#" class="btn btn-danger">Delete</a>
-                                  </div>
-                              </div>
-                          </div>
-                      </div>
-                      
+                            <div class="modal-dialog modal-dialog-centered">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h2 class="modal-title" id="deleteModalLabel">Delete comment?</h2>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        Are you sure you want to delete your comment? This action cannot be undone.
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                        <a id="deleteConfirm" href="#" class="btn btn-danger">Delete</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </section>
             </div>
@@ -146,7 +151,7 @@
     </div>
 </div>
 
-{% endblock content %}
+{% endblock %}
 {% block extras %}
 <script src="{% static 'js/comments.js' %}"></script>
 {% endblock %}

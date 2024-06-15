@@ -94,18 +94,19 @@ body a {
 #logo,
 .category-link
 a.btn:hover,
-.post-link:hover {
+.post-link:hover,
+#link-post-comment {
   text-decoration: none;
 }
 
 .post-link,
 .category-link,
-.comments-link {
+.comments-link, #link-post-comment {
   color: inherit;
 }
 
 .list-group-item a:hover,
-.comments-link:hover {
+.comments-link:hover, #link-post-comment:hover {
   text-decoration: underline;
 }
 
@@ -313,6 +314,10 @@ a.btn:hover,
   object-fit: cover;
 }
 
+#thumbnail-post-comment {
+  width: 50px;
+  height: 50px;
+}
 
 /* Media queries */
 /* For small screens: */
