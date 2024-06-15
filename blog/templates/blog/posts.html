@@ -16,44 +16,81 @@
             <a href="{% url 'posts' %}">return to all posts</a>
           </p>
         {% else %}
-          <!-- Loop through each post in page_obj and creates a card per post -->
-          {% for post in page_obj %}
-            <!-- Starts a new column at the beginning of every two posts -->
-            {% if forloop.counter0|divisibleby:2 %}
+          <!-- Determine if there are up to three posts on the current page -->
+          {% if page_obj|length <= 3 %}
+            <!-- Loop through each post and create a column for each post -->
+            {% for post in page_obj %}
               <div class="col-md-4">
-            {% endif %}
-            <div class="post-card mb-4">
-              <article class="card">
-                <!-- Post category -->
-                <header class="card-header">
-                  <div class="card-meta">
-                    <a href="{% url 'category_posts' category_slug=post.category.slug %}" class="category-link">{{ post.category.name }}</a>
-                  </div>
-                  <!-- Post title -->
-                  <a href="{% url 'post_detail' post.slug %}" class="post-link">
-                    <h2 class="card-title">{{ post.title }}</h2>
-                  </a>
-                </header>
-                <!-- Post image -->
-                <a href="{% url 'post_detail' post.slug %}" class="post-link">
-                  {% if "placeholder" in post.featured_image.url %}
-                    <img class="card-img" src="{% static 'images/kelly-sikkema-baby.webp' %}" alt="placeholder image" />
-                  {% else %}
-                    <img class="card-img" src="{{ post.featured_image.url }}" alt="{{ post.title }}" />
-                  {% endif %}
-                </a>
-                <!-- Post excerpt -->
-                <div class="card-body">
-                  <p class="card-text">{{ post.excerpt }}</p>
+                <div class="post-card mb-4">
+                  <article class="card">
+                    <!-- Post category -->
+                    <header class="card-header">
+                      <div class="card-meta">
+                        <a href="{% url 'category_posts' category_slug=post.category.slug %}" class="category-link">{{ post.category.name }}</a>
+                      </div>
+                      <!-- Post title -->
+                      <a href="{% url 'post_detail' post.slug %}" class="post-link">
+                        <h2 class="card-title">{{ post.title }}</h2>
+                      </a>
+                    </header>
+                    <!-- Post image -->
+                    <a href="{% url 'post_detail' post.slug %}" class="post-link">
+                      {% if "placeholder" in post.featured_image.url %}
+                        <img class="card-img" src="{% static 'images/kelly-sikkema-baby.webp' %}" alt="placeholder image" />
+                      {% else %}
+                        <img class="card-img" src="{{ post.featured_image.url }}" alt="{{ post.title }}" />
+                      {% endif %}
+                    </a>
+                    <!-- Post excerpt -->
+                    <div class="card-body">
+                      <p class="card-text">{{ post.excerpt }}</p>
+                    </div>
+                  </article>
                 </div>
-              </article>
-            </div>
-            <!-- Checks if the one-based index is divisible by 2 meaning it is the second of two posts or if it is the last post-->
-            {% if forloop.counter0|add:'1'|divisibleby:2 or forloop.last %}
-              <!-- If it is, close the column -->
               </div>
-            {% endif %}
-          {% endfor %}
+            {% endfor %}
+          {% else %}
+            <!-- Loop through each post in page_obj and create a card per post -->
+            {% for post in page_obj %}
+              <!-- Starts a new column for each even index on the iteration (0, 2, 4, etc.) -->
+              {% if forloop.counter0|divisibleby:2 %}
+                <div class="col-md-4">
+              {% endif %}
+              <!-- Creates a card for each post -->
+              <div class="post-card mb-4">
+                <article class="card">
+                  <!-- Post category -->
+                  <header class="card-header">
+                    <div class="card-meta">
+                      <a href="{% url 'category_posts' category_slug=post.category.slug %}" class="category-link">{{ post.category.name }}</a>
+                    </div>
+                    <!-- Post title -->
+                    <a href="{% url 'post_detail' post.slug %}" class="post-link">
+                      <h2 class="card-title">{{ post.title }}</h2>
+                    </a>
+                  </header>
+                  <!-- Post image -->
+                  <a href="{% url 'post_detail' post.slug %}" class="post-link">
+                    {% if "placeholder" in post.featured_image.url %}
+                      <img class="card-img" src="{% static 'images/kelly-sikkema-baby.webp' %}" alt="placeholder image" />
+                    {% else %}
+                      <img class="card-img" src="{{ post.featured_image.url }}" alt="{{ post.title }}" />
+                    {% endif %}
+                  </a>
+                  <!-- Post excerpt -->
+                  <div class="card-body">
+                    <p class="card-text">{{ post.excerpt }}</p>
+                  </div>
+                </article>
+              </div>
+              <!-- Post Card ends  -->
+              <!-- Checks if the one-based index is divisible by 2 (meaning it is an odd index) or if it is the last post-->
+              {% if forloop.counter0|add:'1'|divisibleby:2 or forloop.last %}
+                <!-- If it is, closes the column -->
+                </div>
+              {% endif %}
+            {% endfor %}
+          {% endif %}
         {% endif %}
       </div>
     </div>
