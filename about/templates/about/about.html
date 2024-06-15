@@ -28,30 +28,28 @@
             <p class="text-about-us text-end"><em>Updated on: {{ about.updated_on }}</em></p>
             <p class="card-text">{{ about.content | safe }}</p>
             <hr />
+            <!-- Contact us section -->
+            <section id="contact-us">
+              <div class="my-3">
+                <h2>We'd Love to Hear from You!</h2>
+                <p>
+                  Your thoughts, questions, and feedback are important to us. Whether you
+                  have a parenting tip, a question about our content, or just want to say
+                  hello, please fill out the form below, and we will get back to you as
+                  soon as possible.
+                </p>
+
+                <!-- Form -->
+                <form method="post">
+                  {{ contact_us_form | crispy }}
+                  {% csrf_token %}
+                  <button class="btn btn-secondary" type="submit">Submit</button>
+                </form>
+              </div>
+            </section>
           </div>
         </article>
       </div>
-    </div>
-  </div>
-</section>
-<!-- Contact us section -->
-<section id="contact-us">
-  <div class="row justify-content-center">
-    <div class="col-md-8 my-3">
-      <h2>We'd Love to Hear from You!</h2>
-      <p>
-        Your thoughts, questions, and feedback are important to us. Whether you
-        have a parenting tip, a question about our content, or just want to say
-        hello, please fill out the form below, and we will get back to you as
-        soon as possible.
-      </p>
-
-      <!-- Form -->
-      <form method="post">
-        {{ contact_us_form | crispy }}
-        {% csrf_token %}
-        <button class="btn btn-secondary" type="submit">Submit</button>
-      </form>
     </div>
   </div>
 </section>
