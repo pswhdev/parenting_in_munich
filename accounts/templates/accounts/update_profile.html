@@ -1,90 +1,106 @@
 {% extends "base.html" %}
+{% load i18n %}
 {% load static %}
 {% block title %} - Update Profile{% endblock %}
-
 {% block content %}
-<div class="container">
-    <h2>Edit Your Profile</h2>
-    <form method="POST" enctype="multipart/form-data">
-        {% csrf_token %}
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <article class="card mb-4">
+                <header class="card-header text-center">
+                    <h1 class="card-title fs-2">Edit Your Profile</h1>
+                </header>
+                <div class="card-body">
+                    <form method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
 
-        <!-- Full Name -->
-        <div class="form-group">
-            <label for="id_full_name">Full Name:</label>
-            {{ profile_form.full_name }}
-            {% if profile_form.full_name.errors %}
-                <div class="alert alert-danger">{{ profile_form.full_name.errors }}</div>
-            {% endif %}
-        </div>
+                        <!-- Full Name -->
+                        <div class="mb-2">
+                            <label for="id_full_name">Full Name:</label>
+                            <div class="mb-1">{{ profile_form.full_name }}</div>
+                            {% if profile_form.full_name.errors %}
+                            <div class="text-danger">{{ profile_form.full_name.errors }}</div>
+                            {% endif %}
+                        </div>
 
-        <!-- Email -->
-        <div class="form-group">
-            <label for="id_email">Email:</label>
-            {{ user_form.email }}
-            {% if user_form.email.errors %}
-                <div class="alert alert-danger">{{ user_form.email.errors }}</div>
-            {% endif %}
-        </div>
+                        <!-- Email -->
+                        <div class="mb-2">
+                            <label for="id_email">Email:</label>
+                            <div class="mb-1">{{ user_form.email }}</div>
+                            {% if user_form.email.errors %}
+                            <div class="text-danger">{{ user_form.email.errors }}</div>
+                            {% endif %}
+                        </div>
 
-        <!-- Display Email -->
-        <div class="form-group">
-            <label for="id_display_email">I would like for other users to see my e-mail</label>
-            {{ profile_form.display_email }}
-            {% if profile_form.display_email.errors %}
-                <div class="alert alert-danger">{{ profile_form.display_email.errors }}</div>
-            {% endif %}
-        </div>
+                        <!-- Display Email -->
+                        <div class="mb-2 form-check">
+                            <input class="form-check-input" type="checkbox" name="display_email" id="id_display_email">
+                            <label class="form-check-label" for="id_display_email">
+                                I would like for other users to see my e-mail
+                            </label>
+                            {% if profile_form.display_email.errors %}
+                            <div class="text-danger">{{ profile_form.display_email.errors }}</div>
+                            {% endif %}
+                        </div>
 
-        <!-- Photo Upload Section -->
-        <div class="form-group">
-            <label for="id_profile_photo">Photo:</label>
-            <div>
-                <img id="profile-photo-preview" src="{{ profile_form.instance.photo.url }}" alt="Profile Picture" class="img-update-profile" data-current-photo-url="{{ profile_form.instance.photo.url }}">
-            </div>
-            <div>
-                <input type="file" name="photo" id="id_profile_photo" accept="image/*">
-            </div>
-            {% if profile_form.instance.photo %}
-                <div>
-                    <input type="checkbox" name="photo-clear" id="delete-photo-checkbox">
-                    <label for="delete-photo-checkbox">Delete photo</label><br>
+                        <div class="row">
+                            <!-- Photo Upload Section -->
+                            <div class="col-lg-6 mb-2 text-center text-lg-start">
+                                <label for="id_profile_photo">Photo:</label>
+                                <div class="mb-2 text-center">
+                                    <img id="profile-photo-preview" src="{{ profile_form.instance.photo.url }}" alt="Profile Picture" class="img-update-profile" data-current-photo-url="{{ profile_form.instance.photo.url }}">
+                                </div>
+                                <div class="mb-2">
+                                    <input type="file" name="photo" id="id_profile_photo" accept="image/*">
+                                </div>
+                                {% if profile_form.instance.photo %}
+                                <div class="form-check d-flex align-items-center">
+                                    <input class="form-check-input me-2" type="checkbox" name="photo-clear" id="delete-photo-checkbox">
+                                    <label class="form-check-label mb-0" for="delete-photo-checkbox">Delete photo</label>
+                                </div>
+                                {% endif %}
+                                {% if profile_form.photo.errors %}
+                                <div class="text-danger">{{ profile_form.photo.errors }}</div>
+                                {% endif %}
+                            </div>
+
+                            <!-- Bio -->
+                            <div class="col-lg-6 mb-2">
+                                <label for="id_bio">Bio:</label>
+                                {{ profile_form.bio }}
+                                {% if profile_form.bio.errors %}
+                                <div class="text-danger">{{ profile_form.bio.errors }}</div>
+                                {% endif %}
+                                <small id="bioHelp" class="form-text text-muted">Max 500 characters.</small>
+                            </div>
+                        </div>
+
+                        <!-- Location -->
+                        <div class="mb-2">
+                            <label for="id_location">Location:</label>
+                            <div class="mb-1">{{ profile_form.location }}</div>
+                            {% if profile_form.location.errors %}
+                            <div class="text-danger">{{ profile_form.location.errors }}</div>
+                            {% endif %}
+                        </div>
+
+                        <!-- Custom Location -->
+                        <div class="mb-2">
+                            <label for="id_custom_location">Custom Location:</label>
+                            <div class="mb-1">{{ profile_form.custom_location }}</div>
+                            {% if profile_form.custom_location.errors %}
+                            <div class="text-danger">{{ profile_form.custom_location.errors }}</div>
+                            {% endif %}
+                        </div>
+
+                        <div class="text-center mt-3">
+                            <button type="submit" class="mt-3 btn btn-primary px-4">Update Profile</button>
+                        </div>
+                    </form>
                 </div>
-            {% endif %}
-            {% if profile_form.photo.errors %}
-                <div class="alert alert-danger">{{ profile_form.photo.errors }}</div>
-            {% endif %}
+            </article><!-- /.card -->
         </div>
-
-        <!-- Bio -->
-        <div class="form-group">
-            <label for="id_bio">Bio:</label>
-            {{ profile_form.bio }}
-            {% if profile_form.bio.errors %}
-                <div class="alert alert-danger">{{ profile_form.bio.errors }}</div>
-            {% endif %}
-            <small id="bioHelp" class="form-text text-muted">Max 500 characters.</small>
-        </div>
-
-        <!-- Location -->
-        <div class="form-group">
-            <label for="id_location">Location:</label>
-            {{ profile_form.location }}
-            {% if profile_form.location.errors %}
-                <div class="alert alert-danger">{{ profile_form.location.errors }}</div>
-            {% endif %}
-        </div>
-
-        <!-- Custom Location -->
-        <div class="form-group">
-            <label for="id_custom_location">Custom Location:</label>
-            {{ profile_form.custom_location }}
-            {% if profile_form.custom_location.errors %}
-                <div class="alert alert-danger">{{ profile_form.custom_location.errors }}</div>
-            {% endif %}
-        </div>
-
-        <button type="submit" class="btn btn-primary">Update Profile</button>
-    </form>
+    </div>
 </div>
 
 <!-- Bootstrap Modal -->
@@ -104,6 +120,7 @@
         </div>
     </div>
 </div>
+
 {% endblock %}
 
 {% block extras %}

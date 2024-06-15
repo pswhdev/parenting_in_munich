@@ -13,6 +13,7 @@
   --fair-blue: #f7fdff;
   --blue: #043c4e;
   --red: #d50000;
+  --hyperlink-blue: #0000ee;
 
   /* Utils */
   --box-shadow: 0 18px 32px -18px var(--black);
@@ -47,24 +48,6 @@ main {
   min-height: 90vh;
 }
 
-a {
-  color: inherit; 
-  text-decoration: none; 
-}
-
-
-a:hover {
-  text-decoration: underline;
-  transition: all 0.25s ease-in-out;
-}
-
-a.btn:hover, .post-link:hover {
-  text-decoration: none; 
-}
-
-#logo {
-  text-decoration: none; 
-}
 
 body {
   font-family: var(--main-font);
@@ -94,12 +77,47 @@ footer {
   width: 100%;
 }
 
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+  transition: all 0.25s ease-in-out;
+}
+
+body a {
+  color: var(--hyperlink-blue);
+}
+
+#logo,
+.category-link
+a.btn:hover,
+.post-link:hover {
+  text-decoration: none;
+}
+
+.post-link,
+.category-link {
+  color: inherit;
+}
+
+.list-group-item a:hover {
+  text-decoration: underline;
+}
+
 .container {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   min-height: 100vh;
+}
+
+/* allauth Check box for e-mail and delete photo in update profile */
+.form-check-input {
+  border: 1px solid var(--dark-gray);
 }
 
 #footer-links a {
@@ -136,12 +154,17 @@ footer {
   right: 0;
 }
 
+/* From allauth forms(got the ids using dev tools on chrome) */
 #id_username,
 #id_login,
 #id_password,
 #id_email,
 #id_password1,
-#id_password2 {
+#id_password2,
+#id_full_name,
+#id_bio,
+#id_location,
+#id_custom_location {
   width: 100%;
   border-radius: 0;
 }
@@ -207,16 +230,8 @@ footer {
 }
 
 .useful-links {
-  color: var(--blue);
-  background-color: var(--fair-blue);
   min-height: 100vh;
   width: 100%;
-}
-
-.useful-links .card,
-.useful-links .list-group-item {
-  background-color: inherit;
-  color: inherit;
 }
 
 .align-items-center {
@@ -239,34 +254,9 @@ footer {
 
 .post-card {
   padding-bottom: 20px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 
-.category-link,
-.error-link,
-.comments-link {
-  text-decoration: none;
-  color: inherit;
-}
-
-/* From posts.html */
-.category-link:hover,
-.error-link:hover,
-.comments-link:hover {
-  text-decoration: underline;
-  transition: all 0.25s ease-in-out;
-}
-
-.about-img {
-  width: 75%;
-}
-
-.list-group-item a {
-  color: inherit;
-  text-decoration: none;
-}
-.list-group-item a:hover {
-  text-decoration: underline;
-}
 
 .card {
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
@@ -305,7 +295,10 @@ footer {
 
 /* Update profile */
 .img-update-profile {
-  max-width: 150px
+  width: 250px;
+  height: 250px;
+  display: block;
+  margin: 0 auto;
 }
 
 #new-photo-preview {

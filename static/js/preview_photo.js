@@ -25,58 +25,63 @@ document.addEventListener('DOMContentLoaded', () => {
     // Create a new FileReader object (API provided by web browsers to 
     // read the contents of files stored on the user's computer) to read the selected file
         const fileReader = new FileReader();
-    
-    // Once the file is fully read it runs the function
+
+        // Once the file is fully read it runs the function
         fileReader.onload = function() {
             // Set the src attribute of the img element to the file's data URL
             // This data URL is created by the FileReader and contains the file's contents
             profilePhotoPreview.src = fileReader.result;
-        
-        // Make sure the img element is visible (in case it was hidden)
+
+            // Ensure the img element retains its centering classes
+            profilePhotoPreview.classList.add('img-update-profile');
+            // Make sure the img element is visible (in case it was hidden)
             profilePhotoPreview.style.display = 'block';
-        
-        // Uncheck the delete photo checkbox because a new photo is selected
+
+            // Uncheck the delete photo checkbox because a new photo is selected
             document.getElementById('delete-photo-checkbox').checked = false;
         }
 
     // Read the selected file as a Data URL (base64 encoded string)
     // This will trigger the onload event handler when finished reading
-    fileReader.readAsDataURL(event.target.files[0]);
+        fileReader.readAsDataURL(event.target.files[0]);
     }
 
-/**
- * This function is called when the delete photo checkbox is checked or unchecked.
- * It updates the profile photo preview based on the checkbox state:
- * - If checked, the preview shows a default photo.
- * - If unchecked and a new file is selected, the preview shows the new file.
- * - If unchecked and no new file is selected, the preview shows the current photo.
- */
+    /**
+     * This function is called when the delete photo checkbox is checked or unchecked.
+     * It updates the profile photo preview based on the checkbox state:
+     * - If checked, the preview shows a default photo.
+     * - If unchecked and a new file is selected, the preview shows the new file.
+     * - If unchecked and no new file is selected, the preview shows the current photo.
+     */
     function handleDeletePhoto() {
         const deletePhotoCheckbox = document.getElementById('delete-photo-checkbox');
         const newPhotoInput = document.getElementById('id_profile_photo');
 
         if (deletePhotoCheckbox.checked) {
-        // If the checkbox is checked, show the default photo
+            // If the checkbox is checked, show the default photo
             profilePhotoPreview.src = defaultPhotoUrl;
             // Clear the file input when the delete photo checkbox is checked
             newPhotoInput.value = "";
         } else {
             // If the checkbox is unchecked
             if (newPhotoInput.files && newPhotoInput.files[0]) {
-            // If there is a new file selected, read and display it.
+                // If there is a new file selected, read and display it.
             // newPhotoInput.files is a reference to the file input element (<input type="file" ...>).
             // it ensures that the file input element actually supports file selection.
             // .files[0] ensures at least one file has been selected (the .files property is a
             // FileList object representing the list of files selected by the user.)
                 const fileReader = new FileReader();
                 fileReader.onload = function() {
-                // Set the src attribute of the img element to the file's data URL
+                    // Set the src attribute of the img element to the file's data URL
                     profilePhotoPreview.src = fileReader.result;
+
+                    // Ensure the img element retains its centering classes
+                    profilePhotoPreview.classList.add('img-update-profile');
                 }
-            // Read the selected file as a Data URL
+                // Read the selected file as a Data URL
                 fileReader.readAsDataURL(newPhotoInput.files[0]);
             } else {
-            // If no new file is selected, show the current photo
+                // If no new file is selected, show the current photo
                 profilePhotoPreview.src = currentPhotoUrl;
             }
         }
