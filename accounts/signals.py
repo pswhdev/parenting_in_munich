@@ -15,4 +15,3 @@ def create_profile_on_signup(request, user, **kwargs):
 def create_profile(sender, instance, created, **kwargs):
     if created:
         Profile.objects.get_or_create(user=instance)
-

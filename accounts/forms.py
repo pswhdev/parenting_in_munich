@@ -75,11 +75,6 @@ class ProfileUpdateForm(forms.ModelForm):
         location = cleaned_data.get("location")
         custom_location = cleaned_data.get("custom_location")
 
-        if location == "Others" and not custom_location:
-            self.add_error(
-                "custom_location",
-                "Custom location is required when Others is selected.",
-            )
         return cleaned_data
 
 
