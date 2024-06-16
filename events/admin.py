@@ -8,7 +8,6 @@ from django.core.exceptions import ValidationError
 class EventAdmin(SummernoteModelAdmin):
     list_display = (
         "name",
-        "description",
         "location",
         "start_date",
         "end_date",
