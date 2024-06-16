@@ -11,8 +11,7 @@ class EventAdmin(SummernoteModelAdmin):
         "location",
         "start_date",
         "end_date",
-        "start_time",
-        "end_time",
+        "formatted_time",
         "website_link",
     )
     search_fields = ("name", "location")
@@ -33,6 +32,13 @@ class EventAdmin(SummernoteModelAdmin):
 
     # Set the header text for the column in the admin list view to 'Website'
     website_link.short_description = "Website"
+
+    def formatted_time(self, obj):
+        if obj.end_time:
+            return f"{obj.start_time} - {obj.end_time}"
+        return f"from {obj.start_time}"
+
+    formatted_time.short_description = "Time"
 
     def save_model(self, request, obj, form, change):
         # Only check for duplicates when adding a new record

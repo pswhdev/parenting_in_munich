@@ -14,8 +14,10 @@ class Event(models.Model):
     location = models.CharField(max_length=200)
     start_date = models.DateField(default=datetime.date.today)
     end_date = models.DateField(default=datetime.date.today)
-    start_time = models.TimeField(default=datetime.time.min)
-    end_time = models.TimeField(default=datetime.time.min)
+    # Default start time at 9 AM
+    start_time = models.TimeField(default=datetime.time(9, 0))
+    # Optional end time
+    end_time = models.TimeField(blank=True, null=True)
     image = CloudinaryField("image", default=DEFAULT_IMAGE_URL)
     website = models.URLField(blank=True, null=True)
     class Meta:

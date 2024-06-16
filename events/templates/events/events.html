@@ -17,7 +17,11 @@
                 </p>
                 <p class="card-text">
                     <strong>Time:</strong> 
-                    {{ event.start_time }}{% if event.start_time != event.end_time %} - {{ event.end_time }}{% endif %}
+                    {% if event.end_time %}
+                        {{ event.start_time }} - {{ event.end_time }}
+                    {% else %}
+                        from {{ event.start_time }}
+                    {% endif %}
                 </p>
                 {% if event.website %}
                 <p class="card-text">
