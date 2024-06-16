@@ -1,7 +1,7 @@
 from django.urls import path
 from . import views
 
-# To insure uniqueness and avoid conflicts
+# To ensure uniqueness and avoid conflicts
 app_name = 'userinfo'
 
 urlpatterns = [

@@ -212,6 +212,13 @@ a.btn:hover,
   border-radius: 0;
 }
 
+/* Modal delete message */
+.btn-close-white {
+  color:white;
+  background-color: transparent;
+}
+
+
 .navbar,
 .card-header {
   background-color: var(--white) !important;
@@ -333,3 +340,17 @@ a.btn:hover,
     height: 100vh;
   }
 }
+
+/* For larger screens */
+@media (min-width: 992px) {
+  .profile-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1.5rem;
+  }
+  .profile-card {
+    flex: 1;
+    max-width: 800px;
+    min-width: 600px;
+  }

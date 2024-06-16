@@ -2,71 +2,95 @@
 {% block title %} - User Profile{% endblock %}
 {% block content %}
 
-<div class="container py-4">
-  <div class="row justify-content-center">
-    <div class="col-12">
-      <article class="card mb-4">
-        <header class="card-header text-center">
-          <h1 class="card-title">Profile of {{ profile.user.username|truncatechars:50 }}</h1>
-        </header>
-        <div class="card-body">
-          <section class="row mb-4">
-            <div class="col-md-6 mb-3">
-              <div class="d-flex flex-column">
-                <p><strong>Full Name:</strong> {{ profile.full_name|truncatechars:50 }}</p>
-                <p><strong>Username:</strong> {{ profile.user.username|truncatechars:50 }}</p>
-                {% if profile.display_email %}
-                <p><strong>Email:</strong> {{ profile.user.email }}</p>
-                {% endif %}
-                <p><strong>Location:</strong> {{ profile.location }}</p>
-                <p><strong>Bio:</strong> {{ profile.bio }}</p>
-              </div>
+<div class="container py-4 profile-container">
+  <div class="profile-card">
+    <article class="card mb-4">
+      <header class="card-header text-center">
+        <h1 class="card-title">Profile of {{ profile.user.username|truncatechars:50 }}</h1>
+      </header>
+      <div class="card-body">
+        <section class="row mb-4">
+          <div class="col-md-6 mb-3">
+            <div class="d-flex flex-column">
+              <p><strong>Full Name:</strong> {{ profile.full_name|truncatechars:50 }}</p>
+              <p><strong>Username:</strong> {{ profile.user.username|truncatechars:50 }}</p>
+              {% if profile.display_email %}
+              <p><strong>Email:</strong> {{ profile.user.email }}</p>
+              {% endif %}
+              <p><strong>Location:</strong> {{ profile.location }}</p>
+              <p><strong>Bio:</strong> {{ profile.bio }}</p>
             </div>
+          </div>
 
-            <!-- Photo -->
-            <div class="col-md-6 d-flex justify-content-center align-items-center">
-              <img
-                src="{{ profile.photo.url }}"
-                alt="Profile Picture"
-                class="rounded-circle img-profile"
-              />
-            </div>
-          </section>
+          <!-- Photo -->
+          <div class="col-md-6 d-flex justify-content-center align-items-center">
+            <img
+              src="{{ profile.photo.url }}"
+              alt="Profile Picture"
+              class="rounded-circle img-profile"
+            />
+          </div>
+        </section>
 
-          <!-- Edit/Delete Profile -->
-          {% if is_current_user %}
-          <section class="row mb-4">
-            <div class="col-12 d-flex justify-content-between">
-              <a href="{% url 'userinfo:update_profile' %}" class="btn btn-outline-secondary">Edit Profile</a>
-              <a href="{% url 'userinfo:delete_account' %}" class="btn btn-outline-danger">Delete Account</a>
+        <!-- Edit/Delete Profile -->
+        {% if is_current_user %}
+        <section class="row mb-4">
+          <div class="col-12 d-flex justify-content-between">
+            <a href="{% url 'userinfo:update_profile' %}" class="btn btn-outline-secondary">Edit Profile</a>
+            <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#deleteAccountModal">
+              Delete Account
+            </button>
+          </div>
+        </section>
+
+        <!-- Comments -->
+        <section class="row profile-container">
+          <div class="col-12">
+            <button class="btn btn-secondary px-4 mb-3" type="button" data-bs-toggle="collapse" data-bs-target="#commentsCollapse" aria-expanded="false" aria-controls="commentsCollapse">
+              View My Comments
+            </button>
+            <div class="collapse" id="commentsCollapse">
+              <ul class="list-unstyled">
+                {% for comment in comments %}
+                <li class="mb-2">
+                  <a class="comments-link" href="{% url 'post_detail' comment.post.slug %}#comment{{ comment.id }}">
+                    <strong>{{ comment.post.title|truncatewords:7 }}</strong>: {{ comment.content|truncatewords:10 }}
+                  </a>
+                  <small class="text-muted">on {{ comment.created_on }}</small>
+                </li>
+                {% empty %}
+                <p>No comments yet.</p>
+                {% endfor %}
+              </ul>
             </div>
-          </section>
-          
-          <!-- Comments -->
-          <section class="row profile-container">
-            <div class="col-12">
-              <button class="btn btn-secondary px-4 mb-3" type="button" data-bs-toggle="collapse" data-bs-target="#commentsCollapse" aria-expanded="false" aria-controls="commentsCollapse">
-                View My Comments
-              </button>
-              <div class="collapse" id="commentsCollapse">
-                <ul class="list-unstyled">
-                  {% for comment in comments %}
-                  <li class="mb-2">
-                    <a class="comments-link" href="{% url 'post_detail' comment.post.slug %}#comment{{ comment.id }}">
-                      <strong>{{ comment.post.title|truncatewords:7 }}</strong>: {{ comment.content|truncatewords:10 }}
-                    </a>
-                    <small class="text-muted">on {{ comment.created_on }}</small>
-                  </li>
-                  {% empty %}
-                  <p>No comments yet.</p>
-                  {% endfor %}
-                </ul>
-              </div>
-            </div>
-          </section>
-          {% endif %}
-        </div>
-      </article><!-- /.card -->
+          </div>
+        </section>
+        {% endif %}
+      </div>
+    </article><!-- /.card -->
+  </div>
+</div>
+
+
+<!-- Delete Account Modal -->
+<div class="modal fade" id="deleteAccountModal" tabindex="-1" aria-labelledby="deleteAccountModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header bg-danger text-white">
+        <h1 class="modal-title" id="deleteAccountModalLabel">Delete Account</h1>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>Are you sure you want to delete your account? <strong>This action cannot be undone.</strong></p>
+        <p class="mt-3" style="font-size: 0.8em;">
+          *Please note that all comments you have posted will remain on the website to maintain the cohesion of discussions. These comments may be valuable for other users. If you do not wish to keep your comments on the website, you will need to manually delete each comment before proceeding with account deletion.
+        </p>
+        <form method="POST" action="{% url 'userinfo:delete_account' %}">
+          {% csrf_token %}
+          <button type="submit" class="btn btn-danger">Delete Account</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Go Back</button>
+        </form>
+      </div>
     </div>
   </div>
 </div>

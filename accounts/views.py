@@ -58,4 +58,6 @@ def delete_account(request):
         request.user.delete()
         messages.success(request, "Your account has been successfully deleted")
         return redirect("home")
-    return render(request, "accounts/delete_account.html")
+    else:
+        # This ensures the view only processes POST requests
+        raise Http404
