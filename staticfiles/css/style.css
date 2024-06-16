@@ -212,6 +212,13 @@ a.btn:hover,
   border-radius: 0;
 }
 
+/* Modal delete message */
+.btn-close-white {
+  color:white;
+  background-color: transparent;
+}
+
+
 .navbar,
 .card-header {
   background-color: var(--white) !important;
@@ -255,16 +262,19 @@ a.btn:hover,
   padding-bottom: 15px;
 }
 
-.post-card {
+.card {
+  padding: 10px;
+  border: none;
+  border-radius: 0;
+}
+
+.post-card,
+.event-card {
   padding-bottom: 20px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 
-
-.card {
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  padding: 10px;
-  border: none;
+.card-img-top {
   border-radius: 0;
 }
 
@@ -284,6 +294,10 @@ a.btn:hover,
 .card-img:hover {
   box-shadow: var(--box-shadow);
   transform: translateY(-6px);
+}
+
+.about-img:hover {
+  box-shadow: none;
 }
 
 .restricted-area-card-img,
@@ -326,3 +340,17 @@ a.btn:hover,
     height: 100vh;
   }
 }
+
+/* For larger screens */
+@media (min-width: 992px) {
+  .profile-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1.5rem;
+  }
+  .profile-card {
+    flex: 1;
+    max-width: 800px;
+    min-width: 600px;
+  }
