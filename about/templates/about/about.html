@@ -25,7 +25,7 @@
           <!-- Content -->
           <div class="card-body">
             <!-- Last update -->
-            <p class="text-about-us text-end"><em>Updated on: {{ about.updated_on }}</em></p>
+            <p class="text-about-us text-end"><small><em>Updated on: {{ about.updated_on|date:"F j, Y" }}</em></small></p>
             <p class="card-text">{{ about.content | safe }}</p>
             <hr />
             <!-- Contact us section -->
