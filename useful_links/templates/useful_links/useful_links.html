@@ -1,35 +1,35 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<div class="useful-links">
-    <section class="container my-4">
-        <header class="mb-4 text-center">
-            <h1 class="mb-2 fs-2">Useful Links</h1>
+<section class="container">
+    <header class="row container-fluid">
+        <div class="col-12 mt-3 text-center">
+            <h1 class="mb-2">Useful Links</h1>
             <p class="mb-4">Alphabetically ordered by Topic</p>
-            
-        </header>
-        <div class="row">
-            {% for topic in topics %}
-                <article class="col-md-6 mb-4">
-                    <div class="card h-100">
-                        <div class="card-body">
-                            <header>
-                                <h2 class="card-title fs-3">{{ topic.name }}</h2>
-                            </header>
-                            <ul class="list-group list-group-flush">
-                                {% for link in topic.links.all %}
-                                    <li class="list-group-item">
-                                        <a href="{{ link.url }}" target="_blank" rel="noopener noreferrer" aria-label="Open {{ link.title }} in a new tab">
-                                            {{ link.title }}
-                                        </a>
-                                    </li>
-                                {% endfor %}
-                            </ul>
-                        </div>
-                    </div>
-                </article>
-            {% endfor %}
+            <hr>
         </div>
+    </header>
+    <section class="row">
+        {% for topic in topics %}
+            <div class="col-md-6 mb-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <header>
+                            <h2 class="card-title fs-3">{{ topic.name }}</h2>
+                        </header>
+                        <ul class="list-group list-group-flush">
+                            {% for link in topic.links.all %}
+                                <li class="list-group-item">
+                                    <a href="{{ link.url }}" target="_blank" rel="noopener noreferrer" aria-label="Open {{ link.title }} in a new tab">
+                                        {{ link.title }}
+                                    </a>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
     </section>
-</div>
+</section>
 {% endblock %}

@@ -1,37 +1,52 @@
 {% extends "base.html" %}
 {% block title %} - Events{% endblock %}
 {% block content %}
-<h1 class="mb-4">Upcoming Events</h1>
-<div class="row">
-    {% for event in events %}
-    <div class="col-md-4 mb-4">
-        <div class="card">
-            <img src="{{ event.image.url }}" class="card-img-top" alt="{{ event.name }}">
-            <div class="card-body">
-                <h5 class="card-title">{{ event.name }}</h5>
-                <p class="card-text">{{ event.description | safe }}</p>
-                <p class="card-text"><strong>Location:</strong> {{ event.location }}</p>
-                <p class="card-text">
-                    <strong>Date:</strong> 
-                    {{ event.start_date }}{% if event.start_date != event.end_date %} - {{ event.end_date }}{% endif %}
-                </p>
-                <p class="card-text">
-                    <strong>Time:</strong> 
-                    {% if event.end_time %}
-                        {{ event.start_time }} - {{ event.end_time }}
-                    {% else %}
-                        from {{ event.start_time }}
-                    {% endif %}
-                </p>
-                {% if event.website %}
-                <p class="card-text">
-                    <strong>Website:</strong> 
-                    <a href="{{ event.website }}" target="_blank">{{ event.website }}</a>
-                </p>
-                {% endif %}
-            </div>
+<section class="container">
+    <header class="row container-fluid">
+        <div class="col-12 mt-3 text-center">
+            <h1>Upcoming Events</h1>
+            <hr>
         </div>
-    </div>
-    {% endfor %}
-</div>
+    </header>
+    <section class="row">
+        {% for event in events %}
+            <article class="col-md-4 mb-4">
+                <div class="card">
+                    <header class="card-header">
+                        <div class="card-meta">
+                            <!-- Event's image -->
+                            <img src="{{ event.image.url }}" class="card-img-top" alt="{{ event.name }}">
+                            <!-- Event's name -->
+                            <h2 class="mt-3 card-title">{{ event.name }}</h2>
+                        </div>
+                    </header>
+                    <!-- Event's description -->
+                    <div class="card-body">
+                        <p class="card-text">{{ event.description | safe }}</p>
+                        <p class="card-text"><strong>Location:</strong> {{ event.location }}</p>
+                        <p class="card-text">
+                            <strong>Date:</strong>
+                            {{ event.start_date }}{% if event.start_date != event.end_date %} - {{ event.end_date }}{% endif %}
+                        </p>
+                        <p class="card-text">
+                            <strong>Time:</strong>
+                            {% if event.end_time %}
+                                {{ event.start_time }} - {{ event.end_time }}
+                            {% else %}
+                                from {{ event.start_time }}
+                            {% endif %}
+                        </p>
+                        {% if event.website %}
+                            <p class="card-text">
+                                <strong>Website:</strong>
+                                <a href="{{ event.website }}" target="_blank">{{ event.website }}</a>
+                            </p>
+                            <hr>
+                        {% endif %}
+                    </div>
+                </div>
+            </article>
+        {% endfor %}
+    </section>
+</section>
 {% endblock %}

@@ -255,16 +255,19 @@ a.btn:hover,
   padding-bottom: 15px;
 }
 
-.post-card {
+.card {
+  padding: 10px;
+  border: none;
+  border-radius: 0;
+}
+
+.post-card,
+.event-card {
   padding-bottom: 20px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 
-
-.card {
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  padding: 10px;
-  border: none;
+.card-img-top {
   border-radius: 0;
 }
 
@@ -284,6 +287,10 @@ a.btn:hover,
 .card-img:hover {
   box-shadow: var(--box-shadow);
   transform: translateY(-6px);
+}
+
+.about-img:hover {
+  box-shadow: none;
 }
 
 .restricted-area-card-img,
