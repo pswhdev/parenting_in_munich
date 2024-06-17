@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% block title %} - About us{% endblock %}
 {% block content %}
 {% load crispy_forms_tags %}
 
@@ -15,17 +16,16 @@
           </header>
           <!-- Image -->
           {% if "placeholder" in about.profile_image.url %}
-          <img
-            src="https://res.cloudinary.com/daluxpssk/image/upload/v1717744760/nobody_jm5djw.jpg"
-            alt="placeholder image"
-          />
+          <img src="https://res.cloudinary.com/daluxpssk/image/upload/v1717744760/nobody_jm5djw.jpg" alt="placeholder image" />
           {% else %}
           <img src="{{ about.profile_image.url }}" alt="about page image" />
           {% endif %}
           <!-- Content -->
           <div class="card-body">
             <!-- Last update -->
-            <p class="text-about-us text-end"><small><em>Updated on: {{ about.updated_on|date:"F j, Y" }}</em></small></p>
+            <p class="text-about-us text-end">
+              <small><em>Updated on: {{ about.updated_on|date:"F j, Y" }}</em></small>
+            </p>
             <p class="card-text">{{ about.content | safe }}</p>
             <hr />
             <!-- Contact us section -->
@@ -41,8 +41,8 @@
 
                 <!-- Form -->
                 <form method="post">
-                  {{ contact_us_form | crispy }}
                   {% csrf_token %}
+                  {{ contact_us_form | crispy }}
                   <button class="btn btn-secondary" type="submit">Submit</button>
                 </form>
               </div>
