@@ -51,7 +51,9 @@
                                 </form>
                             </div>
                         </aside>
+                        {% endif %}
                         <!-- Post's comments -->
+                        {% if user.is_authenticated %}
                         <section id="comments-section" class="col card mb-4 mt-3">
                             <h2>Comments</h2>
                             {% for comment in comments %}
@@ -129,9 +131,10 @@
                             </div>
                             {% endif %}
                             {% endfor %}
-                        </section>                        
-                        {% else %}
+                        </section>
+                        {% endif %}
                         <!-- If the user is not logged in -->
+                        {% if not user.is_authenticated %}
                         <section id="login-message">
                             <p>
                                 Please
