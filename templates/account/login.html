@@ -15,7 +15,7 @@
             <p>
               Welcome back to Parenting in Munich. To leave a comment or like a
               post, please log in. If you have not created an account yet, then
-              <a class="link" href="{{ signup_url }}">sign up</a> first.
+              <a class="link" href="{{ signup_url }}" aria-label="Sign up">sign up</a> first.
             </p>
             <form class="login-form" method="POST" action="{% url 'account_login' %}">
               {% csrf_token %}
@@ -39,13 +39,13 @@
               <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
               {% endif %}
               <div class="text-center mt-3">
-                <button class="mt-3 btn btn-secondary px-4" type="submit">Login</button>
+                <button class="mt-3 btn btn-secondary px-4" type="submit" aria-label="Login">Login</button>
               </div>
             </form>
             <div class="mt-3">
               <p>
                 {% trans "Forgot your password? Please use our" %}
-                <a href="{% url 'about' %}#contact-us">{% trans "contact form" %}</a>
+                <a href="{% url 'about' %}#contact-us" aria-label="Contact form">{% trans "contact form" %}</a>
                 {% trans "and we'll assist you as soon as possible." %}
               </p>
             </div>
