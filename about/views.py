@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.contrib import messages
 from .models import About
 from .forms import ContactUsForm
@@ -18,6 +18,8 @@ def about_site(request):
                 "Your message has been successfully submitted. "
                 "We will get in touch with you soon.",
             )
+            # Redirect to the about page to clear the form
+            return redirect('about')
         else:
             messages.add_message(
                 request,
