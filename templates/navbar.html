@@ -1,3 +1,15 @@
+{% url 'home' as home_url %}
+{% url 'posts' as posts_url %}
+{% url 'category_posts' category_slug=category.slug as category_posts_url %}
+{% url 'about' as about_url %}
+{% url 'events' as events_url %}
+{% url 'account_login' as login_url %}
+{% url 'account_signup' as signup_url %}
+{% url 'account_logout' as logout_url %}
+{% url 'useful_links' as useful_links_url %}
+{% url 'restricted_area' as restricted_area_url %}
+{% url 'userinfo:user_profile' username=request.user.username as profile_url %}
+
 <nav class="navbar navbar-expand-lg">
   <div class="container-fluid">
     <!-- Logo -->
@@ -26,8 +38,8 @@
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
           <a
-            class="nav-link {% if request.path == home_url %}active{% endif %}"
-            aria-current="page"
+            class="nav-link{% if request.path == home_url %} active"
+            aria-current="page{% endif %}"
             href="{% url 'home' %}"
             aria-label="Go to Home page"
             >Home</a
@@ -35,7 +47,8 @@
         </li>
         <li class="nav-item dropdown">
           <a
-            class="nav-link dropdown-toggle {% if request.path == posts_url %}active{% endif %}"
+            class="nav-link dropdown-toggle{% if request.path == posts_url or request.path == category_posts_url %} active"
+            aria-current="page{% endif %}"
             href="{% url 'posts' %}"
             role="button"
             data-bs-toggle="dropdown"
@@ -66,8 +79,8 @@
         </li>
         <li class="nav-item">
           <a
-            class="nav-link {% if request.path == about_url %}active{% endif %}"
-            aria-current="page"
+            class="nav-link{% if request.path == about_url %} active"
+            aria-current="page{% endif %}"
             href="{% url 'about' %}"
             aria-label="Go to About page"
             >About</a
@@ -75,8 +88,8 @@
         </li>
         <li class="nav-item">
           <a
-            class="nav-link {% if request.path == events_url %}active{% endif %}"
-            aria-current="page"
+            class="nav-link{% if request.path == events_url or request.path == restricted_area_url %} active"
+            aria-current="page{% endif %}"
             href="{% url 'events' %}"
             aria-label="Go to Events page"
             >Events</a
@@ -84,15 +97,17 @@
         </li>
         <li class="nav-item">
           <a
-            class="nav-link {% if request.path == useful_links_url %}active{% endif %}"
-            aria-current="page"
+            class="nav-link{% if request.path == useful_links_url %} active"
+            aria-current="page{% endif %}"
             href="{% url 'useful_links' %}"
             aria-label="Go to Useful Links page"
             >Useful Links</a
           >
         </li>
       </ul>
-      <!-- Search form -->
+
+      {% if request.path == posts_url or request.path == category_posts_url %}
+      <!-- Search form to be shown only on posts page-->
       <form
         class="d-flex"
         role="search"
@@ -114,6 +129,7 @@
           <i class="fa-solid fa-magnifying-glass"></i>
         </button>
       </form>
+      {% endif %}
       <!-- Authentication links -->
       <ul class="navbar-nav ml-auto">
         <!-- Logged in user will see a message that they're logged in-->
@@ -131,8 +147,8 @@
         <!-- To go to profile page -->
         <li class="nav-item">
           <a
-            class="nav-link {% if request.path == profile_url %}active{% endif %}"
-            aria-current="page"
+            class="nav-link{% if request.path == profile_url %} active"
+            aria-current="page{% endif %}"
             href="{% url 'userinfo:user_profile' username=request.user.username %}"
             aria-label="Go to Profile"
             >{{ user|truncatechars:15 }}</a
@@ -141,8 +157,8 @@
         <!-- To logout -->
         <li class="nav-item">
           <a
-            class="nav-link {% if request.path == logout_url %}active{% endif %}"
-            aria-current="page"
+            class="nav-link{% if request.path == logout_url %} active"
+            aria-current="page{% endif %}"
             href="{% url 'account_logout' %}"
             aria-label="Logout"
             >Logout</a
@@ -152,8 +168,8 @@
         <!-- Logged out user, to see the link to sign up or login -->
         <li class="nav-item">
           <a
-            class="nav-link {% if request.path == signup_url %}active{% endif %}"
-            aria-current="page"
+            class="nav-link{% if request.path == signup_url %} active"
+            aria-current="page{% endif %}"
             href="{% url 'account_signup' %}"
             aria-label="Sign up"
             >Sign up</a
@@ -161,8 +177,8 @@
         </li>
         <li class="nav-item">
           <a
-            class="nav-link {% if request.path == login_url %}active{% endif %}"
-            aria-current="page"
+            class="nav-link{% if request.path == login_url %} active"
+            aria-current="page{% endif %}"
             href="{% url 'account_login' %}"
             aria-label="Login"
             >Login</a
