@@ -204,7 +204,15 @@ a.btn:hover,
 
 .alert {
   border-radius: 0;
-  padding: 0.75rem;
+  position: relative;
+  padding-right: 4rem;
+}
+
+.alert .btn-close {
+  position: absolute;
+  top: 50%;
+  right: 1rem;
+  transform: translateY(-50%);
 }
 
 .btn-outline {

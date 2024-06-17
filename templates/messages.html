@@ -1,6 +1,7 @@
 {% for message in messages %}
 <!-- Conditional statements to change color of the message depending on
 the message tag -->
+<div
   class="alert alert-dismissible text-center show mb-3
   {% if message.tags == 'error' %}
     alert-danger
