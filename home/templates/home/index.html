@@ -15,9 +15,7 @@
     </p>
 
     <p class="btn btn-outline text-center">
-      <a href="{% url 'admin:index' %}" class="btn text-white"
-        >Go to Admin Panel</a
-      >
+      <a href="{% url 'admin:index' %}" class="btn text-white" aria-label="Go to Admin Panel">Go to Admin Panel</a>
     </p>
   </div>
   {% elif user.is_authenticated %}
@@ -32,10 +30,10 @@
     </p>
 
     <p class="btn btn-outline text-center">
-      <a href="{% url 'posts' %}" class="btn text-white">See Posts</a>
+      <a href="{% url 'posts' %}" class="btn text-white" aria-label="See Posts">See Posts</a>
     </p>
     <p class="btn btn-outline text-center">
-      <a href="{% url 'events' %}" class="btn text-white">See Events</a>
+      <a href="{% url 'events' %}" class="btn text-white" aria-label="See Events">See Events</a>
     </p>
   </div>
   {% else %}
@@ -47,7 +45,7 @@
     </p>
 
     <p class="btn btn-outline text-center">
-      <a href="{% url 'account_signup' %}" class="btn text-white">Join us!</a>
+      <a href="{% url 'account_signup' %}" class="btn text-white" aria-label="Join us!">Join us!</a>
     </p>
   </div>
   {% endif %}
