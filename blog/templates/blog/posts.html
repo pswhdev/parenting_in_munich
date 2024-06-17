@@ -20,7 +20,7 @@
     <p>No posts found.</p>
     <p>
       Please start a new search or
-      <a href="{% url 'posts' %}">return to all posts</a>
+      <a href="{% url 'posts' %}" aria-label="Return to all posts">return to all posts</a>
     </p>
   </section>
   {% else %}
@@ -35,15 +35,15 @@
           <!-- Post category -->
           <header class="card-header">
             <div class="card-meta">
-              <a href="{% url 'category_posts' category_slug=post.category.slug %}" class="category-link">{{ post.category.name }}</a>
+              <a href="{% url 'category_posts' category_slug=post.category.slug %}" class="category-link" aria-label="View posts in {{ post.category.name }}">{{ post.category.name }}</a>
             </div>
             <!-- Post title -->
-            <a href="{% url 'post_detail' post.slug %}" class="post-link">
+            <a href="{% url 'post_detail' post.slug %}" class="post-link" aria-label="Read more about {{ post.title }}">
               <h2 class="card-title">{{ post.title }}</h2>
             </a>
           </header>
           <!-- Post image -->
-          <a href="{% url 'post_detail' post.slug %}" class="post-link">
+          <a href="{% url 'post_detail' post.slug %}" class="post-link" aria-label="Read more about {{ post.title }}">
             {% if "placeholder" in post.featured_image.url %}
             <img class="card-img" src="{% static 'images/kelly-sikkema-baby.webp' %}" alt="placeholder image" />
             {% else %}
@@ -71,15 +71,15 @@
           <!-- Post category -->
           <header class="card-header">
             <div class="card-meta">
-              <a href="{% url 'category_posts' category_slug=post.category.slug %}" class="category-link">{{ post.category.name }}</a>
+              <a href="{% url 'category_posts' category_slug=post.category.slug %}" class="category-link" aria-label="View posts in {{ post.category.name }}">{{ post.category.name }}</a>
             </div>
             <!-- Post title -->
-            <a href="{% url 'post_detail' post.slug %}" class="post-link">
+            <a href="{% url 'post_detail' post.slug %}" class="post-link" aria-label="Read more about {{ post.title }}">
               <h2 class="card-title">{{ post.title }}</h2>
             </a>
           </header>
           <!-- Post image -->
-          <a href="{% url 'post_detail' post.slug %}" class="post-link">
+          <a href="{% url 'post_detail' post.slug %}" class="post-link" aria-label="Read more about {{ post.title }}">
             {% if "placeholder" in post.featured_image.url %}
             <img class="card-img" src="{% static 'images/kelly-sikkema-baby.webp' %}" alt="placeholder image" />
             {% else %}

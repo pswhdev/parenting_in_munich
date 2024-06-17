@@ -48,10 +48,10 @@
                             <div class="col-lg-6 mb-2 text-center text-lg-start">
                                 <label for="id_profile_photo">Photo:</label>
                                 <div class="mb-2 text-center">
-                                    <img id="profile-photo-preview" src="{{ profile_form.instance.photo.url }}" alt="Profile Picture" class="img-update-profile" data-current-photo-url="{{ profile_form.instance.photo.url }}">
+                                    <img id="profile-photo-preview" src="{{ profile_form.instance.photo.url }}" alt="Profile Picture" class="img-update-profile" data-current-photo-url="{{ profile_form.instance.photo.url }}" aria-label="Current profile photo">
                                 </div>
                                 <div class="mb-2">
-                                    <input type="file" name="photo" id="id_profile_photo" accept="image/*">
+                                    <input type="file" name="photo" id="id_profile_photo" accept="image/*" aria-label="Upload a new profile photo">
                                 </div>
                                 {% if profile_form.instance.photo %}
                                 <div class="form-check d-flex align-items-center">

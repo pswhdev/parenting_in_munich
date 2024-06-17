@@ -24,15 +24,15 @@
                   <!-- Post category -->
                   <header class="card-header">
                     <div class="card-meta">
-                      <a href="{% url 'category_posts' post.category.slug %}" class="category-link">{{ post.category.name }}</a>
+                      <a href="{% url 'category_posts' post.category.slug %}" class="category-link" aria-label="View more posts in {{ post.category.name }} category">{{ post.category.name }}</a>
                     </div>
                     <!-- Post title -->
-                    <a href="{% url 'post_detail' post.slug %}" class="post-link">
+                    <a href="{% url 'post_detail' post.slug %}" class="post-link" aria-label="Read more about {{ post.title }}">
                       <h2 class="card-title">{{ post.title }}</h2>
                     </a>
                   </header>
                   <!-- Post image -->
-                  <a href="{% url 'post_detail' post.slug %}" class="post-link">
+                  <a href="{% url 'post_detail' post.slug %}" class="post-link" aria-label="Read more about {{ post.title }}">
                     {% if "placeholder" in post.featured_image.url %}
                       <img class="card-img" src="{% static 'images/kelly-sikkema-baby.webp' %}" alt="placeholder image" />
                     {% else %}
@@ -60,15 +60,15 @@
                 <!-- Post category -->
                 <header class="card-header">
                   <div class="card-meta">
-                    <a href="{% url 'category_posts' post.category.slug %}" class="category-link">{{ post.category.name }}</a>
+                    <a href="{% url 'category_posts' post.category.slug %}" class="category-link" aria-label="View more posts in {{ post.category.name }} category">{{ post.category.name }}</a>
                   </div>
                   <!-- Post title -->
-                  <a href="{% url 'post_detail' post.slug %}" class="post-link">
+                  <a href="{% url 'post_detail' post.slug %}" class="post-link" aria-label="Read more about {{ post.title }}">
                     <h2 class="card-title">{{ post.title }}</h2>
                   </a>
                 </header>
                 <!-- Post image -->
-                <a href="{% url 'post_detail' post.slug %}" class="post-link">
+                <a href="{% url 'post_detail' post.slug %}" class="post-link" aria-label="Read more about {{ post.title }}">
                   {% if "placeholder" in post.featured_image.url %}
                     <img class="card-img" src="{% static 'images/kelly-sikkema-baby.webp' %}" alt="placeholder image" />
                   {% else %}
@@ -100,13 +100,13 @@
         <!-- Show First button if current page is greater than 2 (i.e., not displaying the first page) -->
         {% if page_obj.number > 2 %}
           <li class="page-item">
-            <a class="page-link" href="?page=1" aria-label="First">
+            <a class="page-link" href="?page=1" aria-label="First page">
               <span aria-hidden="true">&laquo;&laquo; First</span>
             </a>
           </li>
         {% endif %}
         <li class="page-item">
-          <a class="page-link" href="?page={{ page_obj.previous_page_number }}" aria-label="Previous">
+          <a class="page-link" href="?page={{ page_obj.previous_page_number }}" aria-label="Previous page">
             <span aria-hidden="true">&laquo; Prev</span>
           </a>
         </li>
@@ -120,7 +120,7 @@
           </li>
         {% elif num > page_obj.number|add:'-5' and num < page_obj.number|add:'5' %}
           <li class="page-item">
-            <a class="page-link" href="?page={{ num }}">{{ num }}</a>
+            <a class="page-link" href="?page={{ num }}" aria-label="Page {{ num }}">{{ num }}</a>
           </li>
         {% endif %}
       {% endfor %}
@@ -128,14 +128,14 @@
       <!-- Show Next and Last buttons if not on the last page -->
       {% if page_obj.has_next %}
         <li class="page-item">
-          <a class="page-link" href="?page={{ page_obj.next_page_number }}" aria-label="Next">
+          <a class="page-link" href="?page={{ page_obj.next_page_number }}" aria-label="Next page">
             <span aria-hidden="true">Next &raquo;</span>
           </a>
         </li>
         <!-- Show Last button if current page is less than total pages minus 1 (i.e., not displaying the last page) -->
         {% if page_obj.number < page_obj.paginator.num_pages|add:'-1' %}
           <li class="page-item">
-            <a class="page-link" href="?page={{ page_obj.paginator.num_pages }}" aria-label="Last">
+            <a class="page-link" href="?page={{ page_obj.paginator.num_pages }}" aria-label="Last page">
               <span aria-hidden="true">Last &raquo;&raquo;</span>
             </a>
           </li>

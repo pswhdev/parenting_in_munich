@@ -26,8 +26,9 @@
           <div class="col-md-6 d-flex justify-content-center align-items-center">
             <img
               src="{{ profile.photo.url }}"
-              alt="Profile Picture"
+              alt="Profile Picture of {{ profile.user.username }}"
               class="rounded-circle img-profile"
+              aria-label="Profile Picture of {{ profile.user.username }}"
             />
           </div>
         </section>
@@ -36,8 +37,8 @@
         {% if is_current_user %}
         <section class="row mb-4">
           <div class="col-12 d-flex justify-content-between">
-            <a href="{% url 'userinfo:update_profile' %}" class="btn btn-outline-secondary">Edit Profile</a>
-            <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#deleteAccountModal">
+            <a href="{% url 'userinfo:update_profile' %}" class="btn btn-outline-secondary" aria-label="Edit Profile">Edit Profile</a>
+            <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#deleteAccountModal" aria-label="Delete Account">
               Delete Account
             </button>
           </div>
@@ -48,14 +49,14 @@
         {% if is_current_user %}
         <section class="row profile-container">
           <div class="col-12">
-            <button class="btn btn-secondary px-4 mb-3" type="button" data-bs-toggle="collapse" data-bs-target="#commentsCollapse" aria-expanded="false" aria-controls="commentsCollapse">
+            <button class="btn btn-secondary px-4 mb-3" type="button" data-bs-toggle="collapse" data-bs-target="#commentsCollapse" aria-expanded="false" aria-controls="commentsCollapse" aria-label="View My Comments">
               View My Comments
             </button>
             <div class="collapse" id="commentsCollapse">
               <ul class="list-unstyled">
                 {% for comment in comments %}
                 <li class="mb-2">
-                  <a class="comments-link" href="{% url 'post_detail' comment.post.slug %}#comment{{ comment.id }}">
+                  <a class="comments-link" href="{% url 'post_detail' comment.post.slug %}#comment{{ comment.id }}" aria-label="View comment on {{ comment.post.title|truncatewords:7 }}">
                     <strong>{{ comment.post.title|truncatewords:7 }}</strong>: {{ comment.content|truncatewords:10 }}
                   </a>
                   <small class="text-muted">on {{ comment.created_on }}</small>
@@ -88,8 +89,8 @@
         </p>
         <form method="POST" action="{% url 'userinfo:delete_account' %}">
           {% csrf_token %}
-          <button type="submit" class="btn btn-danger">Delete Account</button>
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Go Back</button>
+          <button type="submit" class="btn btn-danger" aria-label="Confirm delete account">Delete Account</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" aria-label="Go Back">Go Back</button>
         </form>
       </div>
     </div>
