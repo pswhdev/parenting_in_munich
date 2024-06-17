@@ -3,17 +3,26 @@ from .models import Comment
 from .models import UsedUsername
 from allauth.account.forms import SignupForm
 from django.utils.safestring import mark_safe
+from django.core.exceptions import ValidationError
 
 
 class CommentForm(forms.ModelForm):
     content = forms.CharField(
         widget=forms.Textarea(attrs={'maxlength': 1000}),
-        required=False
+        required=True
     )
 
     class Meta:
         model = Comment
         fields = ['content']
+
+    def clean_content(self):
+        content = self.cleaned_data.get('content')
+        if content.strip() == '':
+            raise ValidationError(
+                'Comment cannot be blank or contain only whitespace.'
+                )
+        return content
 
 
 # To customize the signing up

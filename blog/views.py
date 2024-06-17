@@ -75,6 +75,12 @@ def post_detail(request, slug):
                 "Comment submitted and awaiting approval."
             )
             return HttpResponseRedirect(reverse('post_detail', args=[slug]))
+        else:
+            messages.add_message(
+                request, messages.ERROR,
+                "There was an error submitting your comment. "
+                "Please correct the errors below."
+            )
     else:
         comment_form = CommentForm()
 

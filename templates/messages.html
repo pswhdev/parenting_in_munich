@@ -1,16 +1,27 @@
-
-  {% for message in messages %}
-  <div
-    class="alert alert-success {{ message.tags }} alert-dismissible text-center show mb-3"
-    id="msg-{{ forloop.counter }}"
-    role="alert"
-  >
-    {{ message | safe }}
-    <button
-      type="button"
-      class="btn-close btn-close-message"
-      data-bs-dismiss="alert"
-      aria-label="Close"
-    ></button>
-  </div>
-  {% endfor %}
+{% for message in messages %}
+<!-- Conditional statements to change color of the message depending on
+the message tag -->
+  class="alert alert-dismissible text-center show mb-3
+  {% if message.tags == 'error' %}
+    alert-danger
+  {% elif message.tags == 'success' %}
+    alert-success
+  {% elif message.tags == 'warning' %}
+    alert-warning
+  {% elif message.tags == 'info' %}
+    alert-info
+  {% else %}
+    alert-secondary
+  {% endif %}"
+  id="msg-{{ forloop.counter }}"
+  role="alert"
+>
+  {{ message|safe }}
+  <button
+    type="button"
+    class="btn-close btn-close-message"
+    data-bs-dismiss="alert"
+    aria-label="Close"
+  ></button>
+</div>
+{% endfor %}

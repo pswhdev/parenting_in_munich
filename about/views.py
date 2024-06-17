@@ -9,18 +9,26 @@ def about_site(request):
     Renders the About page
     """
     if request.method == "POST":
-        contact_form = ContactUsForm(data=request.POST)
-        if contact_form.is_valid():
-            contact_form.save()
+        contact_us_form = ContactUsForm(data=request.POST)
+        if contact_us_form.is_valid():
+            contact_us_form.save()
             messages.add_message(
                 request,
                 messages.SUCCESS,
-                "Your message has been "
-                "successfully submitted. "
+                "Your message has been successfully submitted. "
                 "We will get in touch with you soon.",
             )
+        else:
+            messages.add_message(
+                request,
+                messages.ERROR,
+                "There was an error submitting your message. "
+                "Please correct the errors below.",
+            )
+    else:
+        contact_us_form = ContactUsForm()
+
     about = About.objects.all().order_by("-updated_on").first()
-    contact_us_form = ContactUsForm()
 
     return render(
         request,
