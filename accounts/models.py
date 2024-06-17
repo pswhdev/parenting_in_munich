@@ -50,17 +50,30 @@ DEFAULT_IMAGE_URL = (
 
 
 class Profile(models.Model):
+    """
+    Represents a user profile.
+
+    Attributes:
+        user (User): The user associated with the profile.
+        photo (CloudinaryField): The profile photo.
+        location (str): The location of the user.
+        bio (str): The user's biography.
+        custom_location (str): A custom location specified by the user.
+        full_name (str): The full name of the user.
+        display_email (bool): Flag to control email visibility.
+    """
+
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     photo = CloudinaryField(
         "image", blank=True, null=True, default=DEFAULT_IMAGE_URL
-        )
+    )
     location = models.CharField(
         max_length=100, choices=MUNICH_DISTRICTS, default="Others"
     )
     bio = models.TextField(blank=True, null=True)
     custom_location = models.CharField(max_length=100, blank=True, null=True)
     full_name = models.CharField(max_length=255, blank=True, null=True)
-    display_email = models.BooleanField(default=False)  # New field to control email visibility
+    display_email = models.BooleanField(default=False)
 
     def __str__(self):
         return f"{self.user.username} Profile"

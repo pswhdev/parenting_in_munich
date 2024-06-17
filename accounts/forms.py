@@ -10,6 +10,10 @@ from django.core.files.uploadedfile import InMemoryUploadedFile
 
 
 class UserUpdateForm(forms.ModelForm):
+    """
+    A form for updating user information.
+    """
+
     email = forms.EmailField()
 
     class Meta:
@@ -18,6 +22,10 @@ class UserUpdateForm(forms.ModelForm):
 
 
 class ProfileUpdateForm(forms.ModelForm):
+    """
+    A form for updating profile information.
+    """
+
     location = forms.ChoiceField(
         choices=[("Others", "Others")] + MUNICH_DISTRICTS
     )
@@ -79,6 +87,11 @@ class ProfileUpdateForm(forms.ModelForm):
 
 
 class CustomLoginForm(LoginForm):
+    """
+    Checks if the provided username exists in the User model
+    to give the user a feedback if the username doesn't exist.
+    """
+
     def clean(self):
         User = get_user_model()
         username = self.cleaned_data.get("login")

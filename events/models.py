@@ -20,6 +20,7 @@ class Event(models.Model):
     end_time = models.TimeField(blank=True, null=True)
     image = CloudinaryField("image", default=DEFAULT_IMAGE_URL)
     website = models.URLField(blank=True, null=True)
+
     class Meta:
         unique_together = (
             "name",

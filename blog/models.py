@@ -7,7 +7,9 @@ from django.core.exceptions import ValidationError
 
 class Category(models.Model):
     name = models.CharField(max_length=100, unique=True)
-    slug = models.SlugField(max_length=100, unique=True, blank=True)
+    slug = models.SlugField(
+        max_length=100, unique=True, blank=True
+    )
 
     def save(self, *args, **kwargs):
         if not self.slug:
@@ -35,7 +37,8 @@ class Post(models.Model):
     # To allow the post to remain on the database and the site
     # even if the user is deleted
     user = models.ForeignKey(
-        User, on_delete=models.SET_NULL, null=True, related_name="blog_posts"
+        User, on_delete=models.SET_NULL, null=True,
+        related_name="blog_posts"
     )
     author = models.CharField(max_length=150, null=True, blank=True)
     featured_image = CloudinaryField("image", default="placeholder")
@@ -45,7 +48,8 @@ class Post(models.Model):
     excerpt = models.TextField(blank=True)
     updated_on = models.DateTimeField(auto_now=True)
     category = models.ForeignKey(
-        Category, related_name="posts", on_delete=models.CASCADE
+        Category, related_name="posts",
+        on_delete=models.CASCADE
     )
 
     # To make sure the author has the username so if the user account
@@ -72,9 +76,12 @@ class Post(models.Model):
 
 
 class Comment(models.Model):
-    post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name="comments")
+    post = models.ForeignKey(
+        Post, on_delete=models.CASCADE, related_name="comments"
+        )
     user = models.ForeignKey(
-        User, on_delete=models.SET_NULL, null=True, related_name="comments_author"
+        User, on_delete=models.SET_NULL, null=True,
+        related_name="comments_author"
     )
     author = models.CharField(max_length=150, null=True, blank=True)
     content = models.TextField()

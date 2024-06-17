@@ -53,7 +53,7 @@ INSTALLED_APPS = [
     "allauth.socialaccount",
     "crispy_forms",
     "crispy_bootstrap5",
-    
+
     # My Apps
     "home",
     "blog",
@@ -132,7 +132,8 @@ CSRF_TRUSTED_ORIGINS = ["https://*.herokuapp.com"]
 AUTH_PASSWORD_VALIDATORS = [
     {
         "NAME":
-        "django.contrib.auth.password_validation.UserAttributeSimilarityValidator",
+        "django.contrib.auth.password_validation."
+        "UserAttributeSimilarityValidator",
     },
     {
         "NAME":

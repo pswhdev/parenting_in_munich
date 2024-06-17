@@ -3,6 +3,7 @@ from django.dispatch import receiver
 from django.contrib.auth.models import User
 from .models import Post, Comment, UsedUsername
 
+
 # Signal to update the author field before deleting the user
 # in order to keep the integrity of the database
 @receiver(pre_delete, sender=User)
@@ -23,6 +24,7 @@ def update_author_before_user_delete(sender, instance, **kwargs):
     for comment in comments:
         comment.author = deactivated_username
         comment.save()
+
 
 # Signal to prevent reuse of usernames
 @receiver(pre_save, sender=User)
