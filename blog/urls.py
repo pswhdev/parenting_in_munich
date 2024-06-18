@@ -1,5 +1,5 @@
 from . import views
-from django.urls import path, include
+from django.urls import path
 
 urlpatterns = [
     # Posts page listing all posts
@@ -15,6 +15,4 @@ urlpatterns = [
     # Delete comment
     path('<slug:slug>/delete_comment/<int:comment_id>',
          views.comment_delete, name='comment_delete'),
-    # Accounts
-    path('accounts/', include('accounts.urls')),
 ]
