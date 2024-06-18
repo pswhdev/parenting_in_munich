@@ -20,18 +20,19 @@
                     <img src="{{ post.featured_image.url }}" class="scale card-img" alt="{{ post.title }}">
                     {% endif %}
                     <!-- Info about author, last update, and category -->
-                    <p class="post-subtitle">
-                        {{ post.author }} |
-                        <div class="time" datetime="{{ post.updated_on }}">
-                            Last updated on {{ post.updated_on|date:"F j, Y" }}
-                        </div>
-                        <a href="{% url 'category_posts' post.category.slug %}" class="category-link" aria-label="View more posts in {{ post.category.name }} category">
-                            {{ post.category.name }}
-                        </a>
-                    </p>
+                    <div class="post-subtitle">
+                        <p>{{ post.author }} |
+                            <time class="time" datetime="{{ post.updated_on|date:'Y-m-d' }}">
+                            Last updated on {{ post.updated_on|date:"F j, Y" }} |
+                            </time>
+                            <a href="{% url 'category_posts' post.category.slug %}" class="category-link" aria-label="View more posts in {{ post.category.name }} category">
+                                {{ post.category.name }}
+                            </a>
+                        </p>
+                    </div>
                     <!-- Post content -->
                     <div class="card-body">
-                        <article class="card-text">{{ post.content | safe }}</article>
+                        <article class="card-text">{{ post.content|safe }}</article>
                         <hr>
                         <!-- Comments section -->
                         <p><i class="fa-regular fa-comments"></i> {{ comment_count }}</p>
@@ -42,7 +43,7 @@
                                 <h3>Leave a comment:</h3>
                                 <p>Posting as: {{ user.username|truncatechars:50 }}</p>
                                 <form id="commentForm" method="post" style="margin-top: 1.3em">
-                                    {{ comment_form | crispy }}
+                                    {{ comment_form|crispy }}
                                     {% csrf_token %}
                                     <small id="contentHelp" class="form-text text-muted">Max 1000 characters.</small>
                                     <div class="d-flex justify-content-end">
@@ -84,7 +85,7 @@
                                             posted on {{ comment.created_on }}:
                                         </p>
                                         <div id="comment{{ comment.id }}">
-                                            {{ comment.content | linebreaks }}
+                                            {{ comment.content|linebreaks }}
                                         </div>
                                     </div>
                                 </div>
@@ -117,7 +118,7 @@
                                             posted on {{ comment.created_on }}:
                                         </p>
                                         <div id="comment{{ comment.id }}" class="text-muted">
-                                            {{ comment.content | linebreaks }}
+                                            {{ comment.content|linebreaks }}
                                         </div>
                                         <p>Comment pending approval.</p>
                                     </div>
