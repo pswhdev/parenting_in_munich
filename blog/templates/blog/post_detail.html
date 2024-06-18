@@ -22,16 +22,16 @@
                     <!-- Info about author, last update, and category -->
                     <p class="post-subtitle">
                         {{ post.author }} |
-                        <time class="time" datetime="{{ post.updated_on }}">
+                        <div class="time" datetime="{{ post.updated_on }}">
                             Last updated on {{ post.updated_on|date:"F j, Y" }}
-                        </time> |
+                        </div>
                         <a href="{% url 'category_posts' post.category.slug %}" class="category-link" aria-label="View more posts in {{ post.category.name }} category">
                             {{ post.category.name }}
                         </a>
                     </p>
                     <!-- Post content -->
                     <div class="card-body">
-                        <p class="card-text">{{ post.content | safe }}</p>
+                        <article class="card-text">{{ post.content | safe }}</article>
                         <hr>
                         <!-- Comments section -->
                         <p><i class="fa-regular fa-comments"></i> {{ comment_count }}</p>
@@ -136,6 +136,7 @@
                         <!-- If the user is not logged in -->
                         {% if not user.is_authenticated %}
                         <section id="login-message">
+                            <h2 class="sr-only">Login or Sign Up</h2>
                             <p>
                                 Please
                                 <a href="{% url 'account_login' %}?next={{ request.path }}" aria-label="Login to participate in the discussion">login</a>

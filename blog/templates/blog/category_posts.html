@@ -13,7 +13,8 @@
         <hr>
       </div>
       <!-- Posts Section -->
-      <div class="row">
+      <section class="row">
+        <h2 class="sr-only">Post Listings</h2>
         <!-- Determine if there are up to three posts on the current page -->
         {% if page_obj|length <= 3 %}
           <!-- Loop through each post and create a column for each post -->
@@ -41,7 +42,7 @@
                   </a>
                   <!-- Post excerpt -->
                   <div class="card-body">
-                    <p class="card-text">{{ post.excerpt }}</p>
+                    <div class="card-text">{{ post.excerpt }}</div>
                   </div>
                 </article>
               </div>
@@ -88,7 +89,7 @@
             {% endif %}
           {% endfor %}
         {% endif %}
-      </div>
+      </section>
     </div>
   </div>
   
