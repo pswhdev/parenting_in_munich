@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
-{% block title %} - About Us{% endblock %}
+{% block title %}About Us{% endblock %}
 {% block content %}
 {% load crispy_forms_tags %}
 
@@ -11,14 +11,14 @@
         <article class="card mb-3">
           <header class="card-header text-center">
             <!-- Title -->
-            <h1 class="post-title">{{ about.title }}</h1>
+            <h2 class="post-title">{{ about.title }}</h2>
             <hr>
           </header>
           <!-- Image -->
           {% if "placeholder" in about.profile_image.url %}
-          <img src="https://res.cloudinary.com/daluxpssk/image/upload/v1717744760/nobody_jm5djw.jpg" alt="Placeholder Image" />
+          <img src="https://res.cloudinary.com/daluxpssk/image/upload/v1717744760/nobody_jm5djw.jpg" alt="Placeholder Image">
           {% else %}
-          <img src="{{ about.profile_image.url }}" alt="About Page Image" />
+          <img src="{{ about.profile_image.url }}" alt="About Page Image">
           {% endif %}
           <!-- Content -->
           <div class="card-body">
@@ -26,8 +26,8 @@
             <p class="text-about-us text-end">
               <small><em>Updated on: {{ about.updated_on|date:"F j, Y" }}</em></small>
             </p>
-            <p class="card-text">{{ about.content | safe }}</p>
-            <hr />
+            <article class="card-text">{{ about.content | safe }}</article>
+            <hr>
             <!-- Contact us section -->
             <section id="contact-us">
               <div class="my-3">

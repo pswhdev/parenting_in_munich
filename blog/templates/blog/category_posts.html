@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
-{% block title %} - {{ category.name }} {% endblock %}
+{% block title %}{{ category.name }}{% endblock %}
 {% block content %}
 
 <div class="container">
@@ -34,9 +34,9 @@
                   <!-- Post image -->
                   <a href="{% url 'post_detail' post.slug %}" class="post-link" aria-label="Read more about {{ post.title }}">
                     {% if "placeholder" in post.featured_image.url %}
-                      <img class="card-img" src="{% static 'images/kelly-sikkema-baby.webp' %}" alt="placeholder image" />
+                      <img class="card-img" src="{% static 'images/kelly-sikkema-baby.webp' %}" alt="placeholder image">
                     {% else %}
-                      <img class="card-img" src="{{ post.featured_image.url }}" alt="{{ post.title }}" />
+                      <img class="card-img" src="{{ post.featured_image.url }}" alt="{{ post.title }}">
                     {% endif %}
                   </a>
                   <!-- Post excerpt -->
@@ -70,9 +70,9 @@
                 <!-- Post image -->
                 <a href="{% url 'post_detail' post.slug %}" class="post-link" aria-label="Read more about {{ post.title }}">
                   {% if "placeholder" in post.featured_image.url %}
-                    <img class="card-img" src="{% static 'images/kelly-sikkema-baby.webp' %}" alt="placeholder image" />
+                    <img class="card-img" src="{% static 'images/kelly-sikkema-baby.webp' %}" alt="placeholder image">
                   {% else %}
-                    <img class="card-img" src="{{ post.featured_image.url }}" alt="{{ post.title }}" />
+                    <img class="card-img" src="{{ post.featured_image.url }}" alt="{{ post.title }}">
                   {% endif %}
                 </a>
                 <!-- Post excerpt -->
