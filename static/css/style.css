@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=PT+Sans+Caption:wght@400;700&display=swap");
 
 :root {
-  /** Fonts */
+  /* Fonts */
   --title: "EB Garamond", serif;
   --main-font: "PT Sans Caption", sans-serif;
 
@@ -23,12 +23,17 @@
   box-sizing: border-box;
 }
 
+.align-items-center {
+  align-items: center !important;
+}
+
 html,
 body {
-  min-height: 100vh;
+  height: 100%;
   margin: 0;
   display: flex;
   flex-direction: column;
+  font-family: var(--main-font);
 }
 
 main {
@@ -42,12 +47,11 @@ main {
 .wrapper {
   display: flex;
   flex-direction: column;
-  min-height: 90vh;
+  min-height: 100vh;
 }
 
-
-body {
-  font-family: var(--main-font);
+.content {
+  flex: 1;
 }
 
 h1,
@@ -60,11 +64,6 @@ h6 {
   font-weight: 700;
 }
 
-main {
-  flex: 1 0 auto;
-  background-color: var(--white);
-}
-
 /* Footer */
 footer {
   flex-shrink: 0;
@@ -74,6 +73,7 @@ footer {
   width: 100%;
 }
 
+/* Links */
 a {
   text-decoration: none;
 }
@@ -84,8 +84,7 @@ a:hover {
 }
 
 #logo,
-.category-link
-a.btn:hover,
+.category-link a.btn:hover,
 .post-link:hover,
 #link-post-comment {
   text-decoration: none;
@@ -104,40 +103,28 @@ a.btn:hover,
   text-decoration: underline;
 }
 
-.container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh;
-}
-
-/* allauth Check box for e-mail and delete photo in update profile */
-.form-check-input {
-  border: 1px solid var(--dark-gray);
-}
-
 #footer-links a {
   color: var(--dark-gray);
   text-decoration: none;
   justify-content: space-between;
 }
 
-/* Hero */
+/* Heros */
 #hero,
 #hero-logout {
   width: 100%;
   height: 90vh;
-  background: url("https://res.cloudinary.com/daluxpssk/image/upload/v1718810416/children-park3_w5tmxh.webp")
-    center center;
   background-size: cover;
   position: relative;
   overflow: hidden;
 }
 
+#hero {
+  background: url("https://res.cloudinary.com/daluxpssk/image/upload/v1718810416/children-park3_w5tmxh.webp") center center;
+}
+
 #hero-logout {
-  background: url("https://res.cloudinary.com/daluxpssk/image/upload/v1718810586/boys-playing-friends-children-playing-ecfc0c859c9f575352f9f012f6c97c60-2_pmrfhp.webp")
-    center center;
+  background: url("https://res.cloudinary.com/daluxpssk/image/upload/v1718810586/boys-playing-friends-children-playing-ecfc0c859c9f575352f9f012f6c97c60-2_pmrfhp.webp") center center;
 }
 
 #hero:before,
@@ -151,21 +138,7 @@ a.btn:hover,
   right: 0;
 }
 
-/* From allauth forms(got the ids using dev tools on chrome) */
-#id_username,
-#id_login,
-#id_password,
-#id_email,
-#id_password1,
-#id_password2,
-#id_full_name,
-#id_bio,
-#id_location,
-#id_custom_location {
-  width: 100%;
-  border-radius: 0;
-}
-
+/* Buttons */
 .btn {
   border-radius: 0;
   text-transform: uppercase;
@@ -176,14 +149,12 @@ a.btn:hover,
   text-transform: capitalize;
   color: var(--red);
   border-color: var(--red);
-  border-radius: 0;
 }
 
 .btn-edit {
   text-transform: capitalize;
   color: var(--dark-gray);
   border-color: var(--dark-gray);
-  border-radius: 0;
 }
 
 .btn-close-message {
@@ -192,14 +163,7 @@ a.btn:hover,
 }
 
 .btn-close-message:focus {
-  outline: none;
   box-shadow: none;
-}
-
-.alert {
-  border-radius: 0;
-  position: relative;
-  padding-right: 4rem;
 }
 
 .alert .btn-close {
@@ -220,7 +184,34 @@ a.btn:hover,
   background-color: transparent;
 }
 
+/* Alert boxes */
+.alert {
+  border-radius: 0;
+  position: relative;
+  padding-right: 4rem;
+}
 
+/* allauth form fields */
+#id_username,
+#id_login,
+#id_password,
+#id_email,
+#id_password1,
+#id_password2,
+#id_full_name,
+#id_bio,
+#id_location,
+#id_custom_location {
+  width: 100%;
+  border-radius: 0;
+}
+
+/* allauth checkbox */
+.form-check-input {
+  border: 1px solid var(--dark-gray);
+}
+
+/* Navbar */
 .navbar,
 .card-header {
   background-color: var(--white) !important;
@@ -231,25 +222,13 @@ a.btn:hover,
   padding: 0;
 }
 
+/* Navbar search field in Posts */
 .form-control {
   border-radius: 0;
   flex: 1;
 }
 
-.card {
-  border: none;
-  border-radius: 0;
-}
-
-.useful-links {
-  min-height: 100vh;
-  width: 100%;
-}
-
-.align-items-center {
-  align-items: center !important;
-}
-
+/* Pagination */
 .pagination {
   --bs-pagination-color: var(--black);
   --bs-pagination-hover-color: var(--dark-gray);
@@ -270,8 +249,7 @@ a.btn:hover,
   border-radius: 0;
 }
 
-.post-card,
-.event-card {
+.post-card {
   padding-bottom: 20px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
@@ -289,7 +267,6 @@ a.btn:hover,
   transition: all 0.2s cubic-bezier(0.42, 0, 0.58, 1);
   width: 100%;
   height: auto;
-  /* Image covers the area without distortion */
   object-fit: cover;
 }
 
@@ -298,10 +275,7 @@ a.btn:hover,
   transform: translateY(-6px);
 }
 
-.about-img:hover {
-  box-shadow: none;
-}
-
+/* 404 and events restrict area pages */
 .restricted-area-card-img,
 .error-page-card-img {
   border-radius: 0;
@@ -318,6 +292,8 @@ a.btn:hover,
   height: 250px;
   display: block;
   margin: 0 auto;
+  object-fit: cover;
+  object-position: center;
 }
 
 #new-photo-preview {
@@ -351,6 +327,7 @@ a.btn:hover,
     align-items: center;
     margin-top: 1.5rem;
   }
+  
   .profile-card {
     flex: 1;
     max-width: 800px;
