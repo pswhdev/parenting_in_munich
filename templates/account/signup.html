@@ -8,7 +8,7 @@
       <div class="col-md-8 mx-auto">
         <article class="card mb-4 no-border-card">
           <header class="card-header text-center">
-            <h1 class="card-title fs-2">Sign Up</h1>
+            <h2 class="card-title fs-2">Sign Up</h2>
           </header>
           <div class="card-body">
             <form method="post" action="{% url 'account_signup' %}">
@@ -44,6 +44,7 @@
                 <div class="mb-1">{{ form.password1.label_tag }}</div>
                 <div class="mb-1">
                   {{ form.password1 }}
+                  <small id="id_password1_helptext" class="form-text text-muted">Your password must be at least 8 characters long and cannot be entirely numeric.</small>
                   {% if form.password1.errors %}
                     <div class="my-1 text-danger">{{ form.password1.errors }}</div>
                   {% endif %}
@@ -58,16 +59,6 @@
                     <div class="my-1 text-danger">{{ form.password2.errors }}</div>
                   {% endif %}
                 </div>
-              </div>
-              <!-- Display password requirements -->
-              <div class="alert alert-secondary mb-3 px-3" role="alert">
-                <h2 class="fs-5">Password requirements:</h2>
-                <ul>
-                  <li>Must be at least 8 characters long (MinimumLengthValidator)</li>
-                  <li>Cannot be a commonly used password (CommonPasswordValidator)</li>
-                  <li>Cannot be entirely numeric (NumericPasswordValidator)</li>
-                  <li>Cannot be too similar to your other personal information (UserAttributeSimilarityValidator)</li>
-                </ul>
               </div>
               <!-- Important Note -->
               <div class="alert alert-warning mt-2 px-3">

@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% block title %}404{% endblock %}
+{% block title %}404 - Page Not Found{% endblock %}
 {% block content %}
 
 <div class="container">
@@ -11,9 +11,8 @@
             src="https://res.cloudinary.com/daluxpssk/image/upload/v1717930876/error-page_ssoiki.webp"
             class="img-fluid"
             alt="Page Not Found image"
-          >
-          <p class="mt-3">Oops! The page you are looking for could not be found.</p>
-          <a href="{% url 'home' %}" aria-label="Go to main page">Go to main page</a>
+          />
+          <p class="mt-3">The page you are looking for could not be found, please <a href="{% url 'home' %}" aria-label="Go to main page">go to main page</a>.</p>
         </div>
       </div>
     </div>

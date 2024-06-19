@@ -7,10 +7,11 @@
   <div class="profile-card">
     <article class="card mb-4">
       <header class="card-header text-center">
-        <h1 class="card-title">Profile of {{ profile.user.username|truncatechars:50 }}</h1>
+        <h2 class="card-title">Profile of {{ profile.user.username|truncatechars:50 }}</h2>
       </header>
       <div class="card-body">
         <section class="row mb-4">
+          <h2 class="sr-only">Profile Details</h2>
           <div class="col-md-6 mb-3">
             <div class="d-flex flex-column">
               <p><strong>Full Name:</strong> {{ profile.full_name|truncatechars:50 }}</p>
@@ -37,6 +38,7 @@
         <!-- Edit/Delete Profile -->
         {% if is_current_user %}
         <section class="row mb-4">
+          <h2 class="sr-only">Profile Actions</h2>
           <div class="col-12 d-flex justify-content-between">
             <a href="{% url 'userinfo:update_profile' %}" class="btn btn-outline-secondary" aria-label="Edit Profile">Edit Profile</a>
             <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#deleteAccountModal" aria-label="Delete Account">
@@ -49,6 +51,7 @@
         <!-- Comments -->
         {% if is_current_user %}
         <section class="row profile-container">
+          <h2 class="sr-only">User Comments</h2>
           <div class="col-12">
             <button class="btn btn-secondary px-4 mb-3" type="button" data-bs-toggle="collapse" data-bs-target="#commentsCollapse" aria-expanded="false" aria-controls="commentsCollapse" aria-label="View My Comments">
               View My Comments
@@ -63,7 +66,7 @@
                   <small class="text-muted">on {{ comment.created_on }}</small>
                 </li>
                 {% empty %}
-                <p>No comments yet.</p>
+                <li>No comments yet.</li>
                 {% endfor %}
               </ul>
             </div>
@@ -80,7 +83,7 @@
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header bg-danger text-white">
-        <h1 class="modal-title" id="deleteAccountModalLabel">Delete Account</h1>
+        <h2 class="modal-title" id="deleteAccountModalLabel">Delete Account</h2>
         <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
@@ -97,5 +100,4 @@
     </div>
   </div>
 </div>
-
 {% endblock %}
