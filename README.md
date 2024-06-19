@@ -57,7 +57,12 @@ Validation tests using [The W3C Markup validation service](https://validator.w3.
 - [Login page](https://validator.w3.org/nu/?showsource=yes&doc=https%3A%2F%2Fparenting-in-munich-site-527d6bb8b97c.herokuapp.com%2Faccounts%2Flogin%2F)
 - [Signup page](https://validator.w3.org/nu/?showsource=yes&doc=https%3A%2F%2Fparenting-in-munich-site-527d6bb8b97c.herokuapp.com%2Faccounts%2Fsignup%2F)
 
-All pages with loggedin user were tested by pasting the source code from the rendered page and also showed no error nor warnings.
+All pages with authenticated user and page 404 were tested by pasting the source code from the rendered page and also showed no error nor warnings.
+
+Lighthouse tests results:
+
+
+
 
 
 
