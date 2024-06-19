@@ -59,6 +59,9 @@ Validation tests using [The W3C Markup validation service](https://validator.w3.
 
 All pages with authenticated user and page 404 were tested by pasting the source code from the rendered page and also showed no error nor warnings.
 
+CSC validation was done using [W3C CSS Validator](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fparenting-in-munich-site-527d6bb8b97c.herokuapp.com%2F&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en)
+- [CSS validation](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fparenting-in-munich-site-527d6bb8b97c.herokuapp.com%2F&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en)
+
 Lighthouse tests results:
 
 white background: mobile
