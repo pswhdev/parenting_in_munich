@@ -110,6 +110,15 @@ a:hover {
 }
 
 /* Heros */
+
+#hero {
+  background: url("https://res.cloudinary.com/daluxpssk/image/upload/v1718834369/children-park3_1_d4j3ro.webp") center center;
+}
+
+#hero-logout {
+  background: url("https://res.cloudinary.com/daluxpssk/image/upload/v1718810586/boys-playing-friends-children-playing-ecfc0c859c9f575352f9f012f6c97c60-2_pmrfhp.webp") center center;
+}
+
 #hero,
 #hero-logout {
   width: 100%;
@@ -117,14 +126,6 @@ a:hover {
   background-size: cover;
   position: relative;
   overflow: hidden;
-}
-
-#hero {
-  background: url("https://res.cloudinary.com/daluxpssk/image/upload/v1718810416/children-park3_w5tmxh.webp") center center;
-}
-
-#hero-logout {
-  background: url("https://res.cloudinary.com/daluxpssk/image/upload/v1718810586/boys-playing-friends-children-playing-ecfc0c859c9f575352f9f012f6c97c60-2_pmrfhp.webp") center center;
 }
 
 #hero:before,
