@@ -5,33 +5,33 @@
 ### Wireframes
 
 * Home page
-![Home page wireframe](documentation/home_page.png)
+![Home page wireframe](documentation/wireframes/home_page.png)
 
 * Posts page
-![Posts page wireframe](documentation/posts_page.png)
+![Posts page wireframe](documentation/wireframes/posts_page.png)
 
 * Posts detail page
-![Posts detail page wireframe](documentation/post_detail_page.png)
+![Posts detail page wireframe](documentation/wireframes/post_detail_page.png)
 
 * Registration page
-![Registration page wireframe](documentation/registration_page.png)
+![Registration page wireframe](documentation/wireframes/registration_page.png)
 
 * Events page
-![Events page wireframe](documentation/events.png)
+![Events page wireframe](documentation/wireframes/events.png)
 
 * Forum page
-![Forum page wireframe](documentation/forum.png)
+![Forum page wireframe](documentation/wireframes/forum.png)
 
 * Links page
-![Links page wireframe](documentation/links_page.png)
+![Links page wireframe](documentation/wireframes/links_page.png)
 
 * About page
-![About page wireframe](documentation/about_page.png)
+![About page wireframe](documentation/wireframes/about_page.png)
 
 ### ERDs
 
 * Simple interaction diagram
-![Simple interaction diagram](documentation/simple_interaction_diagram.png)
+![Simple interaction diagram](documentation/wireframes/simple_interaction_diagram.png)
 
 
 
@@ -60,6 +60,39 @@ Validation tests using [The W3C Markup validation service](https://validator.w3.
 All pages with authenticated user and page 404 were tested by pasting the source code from the rendered page and also showed no error nor warnings.
 
 Lighthouse tests results:
+
+white background: mobile
+black background: desktop
+
+Homepage:
+![Homepage desktop](documentation/lighthouse-tests/lh-homepage-desktop.png)
+![Homepage mobile](documentation/lighthouse-tests/lh-homepage-mobile.png)
+![Posts page desktop](documentation/lighthouse-tests/lh-posts-desktop.png)
+![Posts page mobile](documentation/lighthouse-tests/lh-posts-mobile.png)
+![Posts categories page desktop](documentation/lighthouse-tests/lh-category-desktop.png)
+![Posts categories page mobile](documentation/lighthouse-tests/lh-category-mobile.png)
+![Posts detail desktop](documentation/lighthouse-tests/lh-post_detail-desktop.png)
+![Posts detail mobile](documentation/lighthouse-tests/lh-post_detail-mobile.png)
+![About page desktop](documentation/lighthouse-tests/lh-about-desktop.png)
+![About page mobile](documentation/lighthouse-tests/lh-about-mobile.png)
+![Events desktop](documentation/lighthouse-tests/lh-events-desktop.png)
+![Events mobile](documentation/lighthouse-tests/lh-events-mobile.png)
+![Events restricted area desktop](documentation/lighthouse-tests/lh-events-restricted-desktop.png)
+![Events restricted area mobile](documentation/lighthouse-tests/lh-events-restricted-mobile.png)
+![Useful links desktop](documentation/lighthouse-tests/lh-useful-links-desktop.png)
+![Useful links mobile](documentation/lighthouse-tests/lh-useful-links-mobile.png)
+![Signup page desktop](documentation/lighthouse-tests/lh-signup-desktop.png)
+![Signup page mobile](documentation/lighthouse-tests/lh-signup-mobile.png)
+![Login page desktop](documentation/lighthouse-tests/lh-login-desktop.png)
+![Login page  mobile](documentation/lighthouse-tests/lh-login-mobile.png)
+![User Profile page desktop](documentation/lighthouse-tests/lh-useful-links-desktop.png)
+![User Profile page mobile](documentation/lighthouse-tests/lh-user-profile-mobile.png)
+![Profile update page desktop](documentation/lighthouse-tests/lh-profile-update-desktop.png)
+![Profile update page mobile](documentation/lighthouse-tests/lh-profile-update-mobile.png)
+![Logout page desktop](documentation/lighthouse-tests/lh-logout-desktop.png)
+![Logout page mobile](documentation/lighthouse-tests/lh-logout-mobile.png)
+
+
 
 
 
