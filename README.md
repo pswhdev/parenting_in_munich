@@ -37,7 +37,7 @@
 
 
 
-Validation tests using [The W3C Markup validation service](https://validator.w3.org/#validate_by_uri):
+### Validation tests using [The W3C Markup validation service](https://validator.w3.org/#validate_by_uri):
 - [Homepage](https://validator.w3.org/nu/?showsource=yes&doc=https%3A%2F%2Fparenting-in-munich-site-527d6bb8b97c.herokuapp.com%2F#l265c52)
 - [Posts All Categories](https://validator.w3.org/nu/?showsource=yes&doc=https%3A%2F%2Fparenting-in-munich-site-527d6bb8b97c.herokuapp.com%2Fposts%2F#l301c52)
 (All 7 pages were tested. I only included the results of page 1 here.)
@@ -59,44 +59,130 @@ Validation tests using [The W3C Markup validation service](https://validator.w3.
 
 All pages with authenticated user and page 404 were tested by pasting the source code from the rendered page and also showed no error nor warnings.
 
-CSC validation was done using [W3C CSS Validator](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fparenting-in-munich-site-527d6bb8b97c.herokuapp.com%2F&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en)
+---
+
+### CSS validation was done using [W3C CSS Validator](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fparenting-in-munich-site-527d6bb8b97c.herokuapp.com%2F&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en)
 - [CSS validation](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fparenting-in-munich-site-527d6bb8b97c.herokuapp.com%2F&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en)
 
-Lighthouse tests results:
+---
+
+### Lighthouse tests results:
 
 white background: mobile
 black background: desktop
 
-Homepage:
+- Homepage:
+
 ![Homepage desktop](documentation/lighthouse-tests/lh-homepage-desktop.png)
 ![Homepage mobile](documentation/lighthouse-tests/lh-homepage-mobile.png)
+
+- Posts - All categories page:
+
 ![Posts page desktop](documentation/lighthouse-tests/lh-posts-desktop.png)
 ![Posts page mobile](documentation/lighthouse-tests/lh-posts-mobile.png)
+
+- Post - Category specific page:
+
 ![Posts categories page desktop](documentation/lighthouse-tests/lh-category-desktop.png)
 ![Posts categories page mobile](documentation/lighthouse-tests/lh-category-mobile.png)
+
+- Post detail page:
+
 ![Posts detail desktop](documentation/lighthouse-tests/lh-post_detail-desktop.png)
 ![Posts detail mobile](documentation/lighthouse-tests/lh-post_detail-mobile.png)
+
+- About page:
+
 ![About page desktop](documentation/lighthouse-tests/lh-about-desktop.png)
 ![About page mobile](documentation/lighthouse-tests/lh-about-mobile.png)
+
+- Events page:
+
 ![Events desktop](documentation/lighthouse-tests/lh-events-desktop.png)
 ![Events mobile](documentation/lighthouse-tests/lh-events-mobile.png)
+
+- Events restricted area page:
+
 ![Events restricted area desktop](documentation/lighthouse-tests/lh-events-restricted-desktop.png)
 ![Events restricted area mobile](documentation/lighthouse-tests/lh-events-restricted-mobile.png)
+
+- Useful links page:
+
 ![Useful links desktop](documentation/lighthouse-tests/lh-useful-links-desktop.png)
 ![Useful links mobile](documentation/lighthouse-tests/lh-useful-links-mobile.png)
+
+- Signup page:
+
 ![Signup page desktop](documentation/lighthouse-tests/lh-signup-desktop.png)
 ![Signup page mobile](documentation/lighthouse-tests/lh-signup-mobile.png)
+
+- Login page:
+
 ![Login page desktop](documentation/lighthouse-tests/lh-login-desktop.png)
 ![Login page  mobile](documentation/lighthouse-tests/lh-login-mobile.png)
+
+- User Profile page:
+
 ![User Profile page desktop](documentation/lighthouse-tests/lh-useful-links-desktop.png)
 ![User Profile page mobile](documentation/lighthouse-tests/lh-user-profile-mobile.png)
+
+- Profile Update page:
+
 ![Profile update page desktop](documentation/lighthouse-tests/lh-profile-update-desktop.png)
 ![Profile update page mobile](documentation/lighthouse-tests/lh-profile-update-mobile.png)
+
+- Logout page:
+
 ![Logout page desktop](documentation/lighthouse-tests/lh-logout-desktop.png)
 ![Logout page mobile](documentation/lighthouse-tests/lh-logout-mobile.png)
 
+--- 
+
+### Responsiveness test:
+
+The resposiveness amongts different devices was checked using [Am I Responsive](https://ui.dev/amiresponsive).
+To perform the testing, it was necessary to adjust the `X_FRAME_OPTIONS` to `ALLOWALL` temporarily on settings.py and change back to `SAMEORIGIN` as soon as the test was finished for security reasons.
+
+- Homepage:
+
+![Homepage](documentation/amiresponsive/homepage.png)
 
 
+- Posts page:
+
+![Posts page](documentation/amiresponsive/posts-page.png)
+
+
+- Post detail page:
+
+![Posts detail](documentation/amiresponsive/post-detail-page.png)
+
+
+- About page:
+
+![About page](documentation/amiresponsive/about-page.png)
+
+
+- Events restricted area page:
+
+![Events restricted area](documentation/amiresponsive/restricted-area-page.png)
+
+
+- Useful links page:
+
+![Useful links](documentation/amiresponsive/useful-links-page.png)
+
+
+- Signup page:
+
+![Signup page](documentation/amiresponsive/signup-page.png)
+
+- Login page:
+
+![Login page](documentation/amiresponsive/login-page.png)
+
+
+* The Events, User Profile, Profile Update and Logout pages could not be tested on the website because the login doesn't work during the testing, but they were manually tested in different devices and are responsive as well.
 
 
 
