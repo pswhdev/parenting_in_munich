@@ -20,7 +20,9 @@ class Category(models.Model):
     # model instance before it is saved.
     def clean(self):
         # To avoid the same category being added multiple times
-        if Category.objects.filter(name=self.name).exclude(id=self.id).exists():
+        if Category.objects.filter(
+            name=self.name
+        ).exclude(id=self.id).exists():
             raise ValidationError(
                 f"The category with name '{self.name}' already exists."
             )
