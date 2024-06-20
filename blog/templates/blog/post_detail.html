@@ -71,18 +71,18 @@
                             <div class="d-flex align-items-start">
                                 <div class="me-3">
                                     {% if comment.user %}
-                                    <a id="link-post-comment" href="{% url 'userinfo:user_profile' comment.user.username %}" aria-label="View {{ comment.user.username }}'s profile">
-                                        <img id="thumbnail-post-comment" src="{{ comment.user.profile.photo.url }}" class="rounded-circle" alt="{{ comment.user.username }}" onerror="this.onerror=null; this.src='{{ DEFAULT_IMAGE_URL }}';">
+                                    <a class="link-user-comment" href="{% url 'userinfo:user_profile' comment.user.username %}" aria-label="View {{ comment.user.username }}'s profile">
+                                        <img src="{{ comment.user.profile.photo.url }}" class="thumbnail-comment rounded-circle" alt="{{ comment.user.username }}" onerror="this.onerror=null; this.src='{{ DEFAULT_IMAGE_URL }}';">
                                     </a>
                                     {% else %}
-                                    <img id="thumbnail-post-comment" src="https://res.cloudinary.com/daluxpssk/image/upload/v1718554525/nobody-2_l3xue1.jpg" class="rounded-circle" alt="default profile image" onerror="this.onerror=null; this.src='{{ DEFAULT_IMAGE_URL }}';">
+                                    <img src="https://res.cloudinary.com/daluxpssk/image/upload/v1718554525/nobody-2_l3xue1.jpg" class="thumbnail-comment rounded-circle" alt="default profile image" onerror="this.onerror=null; this.src='{{ DEFAULT_IMAGE_URL }}';">
                                     {% endif %}
                                 </div>
                                 <div>
                                     <p>
                                         <strong>
                                             {% if comment.user %}
-                                            <a id="link-post-comment" href="{% url 'userinfo:user_profile' comment.user.username %}" aria-label="View {{ comment.user.username }}'s profile">
+                                            <a class="link-user-comment" href="{% url 'userinfo:user_profile' comment.user.username %}" aria-label="View {{ comment.user.username }}'s profile">
                                                 {{ comment.user.username }}
                                             </a>
                                             {% else %}
@@ -104,18 +104,18 @@
                             <div class="d-flex align-items-start">
                                 <div class="me-3">
                                     {% if comment.user %}
-                                    <a id="link-post-comment" href="{% url 'userinfo:user_profile' comment.user.username %}" aria-label="View {{ comment.user.username }}'s profile">
-                                        <img id="thumbnail-post-comment" src="{{ comment.user.profile.photo.url }}" class="rounded-circle" alt="{{ comment.user.username }}" onerror="this.onerror=null; this.src='{{ DEFAULT_IMAGE_URL }}';">
+                                    <a class="link-user-comment" href="{% url 'userinfo:user_profile' comment.user.username %}" aria-label="View {{ comment.user.username }}'s profile">
+                                        <img src="{{ comment.user.profile.photo.url }}" class="thumbnail-comment rounded-circle" alt="{{ comment.user.username }}" onerror="this.onerror=null; this.src='{{ DEFAULT_IMAGE_URL }}';">
                                     </a>
                                     {% else %}
-                                    <img id="thumbnail-post-comment" src="https://res.cloudinary.com/daluxpssk/image/upload/v1718554525/nobody-2_l3xue1.jpg" class="rounded-circle" alt="default profile image" onerror="this.onerror=null; this.src='{{ DEFAULT_IMAGE_URL }}';">
+                                    <img src="https://res.cloudinary.com/daluxpssk/image/upload/v1718554525/nobody-2_l3xue1.jpg" class="thumbnail-comment rounded-circle" alt="default profile image" onerror="this.onerror=null; this.src='{{ DEFAULT_IMAGE_URL }}';">
                                     {% endif %}
                                 </div>
                                 <div>
                                     <p>
                                         <strong>
                                             {% if comment.user %}
-                                            <a id="link-post-comment" href="{% url 'userinfo:user_profile' comment.user.username %}" aria-label="View {{ comment.user.username }}'s profile">
+                                            <a class="link-user-comment" href="{% url 'userinfo:user_profile' comment.user.username %}" aria-label="View {{ comment.user.username }}'s profile">
                                                 {{ comment.user.username }}
                                             </a>
                                             {% else %}
