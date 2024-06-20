@@ -6,7 +6,17 @@ from .models import About
 
 def about_site(request):
     """
-    Renders the About page
+    Render the About page.
+    Handles both GET and POST requests.
+    For GET requests, it initializes an empty contact form.
+    For POST requests, it processes the submitted contact form, validates it,
+    and either saves the data and displays a success message,
+    or displays an error message if the form is invalid.
+    Args:
+        request: The HTTP request object.
+    Returns:
+        HttpResponse: The rendered about page with the latest about information
+        and the contact form.
     """
     if request.method == "POST":
         contact_us_form = ContactUsForm(data=request.POST)

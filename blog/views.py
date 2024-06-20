@@ -21,6 +21,7 @@ class PostList(generic.ListView):
     paginate_by = 6
 
     def get_context_data(self, **kwargs):
+        """Get the context for this view."""
         context = super().get_context_data(**kwargs)
         # Fetch any specific category
         context["categories"] = Category.objects.all()
@@ -31,6 +32,7 @@ class PostList(generic.ListView):
         return context
 
     def get_queryset(self):
+        """Return the list of items for this view."""
         query = self.request.GET.get('q')
         if query:
             return Post.objects.filter(
@@ -46,12 +48,19 @@ def post_detail(request, slug):
     Display an individual :model:`blog.Post`.
     **Context**
     ``post``
-    An instance of :model:`blog.Post`.
+        An instance of :model:`blog.Post`.
     ``category``
-    An instance of :model:`blog.Category` associated with the post.
+        An instance of :model:`blog.Category` associated with the post.
+    ``comments``
+        A queryset of all comments related to the post.
+    ``comment_count``
+        The number of approved comments for the post.
+    ``comment_form``
+        An instance of :form:`blog.CommentForm`.
     **Template:**
     :template:`blog/post_detail.html`
     """
+
     # Fetch the post object
     post = get_object_or_404(Post, slug=slug, status=1)
 
@@ -100,8 +109,10 @@ def category_posts(request, category_slug):
     **Context:**
     ``category``
         An instance of :model:`blog.Category`.
-    ``posts``
-        A queryset of all posts in the category.
+    ``page_obj``
+        A paginator page object containing the posts.
+    ``is_paginated``
+        A boolean indicating if pagination is applied.
     **Template:**
     :template:`blog/category_posts.html`
     """
@@ -126,7 +137,13 @@ def category_posts(request, category_slug):
 
 def comment_edit(request, slug, comment_id):
     """
-    view to edit comments
+    View to edit comments.
+    Args:
+        request: The HTTP request object.
+        slug: The slug of the post the comment belongs to.
+        comment_id: The ID of the comment to be edited.
+    Returns:
+        HttpResponseRedirect: Redirects to the post detail page.
     """
     if request.method == "POST":
         queryset = Post.objects.filter(status=1)
@@ -150,7 +167,13 @@ def comment_edit(request, slug, comment_id):
 
 def comment_delete(request, slug, comment_id):
     """
-    view to delete comment
+    View to delete comments.
+    Args:
+        request: The HTTP request object.
+        slug: The slug of the post the comment belongs to.
+        comment_id: The ID of the comment to be deleted.
+    Returns:
+        HttpResponseRedirect: Redirects to the post detail page.
     """
     queryset = Post.objects.filter(status=1)
     post = get_object_or_404(queryset, slug=slug)

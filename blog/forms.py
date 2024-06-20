@@ -6,6 +6,14 @@ from .models import Comment, UsedUsername
 
 
 class CommentForm(forms.ModelForm):
+    """
+    Form for submitting comments.
+    Includes a content field for the comment,
+    with a maximum length of 1000 characters.
+    Validates that the content is not blank or whitespace.
+    Attributes:
+        content (CharField): The content of the comment.
+    """
     content = forms.CharField(
         widget=forms.Textarea(attrs={'maxlength': 1000}),
         required=True
@@ -16,27 +24,50 @@ class CommentForm(forms.ModelForm):
         fields = ['content']
 
     def clean_content(self):
+        """
+        Validate the content field.
+        Ensure that the content is not blank or whitespace.
+        **Returns:**
+            str: The cleaned content.
+        **Raises:**
+            ValidationError: If the content is blank or whitespace.
+        """
         content = self.cleaned_data.get('content')
         if content.strip() == '':
             raise ValidationError(
                 'Comment cannot be blank or contain only whitespace.'
-                )
+            )
         return content
 
 
 # To customize the signing up
 class CustomSignupForm(SignupForm):
-    # User needs to accept policy before signing up
+    """
+    Custom form for user signup.
+    This form includes an additional field for accepting site rules and
+    validates that the username has not been previously used.
+    Attributes:
+        accept_rules (BooleanField): Field for accepting site rules.
+    """
     accept_rules = forms.BooleanField(
+        # User needs to accept policy before signing up
         label=mark_safe(
             'I accept the <a href="/site-rules/"'
             ' target="_blank">site rules</a>'
-            ),
+        ),
         required=True
     )
 
     # Usernames cannot be reused even if the account has been deleted
     def clean_username(self):
+        """
+        Validate the username field.
+        Ensure that the username has not been previously used.
+        **Returns:**
+            str: The cleaned username.
+        **Raises:**
+            ValidationError: If the username has been previously used.
+        """
         username = self.cleaned_data.get('username')
         if UsedUsername.objects.filter(username=username).exists():
             raise forms.ValidationError(
@@ -46,5 +77,13 @@ class CustomSignupForm(SignupForm):
         return username
 
     def save(self, request):
+        """
+        Save the form.
+        Saves the user instance and performs any additional processing.
+        Args:
+            request: The HTTP request object.
+        Returns:
+            User: The saved user instance.
+        """
         user = super(CustomSignupForm, self).save(request)
         return user
