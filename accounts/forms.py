@@ -1,12 +1,11 @@
-from django import forms
-from django.contrib.auth.models import User
-from django.contrib.auth import get_user_model
-from allauth.account.forms import LoginForm
-from .models import Profile, MUNICH_DISTRICTS
-from PIL import Image
-from django.core.files.uploadedfile import UploadedFile
 import io
-from django.core.files.uploadedfile import InMemoryUploadedFile
+from PIL import Image
+from django import forms
+from django.contrib.auth import get_user_model
+from django.contrib.auth.models import User
+from django.core.files.uploadedfile import InMemoryUploadedFile, UploadedFile
+from allauth.account.forms import LoginForm
+from .models import MUNICH_DISTRICTS, Profile
 
 
 class UserUpdateForm(forms.ModelForm):

@@ -1,14 +1,11 @@
 from django.core.paginator import Paginator
-from django.shortcuts import render, get_object_or_404, reverse
+from django.db.models import Q
+from django.http import HttpResponseRedirect
+from django.shortcuts import get_object_or_404, render, reverse
 from django.views import generic
 from django.contrib import messages
-from django.http import HttpResponseRedirect
-from .models import Post, Category, Comment
 from .forms import CommentForm
-from django.db.models import Q
-
-
-# Create your views here.
+from .models import Category, Comment, Post
 
 
 class PostList(generic.ListView):

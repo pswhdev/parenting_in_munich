@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Topic, Link
+from .models import Link, Topic
 
 
 # allows to add and edit Link objects directly within the Topic admin page

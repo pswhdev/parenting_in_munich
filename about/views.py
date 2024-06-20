@@ -1,7 +1,7 @@
-from django.shortcuts import render, redirect
 from django.contrib import messages
-from .models import About
+from django.shortcuts import render, redirect
 from .forms import ContactUsForm
+from .models import About
 
 
 def about_site(request):

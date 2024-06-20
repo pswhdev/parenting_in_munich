@@ -1,8 +1,8 @@
 from django.contrib import admin
-from .models import Event
+from django.core.exceptions import ValidationError
 from django.utils.html import format_html
 from django_summernote.admin import SummernoteModelAdmin
-from django.core.exceptions import ValidationError
+from .models import Event
 
 
 class EventAdmin(SummernoteModelAdmin):

@@ -1,6 +1,7 @@
+import datetime
 from django.db import models
 from cloudinary.models import CloudinaryField
-import datetime
+
 
 DEFAULT_IMAGE_URL = (
     "https://res.cloudinary.com/daluxpssk/image/"

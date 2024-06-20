@@ -1,11 +1,11 @@
-from django.contrib.auth.decorators import login_required
-from django.shortcuts import render, redirect, get_object_or_404
-from django.contrib.auth.models import User
 from django.contrib import messages
-from .forms import UserUpdateForm, ProfileUpdateForm
-from .models import Profile
-from blog.models import Comment
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
 from django.http import Http404
+from django.shortcuts import get_object_or_404, redirect, render
+from blog.models import Comment
+from .forms import ProfileUpdateForm, UserUpdateForm
+from .models import Profile
 
 
 @login_required

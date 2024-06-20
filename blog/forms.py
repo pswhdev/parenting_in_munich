@@ -1,9 +1,8 @@
 from django import forms
-from .models import Comment
-from .models import UsedUsername
-from allauth.account.forms import SignupForm
-from django.utils.safestring import mark_safe
 from django.core.exceptions import ValidationError
+from django.utils.safestring import mark_safe
+from allauth.account.forms import SignupForm
+from .models import Comment, UsedUsername
 
 
 class CommentForm(forms.ModelForm):
