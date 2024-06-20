@@ -1,5 +1,40 @@
 # Parenting in Munich
 
+![Website's mockup image](documentation/amiresponsive/homepage.png)
+
+When I was expecting my first son as an expat in Germany, I felt lost and struggled to find information. Without family nearby, I relied on advice from others and spent a lot of time searching for resources. Thankfully, I connected with other mums in similar situations, and together, we formed a community to support each other by exchanging information.
+
+Inspired by this experience, I created this website to provide the useful information I wished I had as a new parent in Munich. "Parenting in Munich" is designed to help new and expecting parents with parenting tips, health, education, and bureaucratic information.
+
+The deployed website can be visited [here](https://parenting-in-munich-site-527d6bb8b97c.herokuapp.com/)
+
+## Design
+
+### Layout
+
+The website's layout was inspired on the [Bootstrap Theme Milo](https://themes.getbootstrap.com/product/milo-magazineblog-theme/), and this layout was consistently applied throughout the entire site ensuring a cohesive and professional appearance, enhancing user experience and navigation.
+
+### Colour Scheme
+
+The chosen color palette is a monochromatic scheme designed to create a visually appealing and user-friendly interface while ensuring compatibility with the diverse images featured in the blog posts. The white (#fff) and off-white background (#f2f2f2) provides a clean, open canvas that promotes clarity and focus on the content. For the text, black (#000) and dark gray (#424242) have been used to ensure strong readability. These darker shades create a professional contrast against the white background, making the text stand out clearly. The choice of this monochromatic palette of neutral colors avoids any clash with the varied imagery on the site, maintaining visual harmony and a cohesive user experience.
+
+  ![Parenting in Munich color scheme](documentation/colour-palette.png)
+
+### Typography
+
+- Google Fonts were utilized to import the selected fonts for use on the website.
+
+- [PT Sans Caption](https://fonts.google.com/specimen/PT+Sans+Caption?query=PT+Sans+cap) was used for the body text whereas [EB Garamond](https://fonts.google.com/specimen/EB+Garamond?query=EB+Garamond) was used for the headings. This combination was chosen to balance aesthetic appeal and readability. EB Garamond, a serif typeface, provides a touch of elegance, making it ideal for headings. For the main content, PT Sans Caption offers a modern, clean look that ensures high legibility across various devices. Its sans-serif design contrasts well with the traditional serif of EB Garamond, creating a balanced and accessible user experience.
+
+- As the fallback, serif was chosen for the headings as a browser-safe font, in combination with sans-serif for the body text, following the same stylistic approach as the chosen fonts.
+
+EB Garamond example: 
+![EB Garamond Example](documentation/fonts-samples/font-eb-garamond.png)
+
+PT Sans Caption example:
+![PT Sans Caption Example](documentation/fonts-samples/font-pt-sans-caption.png)
+
+
 ## Desing planning
 
 ### Wireframes
@@ -70,7 +105,6 @@ HTML Validation tests were performed using the [W3C Markup validation service](h
  - All 37 posts were individually tested, I have only included the result for the test on the "Do Pregnant Women and New Mothers Need a Hebamme? Exploring the Role of Midwives in Germany" here for illustration purpose.
 
  - All pages with authenticated user and page 404 were tested by pasting the source code from the rendered page and also passed with no error nor warnings.
- 
 
 ---
 
