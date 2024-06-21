@@ -103,13 +103,13 @@
         {% if page_obj.number > 2 %}
           <li class="page-item">
             <a class="page-link" href="?page=1" aria-label="First page">
-              <span aria-hidden="true">&laquo;&laquo; First</span>
+              <span aria-hidden="true">First</span>
             </a>
           </li>
         {% endif %}
         <li class="page-item">
           <a class="page-link" href="?page={{ page_obj.previous_page_number }}" aria-label="Previous page">
-            <span aria-hidden="true">&laquo; Prev</span>
+            <span aria-hidden="true">Prev</span>
           </a>
         </li>
       {% endif %}
@@ -120,7 +120,7 @@
           <li class="page-item active">
             <span class="page-link">{{ num }}</span>
           </li>
-        {% elif num > page_obj.number|add:'-5' and num < page_obj.number|add:'5' %}
+        {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
           <li class="page-item">
             <a class="page-link" href="?page={{ num }}" aria-label="Page {{ num }}">{{ num }}</a>
           </li>
@@ -131,14 +131,14 @@
       {% if page_obj.has_next %}
         <li class="page-item">
           <a class="page-link" href="?page={{ page_obj.next_page_number }}" aria-label="Next page">
-            <span aria-hidden="true">Next &raquo;</span>
+            <span aria-hidden="true">Next</span>
           </a>
         </li>
         <!-- Show Last button if current page is less than total pages minus 1 (i.e., not displaying the last page) -->
         {% if page_obj.number < page_obj.paginator.num_pages|add:'-1' %}
           <li class="page-item">
             <a class="page-link" href="?page={{ page_obj.paginator.num_pages }}" aria-label="Last page">
-              <span aria-hidden="true">Last &raquo;&raquo;</span>
+              <span aria-hidden="true">Last</span>
             </a>
           </li>
         {% endif %}
