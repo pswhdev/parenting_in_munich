@@ -335,4 +335,11 @@ a:hover {
     max-width: 800px;
     min-width: 600px;
   }
+
+  /* When Search result finds no posts */
+  .no-posts-card,
+  .no-events-card {
+    width: 75%;
+    margin: 0 auto;
+  }
 }
