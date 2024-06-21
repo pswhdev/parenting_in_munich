@@ -16,13 +16,18 @@
       <hr>
     </div>
   </header>
-  <div class="wrapper mt-4">
+  <div class="wrapper mt-lg-4">
     {% if no_posts %}
-    <p class="text-center">No posts found.</p>
-    <p class="text-center">
-      Please start a new search or
-      <a href="{% url 'posts' %}" aria-label="Return to all posts">return to all posts</a>
-    </p>
+    <div class="card no-posts-card">
+      <a href="{% url 'posts' %}" aria-label="Return to all posts">
+        <img src="https://res.cloudinary.com/daluxpssk/image/upload/v1718959860/no-posts_zknglr.webp" class="card-img-top no-posts-found" alt="image of a park with a sign that says no posts found">
+      </a>
+      <div class="card-body text-center">
+        <p class="card-text">Please start a new search or
+          <a href="{% url 'posts' %}" aria-label="Return to all posts">return to all posts</a>
+        </p>
+      </div>
+    </div>
     {% else %}
     <section class="row">
       <h2 class="sr-only">Post Listings</h2>

@@ -297,6 +297,10 @@ a:hover {
   object-position: center;
 }
 
+.no-posts-card {
+  height: 100vh;
+}
+
 #new-photo-preview {
   display: none;
 }
@@ -334,5 +338,11 @@ a:hover {
     flex: 1;
     max-width: 800px;
     min-width: 600px;
+  }
+
+  /* When Search result finds no posts */
+  .no-posts-card {
+    width: 75%;
+    margin: 0 auto;
   }
 }

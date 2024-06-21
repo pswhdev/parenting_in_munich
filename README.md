@@ -18,45 +18,101 @@ The deployed website can be visited [here](https://parenting-in-munich-site-527d
 
 ##### Hero Section
 The home page welcomes users based on their authentication status, offering different content and links accordingly:
-- For Admin Users there is a personalized welcome message for admins and access to the admin panel.
-- For Authenticated Users tehre is a personalized welcome message and links to explore posts and events.
-- For Unauthenticated Users tehre is a general welcome message and a link to sign up.
+- For admin users there is a personalized welcome message for admins and access to the admin panel.
+- For authenticated users tehre is a personalized welcome message and links to explore posts and events.
+- For unauthenticated users tehre is a general welcome message and a link to sign up.
 
 Hero image with general message for visitors:
 ![Hero](documentation/features/hero.webp)
 
-##### Navigation Menu
+
+#### Navigation Menu
 
 The navigation bar provides users with easy access to various sections of the site, ensuring a smooth and intuitive browsing experience including a responsive design with a toggle butto for small screens, enabling the collapse and expansion of the navigation menu.
 
-
-  - Clickable logo that redirects to the home page.
-  - Navigation Links (highlighted when active):
-    - Home: Navigation link to the home page
-    - Posts: 
-     - Dropdown menu listing all categories.
-     - Direct link to all posts.
-    - About: Link to the About page.
-    - Events: Link to the Events page.
-    - Useful Links: Direct link to the Useful Links page.
+The navigation bar includes:
+  - A clickable logo that redirects to the home page.
+  - Navigation links (highlighted when active) to:
+    - Home: navigation link to the home page
+    - Posts: dropdown menu listing all categories as well as a direct link to all posts.
+    - About: link to the About page.
+    - Events: link to the Events page.
+    - Useful links: direct link to the Useful Links page.
     - Authentication Links:
-      - Logged-in Users:
+      - For logged-in users:
         - Admin Panel (displayed only for admin users): Link to the admin panel for staff.
         - Profile: Link to the user's profile page.
         - Logout: Link to log out.
-      - Logged-out Users:
+      - For logged-out users:
         - Sign Up: Link to the sign-up page.
         - Login: Link to the login page.
 
-[Navbar](documentation/features/navbar.png)
+Navbar view for general visitors:
+![Navbar-guest](documentation/features/navbar.png)
 
-  - Search Functionality:
-   - Search form displayed only on the Posts page for searching posts.
+Navbar view for admin users:
+![Navbar-admin](documentation/features/navbar-admin.png)
 
-[Navbar - posts section](documentation/features/navbar-posts.png)
+Navbar view for authenticated users with no admin rights:
+![Navbar-user](documentation/features/navbar-user.png)
+
+**Search Functionality**
+  
+  Because the search engine is specifically designed for finding posts, the search field is only displayed on the Posts page.
+
+Navbar view for visitors on the posts page:
+![Navbar - posts section](documentation/features/navbar-posts.png)
+---
+
+### Posts Page
+
+The Posts page allows users to browse, search, and explore various articles on parenting topics. It dynamically displays posts based on user searches and inlcudes pagination.
+
+#### Content Display
+
+**Post Cards:**
+  - Each post is displayed in a card format with the following elements:
+    - **Category Link:** Displays the category of the post, linking to other posts in the same category.
+    - **Title:** Clickable link to the full post details.
+    - **Featured Image:** Displays the post's featured image or a placeholder if none is provided.
+    - **Excerpt:** A brief summary of the post content.
+
+#### Search feature:
+
+Searches for posts containig the entered word and displays the result message "Search results for [word of interest]" or display a message informing the user that no posts have matched the search query and provides a link to return to all posts.
 
 
 
+
+4. **Responsive Design:**
+   - Adjusts the number of posts per row based on the number of posts and screen size.
+
+5. **Pagination:**
+   - Includes navigation controls for paginated results, allowing users to navigate between pages of posts.
+   - Special buttons for "First," "Previous," "Next," and "Last" pages.
+
+### Detailed Breakdown:
+
+1. **Header:**
+   - **Dynamic Heading:** Changes based on whether a search query is present.
+   - **Search Results Message:** Displays "Search results for '[query]'" if a search query is entered.
+   - **No Posts Message:** Informs users if no posts match the search query and provides a link to return to all posts.
+
+2. **Post Listings:**
+   - **Post Card Structure:**
+     - **Category Meta:** Shows the post's category with a link to the category page.
+     - **Post Title:** Displays the title with a link to the post detail page.
+     - **Featured Image:** Displays the post's image or a placeholder if none is provided.
+     - **Excerpt:** Brief snippet of the post content.
+   - **Responsive Layout:** Adjusts the display of posts based on the number of posts and screen size.
+
+3. **Pagination Controls:**
+   - **Page Navigation:** Allows users to move between pages of posts.
+   - **Dynamic Range Display:** Shows page numbers within a range around the current page.
+   - **First/Last Buttons:** Direct links to the first and last pages when appropriate.
+   - **Previous/Next Buttons:** Links to the previous and next pages of posts.
+
+This detailed breakdown can be used to document the Posts page comprehensively, providing clear insights into its structure and functionalities.
 
 
 
