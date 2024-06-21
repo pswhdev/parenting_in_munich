@@ -100,7 +100,8 @@ footer {
 #login-container,
 #user-profile-container,
 #profile-update-container,
-.error-page-img {
+.error-page-img,
+.rules-container {
   flex: 1;
 }
 
