@@ -47,6 +47,7 @@ main {
 
 .content {
   flex: 1;
+  justify-content: center;
 }
 
 .wrapper {
@@ -326,15 +327,7 @@ a:hover {
 
 /* For larger screens */
 @media (min-width: 992px) {
-  .profile-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 1.5rem;
-  }
-  
   .profile-card {
-    flex: 1;
     max-width: 800px;
     min-width: 600px;
   }

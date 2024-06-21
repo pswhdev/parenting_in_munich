@@ -3,9 +3,8 @@
 {% block title %}User Profile{% endblock %}
 {% block content %}
 
-<div class="container py-4 profile-container">
-  <div class="profile-card">
-    <article class="card mb-4">
+<div class="container wrapper justify-content-center align-items-center">
+    <article class="card mb-4 profile-card">
       <header class="card-header text-center">
         <h2 class="card-title">Profile of {{ profile.user.username|truncatechars:50 }}</h2>
       </header>
@@ -75,7 +74,6 @@
         {% endif %}
       </div>
     </article><!-- /.card -->
-  </div>
 </div>
 
 <!-- Delete Account Modal -->

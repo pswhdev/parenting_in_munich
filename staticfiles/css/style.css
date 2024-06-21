@@ -47,6 +47,7 @@ main {
 
 .content {
   flex: 1;
+  justify-content: center;
 }
 
 .wrapper {
@@ -285,7 +286,7 @@ a:hover {
   border-radius: 0;
   transition: all 0.2s cubic-bezier(0.42, 0, 0.58, 1);
   height: 75vh;
-  max-width: 100%;
+  width: 100%;
   /* Image covers the area without distortion */
   object-fit: cover;
 }
@@ -326,22 +327,15 @@ a:hover {
 
 /* For larger screens */
 @media (min-width: 992px) {
-  .profile-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 1.5rem;
-  }
-  
   .profile-card {
-    flex: 1;
     max-width: 800px;
     min-width: 600px;
   }
 
   /* When Search result finds no posts */
   .no-posts-card,
-  .no-events-card {
+  .no-events-card,
+  .error-page-img {
     width: 75%;
     margin: 0 auto;
   }
