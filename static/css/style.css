@@ -297,10 +297,6 @@ a:hover {
   object-position: center;
 }
 
-.no-posts-card {
-  height: 100vh;
-}
-
 #new-photo-preview {
   display: none;
 }
@@ -341,7 +337,8 @@ a:hover {
   }
 
   /* When Search result finds no posts */
-  .no-posts-card {
+  .no-posts-card,
+  .no-events-card {
     width: 75%;
     margin: 0 auto;
   }

@@ -55,8 +55,13 @@
                 </div>
             {% endfor %}
         {% else %}
-            <div class="wrapper">
-                <p class="text-center mt-4">Sorry, there are no events at the moment. Please stay tuned for new events coming soon!</p>
+            <div class="card no-events-card">
+                <img src="https://res.cloudinary.com/daluxpssk/image/upload/v1718964804/No_events_found_xjjxvo.webp" class="card-img-top no-events-found" alt="image of a park with a sign that says no posts found">
+                <div class="card-body text-center">
+                <p class="card-text">
+                    Sorry, there are no events at the moment. Please stay tuned for new events coming soon!
+                </p>
+                </div>
             </div>
         {% endif %}
     </section>
