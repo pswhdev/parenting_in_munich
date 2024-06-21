@@ -8,6 +8,61 @@ Inspired by this experience, I created this website to provide the useful inform
 
 The deployed website can be visited [here](https://parenting-in-munich-site-527d6bb8b97c.herokuapp.com/)
 
+---
+
+## Features
+
+### Existing Features
+
+#### Home Page
+
+##### Hero Section
+The home page welcomes users based on their authentication status, offering different content and links accordingly:
+- For Admin Users there is a personalized welcome message for admins and access to the admin panel.
+- For Authenticated Users tehre is a personalized welcome message and links to explore posts and events.
+- For Unauthenticated Users tehre is a general welcome message and a link to sign up.
+
+Hero image with general message for visitors:
+![Hero](documentation/features/hero.webp)
+
+##### Navigation Menu
+
+The navigation bar provides users with easy access to various sections of the site, ensuring a smooth and intuitive browsing experience including a responsive design with a toggle butto for small screens, enabling the collapse and expansion of the navigation menu.
+
+
+  - Clickable logo that redirects to the home page.
+  - Navigation Links (highlighted when active):
+    - Home: Navigation link to the home page
+    - Posts: 
+     - Dropdown menu listing all categories.
+     - Direct link to all posts.
+    - About: Link to the About page.
+    - Events: Link to the Events page.
+    - Useful Links: Direct link to the Useful Links page.
+    - Authentication Links:
+      - Logged-in Users:
+        - Admin Panel (displayed only for admin users): Link to the admin panel for staff.
+        - Profile: Link to the user's profile page.
+        - Logout: Link to log out.
+      - Logged-out Users:
+        - Sign Up: Link to the sign-up page.
+        - Login: Link to the login page.
+
+[Navbar](documentation/features/navbar.png)
+
+  - Search Functionality:
+   - Search form displayed only on the Posts page for searching posts.
+
+[Navbar - posts section](documentation/features/navbar-posts.png)
+
+
+
+
+
+
+
+
+
 ## Design
 
 ### Layout
