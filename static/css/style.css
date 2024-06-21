@@ -36,25 +36,72 @@ body {
   font-family: var(--main-font);
 }
 
-main {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-  background-color: var(--white);
-  width: 100%;
-}
-
-
-.content {
-  flex: 1;
-  justify-content: center;
-}
-
 .wrapper {
   display: flex;
   flex-direction: column;
-  flex:1;
-  height: 100vh;
+  flex: 1;
+  min-height: 100vh;
+}
+
+header {
+  flex-shrink: 0;
+}
+
+main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Heros */
+#hero {
+  background: url("https://res.cloudinary.com/daluxpssk/image/upload/v1718834369/children-park3_1_d4j3ro.webp") center center;
+}
+
+#hero-logout {
+  background: url("https://res.cloudinary.com/daluxpssk/image/upload/v1718810586/boys-playing-friends-children-playing-ecfc0c859c9f575352f9f012f6c97c60-2_pmrfhp.webp") center center;
+}
+
+#hero,
+#hero-logout {
+  flex: 1;
+  display: flex;
+  width: 100%;
+  height: 90vh;
+  background-size: cover;
+  position: relative;
+  overflow: hidden;
+}
+
+#hero:before,
+#hero-logout:before {
+  content: "";
+  background: rgba(0, 0, 0, 0.4);
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+footer {
+  flex-shrink: 0;
+  background-color: var(--off-white);
+  border-top: var(--border);
+  padding: 4px 0;
+  width: 100%;
+}
+
+.align-items-center {
+  align-items: center !important;
+}
+
+#signup-container,
+#login-container,
+#user-profile-container,
+#profile-update-container,
+.error-page-img {
+  flex: 1;
 }
 
 h1,
@@ -65,15 +112,6 @@ h5,
 h6 {
   font-family: var(--title);
   font-weight: 700;
-}
-
-/* Footer */
-footer {
-  flex-shrink: 0;
-  background-color: var(--off-white);
-  border-top: var(--border);
-  padding: 4px 0;
-  width: 100%;
 }
 
 /* Links */
@@ -110,37 +148,6 @@ a:hover {
   color: var(--dark-gray);
   text-decoration: none;
   justify-content: space-between;
-}
-
-/* Heros */
-
-#hero {
-  background: url("https://res.cloudinary.com/daluxpssk/image/upload/v1718834369/children-park3_1_d4j3ro.webp") center center;
-}
-
-#hero-logout {
-  background: url("https://res.cloudinary.com/daluxpssk/image/upload/v1718810586/boys-playing-friends-children-playing-ecfc0c859c9f575352f9f012f6c97c60-2_pmrfhp.webp") center center;
-}
-
-#hero,
-#hero-logout {
-  width: 100%;
-  height: 90vh;
-  flex: 1;
-  background-size: cover;
-  position: relative;
-  overflow: hidden;
-}
-
-#hero:before,
-#hero-logout:before {
-  content: "";
-  background: rgba(0, 0, 0, 0.4);
-  position: absolute;
-  bottom: 0;
-  top: 0;
-  left: 0;
-  right: 0;
 }
 
 /* Buttons */
@@ -281,8 +288,7 @@ a:hover {
 }
 
 /* 404 and events restrict area pages */
-.restricted-area-card-img,
-.error-page-img {
+.restricted-area-card-img {
   border-radius: 0;
   transition: all 0.2s cubic-bezier(0.42, 0, 0.58, 1);
   height: 75vh;
