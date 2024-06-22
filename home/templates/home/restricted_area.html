@@ -8,16 +8,16 @@
     <div class="col-md-8 align-self-center no-border-card">
       <a href="{% url 'account_login' %}?next={{ request.path }}">
         <img
-        src="https://res.cloudinary.com/daluxpssk/image/upload/v1718964804/For_Registered_Users_Only_h8xhgh.webp"
+        src="https://res.cloudinary.com/daluxpssk/image/upload/v1719081171/DALL_E_2024-06-22_20.03.49_-_An_illustration_for_a_webpage_with_a_Restricted_Area_message._The_setting_is_a_peaceful_park_in_Munich_with_trees_a_few_people_casually_strolling_o_2_m420gf.webp"
         class="restricted-area-card-img"
         alt="Restricted area image"
         >
       </a>
       <div class="card-body">
         This area is only available to registered users. Please
-        <a href="{% url 'account_signup' %}?next={{ request.path }}">sign up</a>
+        <a href="{% url 'account_signup' %}?next={{ request.GET.next }}">sign up</a>
         or
-        <a href="{% url 'account_login' %}?next={{ request.path }}">log in</a>
+        <a href="{% url 'account_login' %}?next={{ request.GET.next }}">log in</a>
         to proceed.
       </div>
     </div>
