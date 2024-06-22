@@ -40,14 +40,13 @@ body {
   display: flex;
   flex-direction: column;
   flex: 1;
-  min-height: 100vh;
 }
 
 header {
   flex-shrink: 0;
 }
 
-main {
+main.content {
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -101,7 +100,8 @@ footer {
 #user-profile-container,
 #profile-update-container,
 .error-page-img,
-.rules-container {
+.rules-container,
+.no-posts-card {
   flex: 1;
 }
 

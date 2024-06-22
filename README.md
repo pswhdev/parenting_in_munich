@@ -1,6 +1,6 @@
 # Parenting in Munich
 
-![Website's mockup image](documentation/amiresponsive/homepage.png)
+![Website's mockup image](documentation/amiresponsive/responsive-home.png)
 
 When I was expecting my first son as an expat in Germany, I felt lost and struggled to find information. Without family nearby, I relied on advice from others and spent a lot of time searching for resources. Thankfully, I connected with other mums in similar situations, and together, we formed a community to support each other by exchanging information.
 
@@ -57,11 +57,12 @@ Navbar view for authenticated users with no admin rights:
 ![Navbar-user](documentation/features/navbar-user.png)
 
 **Search Functionality**
-  
-  Because the search engine is specifically designed for finding posts, the search field is only displayed on the Posts page.
+
+Because the search engine is specifically designed for finding posts, the search field is only displayed on the Posts page.
 
 Navbar view for visitors on the posts page:
 ![Navbar - posts section](documentation/features/navbar-posts.png)
+
 ---
 
 ### Posts Page
