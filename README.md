@@ -206,7 +206,7 @@ Curated list of websites and resources beneficial for parents, organized by topi
 
 #### Responsive Design
 
-The links are added using the admin panel and are associated with a specific topic. When the page is rendered, the links are automatically displayed under the corresponding topic, organized alphabetically for an intuitive user experience.
+The links are added using the admin panel and are associated with a specific topic. When the page is rendered, the links are automatically displayed under the corresponding topic, organized alphabetically for an intuitive user experience. The links are programmed to open in a new tab.
 
 
 ### User Profile Page
@@ -237,64 +237,56 @@ Delete account confirmation:
 
 The Update Profile page allows users to edit their personal information, including their full name, email, bio, location, and profile photo.
 
+#### Display Email:
 
-1. **Page Title and Description:**
-   - Title: "Update Profile"
-   - Description: "Edit your profile, including full name, email, bio, location, and photo. Customize your info to connect with other parents in Munich's expat community."
+The user can decide if they want to display their e-mail publicly or not by checking or unchecking the checkbox on the "update profile" page.
 
-2. **Profile Form:**
-   - **Full Name:** Editable field for the user's full name.
-   - **Email:** Editable field for the user's email address.
-   - **Display Email:** Checkbox to allow the email to be visible to other users.
-   - **Profile Photo:** 
-     - Upload new profile photo.
-     - Preview current photo.
-     - Option to delete current photo.
-   - **Bio:** Editable field for the user's bio, with a character limit.
-   - **Location:** Editable field for the user's location.
-   - **Custom Location:** Optional field for additional location details.
+#### Profile Photo:
 
-3. **Form Validation:**
-   - Error messages for each field if validation fails.
+The users can choose a photo of up to 2MB to upload as their profile photo. This photo is then automatically converted to webp by using the [Python Imaging Library (PIL)](https://pypi.org/project/pillow/) and stored on the [Cloudinary website](https://cloudinary.com/users/register_free).
 
-4. **Update Button:**
-   - Submits the form to save changes.
+If the selected image is larger than 2MB there is a popup window warning about the size limit.
 
-5. **File Size Modal:**
-   - Modal to notify the user if the uploaded file exceeds the size limit.
+Size limit warning:
+![Modal with size limit warning](documentation/features/modal-image-size.png)
 
-6. **Additional Scripts:**
-   - JavaScript for handling custom location input and photo preview.
+The users can preview the photo they are choosing in realtime, without the need to update the page to see their profile photo. They can also delete their photo, in which case a placeholder image will be displayed as their profile photo.
 
-### Detailed Breakdown:
+#### Location
 
-1. **Profile Form:**
-   - **Full Name:** Editable input with error handling.
-   - **Email:** Editable input with error handling.
-   - **Display Email:** Checkbox with a label.
-   - **Profile Photo:**
-     - File input for uploading a new photo.
-     - Preview of the current profile photo.
-     - Checkbox to delete the current photo.
-   - **Bio:** Textarea for bio input with character limit and error handling.
-   - **Location:** Editable input with error handling.
-   - **Custom Location:** Optional editable input with error handling.
+The users can choose their location from a list of districts in Munich. They are also provided with the option "Other". If "Other" is selected, they are provided with an optional field to type in their location.
 
-2. **Update Button:**
-   - Centered submit button to update the profile.
+#### Bio
 
-3. **File Size Modal:**
-   - Bootstrap modal to handle file size errors.
+The text area for the bio is limited to 500 characters, and this limit is displayed to the user on the update profile page beneath the Bio text area.
 
-4. **Additional Scripts:**
-   - JavaScript for custom location and profile photo preview functionalities.
-
-This detailed breakdown can be included in your documentation to provide a clear understanding of the Update Profile page’s features and structure.
+Overview of the update profile page with all the described features:
+![Overview profile update](documentation/features/update-profile-page.png)
 
 
 ### Logout page
 
+When users choose to log out, they are asked to confirm their action. Upon confirmation, a thank you message is displayed, acknowledging their visit.
+
+Logout page:
+![Logout page](documentation/features/logout-page.png)
+
+Thank you message:
+![Thank you message](documentation/features/thank-you-message.png)
+
+
+### Site rules
+
+The website includes a page with the site rules. The link for this page is both included on the footer of the page (as "Policy") and on the signup page. On the signup page, the link opens in a new window in order not to disturb the ongoing signing up process for a better user experience.
+
+
 ### 404 Error Page
+
+A friendly 404 Error Page appears if a page is not found. The user is prompted to return to the main page by either clicking on a provided link or the image itself, ensuring a smooth and intuitive user experience.
+
+![404 Error Page](documentation/features/error-page.png)
+
+---
 
 ## Design
 
