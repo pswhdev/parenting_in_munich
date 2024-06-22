@@ -69,6 +69,7 @@ Navbar view for visitors on the posts page:
 
 Both pages allow users to browse, search, and explore various articles on parenting topics. They dynamically display posts based on user searches and include pagination for easy navigation.
 
+All details are added through the admin panel, where they can be easily managed and updated.
 
 #### Content Display
 
@@ -90,6 +91,7 @@ Search results with matching results:
 ![Search results with match](documentation/features/post-search-results.png)
 
 #### Responsive Design:
+
 The post cards are dynamically generated and displayed 6 per page. Because the cards have different sizes, on medium and large screens, they are arranged in organized columns and rows. The default layout creates a new column every two posts, allowing them to stack on top of each other and giving the page a sense of continuity rather than a fixed grid. If there are up to three posts, they will be displayed side by side for a better user experience. The width of the columns remains 1/3, even if there are only one or two posts, to maintain consistency between different pages.
 
 Content display:
@@ -155,6 +157,8 @@ Confirmation prior to deletion:
 
 The "About Us" page provides information about the website, its mission, and a way for users to get in touch.
 
+The information about the website and the image displayed on the page can be managed and updated through the admin pannel.
+
 #### Contact Us Section
 
 Users are invited to reach out with feedback, questions, or suggestions
@@ -163,6 +167,7 @@ Users are invited to reach out with feedback, questions, or suggestions
 ### Events Page
 
 The Events page is exclusively for registered users and showcases upcoming family-oriented events, providing detailed information about each event.
+Just like with the posts, all details are added through the admin panel, where they can be easily managed and updated.
 
 #### Content Display
 
@@ -188,7 +193,6 @@ If there are no events to be displayed the page, a friendly iamge and message ar
 If tehre are no events to be displayed:
 ![No events image](documentation/features/no-events.png)
 
-
 #### Restricted Area
 
 Unauthorized users are promt to register in order to see the events.
@@ -196,10 +200,101 @@ Unauthorized users are promt to register in order to see the events.
 ![Restricted area](documentation/features/restricted-area.png)
 
 
+### Useful Links
+
+Curated list of websites and resources beneficial for parents, organized by topic and displayed in a card format.
+
+#### Responsive Design
+
+The links are added using the admin panel and are associated with a specific topic. When the page is rendered, the links are automatically displayed under the corresponding topic, organized alphabetically for an intuitive user experience.
 
 
+### User Profile Page
+
+The User Profile page allows users to view and update their profile information, such as name, e-mail, location, bio, and profile photo as well as manage their account and their comments.
+
+#### Toggle Button:
+
+The "View My Comments" button to show and hide the list of comments left by the user with the link to the respective comments on the respective post so that the user can easily manage their comments.
+
+Profile view by account owner:
+![Profile view by account owner](documentation/features/profile-view-owner.png)
+
+Registered users can also view other users' profiles by clicking on the link of a post's comment, for instance. Profile views by other registered users are limited to viewing only, with no option to edit or delete the profile information.
+
+Profile view by other registered user:
+![Profile view by other registered user](documentation/features/profile-view-user.png)
+
+#### Delete account confirmation:
+
+The confirmation ensures that the user is aware of the permanence of the action and reminds the user that their comments will remain on the website unless they delete their comments themselves.
+
+Delete account confirmation:
+![Delete account confirmation](documentation/features/confirmation-delete-account.png)
 
 
+### Update Profile Page
+
+The Update Profile page allows users to edit their personal information, including their full name, email, bio, location, and profile photo.
+
+
+1. **Page Title and Description:**
+   - Title: "Update Profile"
+   - Description: "Edit your profile, including full name, email, bio, location, and photo. Customize your info to connect with other parents in Munich's expat community."
+
+2. **Profile Form:**
+   - **Full Name:** Editable field for the user's full name.
+   - **Email:** Editable field for the user's email address.
+   - **Display Email:** Checkbox to allow the email to be visible to other users.
+   - **Profile Photo:** 
+     - Upload new profile photo.
+     - Preview current photo.
+     - Option to delete current photo.
+   - **Bio:** Editable field for the user's bio, with a character limit.
+   - **Location:** Editable field for the user's location.
+   - **Custom Location:** Optional field for additional location details.
+
+3. **Form Validation:**
+   - Error messages for each field if validation fails.
+
+4. **Update Button:**
+   - Submits the form to save changes.
+
+5. **File Size Modal:**
+   - Modal to notify the user if the uploaded file exceeds the size limit.
+
+6. **Additional Scripts:**
+   - JavaScript for handling custom location input and photo preview.
+
+### Detailed Breakdown:
+
+1. **Profile Form:**
+   - **Full Name:** Editable input with error handling.
+   - **Email:** Editable input with error handling.
+   - **Display Email:** Checkbox with a label.
+   - **Profile Photo:**
+     - File input for uploading a new photo.
+     - Preview of the current profile photo.
+     - Checkbox to delete the current photo.
+   - **Bio:** Textarea for bio input with character limit and error handling.
+   - **Location:** Editable input with error handling.
+   - **Custom Location:** Optional editable input with error handling.
+
+2. **Update Button:**
+   - Centered submit button to update the profile.
+
+3. **File Size Modal:**
+   - Bootstrap modal to handle file size errors.
+
+4. **Additional Scripts:**
+   - JavaScript for custom location and profile photo preview functionalities.
+
+This detailed breakdown can be included in your documentation to provide a clear understanding of the Update Profile page’s features and structure.
+
+
+### Logout page
+
+### 404 Error Page
 
 ## Design
 
