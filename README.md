@@ -82,30 +82,24 @@ The Posts page allows users to browse, search, and explore various articles on p
 
 Searches for posts containig the entered word and displays the result message "Search results for [word of interest]" or display a message informing the user that no posts have matched the search query and provides a link to return to all posts.
 
+Search results without a match:
+![Search results without a match](documentation/features/no-posts-found.png)
 
+Search results with matching results:
+![Search results with match](documentation/features/post-search-results.png)
 
-
-4. **Responsive Design:**
+#### Responsive Design:
    - Adjusts the number of posts per row based on the number of posts and screen size.
 
-5. **Pagination:**
+#### Pagination:
    - Includes navigation controls for paginated results, allowing users to navigate between pages of posts.
    - Special buttons for "First," "Previous," "Next," and "Last" pages.
 
 ### Detailed Breakdown:
 
-1. **Header:**
-   - **Dynamic Heading:** Changes based on whether a search query is present.
-   - **Search Results Message:** Displays "Search results for '[query]'" if a search query is entered.
-   - **No Posts Message:** Informs users if no posts match the search query and provides a link to return to all posts.
 
-2. **Post Listings:**
-   - **Post Card Structure:**
-     - **Category Meta:** Shows the post's category with a link to the category page.
-     - **Post Title:** Displays the title with a link to the post detail page.
-     - **Featured Image:** Displays the post's image or a placeholder if none is provided.
-     - **Excerpt:** Brief snippet of the post content.
-   - **Responsive Layout:** Adjusts the display of posts based on the number of posts and screen size.
+
+
 
 3. **Pagination Controls:**
    - **Page Navigation:** Allows users to move between pages of posts.
@@ -113,7 +107,7 @@ Searches for posts containig the entered word and displays the result message "S
    - **First/Last Buttons:** Direct links to the first and last pages when appropriate.
    - **Previous/Next Buttons:** Links to the previous and next pages of posts.
 
-This detailed breakdown can be used to document the Posts page comprehensively, providing clear insights into its structure and functionalities.
+
 
 
 

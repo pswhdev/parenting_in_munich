@@ -308,10 +308,6 @@ a:hover {
   object-position: center;
 }
 
-#new-photo-preview {
-  display: none;
-}
-
 .img-profile {
   width: 300px;
   height: 300px;
@@ -329,6 +325,11 @@ a:hover {
 @media (max-width: 768px) {
   #hero {
     height: 100vh;
+  }
+
+  .pag-btn-prev,
+  .pag-btn-next {
+  display: none;
   }
 }
 
