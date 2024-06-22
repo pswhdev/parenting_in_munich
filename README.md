@@ -151,6 +151,50 @@ Confirmation prior to deletion:
 ![Confirmation prior to deletion](documentation/features/confirmation-delete-comment.png)
 
 
+### About Us Page
+
+The "About Us" page provides information about the website, its mission, and a way for users to get in touch.
+
+#### Contact Us Section
+
+Users are invited to reach out with feedback, questions, or suggestions
+
+
+### Events Page
+
+The Events page is exclusively for registered users and showcases upcoming family-oriented events, providing detailed information about each event.
+
+#### Content Display
+
+The events are displayed in a similar way to the posts to keep consistancy thoughout the website. 
+
+- Event Card Structure:
+     - Event Image: Displays the event's image.
+     - Event Name: Title of the event.
+     - Description: Detailed information about the event.
+     - Location: Venue of the event.
+     - Date: Start and end dates of the event.
+     - Time: Start and end times of the event. If only start time is provided, the time is displayed as "from 'hours'"
+     - Website Link: (Optional) Link to the event's website.
+
+The page is programmed to order the events by start date, displaying the closest ones first. It also automatically filters out events that have an end date earlier than the current date.
+
+Events page layout:
+![Events page layout](documentation/features/events-page-overview.png)
+* The content observed on the live site may differ due to the filtering passed events feature. Screenshot taken on June 22nd 2024
+
+If there are no events to be displayed the page, a friendly iamge and message are displayed.
+
+If tehre are no events to be displayed:
+![No events image](documentation/features/no-events.png)
+
+
+#### Restricted Area
+
+Unauthorized users are promt to register in order to see the events.
+
+![Restricted area](documentation/features/restricted-area.png)
+
 
 
 
