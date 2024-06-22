@@ -109,6 +109,49 @@ Pagination Comparison: Computer Screen vs. Phone Screen:
 
 ---
 
+### Post Detail Page
+
+The Post Detail page displays the full content of a specific post, along with a comment section for user interactions.
+
+
+#### Link to Category
+
+On the post detail page, a link to the post's category is provided. When clicked, this link takes the user directly to the category page, which includes other posts in that same category.
+
+Link to category:
+![Link to category](documentation/features/category-link.png)
+
+
+#### Comments Section
+
+The comments section displays the number of comments and allows authenticated users to submit comments.
+- Authenticated users can see all approved comments and see, delete or edit their own comments, even the pending aproval ones.
+- Approved comments have a link to the comment's author profile.
+- Unauthenticated users are prompt to log in or sign up to participate in discussions.
+
+
+##### Comments from deleted accounts
+
+If a user has left a comment and deleted their account or had their account deleted, their comments will remain on the posts unless they themselves deleted the comments, or the comments were not approved or were deleted for inappropriate content. In such cases, the username will be followed by a "Deactivated" mention to indicate that the user is no longer a registered member of the website, thus preserving the integrity of the history and discussions. There will be no link to the profile, and the profile photo thumbnail will be displayed with a fainted image of the placeholder image for the profile.
+
+The reasoning for keeping comments upon account termination is explained in the website rules that users must agree to upon signing up. This information is also explicitly provided when a user terminates their account.
+
+Comment's author view of the comments with edit and delete options:
+![Comment's author view](documentation/features/comment-author-view.png)
+
+Overview of the comments section including comment from deleted account's author:
+![Comments section](documentation/features/comparison-deleted-account.png)
+
+
+#### Comments deletion
+
+Users can delete their own comments and will be asked to confirm their decision before the permanent deletion.
+
+Confirmation prior to deletion:
+![Confirmation prior to deletion](documentation/features/confirmation-delete-comment.png)
+
+
+
 
 
 
