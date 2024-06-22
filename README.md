@@ -65,9 +65,10 @@ Navbar view for visitors on the posts page:
 
 ---
 
-### Posts Page
+### Posts and Posts by category pages
 
-The Posts page allows users to browse, search, and explore various articles on parenting topics. It dynamically displays posts based on user searches and inlcudes pagination.
+Both pages allow users to browse, search, and explore various articles on parenting topics. They dynamically display posts based on user searches and include pagination for easy navigation.
+
 
 #### Content Display
 
@@ -89,25 +90,24 @@ Search results with matching results:
 ![Search results with match](documentation/features/post-search-results.png)
 
 #### Responsive Design:
-   - Adjusts the number of posts per row based on the number of posts and screen size.
+The post cards are dynamically generated and displayed 6 per page. Because the cards have different sizes, on medium and large screens, they are arranged in organized columns and rows. The default layout creates a new column every two posts, allowing them to stack on top of each other and giving the page a sense of continuity rather than a fixed grid. If there are up to three posts, they will be displayed side by side for a better user experience. The width of the columns remains 1/3, even if there are only one or two posts, to maintain consistency between different pages.
+
+Content display:
+![Content display](documentation/features/posts-display.png)
+
 
 #### Pagination:
-   - Includes navigation controls for paginated results, allowing users to navigate between pages of posts.
-   - Special buttons for "First," "Previous," "Next," and "Last" pages.
 
-### Detailed Breakdown:
+If there are more than 6 posts to be displayed, pagination navigation controls are included, allowing users to navigate between pages of posts.
 
+The pagination changes dynamically, showing page numbers within a range around the current page, along with links to the previous and next pages of posts, and direct links to the first and last pages when appropriate.
 
+On small screens, such as mobile phones, the pagination omits the buttons for the previous and next pages to better accommodate the controls on the limited screen size while still allowing easy navigation throughout the entire content.
 
+Pagination Comparison: Computer Screen vs. Phone Screen:
+![Pagination Comparison](documentation/features/pagination-comparison.png)
 
-
-3. **Pagination Controls:**
-   - **Page Navigation:** Allows users to move between pages of posts.
-   - **Dynamic Range Display:** Shows page numbers within a range around the current page.
-   - **First/Last Buttons:** Direct links to the first and last pages when appropriate.
-   - **Previous/Next Buttons:** Links to the previous and next pages of posts.
-
-
+---
 
 
 

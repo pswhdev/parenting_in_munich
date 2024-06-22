@@ -101,13 +101,13 @@
       {% if page_obj.has_previous %}
         <!-- Show First button if current page is greater than 2 (i.e., not displaying the first page) -->
         {% if page_obj.number > 2 %}
-          <li class="page-item">
+          <li class="page-item pag-btn-first">
             <a class="page-link" href="?page=1" aria-label="First page">
               <span aria-hidden="true">First</span>
             </a>
           </li>
         {% endif %}
-        <li class="page-item">
+        <li class="page-item pag-btn-prev">
           <a class="page-link" href="?page={{ page_obj.previous_page_number }}" aria-label="Previous page">
             <span aria-hidden="true">Prev</span>
           </a>
@@ -117,7 +117,7 @@
       <!-- Display page numbers, limiting to a range around the current page -->
       {% for num in page_obj.paginator.page_range %}
         {% if page_obj.number == num %}
-          <li class="page-item active">
+          <li class="page-item active pag-btn-current">
             <span class="page-link">{{ num }}</span>
           </li>
         {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
@@ -129,14 +129,14 @@
 
       <!-- Show Next and Last buttons if not on the last page -->
       {% if page_obj.has_next %}
-        <li class="page-item">
+        <li class="page-item pag-btn-next">
           <a class="page-link" href="?page={{ page_obj.next_page_number }}" aria-label="Next page">
             <span aria-hidden="true">Next</span>
           </a>
         </li>
         <!-- Show Last button if current page is less than total pages minus 1 (i.e., not displaying the last page) -->
         {% if page_obj.number < page_obj.paginator.num_pages|add:'-1' %}
-          <li class="page-item">
+          <li class="page-item pag-btn-last">
             <a class="page-link" href="?page={{ page_obj.paginator.num_pages }}" aria-label="Last page">
               <span aria-hidden="true">Last</span>
             </a>
