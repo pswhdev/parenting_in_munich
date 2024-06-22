@@ -165,7 +165,7 @@ LOGOUT_REDIRECT_URL = "/"
 
 # To redirect unauthenticated users to the restricted_area
 # page when they try to access protected views
-LOGIN_URL = 'restricted_area'
+LOGIN_URL = '/accounts/login/'
 
 
 ACCOUNT_EMAIL_REQUIRED = True

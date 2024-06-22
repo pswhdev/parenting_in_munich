@@ -37,3 +37,17 @@ def custom_404_view(request, exception):
         HttpResponse: The rendered 404 error page with a 404 status code.
     """
     return render(request, '404.html', status=404)
+
+def restricted_area(request):
+    """
+    Display the restricted area page.
+    This view renders a page indicating a restricted area, accessible
+    regardless of user authentication status.
+    **Template:**
+    :template:`home/restricted_area.html`
+    Args:
+        request: The HTTP request object.
+    Returns:
+        HttpResponse: The rendered restricted area page.
+    """
+    return render(request, "home/restricted_area.html")

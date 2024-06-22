@@ -6,7 +6,7 @@
   <h2 class="sr-only">Restricted Area</h2>
   <div class="row justify-content-center">
     <div class="col-md-8 align-self-center no-border-card">
-      <a href="{% url 'account_login' %}?next={% url 'events' %}">
+      <a href="{% url 'account_login' %}?next={{ request.path }}">
         <img
         src="https://res.cloudinary.com/daluxpssk/image/upload/v1718964804/For_Registered_Users_Only_h8xhgh.webp"
         class="restricted-area-card-img"
@@ -15,10 +15,10 @@
       </a>
       <div class="card-body">
         This area is only available to registered users. Please
-        <a href="{% url 'account_signup' %}">sign up</a>
+        <a href="{% url 'account_signup' %}?next={{ request.path }}">sign up</a>
         or
-        <a href="{% url 'account_login' %}?next={% url 'events' %}">log in</a>
-        to view the events.
+        <a href="{% url 'account_login' %}?next={{ request.path }}">log in</a>
+        to proceed.
       </div>
     </div>
   </div>

@@ -7,7 +7,6 @@
 {% url 'account_signup' as signup_url %}
 {% url 'account_logout' as logout_url %}
 {% url 'useful_links' as useful_links_url %}
-{% url 'restricted_area' as restricted_area_url %}
 {% url 'userinfo:user_profile' username=request.user.username as profile_url %}
 
 <nav class="navbar navbar-expand-lg">
@@ -88,7 +87,7 @@
         </li>
         <li class="nav-item">
           <a
-            class="nav-link{% if request.path == events_url or request.path == restricted_area_url %} active"
+            class="nav-link{% if request.path == events_url %} active"
             aria-current="page{% endif %}"
             href="{% url 'events' %}"
             aria-label="Go to Events page"
