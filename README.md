@@ -16,11 +16,51 @@ Visit ythe deployed site [Parenting in Munich](https://parenting-in-munich-site-
 
 
 
+---
+
+## Project Objectives
+
+The aim of this project was to design and create a website to demonstrate the effective use of libraries and frameworks available to developers. Key objectives included:
+
+**Create a Readable, Clean, and Responsive Front End**
+  - Utilized Django and Bootstrap to ensure the site is easily accessible and intuitive for users.
+
+**Implement CRUD Functionality**
+  - Enabled users to create, update and delete profiles and comments on blog posts using Django's backend capabilities.
+
+**Store Data on an External Cloud Database**
+  - Used Code Institute Postgres Database server to manage the PostgreSQL database, ensuring reliable and scalable data storage.
+
+---
+
+## User Experience - UX
+
+### Target Audience
+
+Parenting in Munich is a website designed for individuals seeking advice and resources on parenting, pregnancy, and early childhood. It serves families who have recently moved to Munich, offering information and support to help them navigate local services and cultural practices. Additionally, Munich-based parents interested in community events, parenting tips, and connecting with other families will find valuable content. The main target audience includes expecting parents, expat families, and local parents.
+
+### User Stories
+
+#### New Visitors Goals
+
+As a new visitor, I expect to:
+- Easily navigate the website.
+- Quickly understand the website's purpose and target audience.
+- Sign up and access exclusive content effortlessly.
+- Easily find and read the website policies.
+- Contact the website moderators without difficulty.
 
 
+#### Existing Visitors Goals
 
+As a user, I expect to:
+- Manage my profile information, including my bio and profile picture, to keep my account current.
+- Connect with other parents through comments on posts to share experiences and seek advice.
+- Edit and delete my comments as needed.
+- Access exclusive content offered by the website, such as information on local events.
+- Permanently terminate my account if I choose to.
 
-
+---
 
 ## Desing planning
 
@@ -76,7 +116,7 @@ The comprehensive database schema below depicts details about the type of data s
 
 ---
 
-## Design
+## Design Choices
 
 ### Layout
 
@@ -381,6 +421,12 @@ A friendly 404 Error Page appears if a page is not found. The user is prompted t
 
 ![404 Error Page](documentation/features/error-page.png)
 
+
+### Future Features
+
+- Add a forum section where users can post and answer questions and participate on discussions;
+
+
 ---
 
 ## Testing
@@ -388,7 +434,7 @@ A friendly 404 Error Page appears if a page is not found. The user is prompted t
 Please refer to [TESTING.md](TESTING.md) file for details on all testing conducted.
 
 
-
+###
 
 
 
