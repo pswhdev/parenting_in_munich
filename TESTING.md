@@ -3,10 +3,19 @@
 
 ## Contents
 
-
-
-
-
+- [Testing](#testing)
+  - [Contents](#contents)
+  - [Code Style and Quality](#code-style-and-quality)
+    - [Python Enhancement Proposal (PEP8)](#python-enhancement-proposal-pep8)
+    - [HTML Validation tests](#html-validation-tests)
+    - [CSS validation was done using W3C CSS Validator](#css-validation-was-done-using-w3c-css-validator)
+  - [Lighthouse tests results:](#lighthouse-tests-results)
+  - [Responsiveness test:](#responsiveness-test)
+  - [Testing User Stories](#testing-user-stories)
+    - [New Visitors Goals](#new-visitors-goals)
+    - [Existing Visitors Goals](#existing-visitors-goals)
+  - [Full Testing](#full-testing)
+  - [Back to README](#back-to-readme)
 
 ___
 
@@ -131,7 +140,7 @@ Performance, accessibility, SEO, and best practices were evaluated using Google'
 
 --- 
 
-### Responsiveness test:
+## Responsiveness test:
 
 The resposiveness amongts different devices was checked using [Am I Responsive](https://ui.dev/amiresponsive).
 To perform the testing, it was necessary to adjust the `X_FRAME_OPTIONS` to `ALLOWALL` temporarily on settings.py and change back to `SAMEORIGIN` as soon as the test was finished for security reasons.
@@ -190,9 +199,9 @@ To perform the testing, it was necessary to adjust the `X_FRAME_OPTIONS` to `ALL
 
 ___
 
-### Testing User Stories
+## Testing User Stories
 
-#### New Visitors Goals
+### New Visitors Goals
 
 As a new visitor, I expect to:
 
@@ -212,7 +221,7 @@ As a new visitor, I expect to:
   - There is a "Contact Us" section on the About page and a link in the footer of all webpages that directs the user straight to the "Contact Us" section. In this section, the visitor can send a message by entering their name and email.
 
 
-#### Existing Visitors Goals
+### Existing Visitors Goals
 
 As a user, I expect to:
 **Manage my profile information, including my bio and profile picture, to keep my account current**
@@ -232,4 +241,13 @@ As a user, I expect to:
 
 ___
 
-[Back to README](README.md)
+## Full Testing
+
+
+___
+
+## Back to README
+
+Go [Back to README](README.md)
+
+___
