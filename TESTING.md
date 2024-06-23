@@ -15,6 +15,7 @@
     - [New Visitors Goals](#new-visitors-goals)
     - [Existing Visitors Goals](#existing-visitors-goals)
   - [Full Testing](#full-testing)
+  - [Known bug](#known-bug)
   - [Back to README](#back-to-readme)
 
 ___
@@ -243,6 +244,18 @@ ___
 
 ## Full Testing
 
+
+___
+
+## Known bug
+
+**Description:**
+
+When a user tries to access a restricted area, they are prompted to log in or sign up. If the user logs in, they are correctly redirected to the page they were trying to visit. However, if the user is not registered and chooses to sign up, they are redirected to the homepage after successfully signing up.
+
+**Cause:**
+
+This issue is due to the default behavior of Django's allauth authentication views. Attempts to override this behavior have been unsuccessful so far.
 
 ___
 
