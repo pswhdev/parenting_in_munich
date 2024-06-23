@@ -1,3 +1,15 @@
+
+# Testing
+
+## Contents
+
+
+
+
+
+
+___
+
 ## Code Style and Quality
 
 ### Python Enhancement Proposal (PEP8)
@@ -36,17 +48,21 @@ HTML Validation tests were performed using the [W3C Markup validation service](h
 
  - All pages with authenticated user and page 404 were tested by pasting the source code from the rendered page and also passed with no error nor warnings.
 
----
+___
 
 ### CSS validation was done using [W3C CSS Validator](https://jigsaw.w3.org/css-validator/)
+
 - [CSS validation](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fparenting-in-munich-site-527d6bb8b97c.herokuapp.com%2F&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=enn)
 
----
+___
 
-### Lighthouse tests results:
+## Lighthouse tests results:
 
-white background: mobile
-black background: desktop
+Performance, accessibility, SEO, and best practices were evaluated using Google's Lighthouse tool. The results for each page are included below. Results with a white background represent mobile audits, while those with a black background represent desktop audits.
+
+- black background: desktop
+- white background: mobile
+
 
 - Homepage:
 
@@ -171,3 +187,49 @@ To perform the testing, it was necessary to adjust the `X_FRAME_OPTIONS` to `ALL
 
 
 * The Events, User Profile, Profile Update and Logout pages could not be tested on the website because the login doesn't work during the testing, but they were manually tested in different devices and are responsive as well.
+
+___
+
+### Testing User Stories
+
+#### New Visitors Goals
+
+As a new visitor, I expect to:
+
+**Easily navigate the website**
+  - The navigation menu includes links to all sections of the website, including a dropdown for categories under "Posts" and a search engine, present in the navbar on the posts section.
+
+**Quickly understand the website's purpose and target audience**
+  - There is an About page with clear information about the website's purpose and target audience.
+
+**Sign up and access exclusive content effortlessly**
+  - Visitors can sign up using the navbar link, and upon creating their accounts, they have immediate access to content exclusive to registered members.
+
+**Easily find and read the website policies**
+  - The link for the website policies can be easily found in the footer of all webpages as well as on the signup page.
+
+**Contact the website moderators without difficulty**
+  - There is a "Contact Us" section on the About page and a link in the footer of all webpages that directs the user straight to the "Contact Us" section. In this section, the visitor can send a message by entering their name and email.
+
+
+#### Existing Visitors Goals
+
+As a user, I expect to:
+**Manage my profile information, including my bio and profile picture, to keep my account current**
+  - Users can easily manage their information, including email, bio, profile picture, and location, by clicking the Edit button on their profile page.
+
+**Connect with other parents through comments on posts to share experiences and seek advice**
+  - Users can leave comments on posts and click on the usernames of other commenters to view their information, including their email (if they have chosen to display it publicly).
+
+**Edit and delete my comments as needed**
+  - Users have access to all comments they have left on the website from their profile page. They can click on a comment to be redirected to the respective post and comment, where they can edit or delete their comments as desired.
+
+**Access exclusive content offered by the website, such as information on local events**
+  - Registered users can view all events published on the events page.
+
+**Permanently terminate my account if I choose to**
+  - Users can permanently delete their accounts at any time by clicking the Delete button on their profile page.
+
+___
+
+[Back to README](README.md)
