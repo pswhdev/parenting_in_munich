@@ -9,10 +9,26 @@ Inspired by this experience, I created this website to provide the useful inform
 Visit ythe deployed site [Parenting in Munich](https://parenting-in-munich-site-527d6bb8b97c.herokuapp.com/)
 
 ---
+## Contents
+
+
+
+
+
+
+
+
+
+
+
 
 ## Desing planning
 
 ### Wireframes
+
+The following wireframes provide a visual representation of the "Parenting in Munich" website's layout and structure during the planning phase.
+
+These wireframes served as a blueprint for the design and functionality of each page.
 
 * Home page
 ![Home page wireframe](documentation/wireframes/home_page.png)
@@ -23,14 +39,12 @@ Visit ythe deployed site [Parenting in Munich](https://parenting-in-munich-site-
 * Posts detail page
 ![Posts detail page wireframe](documentation/wireframes/post_detail_page.png)
 
-* Registration page
-![Registration page wireframe](documentation/wireframes/registration_page.png)
+* Profile page
+![Profile page wireframe](documentation/wireframes/registration_page.png)
 
 * Events page
 ![Events page wireframe](documentation/wireframes/events.png)
 
-* Forum page
-![Forum page wireframe](documentation/wireframes/forum.png)
 
 * Links page
 ![Links page wireframe](documentation/wireframes/links_page.png)
@@ -39,12 +53,26 @@ Visit ythe deployed site [Parenting in Munich](https://parenting-in-munich-site-
 ![About page wireframe](documentation/wireframes/about_page.png)
 
 
-### ERDs
+### Entity–relationship model (ERDs)
 
-* Simple interaction diagram
-![Simple interaction diagram](documentation/wireframes/simple_interaction_diagram.png)
+#### Simple interaction diagram
+
+The interaction diagram below illustrates the roles and permissions on the website:
+- Visitors can read posts and useful links.
+- Logged-in users in addition to reading posts and useful links, also have access to the posts comments and events section. They also can create, edit, and delete their profiles and comments.
+- Admins have full control to create, edit, or delete any user profiles, posts, comments, events, and useful links.
+
+This structure ensures that visitors have limited access, users have interactive capabilities, and admins have comprehensive control over the website's content and interactions.
+
+Simple interaction diagram
+![Simple interaction diagram](documentation/simple-interaction.png)
 
 
+### Database Plan
+
+The comprehensive database schema below depicts details about the type of data stored and the relationships between different entities.
+
+![Data Base Schema](documentation/erds.png)
 
 ---
 
