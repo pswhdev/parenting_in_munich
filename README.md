@@ -424,8 +424,16 @@ A friendly 404 Error Page appears if a page is not found. The user is prompted t
 
 ### Future Features
 
-- Add a forum section where users can post and answer questions and participate on discussions;
+- Implement a filter for images and content to ensure no offensive or inappropriate images or messages are uploaded in profiles and comments.
+- Add the capability for users to flag content for review by site admins.
+- Introduce a discussion forum section where users can share experiences and ask questions.
+- Add interactive maps showing family-friendly places in Munich, such as playgrounds, parks, and hospitals.
+- Provide multilingual support to cater to a diverse expat community.
 
+
+### Features That Will Not Be Implemented
+
+Initially, there was a plan for users to enter events and decide if those events would be private or public. If the event was private, users would be able to invite other users, and only those invited would have visibility to those events. This feature is no longer going to be implemented for security and liability reasons. Events can only be added and managed by users with admin privileges.
 
 ---
 
