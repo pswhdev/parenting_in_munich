@@ -8,15 +8,76 @@ Inspired by this experience, I created this website to provide the useful inform
 
 Visit ythe deployed site [Parenting in Munich](https://parenting-in-munich-site-527d6bb8b97c.herokuapp.com/)
 
----
+___
 ## Contents
+- [Parenting in Munich](#parenting-in-munich)
+  - [Contents](#contents)
+  - [Project Objectives](#project-objectives)
+  - [User Experience - UX](#user-experience---ux)
+    - [Target Audience](#target-audience)
+    - [User Stories](#user-stories)
+      - [New Visitors Goals](#new-visitors-goals)
+      - [Existing Visitors Goals](#existing-visitors-goals)
+  - [Desing planning](#desing-planning)
+    - [Wireframes](#wireframes)
+    - [Entity–relationship model (ERDs)](#entityrelationship-model-erds)
+      - [Simple interaction diagram](#simple-interaction-diagram)
+    - [Database Plan](#database-plan)
+  - [Design Choices](#design-choices)
+    - [Layout](#layout)
+    - [Colour Scheme](#colour-scheme)
+    - [Typography](#typography)
+  - [Features](#features)
+    - [Existing Features](#existing-features)
+      - [Home Page](#home-page)
+        - [Hero Section](#hero-section)
+      - [Navigation Menu](#navigation-menu)
+    - [Posts and Posts by category pages](#posts-and-posts-by-category-pages)
+      - [Content Display](#content-display)
+      - [Search feature:](#search-feature)
+      - [Responsive Design:](#responsive-design)
+      - [Pagination:](#pagination)
+    - [Post Detail Page](#post-detail-page)
+      - [Link to Category](#link-to-category)
+      - [Comments Section](#comments-section)
+        - [Comments from deleted accounts](#comments-from-deleted-accounts)
+      - [Comments deletion](#comments-deletion)
+    - [About Us Page](#about-us-page)
+      - [Contact Us Section](#contact-us-section)
+    - [Events Page](#events-page)
+      - [Content Display](#content-display-1)
+      - [Restricted Area](#restricted-area)
+    - [Useful Links](#useful-links)
+      - [Responsive Design](#responsive-design-1)
+    - [User Profile Page](#user-profile-page)
+      - [Toggle Button:](#toggle-button)
+      - [Delete account confirmation:](#delete-account-confirmation)
+    - [Update Profile Page](#update-profile-page)
+      - [Display Email:](#display-email)
+      - [Profile Photo:](#profile-photo)
+      - [Location](#location)
+      - [Bio](#bio)
+    - [Logout page](#logout-page)
+    - [Site rules](#site-rules)
+    - [404 Error Page](#404-error-page)
+    - [Future Features](#future-features)
+    - [Features That Will Not Be Implemented](#features-that-will-not-be-implemented)
+  - [Testing](#testing)
+  - [Technologies Used](#technologies-used)
+    - [Languages Used](#languages-used)
+    - [Frameworks, Libraries \& Programs Used](#frameworks-libraries--programs-used)
+  - [Agile methodology](#agile-methodology)
+  - [Deployment and Local deployment:](#deployment-and-local-deployment)
+    - [Deployment](#deployment)
+      - [Heroku](#heroku)
+    - [Local Deployment](#local-deployment)
+      - [How to Fork](#how-to-fork)
+      - [How to Clone](#how-to-clone)
+  - [Credits](#credits)
+  - [Media](#media)
+  - [Acknowledgments](#acknowledgments)
 
-
-
-
-
-
----
+___
 
 ## Project Objectives
 
@@ -31,7 +92,7 @@ The aim of this project was to design and create a website to demonstrate the ef
 **Store Data on an External Cloud Database**
   - Used Code Institute Postgres Database server to manage the PostgreSQL database, ensuring reliable and scalable data storage.
 
----
+___
 
 ## User Experience - UX
 
@@ -60,7 +121,7 @@ As a user, I expect to:
 - Access exclusive content offered by the website, such as information on local events.
 - Permanently terminate my account if I choose to.
 
----
+___
 
 ## Desing planning
 
@@ -114,7 +175,7 @@ The comprehensive database schema below depicts details about the type of data s
 
 ![Data Base Schema](documentation/erds.png)
 
----
+___
 
 ## Design Choices
 
@@ -142,7 +203,7 @@ EB Garamond example:
 PT Sans Caption example:
 ![PT Sans Caption Example](documentation/fonts-samples/font-pt-sans-caption.png)
 
----
+___
 
 
 ## Features
@@ -198,7 +259,7 @@ Because the search engine is specifically designed for finding posts, the search
 Navbar view for visitors on the posts page:
 ![Navbar - posts section](documentation/features/navbar-posts.png)
 
----
+___
 
 ### Posts and Posts by category pages
 
@@ -244,7 +305,7 @@ On small screens, such as mobile phones, the pagination omits the buttons for th
 Pagination Comparison: Computer Screen vs. Phone Screen:
 ![Pagination Comparison](documentation/features/pagination-comparison.png)
 
----
+___
 
 ### Post Detail Page
 
@@ -435,19 +496,118 @@ A friendly 404 Error Page appears if a page is not found. The user is prompted t
 
 Initially, there was a plan for users to enter events and decide if those events would be private or public. If the event was private, users would be able to invite other users, and only those invited would have visibility to those events. This feature is no longer going to be implemented for security and liability reasons. Events can only be added and managed by users with admin privileges.
 
----
+___
 
 ## Testing
 
 Please refer to [TESTING.md](TESTING.md) file for details on all testing conducted.
 
+___
 
-###
+## Technologies Used
 
+### Languages Used
 
+- HTML, CSS, Pyhton and JavaScript
 
+### Frameworks, Libraries & Programs Used
 
+- [Django](https://www.djangoproject.com/) To build the website.
+- [Bootstrap](https://getbootstrap.com/) Used in addition to CSS to style the website and make it responsive.
+- [Coolors](https://coolors.co/) To generate the color palette.
+- [Balsamiq](https://balsamiq.com/) To create wireframes.
+- [Github](https://github.com/) To save and store the files for the website.
+- [Google Fonts](https://fonts.google.com/) To import the fonts used on the website.
+- [Google Developer Tools](https://developers.google.com/web/tools) - To troubleshoot and test features, solve issues with responsiveness and styling.
+- [TinyPNG](https://tinypng.com/) To optimize png and jpg images.
+- [Sqoosh app](https://squoosh.app/) To optimize and convert images to webp format.
+- [Favicon.io](https://favicon.io/) To create favicon.
+- [Am I Responsive?](http://ami.responsivedesign.is/) To diplay the website image on a range of devices.
+- [VSCode](https://code.visualstudio.com/) To edit and save my code locally.
+- [PEP8 Validator](https://pep8ci.herokuapp.com/) Used to check python code for errors.
+- [W3C](https://validator.w3.org/) Used to validate the HTML on all pages of the website.
+- [(Jigsaw) validator](https://jigsaw.w3.org/css-validator/) Used to validate the CSS.
+- [PostgreSQL from Code Institute](https://dbs.ci-dbs.net/) Used to store PostgreSQL database.
+- [Cloudinary](https://cloudinary.com/) Used as cloud storage for images uploaded as part of the blog posts as for the users profile photos.
+- [Heroku](https://id.heroku.com/) Used to deploy the project.
+- [Webpage Spell-Check](https://chrome.google.com/webstore/detail/webpage-spell-check/mgdhaoimpabdhmacaclbbjddhngchjik/related) A google chrome extension that allows you to spell check your webpage. Used to check the site and the readme for spelling errors.
 
+___
+
+## Agile methodology
+
+This project was designed using Agile methodology, utilizing the Project Board and Issues sections in GitHub.
+
+- [Project Board](https://github.com/users/pswhdev/projects/5)
+
+___
+
+## Deployment and Local deployment:
+
+### Deployment
+
+#### Heroku
+
+The Application has been deployed from GitHub to Heroku by following the steps:
+
+1. Create or log in to your account at heroku.com
+2. Create a new app, add a unique app name and then choose your region
+3. Click on create app
+4. Go to "Settings"
+5. Under Config Vars add the relevant Vars. For this project, I needed to add CLOUDINARY_URL, DATABASE_URL and SECRET_KEY.
+7. Go to "Deploy" and select "GitHub" in "Deployment method"
+8. To connect Heroku app to your Github repository code enter your repository name, click 'Search' and then 'Connect' once it is found.
+9. Choose the branch you want to build your app from
+10. Either choose to deploy manually by clicking "Deploy Branch" or click on "Enable Automatic Deploys", which keeps the app up to date with your GitHub repository
+11. Wait for the app to build. Once ready you will see the “App was successfully deployed” message and a 'View' button to take you to your deployed link.
+
+The live link can be found here - [Parenting in Munich](https://parenting-in-munich-site-527d6bb8b97c.herokuapp.com/)
+
+### Local Deployment
+
+#### How to Fork
+
+To fork the repository:
+
+- Log in (or sign up) to Github.
+- Go to the repository for this project, [pswhdev/parenting_in_munich](https://github.com/pswhdev/parenting_in_munich)
+- Click the Fork button in the top right corner.
+
+#### How to Clone
+
+To clone the repository:
+
+- Log in (or sign up) to GitHub.
+- Go to the repository for this project, [pswhdev/parenting_in_munich](https://github.com/pswhdev/parenting_in_munich)
+- Click on the code button, select whether you would like to clone with HTTPS, SSH or GitHub CLI and copy the link shown.
+- Open the terminal in your code editor and change the current working directory to the location you want to use for the cloned directory.
+- Type 'git clone' into the terminal and then paste the link you copied from the repository. Press enter.
+
+___
+
+## Credits
+
+This project builds upon the Code Institute's "I Think Therefore I Blog" walkthrough module, which provided a foundational blog structure for the website. From this base, I added a custom model for Category, enabling users to filter posts by category. I further expanded the project by creating additional apps (events, account, useful links), models, views, and forms. Additionally, I customized the layout and styling using Bootstrap and custom CSS. I also drew inspiration from the [YouTube Django Recipe Sharing Tutorial by Dee Mc](https://www.youtube.com/watch?v=sBjbty691eI&list=PLXuTq6OsqZjbCSfiLNb2f1FOs8viArjWy), which provides a clear and educational guide on creating a website using Django and Bootstrap.
+
+All text content for the posts was created with the assistance of AI for educational purposes only, and it was not verified for accuracy.
+
+The Readme was based on the example by [Kera Cudmore - Readme Examples](https://github.com/kera-cudmore/readme-examples/blob/main/README.md?plain=1) and [Mark Daniel - My Fishing Adventures](https://github.com/markdaniel1982/MD82-P4/blob/main/README.md)
+
+___
+
+## Media
+
+All the images used on the website are free of copyrights and are credited directly on the webpages, except for the images on the homepage ([Photo by Jay Chen on Unsplash](https://unsplash.com/@forhiskingdom?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash)), the about page([Photo by Lora Moore-Kakaletris on Unsplash](https://unsplash.com/@mooreimages?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash)) and the logout page (sourced from [Pickpik](https://www.pickpik.com/boys-playing-friends-children-playing-kids-playing-happy-2351)). The images for the restricted area, no posts found, and 404 error pages were generated using OpenAI's DALL-E technology.
+
+___
+
+## Acknowledgments
+
+I would like to express my gratitude to:
+
+- My family and friends for testing the website and giving feedback.
+- My Cohort Facilitator Kristyna Wach as well as my fellow Code Institute students who have provided great support.
+- Jubril Akolade, my mentor, for providing his support and guidance.
 
 
 
