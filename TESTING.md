@@ -172,7 +172,7 @@ To perform the testing, it was necessary to adjust the `X_FRAME_OPTIONS` to `ALL
 
 - Restricted area page:
 
-![Restricted area](documentation/amiresponsive/responsive-events-restricted.png)
+![Restricted area](documentation/amiresponsive/responsive-restricted.png)
 
 
 - Useful links page:
