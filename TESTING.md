@@ -380,13 +380,38 @@ As a user, I expect to:
 ---
 ### Useful Links Page
 
+| Feature                    | Action                                                          | Expected Result                                                                                                     | Actual Result      |
+|----------------------------|-----------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------|--------------------|
+| Page Title                 | Navigate to the Useful Links page.                              | The page title should be "Useful Links".                                                                            | Works as expected  |
+| Links Under Each Topic     | Verify that each topic displays its respective links.           | Each link under a topic is displayed as a list item within the topic card.                                           | Works as expected  |
+| Link Functionality         | Click on a link under a topic.                                  | The link opens in a new tab, taking the user to the correct external website.                                        | Works as expected  |
+| Placeholder for No Links   | Verify the behavior when a topic has no links.                  | An empty state is displayed within the topic card indicating no links were added under that topic yet.               | Works as expected  |
+
 --- 
 
 ### Signup Page
 
+| Feature                       | Action                                                                                          | Expected Result                                                                                                 | Actual Result      |
+|-------------------------------|-------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------|--------------------|
+| Page Title                    | Navigate to the Sign Up page.                                                                   | The page title should be "Signup".                                                                             | Works as expected  |
+| Username Field                | Enter a username, fill up the rest of the form and click submit.                                | The username is accepted, or an error message is displayed if invalid.                                          | Works as expected  |
+| Duplicate Username            | Enter a username that is already in use, fill up the rest of the form and click submit.         | An error message is displayed indicating the username is already taken.                                         | Works as expected  |
+| Previously Used Username      | Enter a username that was previously used to create an account that has been deleted, fill up the rest of the form and click submit. | An error message is displayed indicating the username cannot be reused.                                         | Works as expected  |
+| Email Field                   | Enter an email address, fill up the rest of the form and click submit.                          | The email address is accepted, or an error message is displayed if invalid.                                     | Works as expected  |
+| Duplicate Email               | Enter an email address that is already in use, fill up the rest of the form and click submit.    | An error message is displayed indicating the email is already registered.                                       | Works as expected  |
+| Password1 Field               | Enter a password, fill up the rest of the form and click submit.                                | The password is accepted, or an error message is displayed if it does not meet the criteria.                    | Works as expected  |
+| Password2 Field               | Enter the same password as in the Password1 field, fill up the rest of the form and click submit.| If it meets the criteria the password is accepted.                                                             | Works as expected  |
+| Password2 Field               | Enter a different password as in the Password1 field, fill up the rest of the form and click submit.| Error message is displayed if it does not match Password1.                                                  | Works as expected  |
+| Accept Rules Field            | Check the accept rules checkbox, fill up the rest of the form and click submit.                 | The checkbox is accepted.                                                                                       | Works as expected  |
+| Submit Without Checkbox       | Try to submit the form without checking the accept rules checkbox, fill up the rest of the form and click submit. | An error message is displayed indicating the rules must be accepted.                                            | Works as expected  |
+| Important Note                | Navigate to the Sign Up page.                                                                   | The important note about password safety is displayed below the form fields.                                     | Works as expected  |
+| Submit Button                 | Fill out the form with valid data and click the "Sign Up" button.                               | The form is submitted, and the user is registered and redirected to the appropriate page.                       | Works as expected  |
+| Errors warnings               | Submit the form with incorrect data.                                                            | Error messages are displayed at the top of each field and form is not submitted.                                | Works as expected  |
+
 ---
 
 ### Login Page
+
 
 ---
 ### User's Profile Page
