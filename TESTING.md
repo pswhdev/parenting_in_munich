@@ -28,7 +28,7 @@
     - [Signup Page](#signup-page)
     - [Login Page](#login-page)
     - [User's Profile Page](#users-profile-page)
-    - [Edit Profile Page](#edit-profile-page)
+    - [Update Profile Page](#update-profile-page)
     - [Logout Page](#logout-page)
   - [Back to README](#back-to-readme)
 
@@ -443,16 +443,35 @@ As a user, I expect to:
 
 ---
 
-### Edit Profile Page
+### Update Profile Page
+
+| Feature                | Action                                                                                                 | Expected Result                                                                                                                     | Actual Result      |
+|------------------------|--------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------|--------------------|
+| Page Title             | Navigate to the Update Profile page.                                                                   | The page title should be "Update Profile".                                                                                          | Works as expected  |
+| Full Name              | Enter a name in the Full Name field and click the "Update" button.                                     | The entered name is displayed on the Profile Page.                                                                                  | Works as expected  |
+| Email                  | Enter an email address in the Email field and click the "Update" button.                               | The email address is accepted, or an error message is displayed if invalid format.                                                  | Works as expected  |
+| Display Email Checkbox | 1. Check the "I would like for other users to see my e-mail" checkbox and click update. 2. Go back to the Update Profile Page and uncheck the checkbox, click the "Update" button. | E-mail is displayed on Profile Page or not displayed according to the checkbox being checked or unchecked.                           | Works as expected  |
+| Profile Photo Upload   | Upload a new profile photo and click the "Update" button.                                              | The new profile photo is previewed and accepted, or an error message is displayed if the file is too large.                          | Works as expected  |
+| Delete Profile Photo   | Check the "Delete photo" checkbox and click the "Update" button.                                       | The standard placeholder image is displayed on the Profile Page.                                                                     | Works as expected  |
+| Bio                    | Enter text in the Bio field and click the "Update" button.                                             | The text of maximum 500 characters is shown on the Profile Page.                                                                     | Works as expected  |
+| Location               | Pick a location from the list.                                                                         | The location is displayed on the Profile Page.                                                                                       | Works as expected  |
+| Custom Location        | Click "Other" from the Locations list. Enter a custom location in the Custom Location field provided   | The custom location is displayed on the Profile Page.                                                                               | Works as expected  |
+| Submit Button          | Fill out the form and click the "Update Profile" button.                                               | The form is submitted, and the profile is updated successfully.                                                                      | Works as expected  |
+| File Size Modal        | Upload a profile photo larger than 2MB.                                                                | A modal is displayed indicating the file size must be less than 2MB.                                                                 | Works as expected  |
+
 
 ---
 
 
 ### Logout Page
 
+| Feature             | Action                                                           | Expected Result                                                                                           | Actual Result      |
+|---------------------|------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------|--------------------|
+| Page Title          | Navigate to the Logout page.                                     | The page title should be "Logout".                                                                        | Works as expected  |
+| Confirmation Text   | Click on the Logout on the navigation menu.                      | Logout page opens and the confirmation text "Are you sure you want to log out?" is displayed.              | Works as expected  |
+| Logout Button       | Click the "Logout" button.                                       | The form is submitted, and the user is logged out and redirected to the home page.                         | Works as expected  |
 
 ---
-
 
 ## Back to README
 
