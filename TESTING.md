@@ -1,4 +1,3 @@
-
 # Testing
 
 ## Contents
@@ -15,10 +14,12 @@
     - [New Visitors Goals](#new-visitors-goals)
     - [Existing Visitors Goals](#existing-visitors-goals)
   - [Full Testing](#full-testing)
+    - [Naviagtion Menu](#naviagtion-menu)
+    - [Homepage](#homepage)
   - [Known bug](#known-bug)
   - [Back to README](#back-to-readme)
 
-___
+---
 
 ## Code Style and Quality
 
@@ -26,7 +27,6 @@ ___
 
 PEP8 outlines the conventions for writing clean, readable, and maintainable Python code. Adhering to these guidelines helps ensure that the codebase remains consistent and understandable for all contributors.
 All Python code in this project has been checked and verified for adherence to the PEP8 style guide using the extension [Flake8](https://flake8.pycqa.org/en/latest/) on [VSCode](https://code.visualstudio.com/) and double checked using the [CI PEP8 linter](https://pep8ci.herokuapp.com/).
-
 
 ### HTML Validation tests
 
@@ -52,19 +52,20 @@ HTML Validation tests were performed using the [W3C Markup validation service](h
 - [Logout page](https://validator.w3.org/nu/?showsource=yes&doc=https%3A%2F%2Fparenting-in-munich-site-527d6bb8b97c.herokuapp.com%2Faccounts%2Flogout%2F)
 
 **Notes**
- - All 7 pages of Posts (All Categories) were tested. I only included the results of page 1 here for illustration purpose.
 
- - All 37 posts were individually tested, I have only included the result for the test on the "Do Pregnant Women and New Mothers Need a Hebamme? Exploring the Role of Midwives in Germany" here for illustration purpose.
+- All 7 pages of Posts (All Categories) were tested. I only included the results of page 1 here for illustration purpose.
 
- - All pages with authenticated user and page 404 were tested by pasting the source code from the rendered page and also passed with no error nor warnings.
+- All 37 posts were individually tested, I have only included the result for the test on the "Do Pregnant Women and New Mothers Need a Hebamme? Exploring the Role of Midwives in Germany" here for illustration purpose.
 
-___
+- All pages with authenticated user and page 404 were tested by pasting the source code from the rendered page and also passed with no error nor warnings.
+
+---
 
 ### CSS validation was done using [W3C CSS Validator](https://jigsaw.w3.org/css-validator/)
 
 - [CSS validation](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fparenting-in-munich-site-527d6bb8b97c.herokuapp.com%2F&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=enn)
 
-___
+---
 
 ## Lighthouse tests results:
 
@@ -72,7 +73,6 @@ Performance, accessibility, SEO, and best practices were evaluated using Google'
 
 - black background: desktop
 - white background: mobile
-
 
 - Homepage:
 
@@ -139,7 +139,7 @@ Performance, accessibility, SEO, and best practices were evaluated using Google'
 ![Logout page desktop](documentation/lighthouse-tests/lh-logout-desktop.png)
 ![Logout page mobile](documentation/lighthouse-tests/lh-logout-mobile.png)
 
---- 
+---
 
 ## Responsiveness test:
 
@@ -150,55 +150,45 @@ To perform the testing, it was necessary to adjust the `X_FRAME_OPTIONS` to `ALL
 
 ![Homepage](documentation/amiresponsive/responsive-home.png)
 
-
 - Posts page:
 
 ![Posts page](documentation/amiresponsive/responsive-posts-all.png)
-
 
 - Post category page:
 
 ![Posts detail](documentation/amiresponsive/responsive-posts-category.png)
 
-
 - Post detail page:
 
 ![Posts detail](documentation/amiresponsive/responsive-post-detail.png)
-
 
 - About page:
 
 ![About page](documentation/amiresponsive/responsive-about.png)
 
-
 - Restricted area page:
 
 ![Restricted area](documentation/amiresponsive/responsive-restricted.png)
-
 
 - Useful links page:
 
 ![Useful links](documentation/amiresponsive/responsive-links.png)
 
-
 - Signup page:
 
 ![Signup page](documentation/amiresponsive/responsive-signup.png)
-
 
 - Login page:
 
 ![Login page](documentation/amiresponsive/responsive-login.png)
 
-
 - Site rules page:
 
 ![Site rules page](documentation/amiresponsive/responsive-site-rules.png)
 
+- The Events, User Profile, Profile Update and Logout pages could not be tested on the website because the login doesn't work during the testing, but they were manually tested in different devices and are responsive as well.
 
-* The Events, User Profile, Profile Update and Logout pages could not be tested on the website because the login doesn't work during the testing, but they were manually tested in different devices and are responsive as well.
-
-___
+---
 
 ## Testing User Stories
 
@@ -207,46 +197,86 @@ ___
 As a new visitor, I expect to:
 
 **Easily navigate the website**
-  - The navigation menu includes links to all sections of the website, including a dropdown for categories under "Posts" and a search engine, present in the navbar on the posts section.
+
+- The navigation menu includes links to all sections of the website, including a dropdown for categories under "Posts" and a search engine, present in the navbar on the posts section.
 
 **Quickly understand the website's purpose and target audience**
-  - There is an About page with clear information about the website's purpose and target audience.
+
+- There is an About page with clear information about the website's purpose and target audience.
 
 **Sign up and access exclusive content effortlessly**
-  - Visitors can sign up using the navbar link, and upon creating their accounts, they have immediate access to content exclusive to registered members.
+
+- Visitors can sign up using the navbar link, and upon creating their accounts, they have immediate access to content exclusive to registered members.
 
 **Easily find and read the website policies**
-  - The link for the website policies can be easily found in the footer of all webpages as well as on the signup page.
+
+- The link for the website policies can be easily found in the footer of all webpages as well as on the signup page.
 
 **Contact the website moderators without difficulty**
-  - There is a "Contact Us" section on the About page and a link in the footer of all webpages that directs the user straight to the "Contact Us" section. In this section, the visitor can send a message by entering their name and email.
 
+- There is a "Contact Us" section on the About page and a link in the footer of all webpages that directs the user straight to the "Contact Us" section. In this section, the visitor can send a message by entering their name and email.
 
 ### Existing Visitors Goals
 
 As a user, I expect to:
 **Manage my profile information, including my bio and profile picture, to keep my account current**
-  - Users can easily manage their information, including email, bio, profile picture, and location, by clicking the Edit button on their profile page.
+
+- Users can easily manage their information, including email, bio, profile picture, and location, by clicking the Edit button on their profile page.
 
 **Connect with other parents through comments on posts to share experiences and seek advice**
-  - Users can leave comments on posts and click on the usernames of other commenters to view their information, including their email (if they have chosen to display it publicly).
+
+- Users can leave comments on posts and click on the usernames of other commenters to view their information, including their email (if they have chosen to display it publicly).
 
 **Edit and delete my comments as needed**
-  - Users have access to all comments they have left on the website from their profile page. They can click on a comment to be redirected to the respective post and comment, where they can edit or delete their comments as desired.
+
+- Users have access to all comments they have left on the website from their profile page. They can click on a comment to be redirected to the respective post and comment, where they can edit or delete their comments as desired.
 
 **Access exclusive content offered by the website, such as information on local events**
-  - Registered users can view all events published on the events page.
+
+- Registered users can view all events published on the events page.
 
 **Permanently terminate my account if I choose to**
-  - Users can permanently delete their accounts at any time by clicking the Delete button on their profile page.
 
-___
+- Users can permanently delete their accounts at any time by clicking the Delete button on their profile page.
+
+---
 
 ## Full Testing
 
+### Naviagtion Menu
 
+| Feature              | Action                                                                                        | Expected Result                                                                                                                                                                                | Actual Result     |
+| -------------------- | --------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------- |
+| Logout Link          | Click on "Parenting in Munich" in the navigation bar.                                         | User is redirected to the Home page.                                                                                                                                                           | Works as expected |
+| Home Link            | Click on "Home" in the navigation bar.                                                        | User is redirected to the Home page.                                                                                                                                                           | Works as expected |
+| Posts Link           | Click on "Posts" in the navigation bar.                                                       | User is presented with a dropdown menu.                                                                                                                                                        | Works as expected |
+| All Categories Link  | Click on "All Categories" under the "Posts" dropdown menu.                                    | User is redirected to the Posts page, displaying all posts.                                                                                                                                    | Works as expected |
+| Category Posts Link  | Click on "Posts" in the navigation bar, then click on a specific category.                    | User is redirected to the selected category posts page, displaying relevant posts.                                                                                                             | Works as expected |
+| About Link           | Click on "About" in the navigation bar.                                                       | User is redirected to the About page, displaying information about the website.                                                                                                                | Works as expected |
+| Events Link          | Click on "Events" in the navigation bar.                                                      | If logged in, user is redirected to the Events page, displaying upcoming events. If not logged in, user is redirected to the Restricted Area page.                                             | Works as expected |
+| Useful Links         | Click on "Useful Links" in the navigation bar.                                                | User is redirected to the Useful Links page, displaying a list of useful resources.                                                                                                            | Works as expected |
+| Sign Up Link         | Click on "Sign up" in the navigation bar.                                                     | User is redirected to the Sign up page, displaying the registration form.                                                                                                                      | Works as expected |
+| Login Link           | Click on "Login" in the navigation bar.                                                       | User is redirected to the Login page, displaying the login form.                                                                                                                               | Works as expected |
+| Logout Link          | Log in to the website, then click on "Logout" in the navigation bar.                          | User is logged out and redirected to the Home page.                                                                                                                                            | Works as expected |
+| Profile Link         | Log in to the website, then click on the profile link in the navigation bar (users username). | User is redirected to their Profile page, displaying user information.                                                                                                                         | Works as expected |
+| Admin Panel Link     | Log in as an admin, then click on the "Admin Panel" link in the navigation bar.               | Admin user is redirected to the Admin Panel.                                                                                                                                                   | Works as expected |
+| Search Functionality | Navigate to the "Posts" page, enter a keyword in the search bar, and submit the query.        | If there are matching results, the search results page displays relevant posts. If no matches are found, a friendly image and message prompt users to try a new search or return to all posts. | Works as expected |
 
-___
+---
+
+### Homepage
+
+| Feature                            | Action                                                                             | Expected Result                                                                                           | Actual Result      |
+|------------------------------------|------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------|--------------------|
+| Admin Welcome Message              | Log in as an admin and navigate to the Home page.                                   | Admin sees a welcome message with their username and a link to the Admin Panel.                           | Works as expected  |
+| Admin Panel Link                   | Log in as an admin, click on the "Go to Admin Panel" link.                          | Admin is redirected to the Admin Panel page.                                                              | Works as expected  |
+| Authenticated User Welcome Message | Log in as a regular user and navigate to the Home page.                             | User sees a welcome message with their username and links to Posts and Events.                            | Works as expected  |
+| See Posts Link                     | Log in as a regular user, click on the "See Posts" link.                            | User is redirected to the Posts page.                                                                     | Works as expected  |
+| See Events Link                    | Log in as a regular user, click on the "See Events" link.                           | User is redirected to the Events page.                                                                    | Works as expected  |
+| Unauthenticated User Welcome Message | Navigate to the Home page without logging in.                                      | User sees a welcome message and a link to join the website.                                               | Works as expected  |
+| Join Us Link                       | Navigate to the Home page without logging in, click on the "Join us!" link.         | User is redirected to the Sign up page.                                                                   | Works as expected  |
+
+---
 
 ## Known bug
 
@@ -258,10 +288,10 @@ When a user tries to access a restricted area, they are prompted to log in or si
 
 This issue is due to the default behavior of Django's allauth authentication views. Attempts to override this behavior have been unsuccessful so far.
 
-___
+---
 
 ## Back to README
 
 Go [Back to README](README.md)
 
-___
+---
