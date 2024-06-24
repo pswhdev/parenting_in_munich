@@ -8,8 +8,10 @@ Inspired by this experience, I created this website to provide the useful inform
 
 Visit ythe deployed site [Parenting in Munich](https://parenting-in-munich-site-527d6bb8b97c.herokuapp.com/)
 
-___
+---
+
 ## Contents
+
 - [Parenting in Munich](#parenting-in-munich)
   - [Contents](#contents)
   - [Project Objectives](#project-objectives)
@@ -46,7 +48,6 @@ ___
       - [Contact Us Section](#contact-us-section)
     - [Events Page](#events-page)
       - [Content Display](#content-display-1)
-      - [Restricted Area](#restricted-area)
     - [Useful Links](#useful-links)
       - [Responsive Design](#responsive-design-1)
     - [User Profile Page](#user-profile-page)
@@ -59,6 +60,7 @@ ___
       - [Bio](#bio)
     - [Logout page](#logout-page)
     - [Site rules](#site-rules)
+      - [Restricted Area](#restricted-area)
     - [404 Error Page](#404-error-page)
     - [Future Features](#future-features)
     - [Features That Will Not Be Implemented](#features-that-will-not-be-implemented)
@@ -77,22 +79,25 @@ ___
   - [Media](#media)
   - [Acknowledgments](#acknowledgments)
 
-___
+---
 
 ## Project Objectives
 
 The aim of this project was to design and create a website to demonstrate the effective use of libraries and frameworks available to developers. Key objectives included:
 
 **Create a Readable, Clean, and Responsive Front End**
-  - Utilized Django and Bootstrap to ensure the site is easily accessible and intuitive for users.
+
+- Utilized Django and Bootstrap to ensure the site is easily accessible and intuitive for users.
 
 **Implement CRUD Functionality**
-  - Enabled users to create, update and delete profiles and comments on blog posts using Django's backend capabilities.
+
+- Enabled users to create, update and delete profiles and comments on blog posts using Django's backend capabilities.
 
 **Store Data on an External Cloud Database**
-  - Used Code Institute Postgres Database server to manage the PostgreSQL database, ensuring reliable and scalable data storage.
 
-___
+- Used Code Institute Postgres Database server to manage the PostgreSQL database, ensuring reliable and scalable data storage.
+
+---
 
 ## User Experience - UX
 
@@ -105,23 +110,24 @@ Parenting in Munich is a website designed for individuals seeking advice and res
 #### New Visitors Goals
 
 As a new visitor, I expect to:
+
 - Easily navigate the website.
 - Quickly understand the website's purpose and target audience.
 - Sign up and access exclusive content effortlessly.
 - Easily find and read the website policies.
 - Contact the website moderators without difficulty.
 
-
 #### Existing Visitors Goals
 
 As a user, I expect to:
+
 - Manage my profile information, including my bio and profile picture, to keep my account current.
 - Connect with other parents through comments on posts to share experiences and seek advice.
 - Edit and delete my comments as needed.
 - Access exclusive content offered by the website, such as information on local events.
 - Permanently terminate my account if I choose to.
 
-___
+---
 
 ## Desing planning
 
@@ -131,34 +137,33 @@ The following wireframes provide a visual representation of the "Parenting in Mu
 
 These wireframes served as a blueprint for the design and functionality of each page.
 
-* Home page
-![Home page wireframe](documentation/wireframes/home_page.png)
+- Home page
+  ![Home page wireframe](documentation/wireframes/home_page.png)
 
-* Posts page
-![Posts page wireframe](documentation/wireframes/posts_page.png)
+- Posts page
+  ![Posts page wireframe](documentation/wireframes/posts_page.png)
 
-* Posts detail page
-![Posts detail page wireframe](documentation/wireframes/post_detail_page.png)
+- Posts detail page
+  ![Posts detail page wireframe](documentation/wireframes/post_detail_page.png)
 
-* Profile page
-![Profile page wireframe](documentation/wireframes/registration_page.png)
+- Profile page
+  ![Profile page wireframe](documentation/wireframes/registration_page.png)
 
-* Events page
-![Events page wireframe](documentation/wireframes/events.png)
+- Events page
+  ![Events page wireframe](documentation/wireframes/events.png)
 
+- Links page
+  ![Links page wireframe](documentation/wireframes/links_page.png)
 
-* Links page
-![Links page wireframe](documentation/wireframes/links_page.png)
-
-* About page
-![About page wireframe](documentation/wireframes/about_page.png)
-
+- About page
+  ![About page wireframe](documentation/wireframes/about_page.png)
 
 ### Entity–relationship model (ERDs)
 
 #### Simple interaction diagram
 
 The interaction diagram below illustrates the roles and permissions on the website:
+
 - Visitors can read posts and useful links.
 - Logged-in users in addition to reading posts and useful links, also have access to the posts comments and events section. They also can create, edit, and delete their profiles and comments.
 - Admins have full control to create, edit, or delete any user profiles, posts, comments, events, and useful links.
@@ -168,14 +173,13 @@ This structure ensures that visitors have limited access, users have interactive
 Simple interaction diagram
 ![Simple interaction diagram](documentation/simple-interaction.png)
 
-
 ### Database Plan
 
 The comprehensive database schema below depicts details about the type of data stored and the relationships between different entities.
 
 ![Data Base Schema](documentation/erds.png)
 
-___
+---
 
 ## Design Choices
 
@@ -187,7 +191,7 @@ The website's layout was inspired on the [Bootstrap Theme Milo](https://themes.g
 
 The chosen color palette is a monochromatic scheme designed to create a visually appealing and user-friendly interface while ensuring compatibility with the diverse images featured in the blog posts. The white (#fff) and off-white background (#f2f2f2) provides a clean, open canvas that promotes clarity and focus on the content. For the text, black (#000) and dark gray (#424242) have been used to ensure strong readability. These darker shades create a professional contrast against the white background, making the text stand out clearly. The choice of this monochromatic palette of neutral colors avoids any clash with the varied imagery on the site, maintaining visual harmony and a cohesive user experience.
 
-  ![Parenting in Munich color scheme](documentation/colour-palette.png)
+![Parenting in Munich color scheme](documentation/colour-palette.png)
 
 ### Typography
 
@@ -197,14 +201,13 @@ The chosen color palette is a monochromatic scheme designed to create a visually
 
 - As the fallback, serif was chosen for the headings as a browser-safe font, in combination with sans-serif for the body text, following the same stylistic approach as the chosen fonts.
 
-EB Garamond example: 
+EB Garamond example:
 ![EB Garamond Example](documentation/fonts-samples/font-eb-garamond.png)
 
 PT Sans Caption example:
 ![PT Sans Caption Example](documentation/fonts-samples/font-pt-sans-caption.png)
 
-___
-
+---
 
 ## Features
 
@@ -213,7 +216,9 @@ ___
 #### Home Page
 
 ##### Hero Section
+
 The home page welcomes users based on their authentication status, offering different content and links accordingly:
+
 - For admin users there is a personalized welcome message for admins and access to the admin panel.
 - For authenticated users tehre is a personalized welcome message and links to explore posts and events.
 - For unauthenticated users tehre is a general welcome message and a link to sign up.
@@ -221,27 +226,27 @@ The home page welcomes users based on their authentication status, offering diff
 Hero image with general message for visitors:
 ![Hero](documentation/features/hero.webp)
 
-
 #### Navigation Menu
 
 The navigation bar provides users with easy access to various sections of the site, ensuring a smooth and intuitive browsing experience including a responsive design with a toggle butto for small screens, enabling the collapse and expansion of the navigation menu.
 
 The navigation bar includes:
-  - A clickable logo that redirects to the home page.
-  - Navigation links (highlighted when active) to:
-    - Home: navigation link to the home page
-    - Posts: dropdown menu listing all categories as well as a direct link to all posts.
-    - About: link to the About page.
-    - Events: link to the Events page.
-    - Useful links: direct link to the Useful Links page.
-    - Authentication Links:
-      - For logged-in users:
-        - Admin Panel (displayed only for admin users): Link to the admin panel for staff.
-        - Profile: Link to the user's profile page.
-        - Logout: Link to log out.
-      - For logged-out users:
-        - Sign Up: Link to the sign-up page.
-        - Login: Link to the login page.
+
+- A clickable logo that redirects to the home page.
+- Navigation links (highlighted when active) to:
+  - Home: navigation link to the home page
+  - Posts: dropdown menu listing all categories as well as a direct link to all posts.
+  - About: link to the About page.
+  - Events: link to the Events page.
+  - Useful links: direct link to the Useful Links page.
+  - Authentication Links:
+    - For logged-in users:
+      - Admin Panel (displayed only for admin users): Link to the admin panel for staff.
+      - Profile: Link to the user's profile page.
+      - Logout: Link to log out.
+    - For logged-out users:
+      - Sign Up: Link to the sign-up page.
+      - Login: Link to the login page.
 
 Navbar view for general visitors:
 ![Navbar-guest](documentation/features/navbar.png)
@@ -259,7 +264,7 @@ Because the search engine is specifically designed for finding posts, the search
 Navbar view for visitors on the posts page:
 ![Navbar - posts section](documentation/features/navbar-posts.png)
 
-___
+---
 
 ### Posts and Posts by category pages
 
@@ -270,11 +275,12 @@ All details are added through the admin panel, where they can be easily managed 
 #### Content Display
 
 **Post Cards:**
-  - Each post is displayed in a card format with the following elements:
-    - **Category Link:** Displays the category of the post, linking to other posts in the same category.
-    - **Title:** Clickable link to the full post details.
-    - **Featured Image:** Displays the post's featured image or a placeholder if none is provided.
-    - **Excerpt:** A brief summary of the post content.
+
+- Each post is displayed in a card format with the following elements:
+  - **Category Link:** Displays the category of the post, linking to other posts in the same category.
+  - **Title:** Clickable link to the full post details.
+  - **Featured Image:** Displays the post's featured image or a placeholder if none is provided.
+  - **Excerpt:** A brief summary of the post content.
 
 #### Search feature:
 
@@ -293,7 +299,6 @@ The post cards are dynamically generated and displayed 6 per page. Because the c
 Content display:
 ![Content display](documentation/features/posts-display.png)
 
-
 #### Pagination:
 
 If there are more than 6 posts to be displayed, pagination navigation controls are included, allowing users to navigate between pages of posts.
@@ -305,12 +310,11 @@ On small screens, such as mobile phones, the pagination omits the buttons for th
 Pagination Comparison: Computer Screen vs. Phone Screen:
 ![Pagination Comparison](documentation/features/pagination-comparison.png)
 
-___
+---
 
 ### Post Detail Page
 
 The Post Detail page displays the full content of a specific post, along with a comment section for user interactions.
-
 
 #### Link to Category
 
@@ -319,14 +323,13 @@ On the post detail page, a link to the post's category is provided. When clicked
 Link to category:
 ![Link to category](documentation/features/category-link.png)
 
-
 #### Comments Section
 
 The comments section displays the number of comments and allows authenticated users to submit comments.
+
 - Authenticated users can see all approved comments and see, delete or edit their own comments, even the pending aproval ones.
 - Approved comments have a link to the comment's author profile.
 - Unauthenticated users are prompt to log in or sign up to participate in discussions.
-
 
 ##### Comments from deleted accounts
 
@@ -340,14 +343,12 @@ Comment's author view of the comments with edit and delete options:
 Overview of the comments section including comment from deleted account's author:
 ![Comments section](documentation/features/comparison-deleted-account.png)
 
-
 #### Comments deletion
 
 Users can delete their own comments and will be asked to confirm their decision before the permanent deletion.
 
 Confirmation prior to deletion:
 ![Confirmation prior to deletion](documentation/features/confirmation-delete-comment.png)
-
 
 ### About Us Page
 
@@ -359,7 +360,6 @@ The information about the website and the image displayed on the page can be man
 
 Users are invited to reach out with feedback, questions, or suggestions
 
-
 ### Events Page
 
 The Events page is exclusively for registered users and showcases upcoming family-oriented events, providing detailed information about each event.
@@ -367,34 +367,28 @@ Just like with the posts, all details are added through the admin panel, where t
 
 #### Content Display
 
-The events are displayed in a similar way to the posts to keep consistancy thoughout the website. 
+The events are displayed in a similar way to the posts to keep consistancy thoughout the website.
 
 - Event Card Structure:
-     - Event Image: Displays the event's image.
-     - Event Name: Title of the event.
-     - Description: Detailed information about the event.
-     - Location: Venue of the event.
-     - Date: Start and end dates of the event.
-     - Time: Start and end times of the event. If only start time is provided, the time is displayed as "from 'hours'"
-     - Website Link: (Optional) Link to the event's website.
+  - Event Image: Displays the event's image.
+  - Event Name: Title of the event.
+  - Description: Detailed information about the event.
+  - Location: Venue of the event.
+  - Date: Start and end dates of the event.
+  - Time: Start and end times of the event. If only start time is provided, the time is displayed as "from 'hours'"
+  - Website Link: (Optional) Link to the event's website.
 
 The page is programmed to order the events by start date, displaying the closest ones first. It also automatically filters out events that have an end date earlier than the current date.
 
 Events page layout:
 ![Events page layout](documentation/features/events-page-overview.png)
-* The content observed on the live site may differ due to the filtering passed events feature. Screenshot taken on June 22nd 2024
+
+- The content observed on the live site may differ due to the filtering passed events feature. Screenshot taken on June 22nd 2024
 
 If there are no events to be displayed the page, a friendly iamge and message are displayed.
 
 If tehre are no events to be displayed:
 ![No events image](documentation/features/no-events.png)
-
-#### Restricted Area
-
-Unauthorized users are promt to register in order to see the events.
-
-![Restricted area](documentation/features/restricted-area.png)
-
 
 ### Useful Links
 
@@ -403,7 +397,6 @@ Curated list of websites and resources beneficial for parents, organized by topi
 #### Responsive Design
 
 The links are added using the admin panel and are associated with a specific topic. When the page is rendered, the links are automatically displayed under the corresponding topic, organized alphabetically for an intuitive user experience. The links are programmed to open in a new tab.
-
 
 ### User Profile Page
 
@@ -427,7 +420,6 @@ The confirmation ensures that the user is aware of the permanence of the action 
 
 Delete account confirmation:
 ![Delete account confirmation](documentation/features/confirmation-delete-account.png)
-
 
 ### Update Profile Page
 
@@ -459,7 +451,6 @@ The text area for the bio is limited to 500 characters, and this limit is displa
 Overview of the update profile page with all the described features:
 ![Overview profile update](documentation/features/update-profile-page.png)
 
-
 ### Logout page
 
 When users choose to log out, they are asked to confirm their action. Upon confirmation, a thank you message is displayed, acknowledging their visit.
@@ -470,18 +461,21 @@ Logout page:
 Thank you message:
 ![Thank you message](documentation/features/thank-you-message.png)
 
-
 ### Site rules
 
 The website includes a page with the site rules. The link for this page is both included on the footer of the page (as "Policy") and on the signup page. On the signup page, the link opens in a new window in order not to disturb the ongoing signing up process for a better user experience.
 
+#### Restricted Area
+
+Unauthorized users are promt to register in order to see the content.
+
+![Restricted area](documentation/features/restricted-area.png)
 
 ### 404 Error Page
 
 A friendly 404 Error Page appears if a page is not found. The user is prompted to return to the main page by either clicking on a provided link or the image itself, ensuring a smooth and intuitive user experience.
 
 ![404 Error Page](documentation/features/error-page.png)
-
 
 ### Future Features
 
@@ -491,18 +485,17 @@ A friendly 404 Error Page appears if a page is not found. The user is prompted t
 - Add interactive maps showing family-friendly places in Munich, such as playgrounds, parks, and hospitals.
 - Provide multilingual support to cater to a diverse expat community.
 
-
 ### Features That Will Not Be Implemented
 
 Initially, there was a plan for users to enter events and decide if those events would be private or public. If the event was private, users would be able to invite other users, and only those invited would have visibility to those events. This feature is no longer going to be implemented for security and liability reasons. Events can only be added and managed by users with admin privileges.
 
-___
+---
 
 ## Testing
 
 Please refer to [TESTING.md](TESTING.md) file for details on all testing conducted.
 
-___
+---
 
 ## Technologies Used
 
@@ -532,7 +525,7 @@ ___
 - [Heroku](https://id.heroku.com/) Used to deploy the project.
 - [Webpage Spell-Check](https://chrome.google.com/webstore/detail/webpage-spell-check/mgdhaoimpabdhmacaclbbjddhngchjik/related) A google chrome extension that allows you to spell check your webpage. Used to check the site and the readme for spelling errors.
 
-___
+---
 
 ## Agile methodology
 
@@ -540,7 +533,7 @@ This project was designed using Agile methodology, utilizing the Project Board a
 
 - [Project Board](https://github.com/users/pswhdev/projects/5)
 
-___
+---
 
 ## Deployment and Local deployment:
 
@@ -555,11 +548,11 @@ The Application has been deployed from GitHub to Heroku by following the steps:
 3. Click on create app
 4. Go to "Settings"
 5. Under Config Vars add the relevant Vars. For this project, I needed to add CLOUDINARY_URL, DATABASE_URL and SECRET_KEY.
-7. Go to "Deploy" and select "GitHub" in "Deployment method"
-8. To connect Heroku app to your Github repository code enter your repository name, click 'Search' and then 'Connect' once it is found.
-9. Choose the branch you want to build your app from
-10. Either choose to deploy manually by clicking "Deploy Branch" or click on "Enable Automatic Deploys", which keeps the app up to date with your GitHub repository
-11. Wait for the app to build. Once ready you will see the “App was successfully deployed” message and a 'View' button to take you to your deployed link.
+6. Go to "Deploy" and select "GitHub" in "Deployment method"
+7. To connect Heroku app to your Github repository code enter your repository name, click 'Search' and then 'Connect' once it is found.
+8. Choose the branch you want to build your app from
+9. Either choose to deploy manually by clicking "Deploy Branch" or click on "Enable Automatic Deploys", which keeps the app up to date with your GitHub repository
+10. Wait for the app to build. Once ready you will see the “App was successfully deployed” message and a 'View' button to take you to your deployed link.
 
 The live link can be found here - [Parenting in Munich](https://parenting-in-munich-site-527d6bb8b97c.herokuapp.com/)
 
@@ -583,7 +576,7 @@ To clone the repository:
 - Open the terminal in your code editor and change the current working directory to the location you want to use for the cloned directory.
 - Type 'git clone' into the terminal and then paste the link you copied from the repository. Press enter.
 
-___
+---
 
 ## Credits
 
@@ -593,13 +586,13 @@ All text content for the posts was created with the assistance of AI for educati
 
 The Readme was based on the example by [Kera Cudmore - Readme Examples](https://github.com/kera-cudmore/readme-examples/blob/main/README.md?plain=1) and [Mark Daniel - My Fishing Adventures](https://github.com/markdaniel1982/MD82-P4/blob/main/README.md)
 
-___
+---
 
 ## Media
 
 All the images used on the website are free of copyrights and are credited directly on the webpages, except for the images on the homepage ([Photo by Jay Chen on Unsplash](https://unsplash.com/@forhiskingdom?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash)), the about page([Photo by Lora Moore-Kakaletris on Unsplash](https://unsplash.com/@mooreimages?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash)) and the logout page (sourced from [Pickpik](https://www.pickpik.com/boys-playing-friends-children-playing-kids-playing-happy-2351)). The images for the restricted area, no posts found, and 404 error pages were generated using OpenAI's DALL-E technology.
 
-___
+---
 
 ## Acknowledgments
 
@@ -608,7 +601,3 @@ I would like to express my gratitude to:
 - My family and friends for testing the website and giving feedback.
 - My Cohort Facilitator Kristyna Wach as well as my fellow Code Institute students who have provided great support.
 - Jubril Akolade, my mentor, for providing his support and guidance.
-
-
-
-
