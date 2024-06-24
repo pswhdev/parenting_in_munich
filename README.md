@@ -61,7 +61,7 @@ Visit ythe deployed site [Parenting in Munich](https://parenting-in-munich-site-
     - [Logout page](#logout-page)
     - [Site rules](#site-rules)
       - [Restricted Area](#restricted-area)
-    - [404 Error Page](#404-error-page)
+    - [404, 403 and 500 Error Pages](#404-403-and-500-error-pages)
     - [Future Features](#future-features)
     - [Features That Will Not Be Implemented](#features-that-will-not-be-implemented)
   - [Testing](#testing)
@@ -471,11 +471,19 @@ Unauthorized users are promt to register in order to see the content.
 
 ![Restricted area](documentation/features/restricted.png)
 
-### 404 Error Page
+### 404, 403 and 500 Error Pages
 
-A friendly 404 Error Page appears if a page is not found. The user is prompted to return to the main page by either clicking on a provided link or the image itself, ensuring a smooth and intuitive user experience.
+Custom user-friendly 404 Page not Found, 403 Forbidden and 500 Internal Server Error appear if a page is not found, a user tries to access a restricted resource and the server encounters an unexpected condition that prevents it from fulfilling the request respectivelly. The user is then prompted to return to the main page by either clicking on a provided link or the image itself, ensuring a smooth and intuitive user experience.
 
+- 404 Page not Found:
 ![404 Error Page](documentation/features/error-page.png)
+
+
+- 403 Forbidden:
+![403 Error Page](documentation/features/error-forbidden.png)
+
+- 500 Internal Server Error
+![500 Error Page](documentation/features/error-internal-server.png)
 
 ### Future Features
 
