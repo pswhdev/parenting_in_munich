@@ -16,6 +16,12 @@
   - [Full Testing](#full-testing)
     - [Naviagtion Menu](#naviagtion-menu)
     - [Homepage](#homepage)
+  - [| Join Us Link                       | Navigate to the Home page without logging in, click on the "Join us!" link.         | User is redirected to the Sign up page.                                                                   | Works as expected  |](#-join-us-link------------------------navigate-to-the-home-page-without-logging-in-click-on-the-join-us-link----------user-is-redirected-to-the-sign-up-page--------------------------------------------------------------------works-as-expected--)
+    - [Posts Page](#posts-page)
+    - [Posts Category](#posts-category)
+  - [| Pagination           | Same as pagination tests for Posts page                                | Same expected results as for pagination tests for the Posts page  | Works as expected  |](#-pagination------------same-as-pagination-tests-for-posts-page---------------------------------same-expected-results-as-for-pagination-tests-for-the-posts-page---works-as-expected--)
+    - [Post Detail page](#post-detail-page)
+  - [| Login Message for Comments  | Navigate to a post detail page without logging in.                                  | A message prompting the user to log in or sign up to participate in the discussion is displayed.          | Works as expected  |](#-login-message-for-comments---navigate-to-a-post-detail-page-without-logging-in-----------------------------------a-message-prompting-the-user-to-log-in-or-sign-up-to-participate-in-the-discussion-is-displayed-----------works-as-expected--)
   - [Known bug](#known-bug)
   - [Back to README](#back-to-readme)
 
@@ -275,9 +281,69 @@ As a user, I expect to:
 | See Events Link                    | Log in as a regular user, click on the "See Events" link.                           | User is redirected to the Events page.                                                                    | Works as expected  |
 | Unauthenticated User Welcome Message | Navigate to the Home page without logging in.                                      | User sees a welcome message and a link to join the website.                                               | Works as expected  |
 | Join Us Link                       | Navigate to the Home page without logging in, click on the "Join us!" link.         | User is redirected to the Sign up page.                                                                   | Works as expected  |
+---
+
+### Posts Page
+
+| Feature                      | Action                                                                 | Expected Result                                                                                         | Actual Result      |
+|------------------------------|------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------|--------------------|
+| All Posts Header             | Navigate to the Posts page without performing a search.                | The header displays "Posts".                                                                            | Works as expected  |
+| Search Results Header        | Perform a search using the search bar.                                 | The header displays "Search results for 'search_query'".                                                | Works as expected  |
+| Search Results with match    | Perform a search that yields results.                                  | All posts containing the search_query are displayed on the page                                         | Works as expected  |
+| Search Results with no match | Perform a search that yields no results.                               | A "No posts found" image and message are displayed.                                                     | Works as expected  |
+| Post Category Link           | Click on a post category link from the post card.                      | User is redirected to the selected category page.                                                       | Works as expected  |
+| Post Title Link              | Click on a post title link.                                            | User is redirected to the post detail page.                                                             | Works as expected  |
+| Placeholder Image            | Verify a post without a featured image displays a placeholder image.   | The placeholder image is displayed for the post.                                                        | Works as expected  |
+| Post Featured Image          | Verify a post with a featured image displays the correct image.        | The correct featured image is displayed for the post.                                                   | Works as expected  |
+| Pagination - Visible Range   | Verify the pagination displays a limited range around the current page number. | Pagination shows only the pages within a range of 3 around the current page.                             | Works as expected  |
+| Pagination - Page Links      | Navigate through the page links in the pagination section.             | The correct page of posts is displayed when clicking on each page number.                               | Works as expected  |
+| Pagination - First Page      | Navigate to the Posts page, ensure the first page is displayed.        | The pagination does not show "First" and "Previous" buttons.                                            | Works as expected  |
+| Pagination - Middle Page     | Navigate to a middle page of the Posts.                                | The pagination displays "Previous" and "Next" buttons. When the first or last page is not within the displayed range, "First" and "Last" buttons are shown accordingly. | Works as expected  |
+| Pagination - Last Page       | Navigate to the last page of the Posts.                                | The pagination does not show "Next" and "Last" buttons.                                                 | Works as expected  |
 
 ---
 
+### Posts Category
+
+| Feature              | Action                                                                 | Expected Result                                                   | Actual Result      |
+|----------------------|------------------------------------------------------------------------|-------------------------------------------------------------------|--------------------|
+| Page Title           | Navigate to the category page.                                         | The page title should be the name of the category.                | Works as expected  |
+| Post Category Link   | Click on a post category link.                                         | User is redirected to the selected category page.                 | Works as expected  |
+| Post Title Link      | Click on a post title link.                                            | User is redirected to the post detail page.                       | Works as expected  |
+| Placeholder Image    | Verify a post without a featured image displays a placeholder image.   | The placeholder image is displayed for the post.                  | Works as expected  |
+| Post Featured Image  | Verify a post with a featured image displays the correct image.        | The correct featured image is displayed for the post.             | Works as expected  |
+| Pagination           | Same as pagination tests for Posts page                                | Same expected results as for pagination tests for the Posts page  | Works as expected  |
+---
+
+**Note** To conduct the pagination tests, a large number of test posts were created to ensure an adequate number of pages for thorough testing. These test posts were subsequently deleted upon completion of the tests.
+
+---
+
+### Post Detail page
+
+| Feature                     | Action                                                                              | Expected Result                                                                                           | Actual Result      |
+|-----------------------------|-------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------|--------------------|
+| Page Title                  | Navigate to a post detail page.                                                     | The page title should be the title of the post.                                                           | Works as expected  |
+| Placeholder Image           | Verify a post without a featured image displays a placeholder image.                | The placeholder image is displayed for the post.                                                          | Works as expected  |
+| Post Featured Image         | Verify a post with a featured image displays the correct image.                     | The correct featured image is displayed for the post.                                                     | Works as expected  |
+| Post Metadata               | Navigate to a post detail page.                                                     | The author, last updated date, and category are displayed below the title.                                | Works as expected  |
+| Post Content                | Navigate to a post detail page.                                                     | The full post content is displayed.                                                                       | Works as expected  |
+| Comments Section Header     | Navigate to a post detail page.                                                     | The comments section header displays the number of comments.                                              | Works as expected  |
+| New Comment Form            | Log in and navigate to a post detail page.                                          | The new comment form is displayed, allowing the logged-in user to submit a comment.                       | Works as expected  |
+| Comment Submission          | Submit a new comment as a logged-in user.                                           | The comment is displayed below the post, showing the username and content.                                | Works as expected  |
+| Pending Comment Approval    | Submit a new comment as a logged-in user.                                           | The comment is displayed with a "pending approval" message.                                               | Works as expected  |
+| Approved Comments           | Navigate to a post detail page with approved comments.                              | Approved comments are displayed below the post content.                                                   | Works as expected  |
+| Profile Link in Comments    | Click on a comment author's profile link.                                           | User is redirected to the comment author's profile page.                                                  | Works as expected  |
+| Comment Edit Button         | Navigate to a post detail page, find your comment, and click the "Edit" button.     | The comment edit form is displayed, allowing the user to edit their comment.                              | Works as expected  |
+| Comment Delete Button       | Navigate to a post detail page, find your comment, and click the "Delete" button.   | A confirmation modal is displayed, allowing the user to confirm or cancel the deletion.                   | Works as expected  |
+| Delete Confirmation         | Confirm the deletion of your comment.                                               | The comment is removed from the post.                                                                     | Works as expected  |
+| Login Message for Comments  | Navigate to a post detail page without logging in.                                  | A message prompting the user to log in or sign up to participate in the discussion is displayed.          | Works as expected  |
+---
+
+
+
+
+---
 ## Known bug
 
 **Description:**
