@@ -9,9 +9,9 @@
     <!-- Page title -->
       <div class="col-12 mt-3 text-center">
         {% if search_query %}
-        <h1>Search results for "{{ search_query }}"</h1>
+        <h2 class="fs-1">Search results for "{{ search_query }}"</h2>
         {% else %}
-        <h1>Posts</h1>
+        <h2 class="fs-1">Posts</h2>
         {% endif %}
         <hr>
       </div>
@@ -23,7 +23,7 @@
           <img src="https://res.cloudinary.com/daluxpssk/image/upload/v1718959860/no-posts_zknglr.webp" class="card-img-top no-posts-found" alt="image of a park with a sign that says no posts found">
         </a>
         <div class="card-body text-center">
-          <p class="card-text">Please start a new search or
+          <p class="card-text">No matching results. Please start a new search or
             <a href="{% url 'posts' %}" aria-label="Return to all posts">return to all posts</a>
           </p>
         </div>

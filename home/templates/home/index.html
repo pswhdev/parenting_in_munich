@@ -9,7 +9,7 @@
 >
   {% if user.is_authenticated and user.is_staff %}
   <div class="container text-center position-relative">
-    <h1 class="text-white mb-4">Welcome back, Admin {{ user.username|truncatechars:50 }}!</h1>
+    <h2 class="text-white mb-4 fs-1">Welcome back, Admin {{ user.username|truncatechars:50 }}!</h2>
     <p class="text-white mb-5">
       Thank you for managing our community. Click the button below to access the
       admin panel.
@@ -21,9 +21,9 @@
   </div>
   {% elif user.is_authenticated %}
   <div class="container text-center position-relative">
-    <h1 class="text-white mb-4">
+    <h2 class="text-white mb-4 fs-1">
       Welcome to Parenting in Munich, {{ user.username|truncatechars:50 }}!
-    </h1>
+    </h2>
     <p class="text-white mb-5">
       We're thrilled to have you with us! Explore our latest articles and
       events, tailored for new parents, parents-to-be, and expat families living
@@ -39,7 +39,7 @@
   </div>
   {% else %}
   <div class="container text-center position-relative">
-    <h1 class="text-white mb-4">Welcome to Parenting in Munich!</h1>
+    <h2 class="text-white mb-4 fs-1">Welcome to Parenting in Munich!</h2>
     <p class="text-white mb-5">
       This website is dedicated to new parents, parents-to-be, and expat
       families living in Munich and the surrounding area.

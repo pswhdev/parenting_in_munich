@@ -469,7 +469,7 @@ The website includes a page with the site rules. The link for this page is both 
 
 Unauthorized users are promt to register in order to see the content.
 
-![Restricted area](documentation/features/restricted-area.png)
+![Restricted area](documentation/features/restricted.png)
 
 ### 404 Error Page
 
