@@ -18,10 +18,12 @@
     - [Homepage](#homepage)
   - [| Join Us Link                       | Navigate to the Home page without logging in, click on the "Join us!" link.         | User is redirected to the Sign up page.                                                                   | Works as expected  |](#-join-us-link------------------------navigate-to-the-home-page-without-logging-in-click-on-the-join-us-link----------user-is-redirected-to-the-sign-up-page--------------------------------------------------------------------works-as-expected--)
     - [Posts Page](#posts-page)
-    - [Posts Category](#posts-category)
+    - [Posts Category Page](#posts-category-page)
   - [| Pagination           | Same as pagination tests for Posts page                                | Same expected results as for pagination tests for the Posts page  | Works as expected  |](#-pagination------------same-as-pagination-tests-for-posts-page---------------------------------same-expected-results-as-for-pagination-tests-for-the-posts-page---works-as-expected--)
-    - [Post Detail page](#post-detail-page)
+    - [Post Detail Page](#post-detail-page)
   - [| Login Message for Comments  | Navigate to a post detail page without logging in.                                  | A message prompting the user to log in or sign up to participate in the discussion is displayed.          | Works as expected  |](#-login-message-for-comments---navigate-to-a-post-detail-page-without-logging-in-----------------------------------a-message-prompting-the-user-to-log-in-or-sign-up-to-participate-in-the-discussion-is-displayed-----------works-as-expected--)
+    - [About Page](#about-page)
+    - [Events Page](#events-page)
   - [Known bug](#known-bug)
   - [Back to README](#back-to-readme)
 
@@ -303,7 +305,7 @@ As a user, I expect to:
 
 ---
 
-### Posts Category
+### Posts Category Page
 
 | Feature              | Action                                                                 | Expected Result                                                   | Actual Result      |
 |----------------------|------------------------------------------------------------------------|-------------------------------------------------------------------|--------------------|
@@ -319,7 +321,7 @@ As a user, I expect to:
 
 ---
 
-### Post Detail page
+### Post Detail Page
 
 | Feature                     | Action                                                                              | Expected Result                                                                                           | Actual Result      |
 |-----------------------------|-------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------|--------------------|
@@ -340,7 +342,23 @@ As a user, I expect to:
 | Login Message for Comments  | Navigate to a post detail page without logging in.                                  | A message prompting the user to log in or sign up to participate in the discussion is displayed.          | Works as expected  |
 ---
 
+### About Page
 
+| Feature                   | Action                                                                                     | Expected Result                                                                                        | Actual Result      |
+|---------------------------|--------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------|--------------------|
+| Page Title                | Navigate to the "About Us" page.                                                           | The page title should be "About Us".                                                                   | Works as expected  |
+| Placeholder Image         | Verify the "About Us" page without a profile image displays a placeholder image.           | The placeholder image is displayed for the "About Us" page.                                            | Works as expected  |
+| Profile Image             | Verify the "About Us" page with a profile image displays the correct image.                | The correct profile image is displayed for the "About Us" page.                                        | Works as expected  |
+| Last Updated              | Navigate to the "About Us" page.                                                           | The "Last updated on" date is displayed below the image.                                               | Works as expected  |
+| About Us Content          | Navigate to the "About Us" page.                                                           | The full "About Us" content is displayed.                                                              | Works as expected  |
+| Contact Us Section Title  | Navigate to the "About Us" page.                                                           | The "We'd Love to Hear from You!" title is displayed in the Contact Us section.                        | Works as expected  |
+| Contact Us Section Text   | Navigate to the "About Us" page.                                                           | The Contact Us section text is displayed, explaining the purpose of the form.                          | Works as expected  |
+| Contact Us Form           | Navigate to the "About Us" page.                                                           | The Contact Us form is displayed, allowing the user to submit messages to the admins.                  | Works as expected  |
+| Submit Contact Form       | Fill out and submit the Contact Us form.                                                   | The form is successfully submitted, and a confirmation message is displayed.                           | Works as expected  |
+
+---
+
+### Events Page
 
 
 ---
