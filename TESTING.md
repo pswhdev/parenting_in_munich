@@ -28,7 +28,7 @@
     - [Signup Page](#signup-page)
     - [Login Page](#login-page)
     - [User's Profile Page](#users-profile-page)
-    - [Update Progile Page](#update-progile-page)
+    - [Edit Profile Page](#edit-profile-page)
     - [Logout Page](#logout-page)
   - [Back to README](#back-to-readme)
 
@@ -412,17 +412,41 @@ As a user, I expect to:
 
 ### Login Page
 
+| Feature             | Action                                                                                 | Expected Result                                                                                                  | Actual Result      |
+|---------------------|----------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------|--------------------|
+| Page Title          | Navigate to the Login page.                                                            | The page title should be "Login".                                                                                | Works as expected  |
+| Error warnings      | Submit the form with incorrect data.                                                   | Error messages are displayed at the top of the fields.                                                           | Works as expected  |
+| Invalid Username    | Enter a username that is not registered, a password and submit the form.               | An error message is displayed indicating the username does not exist.                                            | Works as expected  |
+| Invalid Password    | Enter a registered username, an invalid password and submit the form.                  | An error message is displayed indicating the password is incorrect.                                              | Works as expected  |
+| Submit Button       | Fill out the form with valid data and click the "Login" button.                        | The form is submitted, and the user is logged in and redirected to the appropriate page.                         | Works as expected  |
+| Contact form link   | Click on the "contact form" link.                                                      | The user is redirected to the Contact Us section so they can leave a message to the admins asking for password assistance. | Works as expected  |
 
 ---
 ### User's Profile Page
 
+| Feature                     | Action                                                                                          | Expected Result                                                                                                 | Actual Result      |
+|-----------------------------|-------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------|--------------------|
+| Page Title                  | Navigate to the User Profile page.                                                              | The page title should be "User Profile".                                                                       | Works as expected  |
+| Full Name                   | Verify the full name is displayed.                                                              | The full name is displayed correctly.                                                                          | Works as expected  |
+| Username                    | Verify the username is displayed.                                                               | The username is displayed correctly.                                                                           | Works as expected  |
+| Email (if displayed)        | Verify the email is displayed if the display_email flag is set.                                 | The email is displayed correctly.                                                                              | Works as expected  |
+| Location                    | Verify the location is displayed.                                                               | The location is displayed correctly.                                                                           | Works as expected  |
+| Bio                         | Verify the bio is displayed.                                                                    | The bio is displayed correctly.                                                                                | Works as expected  |
+| Profile Photo               | Verify the profile photo is displayed.                                                          | The profile photo is displayed correctly.                                                                      | Works as expected  |
+| Profile management options  | As a logged-in user, visit the Profile page of another user by clicking on a post comment's link.| There are no "Edit," "Delete," and "View my comments" buttons displayed under the user's profile.               | Works as expected  |
+| Edit Profile Button         | As the current user, verify the presence and click the "Edit Profile" button.                   | The user is redirected to the profile edit page.                                                               | Works as expected  |
+| View Comments Button        | As the current user, verify the presence and click the "View My Comments" button.               | The comments section expands, displaying the user's comments.                                                  | Works as expected  |
+| Comment Link                | As the current user, in the comments section, click on a comment link.                         | The user is redirected to the specific comment on the post detail page.                                         | Works as expected  |
+| No Comments Message         | As a current user that has not written any comments, click the button "View My Comments".       | A message is displayed indicating that the user has no comments yet.                                            | Works as expected  |
+| Delete Account Button       | As the current user, click the "Delete Account" button.                                         | A modal confirming account deletion is displayed.                                                              | Works as expected  |
+| Delete Account Modal        | In the delete account modal, click "Delete Account".                                            | The account is deleted, and the user is redirected to the home page.                                            | Works as expected  |
+
 ---
 
-### Update Progile Page
+### Edit Profile Page
 
 ---
 
----
 
 ### Logout Page
 
