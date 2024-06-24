@@ -1,5 +1,6 @@
 from django import forms
 from django.core.exceptions import ValidationError
+from django.contrib.auth.models import User
 from django.utils.safestring import mark_safe
 from allauth.account.forms import SignupForm
 from .models import Comment, UsedUsername
@@ -35,7 +36,7 @@ class CommentForm(forms.ModelForm):
         content = self.cleaned_data.get('content')
         if content.strip() == '':
             raise ValidationError(
-                'Comment cannot be blank or contain only whitespace.'
+                'This field is required.'
             )
         return content
 
@@ -58,7 +59,6 @@ class CustomSignupForm(SignupForm):
         required=True
     )
 
-    # Usernames cannot be reused even if the account has been deleted
     def clean_username(self):
         """
         Validate the username field.
@@ -69,11 +69,20 @@ class CustomSignupForm(SignupForm):
             ValidationError: If the username has been previously used.
         """
         username = self.cleaned_data.get('username')
+
+        # Check if the username is already in use by another user
+        if User.objects.filter(username=username).exists():
+            raise forms.ValidationError(
+                f"The username '{username}' is already in use."
+            )
+
+        # Check if the username has been previously used
         if UsedUsername.objects.filter(username=username).exists():
             raise forms.ValidationError(
                 f"The username '{username}' has been "
                 "used previously and cannot be reused."
             )
+
         return username
 
     def save(self, request):
