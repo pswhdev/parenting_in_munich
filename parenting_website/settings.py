@@ -29,7 +29,7 @@ SECRET_KEY = os.getenv("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 # Set DEBUG based on the DEVELOPMENT environment variable
 DEBUG = os.getenv("DEVELOPMENT") == "True"
-# DEBUG = False
+
 
 ALLOWED_HOSTS = [
     "127.0.0.1",
@@ -112,16 +112,6 @@ WSGI_APPLICATION = "parenting_website.wsgi.application"
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {"default": dj_database_url.parse(os.getenv("DATABASE_URL"))}
-
-# if os.getenv("DATABASE_URL"):
-#     DATABASES = {"default": dj_database_url.parse(os.getenv("DATABASE_URL"))}
-# else:
-#     DATABASES = {
-#         "default": {
-#             "ENGINE": "django.db.backends.sqlite3",
-#             "NAME": BASE_DIR / "db.sqlite3",
-#         }
-#     }
 
 
 CSRF_TRUSTED_ORIGINS = ["https://*.herokuapp.com"]
