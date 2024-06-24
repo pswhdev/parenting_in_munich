@@ -24,7 +24,12 @@
   - [| Login Message for Comments  | Navigate to a post detail page without logging in.                                  | A message prompting the user to log in or sign up to participate in the discussion is displayed.          | Works as expected  |](#-login-message-for-comments---navigate-to-a-post-detail-page-without-logging-in-----------------------------------a-message-prompting-the-user-to-log-in-or-sign-up-to-participate-in-the-discussion-is-displayed-----------works-as-expected--)
     - [About Page](#about-page)
     - [Events Page](#events-page)
-  - [Known bug](#known-bug)
+    - [Useful Links Page](#useful-links-page)
+    - [Signup Page](#signup-page)
+    - [Login Page](#login-page)
+    - [User's Profile Page](#users-profile-page)
+    - [Update Progile Page](#update-progile-page)
+    - [Logout Page](#logout-page)
   - [Back to README](#back-to-readme)
 
 ---
@@ -360,19 +365,45 @@ As a user, I expect to:
 
 ### Events Page
 
+| Feature            | Action                                                                 | Expected Result                                                                                          | Actual Result      |
+|--------------------|------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------|--------------------|
+| Page Title         | Navigate to the Events page.                                           | The page title should be "Events".                                                                       | Works as expected  |
+| Event Image        | Verify that each event displays an image.                              | Each event displays its respective image.                                                                | Works as expected  |
+| Event Name         | Verify that each event displays its name.                              | Each event's name is displayed correctly.                                                                | Works as expected  |
+| Event Description  | Verify that each event displays its description.                       | Each event's description is displayed correctly.                                                         | Works as expected  |
+| Event Location     | Verify that each event displays its location.                          | Each event's location is displayed correctly.                                                            | Works as expected  |
+| Event Dates        | Verify that each event displays its start and end dates.               | Each event's start and end dates are displayed correctly.                                                | Works as expected  |
+| Event Time         | Verify that each event displays its start and end times.               | Each event's start and end times are displayed correctly.                                                | Works as expected  |
+| Event Website      | Verify that the website (if available) opens in a new tab when clicked | Website links opens in a new tab.                                                                         | Works as expected  |
+| No Events Message  | Navigate to the Events page when there are no upcoming events.         | An image and message are displayed indicating that there are no events at the moment.                    | Works as expected  |
 
 ---
-## Known bug
+### Useful Links Page
 
-**Description:**
+--- 
 
-When a user tries to access a restricted area, they are prompted to log in or sign up. If the user logs in, they are correctly redirected to the page they were trying to visit. However, if the user is not registered and chooses to sign up, they are redirected to the homepage after successfully signing up.
-
-**Cause:**
-
-This issue is due to the default behavior of Django's allauth authentication views. Attempts to override this behavior have been unsuccessful so far.
+### Signup Page
 
 ---
+
+### Login Page
+
+---
+### User's Profile Page
+
+---
+
+### Update Progile Page
+
+---
+
+---
+
+### Logout Page
+
+
+---
+
 
 ## Back to README
 

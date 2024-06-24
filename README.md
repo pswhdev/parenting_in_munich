@@ -20,7 +20,7 @@ Visit ythe deployed site [Parenting in Munich](https://parenting-in-munich-site-
     - [User Stories](#user-stories)
       - [New Visitors Goals](#new-visitors-goals)
       - [Existing Visitors Goals](#existing-visitors-goals)
-  - [Desing planning](#desing-planning)
+  - [Design planning](#design-planning)
     - [Wireframes](#wireframes)
     - [Entity–relationship model (ERDs)](#entityrelationship-model-erds)
       - [Simple interaction diagram](#simple-interaction-diagram)
@@ -129,7 +129,7 @@ As a user, I expect to:
 
 ---
 
-## Desing planning
+## Design planning
 
 ### Wireframes
 
