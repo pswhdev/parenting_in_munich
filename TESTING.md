@@ -14,7 +14,7 @@
     - [New Visitors Goals](#new-visitors-goals)
     - [Existing Visitors Goals](#existing-visitors-goals)
   - [Full Testing](#full-testing)
-    - [Naviagtion Menu](#naviagtion-menu)
+    - [Navigation Menu](#navigation-menu)
     - [Homepage](#homepage)
     - [Posts Page](#posts-page)
     - [Posts Category Page](#posts-category-page)
@@ -153,7 +153,7 @@ Performance, accessibility, SEO, and best practices were evaluated using Google'
 
 ## Responsiveness test:
 
-The resposiveness amongts different devices was checked using [Am I Responsive](https://ui.dev/amiresponsive).
+The responsiveness amongst different devices was checked using [Am I Responsive](https://ui.dev/amiresponsive).
 To perform the testing, it was necessary to adjust the `X_FRAME_OPTIONS` to `ALLOWALL` temporarily on settings.py and change back to `SAMEORIGIN` as soon as the test was finished for security reasons.
 
 - Homepage:
@@ -253,7 +253,7 @@ As a user, I expect to:
 
 ## Full Testing
 
-### Naviagtion Menu
+### Navigation Menu
 
 | Feature              | Action                                                                                        | Expected Result                                                                                                                                                                                | Actual Result     |
 | -------------------- | --------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------- |

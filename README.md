@@ -6,7 +6,7 @@ When I was expecting my first son as an expat in Germany, I felt lost and strugg
 
 Inspired by this experience, I created this website to provide the useful information I wished I had as a new parent in Munich. "Parenting in Munich" is designed to help new and expecting parents with parenting tips, health, education, and bureaucratic information.
 
-Visit ythe deployed site [Parenting in Munich](https://parenting-in-munich-site-527d6bb8b97c.herokuapp.com/)
+Visit the deployed site [Parenting in Munich](https://parenting-in-munich-site-527d6bb8b97c.herokuapp.com/)
 
 ---
 
@@ -225,15 +225,15 @@ PT Sans Caption example:
 The home page welcomes users based on their authentication status, offering different content and links accordingly:
 
 - For admin users there is a personalized welcome message for admins and access to the admin panel.
-- For authenticated users tehre is a personalized welcome message and links to explore posts and events.
-- For unauthenticated users tehre is a general welcome message and a link to sign up.
+- For authenticated users there is a personalized welcome message and links to explore posts and events.
+- For unauthenticated users there is a general welcome message and a link to sign up.
 
 Hero image with general message for visitors:
 ![Hero](documentation/features/hero.webp)
 
 #### Navigation Menu
 
-The navigation bar provides users with easy access to various sections of the site, ensuring a smooth and intuitive browsing experience including a responsive design with a toggle butto for small screens, enabling the collapse and expansion of the navigation menu.
+The navigation bar provides users with easy access to various sections of the site, ensuring a smooth and intuitive browsing experience including a responsive design with a toggle button for small screens, enabling the collapse and expansion of the navigation menu.
 
 The navigation bar includes:
 
@@ -273,7 +273,7 @@ Navbar view for visitors on the posts page:
 
 The footer is simple and clean. It includes links to the website policy and the "Contact Us" section. The "Contact Us" link takes the user directly to the contact form on the About page.
 
-![Footer](templates/footer.html)
+![Footer](documentation/features/footer.png)
 
 #### Posts and Posts by category pages
 
@@ -293,7 +293,7 @@ All details are added through the admin panel, where they can be easily managed 
 
 ##### Search feature:
 
-Searches for posts containig the entered word and displays the result message "Search results for [word of interest]" or display a message informing the user that no posts have matched the search query and provides a link to return to all posts.
+Searches for posts containing the entered word and displays the result message "Search results for [word of interest]" or display a message informing the user that no posts have matched the search query and provides a link to return to all posts.
 
 Search results without a match:
 ![Search results without a match](documentation/features/no-posts-found.png)
@@ -363,7 +363,7 @@ Confirmation prior to deletion:
 
 The "About Us" page provides information about the website, its mission, and a way for users to get in touch.
 
-The information about the website and the image displayed on the page can be managed and updated through the admin pannel.
+The information about the website and the image displayed on the page can be managed and updated through the admin panel.
 
 ##### Contact Us Section
 
@@ -376,7 +376,7 @@ Just like with the posts, all details are added through the admin panel, where t
 
 ##### Content Display
 
-The events are displayed in a similar way to the posts to keep consistancy thoughout the website.
+The events are displayed in a similar way to the posts to keep consistency throughout the website.
 
 - Event Card Structure:
   - Event Image: Displays the event's image.
@@ -394,9 +394,9 @@ Events page layout:
 
 - The content observed on the live site may differ due to the filtering passed events feature. Screenshot taken on June 22nd 2024
 
-If there are no events to be displayed the page, a friendly iamge and message are displayed.
+If there are no events to be displayed the page, a friendly image and message are displayed.
 
-If tehre are no events to be displayed:
+If there are no events to be displayed:
 ![No events image](documentation/features/no-events.png)
 
 #### Useful Links
@@ -440,7 +440,7 @@ The user can decide if they want to display their e-mail publicly or not by chec
 
 ##### Profile Photo:
 
-The users can choose a photo of up to 2MB to upload as their profile photo. This photo is then automatically converted to webp by using the [Python Imaging Library (PIL)](https://pypi.org/project/pillow/) and stored on the [Cloudinary website](https://cloudinary.com/users/register_free).
+The users can choose a photo of up to 2MB to upload as their profile photo. This photo is then automatically converted to WebP by using the [Python Imaging Library (PIL)](https://pypi.org/project/pillow/) and stored on the [Cloudinary website](https://cloudinary.com/users/register_free).
 
 If the selected image is larger than 2MB there is a popup window warning about the size limit.
 
@@ -505,13 +505,13 @@ Validation has been implemented to avoid duplication of categories, posts, topic
 
 #### Restricted Area
 
-Unauthorized users are promt to register in order to see the content.
+Unauthorized users are prompt to register in order to see the content.
 
 ![Restricted area](documentation/features/restricted.png)
 
 #### 404, 403 and 500 Error Pages
 
-Custom user-friendly 404 Page not Found, 403 Forbidden and 500 Internal Server Error appear if a page is not found, a user tries to access a restricted resource and the server encounters an unexpected condition that prevents it from fulfilling the request respectivelly. The user is then prompted to return to the main page by either clicking on a provided link or the image itself, ensuring a smooth and intuitive user experience.
+Custom user-friendly 404 Page not Found, 403 Forbidden and 500 Internal Server Error appear if a page is not found, a user tries to access a restricted resource and the server encounters an unexpected condition that prevents it from fulfilling the request respectively. The user is then prompted to return to the main page by either clicking on a provided link or the image itself, ensuring a smooth and intuitive user experience.
 
 - 404 Page not Found:
   ![404 Error Page](documentation/features/error-page.png)
@@ -555,7 +555,7 @@ Please refer to [TESTING.md](TESTING.md) file for details on all testing conduct
 
 ### Languages Used
 
-- HTML, CSS, Pyhton and JavaScript
+- HTML, CSS, Python and JavaScript.
 
 ### Frameworks, Libraries & Programs Used
 
@@ -567,7 +567,7 @@ Please refer to [TESTING.md](TESTING.md) file for details on all testing conduct
 - [Google Fonts](https://fonts.google.com/) To import the fonts used on the website.
 - [Google Developer Tools](https://developers.google.com/web/tools) - To troubleshoot and test features, solve issues with responsiveness and styling.
 - [TinyPNG](https://tinypng.com/) To optimize png and jpg images.
-- [Sqoosh app](https://squoosh.app/) To optimize and convert images to webp format.
+- [Sqoosh app](https://squoosh.app/) To optimize and convert images to WebP format.
 - [Favicon.io](https://favicon.io/) To create favicon.
 - [Am I Responsive?](http://ami.responsivedesign.is/) To diplay the website image on a range of devices.
 - [VSCode](https://code.visualstudio.com/) To edit and save my code locally.
@@ -640,7 +640,7 @@ The website's layout was inspired on the [Bootstrap Theme Milo](https://themes.g
 
 All text content for the posts was created with the assistance of AI for educational purposes only, and it was not verified for accuracy.
 
-The Readme was based on the example by [Kera Cudmore - Readme Examples](https://github.com/kera-cudmore/readme-examples/blob/main/README.md?plain=1) and [Mark Daniel - My Fishing Adventures](https://github.com/markdaniel1982/MD82-P4/blob/main/README.md). For the full manual testing section of the TESTING.md I tok inspiration on [Amy Richardson's - BakeStock Project](https://github.com/amylour/BakeStock).
+The Readme was based on the example by [Kera Cudmore - Readme Examples](https://github.com/kera-cudmore/readme-examples/blob/main/README.md?plain=1) and [Mark Daniel - My Fishing Adventures](https://github.com/markdaniel1982/MD82-P4/blob/main/README.md). For the full manual testing section of the TESTING.md I took inspiration on [Amy Richardson's - BakeStock Project](https://github.com/amylour/BakeStock).
 
 ---
 
