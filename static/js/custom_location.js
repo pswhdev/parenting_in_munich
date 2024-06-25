@@ -10,7 +10,6 @@ document.addEventListener("DOMContentLoaded", function() {
             customLocationInput.value = "";
         }
     }
-    
     locationSelect.addEventListener("change", toggleCustomLocation);
-    toggleCustomLocation();  // Initialize on page load
+    toggleCustomLocation();
 });

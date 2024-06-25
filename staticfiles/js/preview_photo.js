@@ -22,8 +22,8 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-    // Create a new FileReader object (API provided by web browsers to 
-    // read the contents of files stored on the user's computer) to read the selected file
+        // Create a new FileReader object (API provided by web browsers to 
+        // read the contents of files stored on the user's computer) to read the selected file
         const fileReader = new FileReader();
 
         // Once the file is fully read it runs the function
@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
             // If the checkbox is unchecked
             if (newPhotoInput.files && newPhotoInput.files[0]) {
-                // If there is a new file selected, read and display it.
+            // If there is a new file selected, read and display it.
             // newPhotoInput.files is a reference to the file input element (<input type="file" ...>).
             // it ensures that the file input element actually supports file selection.
             // .files[0] ensures at least one file has been selected (the .files property is a
