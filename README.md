@@ -24,7 +24,7 @@ Visit ythe deployed site [Parenting in Munich](https://parenting-in-munich-site-
     - [Wireframes](#wireframes)
     - [Entity–relationship model (ERDs)](#entityrelationship-model-erds)
       - [Simple interaction diagram](#simple-interaction-diagram)
-    - [Database Plan](#database-plan)
+      - [Database Plan](#database-plan)
   - [Design Choices](#design-choices)
     - [Layout](#layout)
     - [Colour Scheme](#colour-scheme)
@@ -34,37 +34,39 @@ Visit ythe deployed site [Parenting in Munich](https://parenting-in-munich-site-
       - [Home Page](#home-page)
         - [Hero Section](#hero-section)
       - [Navigation Menu](#navigation-menu)
-    - [Posts and Posts by category pages](#posts-and-posts-by-category-pages)
-      - [Content Display](#content-display)
-      - [Search feature:](#search-feature)
-      - [Responsive Design:](#responsive-design)
-      - [Pagination:](#pagination)
-    - [Post Detail Page](#post-detail-page)
-      - [Link to Category](#link-to-category)
-      - [Comments Section](#comments-section)
-        - [Comments from deleted accounts](#comments-from-deleted-accounts)
-      - [Comments deletion](#comments-deletion)
-    - [About Us Page](#about-us-page)
-      - [Contact Us Section](#contact-us-section)
-    - [Events Page](#events-page)
-      - [Content Display](#content-display-1)
-    - [Useful Links](#useful-links)
-      - [Responsive Design](#responsive-design-1)
-    - [User Profile Page](#user-profile-page)
-      - [Toggle Button:](#toggle-button)
-      - [Delete account confirmation:](#delete-account-confirmation)
-    - [Update Profile Page](#update-profile-page)
-      - [Display Email:](#display-email)
-      - [Profile Photo:](#profile-photo)
-      - [Location](#location)
-      - [Bio](#bio)
-    - [Signup page](#signup-page)
-    - [Login page](#login-page)
-    - [Logout page](#logout-page)
-    - [Site rules](#site-rules)
-    - [Validation of Entries](#validation-of-entries)
+      - [Footer](#footer)
+      - [Posts and Posts by category pages](#posts-and-posts-by-category-pages)
+        - [Content Display](#content-display)
+        - [Search feature:](#search-feature)
+        - [Responsive Design:](#responsive-design)
+        - [Pagination:](#pagination)
+      - [Post Detail Page](#post-detail-page)
+        - [Link to Category](#link-to-category)
+        - [Comments Section](#comments-section)
+          - [Comments from deleted accounts](#comments-from-deleted-accounts)
+        - [Comments deletion](#comments-deletion)
+      - [About Us Page](#about-us-page)
+        - [Contact Us Section](#contact-us-section)
+      - [Events Page](#events-page)
+        - [Content Display](#content-display-1)
+      - [Useful Links](#useful-links)
+        - [Responsive Design](#responsive-design-1)
+      - [User Profile Page](#user-profile-page)
+        - [Toggle Button:](#toggle-button)
+        - [Delete account confirmation:](#delete-account-confirmation)
+      - [Update Profile Page](#update-profile-page)
+        - [Display Email:](#display-email)
+        - [Profile Photo:](#profile-photo)
+        - [Location](#location)
+        - [Bio](#bio)
+      - [Signup page](#signup-page)
+      - [Login page](#login-page)
+      - [Logout page](#logout-page)
+      - [Site rules](#site-rules)
+      - [Validation of Entries](#validation-of-entries)
       - [Restricted Area](#restricted-area)
-    - [404, 403 and 500 Error Pages](#404-403-and-500-error-pages)
+      - [404, 403 and 500 Error Pages](#404-403-and-500-error-pages)
+      - [SEO and Accessibility](#seo-and-accessibility)
     - [Future Features](#future-features)
     - [Features That Will Not Be Implemented](#features-that-will-not-be-implemented)
   - [Testing](#testing)
@@ -176,7 +178,7 @@ This structure ensures that visitors have limited access, users have interactive
 Simple interaction diagram
 ![Simple interaction diagram](documentation/simple-interaction.png)
 
-### Database Plan
+#### Database Plan
 
 The comprehensive database schema below depicts details about the type of data stored and the relationships between different entities.
 
@@ -267,15 +269,19 @@ Because the search engine is specifically designed for finding posts, the search
 Navbar view for visitors on the posts page:
 ![Navbar - posts section](documentation/features/navbar-posts.png)
 
----
+#### Footer
 
-### Posts and Posts by category pages
+The footer is simple and clean. It includes links to the website policy and the "Contact Us" section. The "Contact Us" link takes the user directly to the contact form on the About page.
+
+![Footer](templates/footer.html)
+
+#### Posts and Posts by category pages
 
 Both pages allow users to browse, search, and explore various articles on parenting topics. They dynamically display posts based on user searches and include pagination for easy navigation.
 
 All details are added through the admin panel, where they can be easily managed and updated.
 
-#### Content Display
+##### Content Display
 
 **Post Cards:**
 
@@ -285,7 +291,7 @@ All details are added through the admin panel, where they can be easily managed 
   - **Featured Image:** Displays the post's featured image or a placeholder if none is provided.
   - **Excerpt:** A brief summary of the post content.
 
-#### Search feature:
+##### Search feature:
 
 Searches for posts containig the entered word and displays the result message "Search results for [word of interest]" or display a message informing the user that no posts have matched the search query and provides a link to return to all posts.
 
@@ -295,14 +301,14 @@ Search results without a match:
 Search results with matching results:
 ![Search results with match](documentation/features/post-search-results.png)
 
-#### Responsive Design:
+##### Responsive Design:
 
 The post cards are dynamically generated and displayed 6 per page. Because the cards have different sizes, on medium and large screens, they are arranged in organized columns and rows. The default layout creates a new column every two posts, allowing them to stack on top of each other and giving the page a sense of continuity rather than a fixed grid. If there are up to three posts, they will be displayed side by side for a better user experience. The width of the columns remains 1/3, even if there are only one or two posts, to maintain consistency between different pages.
 
 Content display:
 ![Content display](documentation/features/posts-display.png)
 
-#### Pagination:
+##### Pagination:
 
 If there are more than 6 posts to be displayed, pagination navigation controls are included, allowing users to navigate between pages of posts.
 
@@ -315,18 +321,18 @@ Pagination Comparison: Computer Screen vs. Phone Screen:
 
 ---
 
-### Post Detail Page
+#### Post Detail Page
 
 The Post Detail page displays the full content of a specific post, along with a comment section for user interactions.
 
-#### Link to Category
+##### Link to Category
 
 On the post detail page, a link to the post's category is provided. When clicked, this link takes the user directly to the category page, which includes other posts in that same category.
 
 Link to category:
 ![Link to category](documentation/features/category-link.png)
 
-#### Comments Section
+##### Comments Section
 
 The comments section displays the number of comments and allows authenticated users to submit comments.
 
@@ -334,7 +340,7 @@ The comments section displays the number of comments and allows authenticated us
 - Approved comments have a link to the comment's author profile.
 - Unauthenticated users are prompt to log in or sign up to participate in discussions.
 
-##### Comments from deleted accounts
+###### Comments from deleted accounts
 
 If a user has left a comment and deleted their account or had their account deleted, their comments will remain on the posts unless they themselves deleted the comments, or the comments were not approved or were deleted for inappropriate content. In such cases, the username will be followed by a "Deactivated" mention to indicate that the user is no longer a registered member of the website, thus preserving the integrity of the history and discussions. There will be no link to the profile, and the profile photo thumbnail will be displayed with a fainted image of the placeholder image for the profile.
 
@@ -346,29 +352,29 @@ Comment's author view of the comments with edit and delete options:
 Overview of the comments section including comment from deleted account's author:
 ![Comments section](documentation/features/comparison-deleted-account.png)
 
-#### Comments deletion
+##### Comments deletion
 
 Users can delete their own comments and will be asked to confirm their decision before the permanent deletion.
 
 Confirmation prior to deletion:
 ![Confirmation prior to deletion](documentation/features/confirmation-delete-comment.png)
 
-### About Us Page
+#### About Us Page
 
 The "About Us" page provides information about the website, its mission, and a way for users to get in touch.
 
 The information about the website and the image displayed on the page can be managed and updated through the admin pannel.
 
-#### Contact Us Section
+##### Contact Us Section
 
 Users are invited to reach out with feedback, questions, or suggestions
 
-### Events Page
+#### Events Page
 
 The Events page is exclusively for registered users and showcases upcoming family-oriented events, providing detailed information about each event.
 Just like with the posts, all details are added through the admin panel, where they can be easily managed and updated.
 
-#### Content Display
+##### Content Display
 
 The events are displayed in a similar way to the posts to keep consistancy thoughout the website.
 
@@ -393,19 +399,19 @@ If there are no events to be displayed the page, a friendly iamge and message ar
 If tehre are no events to be displayed:
 ![No events image](documentation/features/no-events.png)
 
-### Useful Links
+#### Useful Links
 
 Curated list of websites and resources beneficial for parents, organized by topic and displayed in a card format.
 
-#### Responsive Design
+##### Responsive Design
 
 The links are added using the admin panel and are associated with a specific topic. When the page is rendered, the links are automatically displayed under the corresponding topic, organized alphabetically for an intuitive user experience. The links are programmed to open in a new tab.
 
-### User Profile Page
+#### User Profile Page
 
 The User Profile page allows users to view and update their profile information, such as name, e-mail, location, bio, and profile photo as well as manage their account and their comments.
 
-#### Toggle Button:
+##### Toggle Button:
 
 The "View My Comments" button to show and hide the list of comments left by the user with the link to the respective comments on the respective post so that the user can easily manage their comments.
 
@@ -417,22 +423,22 @@ Registered users can also view other users' profiles by clicking on the link of 
 Profile view by other registered user:
 ![Profile view by other registered user](documentation/features/profile-view-user.png)
 
-#### Delete account confirmation:
+##### Delete account confirmation:
 
 The confirmation ensures that the user is aware of the permanence of the action and reminds the user that their comments will remain on the website unless they delete their comments themselves.
 
 Delete account confirmation:
 ![Delete account confirmation](documentation/features/confirmation-delete-account.png)
 
-### Update Profile Page
+#### Update Profile Page
 
 The Update Profile page allows users to edit their personal information, including their full name, email, bio, location, and profile photo.
 
-#### Display Email:
+##### Display Email:
 
 The user can decide if they want to display their e-mail publicly or not by checking or unchecking the checkbox on the "update profile" page.
 
-#### Profile Photo:
+##### Profile Photo:
 
 The users can choose a photo of up to 2MB to upload as their profile photo. This photo is then automatically converted to webp by using the [Python Imaging Library (PIL)](https://pypi.org/project/pillow/) and stored on the [Cloudinary website](https://cloudinary.com/users/register_free).
 
@@ -443,19 +449,18 @@ Size limit warning:
 
 The users can preview the photo they are choosing in realtime, without the need to update the page to see their profile photo. They can also delete their photo, in which case a placeholder image will be displayed as their profile photo.
 
-#### Location
+##### Location
 
 The users can choose their location from a list of districts in Munich. They are also provided with the option "Other". If "Other" is selected, they are provided with an optional field to type in their location.
 
-#### Bio
+##### Bio
 
 The text area for the bio is limited to 500 characters, and this limit is displayed to the user on the update profile page beneath the Bio text area.
 
 Overview of the update profile page with all the described features:
 ![Overview profile update](documentation/features/update-profile-page.png)
 
-
-### Signup page
+#### Signup page
 
 I have added a checkbox for users to accept the site rules before signing up. The rules, which focus on maintaining the quality of discussions and ensuring a positive and respectful community environment, explicitly state that comments will be retained to preserve the coherence of discussions. The link to the policies on the signup page opens in a new tab so the signup process is not disrupted.
 
@@ -468,14 +473,13 @@ To retain users' comments upon account termination, I have used Django signals t
 An example of an attempt to use a username that has been used
 ![Attempt to use a username that has been used](documentation/features/reuse-username.png)
 
-
-### Login page
+#### Login page
 
 I have personalized the login page to remove the "Forgot your password" link because email authentication is not configured, and email would not work as a recovery option. Instead, I have added an alternative for users to fill up the contact form by including a link to the "Contact Us" section on the About Us page.
 
 ![Login page](documentation/features/login-page.png)
 
-### Logout page
+#### Logout page
 
 When users choose to log out, they are asked to confirm their action. Upon confirmation, a thank you message is displayed, acknowledging their visit.
 
@@ -485,11 +489,11 @@ Logout page:
 Thank you message:
 ![Thank you message](documentation/features/thank-you-message.png)
 
-### Site rules
+#### Site rules
 
 The website includes a page with the site rules. The link for this page is both included on the footer of the page (as "Policy") and on the signup page. On the signup page, the link opens in a new window in order not to disturb the ongoing signing up process for a better user experience.
 
-### Validation of Entries
+#### Validation of Entries
 
 Validation has been implemented to avoid duplication of categories, posts, topics (for the useful links section), and events.
 
@@ -505,7 +509,7 @@ Unauthorized users are promt to register in order to see the content.
 
 ![Restricted area](documentation/features/restricted.png)
 
-### 404, 403 and 500 Error Pages
+#### 404, 403 and 500 Error Pages
 
 Custom user-friendly 404 Page not Found, 403 Forbidden and 500 Internal Server Error appear if a page is not found, a user tries to access a restricted resource and the server encounters an unexpected condition that prevents it from fulfilling the request respectivelly. The user is then prompted to return to the main page by either clicking on a provided link or the image itself, ensuring a smooth and intuitive user experience.
 
@@ -518,6 +522,14 @@ Custom user-friendly 404 Page not Found, 403 Forbidden and 500 Internal Server E
 - 500 Internal Server Error
   ![500 Error Page](documentation/features/error-internal-server.png)
 
+#### SEO and Accessibility
+
+Aria-labels were appropriately added to interactive elements, such as links, buttons, and images, to improve accessibility.
+
+Meta descriptions and meta keywords were added to the base.html file. The description dynamically changes in the posts section based on the post title to personalize the description for each post. This ensures improved SEO for all pages.
+
+While having all text in the same color might look more aesthetically pleasing, it is essential for links to be easily recognizable. Therefore, I kept the links in the text body of posts, events, and the useful links page in blue to enhance intuitiveness and usability.
+
 ### Future Features
 
 - Implement a filter for images and content to ensure no offensive or inappropriate images or messages are uploaded in profiles and comments.
@@ -525,6 +537,7 @@ Custom user-friendly 404 Page not Found, 403 Forbidden and 500 Internal Server E
 - Introduce a discussion forum section where users can share experiences and ask questions.
 - Add interactive maps showing family-friendly places in Munich, such as playgrounds, parks, and hospitals.
 - Provide multilingual support to cater to a diverse expat community.
+- Include Breadcrumbs on the Posts section to facilitate navigation.
 
 ### Features That Will Not Be Implemented
 
@@ -623,15 +636,17 @@ To clone the repository:
 
 This project builds upon the Code Institute's "I Think Therefore I Blog" walkthrough module, which provided a foundational blog structure for the website. From this base, I added a custom model for Category, enabling users to filter posts by category. I further expanded the project by creating additional apps (events, account, useful links), models, views, and forms. Additionally, I customized the layout and styling using Bootstrap and custom CSS. I also drew inspiration from the [YouTube Django Recipe Sharing Tutorial by Dee Mc](https://www.youtube.com/watch?v=sBjbty691eI&list=PLXuTq6OsqZjbCSfiLNb2f1FOs8viArjWy), which provides a clear and educational guide on creating a website using Django and Bootstrap.
 
+The website's layout was inspired on the [Bootstrap Theme Milo](https://themes.getbootstrap.com/product/milo-magazineblog-theme/) and the Landing page was inspired on the [Bootstrapmade's Bethany Template](https://bootstrapmade.com/demo/Bethany/)
+
 All text content for the posts was created with the assistance of AI for educational purposes only, and it was not verified for accuracy.
 
-The Readme was based on the example by [Kera Cudmore - Readme Examples](https://github.com/kera-cudmore/readme-examples/blob/main/README.md?plain=1) and [Mark Daniel - My Fishing Adventures](https://github.com/markdaniel1982/MD82-P4/blob/main/README.md)
+The Readme was based on the example by [Kera Cudmore - Readme Examples](https://github.com/kera-cudmore/readme-examples/blob/main/README.md?plain=1) and [Mark Daniel - My Fishing Adventures](https://github.com/markdaniel1982/MD82-P4/blob/main/README.md). For the full manual testing section of the TESTING.md I tok inspiration on [Amy Richardson's - BakeStock Project](https://github.com/amylour/BakeStock).
 
 ---
 
 ## Media
 
-All the images used on the website are free of copyrights and are credited directly on the webpages, except for the images on the homepage ([Photo by Jay Chen on Unsplash](https://unsplash.com/@forhiskingdom?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash)), the about page([Photo by Lora Moore-Kakaletris on Unsplash](https://unsplash.com/@mooreimages?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash)) and the logout page (sourced from [Pickpik](https://www.pickpik.com/boys-playing-friends-children-playing-kids-playing-happy-2351)). The images for the restricted area, no posts found, and 404 error pages were generated using OpenAI's DALL-E technology.
+All the images used on the website are free of copyrights and are credited directly on the webpages, except for the images on the homepage ([Photo by Jay Chen on Unsplash](https://unsplash.com/@forhiskingdom?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash)), the about page([Photo by Lora Moore-Kakaletris on Unsplash](https://unsplash.com/@mooreimages?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash)) and the logout page (sourced from [Pickpik](https://www.pickpik.com/boys-playing-friends-children-playing-kids-playing-happy-2351)). The images for the restricted area, no posts found, error pages and favicon were generated using OpenAI's DALL-E technology.
 
 ---
 

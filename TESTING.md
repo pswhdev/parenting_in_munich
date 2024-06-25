@@ -16,12 +16,9 @@
   - [Full Testing](#full-testing)
     - [Naviagtion Menu](#naviagtion-menu)
     - [Homepage](#homepage)
-  - [| Join Us Link                       | Navigate to the Home page without logging in, click on the "Join us!" link.         | User is redirected to the Sign up page.                                                                   | Works as expected  |](#-join-us-link------------------------navigate-to-the-home-page-without-logging-in-click-on-the-join-us-link----------user-is-redirected-to-the-sign-up-page--------------------------------------------------------------------works-as-expected--)
     - [Posts Page](#posts-page)
     - [Posts Category Page](#posts-category-page)
-  - [| Pagination           | Same as pagination tests for Posts page                                | Same expected results as for pagination tests for the Posts page  | Works as expected  |](#-pagination------------same-as-pagination-tests-for-posts-page---------------------------------same-expected-results-as-for-pagination-tests-for-the-posts-page---works-as-expected--)
     - [Post Detail Page](#post-detail-page)
-  - [| Login Message for Comments  | Navigate to a post detail page without logging in.                                  | A message prompting the user to log in or sign up to participate in the discussion is displayed.          | Works as expected  |](#-login-message-for-comments---navigate-to-a-post-detail-page-without-logging-in-----------------------------------a-message-prompting-the-user-to-log-in-or-sign-up-to-participate-in-the-discussion-is-displayed-----------works-as-expected--)
     - [About Page](#about-page)
     - [Events Page](#events-page)
     - [Useful Links Page](#useful-links-page)
@@ -279,47 +276,49 @@ As a user, I expect to:
 
 ### Homepage
 
-| Feature                            | Action                                                                             | Expected Result                                                                                           | Actual Result      |
-|------------------------------------|------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------|--------------------|
-| Admin Welcome Message              | Log in as an admin and navigate to the Home page.                                   | Admin sees a welcome message with their username and a link to the Admin Panel.                           | Works as expected  |
-| Admin Panel Link                   | Log in as an admin, click on the "Go to Admin Panel" link.                          | Admin is redirected to the Admin Panel page.                                                              | Works as expected  |
-| Authenticated User Welcome Message | Log in as a regular user and navigate to the Home page.                             | User sees a welcome message with their username and links to Posts and Events.                            | Works as expected  |
-| See Posts Link                     | Log in as a regular user, click on the "See Posts" link.                            | User is redirected to the Posts page.                                                                     | Works as expected  |
-| See Events Link                    | Log in as a regular user, click on the "See Events" link.                           | User is redirected to the Events page.                                                                    | Works as expected  |
-| Unauthenticated User Welcome Message | Navigate to the Home page without logging in.                                      | User sees a welcome message and a link to join the website.                                               | Works as expected  |
-| Join Us Link                       | Navigate to the Home page without logging in, click on the "Join us!" link.         | User is redirected to the Sign up page.                                                                   | Works as expected  |
+| Feature                              | Action                                                                      | Expected Result                                                                 | Actual Result     |
+| ------------------------------------ | --------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ----------------- |
+| Admin Welcome Message                | Log in as an admin and navigate to the Home page.                           | Admin sees a welcome message with their username and a link to the Admin Panel. | Works as expected |
+| Admin Panel Link                     | Log in as an admin, click on the "Go to Admin Panel" link.                  | Admin is redirected to the Admin Panel page.                                    | Works as expected |
+| Authenticated User Welcome Message   | Log in as a regular user and navigate to the Home page.                     | User sees a welcome message with their username and links to Posts and Events.  | Works as expected |
+| See Posts Link                       | Log in as a regular user, click on the "See Posts" link.                    | User is redirected to the Posts page.                                           | Works as expected |
+| See Events Link                      | Log in as a regular user, click on the "See Events" link.                   | User is redirected to the Events page.                                          | Works as expected |
+| Unauthenticated User Welcome Message | Navigate to the Home page without logging in.                               | User sees a welcome message and a link to join the website.                     | Works as expected |
+| Join Us Link                         | Navigate to the Home page without logging in, click on the "Join us!" link. | User is redirected to the Sign up page.                                         | Works as expected |
+
 ---
 
 ### Posts Page
 
-| Feature                      | Action                                                                 | Expected Result                                                                                         | Actual Result      |
-|------------------------------|------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------|--------------------|
-| All Posts Header             | Navigate to the Posts page without performing a search.                | The header displays "Posts".                                                                            | Works as expected  |
-| Search Results Header        | Perform a search using the search bar.                                 | The header displays "Search results for 'search_query'".                                                | Works as expected  |
-| Search Results with match    | Perform a search that yields results.                                  | All posts containing the search_query are displayed on the page                                         | Works as expected  |
-| Search Results with no match | Perform a search that yields no results.                               | A "No posts found" image and message are displayed.                                                     | Works as expected  |
-| Post Category Link           | Click on a post category link from the post card.                      | User is redirected to the selected category page.                                                       | Works as expected  |
-| Post Title Link              | Click on a post title link.                                            | User is redirected to the post detail page.                                                             | Works as expected  |
-| Placeholder Image            | Verify a post without a featured image displays a placeholder image.   | The placeholder image is displayed for the post.                                                        | Works as expected  |
-| Post Featured Image          | Verify a post with a featured image displays the correct image.        | The correct featured image is displayed for the post.                                                   | Works as expected  |
-| Pagination - Visible Range   | Verify the pagination displays a limited range around the current page number. | Pagination shows only the pages within a range of 3 around the current page.                             | Works as expected  |
-| Pagination - Page Links      | Navigate through the page links in the pagination section.             | The correct page of posts is displayed when clicking on each page number.                               | Works as expected  |
-| Pagination - First Page      | Navigate to the Posts page, ensure the first page is displayed.        | The pagination does not show "First" and "Previous" buttons.                                            | Works as expected  |
-| Pagination - Middle Page     | Navigate to a middle page of the Posts.                                | The pagination displays "Previous" and "Next" buttons. When the first or last page is not within the displayed range, "First" and "Last" buttons are shown accordingly. | Works as expected  |
-| Pagination - Last Page       | Navigate to the last page of the Posts.                                | The pagination does not show "Next" and "Last" buttons.                                                 | Works as expected  |
+| Feature                      | Action                                                                         | Expected Result                                                                                                                                                         | Actual Result     |
+| ---------------------------- | ------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------- |
+| All Posts Header             | Navigate to the Posts page without performing a search.                        | The header displays "Posts".                                                                                                                                            | Works as expected |
+| Search Results Header        | Perform a search using the search bar.                                         | The header displays "Search results for 'search_query'".                                                                                                                | Works as expected |
+| Search Results with match    | Perform a search that yields results.                                          | All posts containing the search_query are displayed on the page                                                                                                         | Works as expected |
+| Search Results with no match | Perform a search that yields no results.                                       | A "No posts found" image and message are displayed.                                                                                                                     | Works as expected |
+| Post Category Link           | Click on a post category link from the post card.                              | User is redirected to the selected category page.                                                                                                                       | Works as expected |
+| Post Title Link              | Click on a post title link.                                                    | User is redirected to the post detail page.                                                                                                                             | Works as expected |
+| Placeholder Image            | Verify a post without a featured image displays a placeholder image.           | The placeholder image is displayed for the post.                                                                                                                        | Works as expected |
+| Post Featured Image          | Verify a post with a featured image displays the correct image.                | The correct featured image is displayed for the post.                                                                                                                   | Works as expected |
+| Pagination - Visible Range   | Verify the pagination displays a limited range around the current page number. | Pagination shows only the pages within a range of 3 around the current page.                                                                                            | Works as expected |
+| Pagination - Page Links      | Navigate through the page links in the pagination section.                     | The correct page of posts is displayed when clicking on each page number.                                                                                               | Works as expected |
+| Pagination - First Page      | Navigate to the Posts page, ensure the first page is displayed.                | The pagination does not show "First" and "Previous" buttons.                                                                                                            | Works as expected |
+| Pagination - Middle Page     | Navigate to a middle page of the Posts.                                        | The pagination displays "Previous" and "Next" buttons. When the first or last page is not within the displayed range, "First" and "Last" buttons are shown accordingly. | Works as expected |
+| Pagination - Last Page       | Navigate to the last page of the Posts.                                        | The pagination does not show "Next" and "Last" buttons.                                                                                                                 | Works as expected |
 
 ---
 
 ### Posts Category Page
 
-| Feature              | Action                                                                 | Expected Result                                                   | Actual Result      |
-|----------------------|------------------------------------------------------------------------|-------------------------------------------------------------------|--------------------|
-| Page Title           | Navigate to the category page.                                         | The page title should be the name of the category.                | Works as expected  |
-| Post Category Link   | Click on a post category link.                                         | User is redirected to the selected category page.                 | Works as expected  |
-| Post Title Link      | Click on a post title link.                                            | User is redirected to the post detail page.                       | Works as expected  |
-| Placeholder Image    | Verify a post without a featured image displays a placeholder image.   | The placeholder image is displayed for the post.                  | Works as expected  |
-| Post Featured Image  | Verify a post with a featured image displays the correct image.        | The correct featured image is displayed for the post.             | Works as expected  |
-| Pagination           | Same as pagination tests for Posts page                                | Same expected results as for pagination tests for the Posts page  | Works as expected  |
+| Feature             | Action                                                               | Expected Result                                                  | Actual Result     |
+| ------------------- | -------------------------------------------------------------------- | ---------------------------------------------------------------- | ----------------- |
+| Page Title          | Navigate to the category page.                                       | The page title should be the name of the category.               | Works as expected |
+| Post Category Link  | Click on a post category link.                                       | User is redirected to the selected category page.                | Works as expected |
+| Post Title Link     | Click on a post title link.                                          | User is redirected to the post detail page.                      | Works as expected |
+| Placeholder Image   | Verify a post without a featured image displays a placeholder image. | The placeholder image is displayed for the post.                 | Works as expected |
+| Post Featured Image | Verify a post with a featured image displays the correct image.      | The correct featured image is displayed for the post.            | Works as expected |
+| Pagination          | Same as pagination tests for Posts page                              | Same expected results as for pagination tests for the Posts page | Works as expected |
+
 ---
 
 **Note** To conduct the pagination tests, a large number of test posts were created to ensure an adequate number of pages for thorough testing. These test posts were subsequently deleted upon completion of the tests.
@@ -328,148 +327,149 @@ As a user, I expect to:
 
 ### Post Detail Page
 
-| Feature                     | Action                                                                              | Expected Result                                                                                           | Actual Result      |
-|-----------------------------|-------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------|--------------------|
-| Page Title                  | Navigate to a post detail page.                                                     | The page title should be the title of the post.                                                           | Works as expected  |
-| Placeholder Image           | Verify a post without a featured image displays a placeholder image.                | The placeholder image is displayed for the post.                                                          | Works as expected  |
-| Post Featured Image         | Verify a post with a featured image displays the correct image.                     | The correct featured image is displayed for the post.                                                     | Works as expected  |
-| Post Metadata               | Navigate to a post detail page.                                                     | The author, last updated date, and category are displayed below the title.                                | Works as expected  |
-| Post Content                | Navigate to a post detail page.                                                     | The full post content is displayed.                                                                       | Works as expected  |
-| Comments Section Header     | Navigate to a post detail page.                                                     | The comments section header displays the number of comments.                                              | Works as expected  |
-| New Comment Form            | Log in and navigate to a post detail page.                                          | The new comment form is displayed, allowing the logged-in user to submit a comment.                       | Works as expected  |
-| Comment Submission          | Submit a new comment as a logged-in user.                                           | The comment is displayed below the post, showing the username and content.                                | Works as expected  |
-| Pending Comment Approval    | Submit a new comment as a logged-in user.                                           | The comment is displayed with a "pending approval" message.                                               | Works as expected  |
-| Approved Comments           | Navigate to a post detail page with approved comments.                              | Approved comments are displayed below the post content.                                                   | Works as expected  |
-| Profile Link in Comments    | Click on a comment author's profile link.                                           | User is redirected to the comment author's profile page.                                                  | Works as expected  |
-| Comment Edit Button         | Navigate to a post detail page, find your comment, and click the "Edit" button.     | The comment edit form is displayed, allowing the user to edit their comment.                              | Works as expected  |
-| Comment Delete Button       | Navigate to a post detail page, find your comment, and click the "Delete" button.   | A confirmation modal is displayed, allowing the user to confirm or cancel the deletion.                   | Works as expected  |
-| Delete Confirmation         | Confirm the deletion of your comment.                                               | The comment is removed from the post.                                                                     | Works as expected  |
-| Login Message for Comments  | Navigate to a post detail page without logging in.                                  | A message prompting the user to log in or sign up to participate in the discussion is displayed.          | Works as expected  |
+| Feature                    | Action                                                                            | Expected Result                                                                                  | Actual Result     |
+| -------------------------- | --------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------ | ----------------- |
+| Page Title                 | Navigate to a post detail page.                                                   | The page title should be the title of the post.                                                  | Works as expected |
+| Placeholder Image          | Verify a post without a featured image displays a placeholder image.              | The placeholder image is displayed for the post.                                                 | Works as expected |
+| Post Featured Image        | Verify a post with a featured image displays the correct image.                   | The correct featured image is displayed for the post.                                            | Works as expected |
+| Post Metadata              | Navigate to a post detail page.                                                   | The author, last updated date, and category are displayed below the title.                       | Works as expected |
+| Post Content               | Navigate to a post detail page.                                                   | The full post content is displayed.                                                              | Works as expected |
+| Comments Section Header    | Navigate to a post detail page.                                                   | The comments section header displays the number of comments.                                     | Works as expected |
+| New Comment Form           | Log in and navigate to a post detail page.                                        | The new comment form is displayed, allowing the logged-in user to submit a comment.              | Works as expected |
+| Comment Submission         | Submit a new comment as a logged-in user.                                         | The comment is displayed below the post, showing the username and content.                       | Works as expected |
+| Pending Comment Approval   | Submit a new comment as a logged-in user.                                         | The comment is displayed with a "pending approval" message.                                      | Works as expected |
+| Approved Comments          | Navigate to a post detail page with approved comments.                            | Approved comments are displayed below the post content.                                          | Works as expected |
+| Profile Link in Comments   | Click on a comment author's profile link.                                         | User is redirected to the comment author's profile page.                                         | Works as expected |
+| Comment Edit Button        | Navigate to a post detail page, find your comment, and click the "Edit" button.   | The comment edit form is displayed, allowing the user to edit their comment.                     | Works as expected |
+| Comment Delete Button      | Navigate to a post detail page, find your comment, and click the "Delete" button. | A confirmation modal is displayed, allowing the user to confirm or cancel the deletion.          | Works as expected |
+| Delete Confirmation        | Confirm the deletion of your comment.                                             | The comment is removed from the post.                                                            | Works as expected |
+| Login Message for Comments | Navigate to a post detail page without logging in.                                | A message prompting the user to log in or sign up to participate in the discussion is displayed. | Works as expected |
+
 ---
 
 ### About Page
 
-| Feature                   | Action                                                                                     | Expected Result                                                                                        | Actual Result      |
-|---------------------------|--------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------|--------------------|
-| Page Title                | Navigate to the "About Us" page.                                                           | The page title should be "About Us".                                                                   | Works as expected  |
-| Placeholder Image         | Verify the "About Us" page without a profile image displays a placeholder image.           | The placeholder image is displayed for the "About Us" page.                                            | Works as expected  |
-| Profile Image             | Verify the "About Us" page with a profile image displays the correct image.                | The correct profile image is displayed for the "About Us" page.                                        | Works as expected  |
-| Last Updated              | Navigate to the "About Us" page.                                                           | The "Last updated on" date is displayed below the image.                                               | Works as expected  |
-| About Us Content          | Navigate to the "About Us" page.                                                           | The full "About Us" content is displayed.                                                              | Works as expected  |
-| Contact Us Section Title  | Navigate to the "About Us" page.                                                           | The "We'd Love to Hear from You!" title is displayed in the Contact Us section.                        | Works as expected  |
-| Contact Us Section Text   | Navigate to the "About Us" page.                                                           | The Contact Us section text is displayed, explaining the purpose of the form.                          | Works as expected  |
-| Contact Us Form           | Navigate to the "About Us" page.                                                           | The Contact Us form is displayed, allowing the user to submit messages to the admins.                  | Works as expected  |
-| Submit Contact Form       | Fill out and submit the Contact Us form.                                                   | The form is successfully submitted, and a confirmation message is displayed.                           | Works as expected  |
+| Feature                  | Action                                                                           | Expected Result                                                                       | Actual Result     |
+| ------------------------ | -------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ----------------- |
+| Page Title               | Navigate to the "About Us" page.                                                 | The page title should be "About Us".                                                  | Works as expected |
+| Placeholder Image        | Verify the "About Us" page without a profile image displays a placeholder image. | The placeholder image is displayed for the "About Us" page.                           | Works as expected |
+| Profile Image            | Verify the "About Us" page with a profile image displays the correct image.      | The correct profile image is displayed for the "About Us" page.                       | Works as expected |
+| Last Updated             | Navigate to the "About Us" page.                                                 | The "Last updated on" date is displayed below the image.                              | Works as expected |
+| About Us Content         | Navigate to the "About Us" page.                                                 | The full "About Us" content is displayed.                                             | Works as expected |
+| Contact Us Section Title | Navigate to the "About Us" page.                                                 | The "We'd Love to Hear from You!" title is displayed in the Contact Us section.       | Works as expected |
+| Contact Us Section Text  | Navigate to the "About Us" page.                                                 | The Contact Us section text is displayed, explaining the purpose of the form.         | Works as expected |
+| Contact Us Form          | Navigate to the "About Us" page.                                                 | The Contact Us form is displayed, allowing the user to submit messages to the admins. | Works as expected |
+| Submit Contact Form      | Fill out and submit the Contact Us form.                                         | The form is successfully submitted, and a confirmation message is displayed.          | Works as expected |
 
 ---
 
 ### Events Page
 
-| Feature            | Action                                                                 | Expected Result                                                                                          | Actual Result      |
-|--------------------|------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------|--------------------|
-| Page Title         | Navigate to the Events page.                                           | The page title should be "Events".                                                                       | Works as expected  |
-| Event Image        | Verify that each event displays an image.                              | Each event displays its respective image.                                                                | Works as expected  |
-| Event Name         | Verify that each event displays its name.                              | Each event's name is displayed correctly.                                                                | Works as expected  |
-| Event Description  | Verify that each event displays its description.                       | Each event's description is displayed correctly.                                                         | Works as expected  |
-| Event Location     | Verify that each event displays its location.                          | Each event's location is displayed correctly.                                                            | Works as expected  |
-| Event Dates        | Verify that each event displays its start and end dates.               | Each event's start and end dates are displayed correctly.                                                | Works as expected  |
-| Event Time         | Verify that each event displays its start and end times.               | Each event's start and end times are displayed correctly.                                                | Works as expected  |
-| Event Website      | Verify that the website (if available) opens in a new tab when clicked | Website links opens in a new tab.                                                                         | Works as expected  |
-| No Events Message  | Navigate to the Events page when there are no upcoming events.         | An image and message are displayed indicating that there are no events at the moment.                    | Works as expected  |
+| Feature           | Action                                                                 | Expected Result                                                                       | Actual Result     |
+| ----------------- | ---------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ----------------- |
+| Page Title        | Navigate to the Events page.                                           | The page title should be "Events".                                                    | Works as expected |
+| Event Image       | Verify that each event displays an image.                              | Each event displays its respective image.                                             | Works as expected |
+| Event Name        | Verify that each event displays its name.                              | Each event's name is displayed correctly.                                             | Works as expected |
+| Event Description | Verify that each event displays its description.                       | Each event's description is displayed correctly.                                      | Works as expected |
+| Event Location    | Verify that each event displays its location.                          | Each event's location is displayed correctly.                                         | Works as expected |
+| Event Dates       | Verify that each event displays its start and end dates.               | Each event's start and end dates are displayed correctly.                             | Works as expected |
+| Event Time        | Verify that each event displays its start and end times.               | Each event's start and end times are displayed correctly.                             | Works as expected |
+| Event Website     | Verify that the website (if available) opens in a new tab when clicked | Website links opens in a new tab.                                                     | Works as expected |
+| No Events Message | Navigate to the Events page when there are no upcoming events.         | An image and message are displayed indicating that there are no events at the moment. | Works as expected |
 
 ---
+
 ### Useful Links Page
 
-| Feature                    | Action                                                          | Expected Result                                                                                                     | Actual Result      |
-|----------------------------|-----------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------|--------------------|
-| Page Title                 | Navigate to the Useful Links page.                              | The page title should be "Useful Links".                                                                            | Works as expected  |
-| Links Under Each Topic     | Verify that each topic displays its respective links.           | Each link under a topic is displayed as a list item within the topic card.                                           | Works as expected  |
-| Link Functionality         | Click on a link under a topic.                                  | The link opens in a new tab, taking the user to the correct external website.                                        | Works as expected  |
-| Placeholder for No Links   | Verify the behavior when a topic has no links.                  | An empty state is displayed within the topic card indicating no links were added under that topic yet.               | Works as expected  |
+| Feature                  | Action                                                | Expected Result                                                                                        | Actual Result     |
+| ------------------------ | ----------------------------------------------------- | ------------------------------------------------------------------------------------------------------ | ----------------- |
+| Page Title               | Navigate to the Useful Links page.                    | The page title should be "Useful Links".                                                               | Works as expected |
+| Links Under Each Topic   | Verify that each topic displays its respective links. | Each link under a topic is displayed as a list item within the topic card.                             | Works as expected |
+| Link Functionality       | Click on a link under a topic.                        | The link opens in a new tab, taking the user to the correct external website.                          | Works as expected |
+| Placeholder for No Links | Verify the behavior when a topic has no links.        | An empty state is displayed within the topic card indicating no links were added under that topic yet. | Works as expected |
 
---- 
+---
 
 ### Signup Page
 
-| Feature                       | Action                                                                                          | Expected Result                                                                                                 | Actual Result      |
-|-------------------------------|-------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------|--------------------|
-| Page Title                    | Navigate to the Sign Up page.                                                                   | The page title should be "Signup".                                                                             | Works as expected  |
-| Username Field                | Enter a username, fill up the rest of the form and click submit.                                | The username is accepted, or an error message is displayed if invalid.                                          | Works as expected  |
-| Duplicate Username            | Enter a username that is already in use, fill up the rest of the form and click submit.         | An error message is displayed indicating the username is already taken.                                         | Works as expected  |
-| Previously Used Username      | Enter a username that was previously used to create an account that has been deleted, fill up the rest of the form and click submit. | An error message is displayed indicating the username cannot be reused.                                         | Works as expected  |
-| Email Field                   | Enter an email address, fill up the rest of the form and click submit.                          | The email address is accepted, or an error message is displayed if invalid.                                     | Works as expected  |
-| Duplicate Email               | Enter an email address that is already in use, fill up the rest of the form and click submit.    | An error message is displayed indicating the email is already registered.                                       | Works as expected  |
-| Password1 Field               | Enter a password, fill up the rest of the form and click submit.                                | The password is accepted, or an error message is displayed if it does not meet the criteria.                    | Works as expected  |
-| Password2 Field               | Enter the same password as in the Password1 field, fill up the rest of the form and click submit.| If it meets the criteria the password is accepted.                                                             | Works as expected  |
-| Password2 Field               | Enter a different password as in the Password1 field, fill up the rest of the form and click submit.| Error message is displayed if it does not match Password1.                                                  | Works as expected  |
-| Accept Rules Field            | Check the accept rules checkbox, fill up the rest of the form and click submit.                 | The checkbox is accepted.                                                                                       | Works as expected  |
-| Submit Without Checkbox       | Try to submit the form without checking the accept rules checkbox, fill up the rest of the form and click submit. | An error message is displayed indicating the rules must be accepted.                                            | Works as expected  |
-| Important Note                | Navigate to the Sign Up page.                                                                   | The important note about password safety is displayed below the form fields.                                     | Works as expected  |
-| Submit Button                 | Fill out the form with valid data and click the "Sign Up" button.                               | The form is submitted, and the user is registered and redirected to the appropriate page.                       | Works as expected  |
-| Errors warnings               | Submit the form with incorrect data.                                                            | Error messages are displayed at the top of each field and form is not submitted.                                | Works as expected  |
+| Feature                  | Action                                                                                                                               | Expected Result                                                                              | Actual Result     |
+| ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------- | ----------------- |
+| Page Title               | Navigate to the Sign Up page.                                                                                                        | The page title should be "Signup".                                                           | Works as expected |
+| Username Field           | Enter a username, fill up the rest of the form and click submit.                                                                     | The username is accepted, or an error message is displayed if invalid.                       | Works as expected |
+| Duplicate Username       | Enter a username that is already in use, fill up the rest of the form and click submit.                                              | An error message is displayed indicating the username is already taken.                      | Works as expected |
+| Previously Used Username | Enter a username that was previously used to create an account that has been deleted, fill up the rest of the form and click submit. | An error message is displayed indicating the username cannot be reused.                      | Works as expected |
+| Email Field              | Enter an email address, fill up the rest of the form and click submit.                                                               | The email address is accepted, or an error message is displayed if invalid.                  | Works as expected |
+| Duplicate Email          | Enter an email address that is already in use, fill up the rest of the form and click submit.                                        | An error message is displayed indicating the email is already registered.                    | Works as expected |
+| Password1 Field          | Enter a password, fill up the rest of the form and click submit.                                                                     | The password is accepted, or an error message is displayed if it does not meet the criteria. | Works as expected |
+| Password2 Field          | Enter the same password as in the Password1 field, fill up the rest of the form and click submit.                                    | If it meets the criteria the password is accepted.                                           | Works as expected |
+| Password2 Field          | Enter a different password as in the Password1 field, fill up the rest of the form and click submit.                                 | Error message is displayed if it does not match Password1.                                   | Works as expected |
+| Accept Rules Field       | Check the accept rules checkbox, fill up the rest of the form and click submit.                                                      | The checkbox is accepted.                                                                    | Works as expected |
+| Submit Without Checkbox  | Try to submit the form without checking the accept rules checkbox, fill up the rest of the form and click submit.                    | An error message is displayed indicating the rules must be accepted.                         | Works as expected |
+| Important Note           | Navigate to the Sign Up page.                                                                                                        | The important note about password safety is displayed below the form fields.                 | Works as expected |
+| Submit Button            | Fill out the form with valid data and click the "Sign Up" button.                                                                    | The form is submitted, and the user is registered and redirected to the home page.           | Works as expected |
+| Errors warnings          | Submit the form with incorrect data.                                                                                                 | Error messages are displayed at the top of each field and form is not submitted.             | Works as expected |
 
 ---
 
 ### Login Page
 
-| Feature             | Action                                                                                 | Expected Result                                                                                                  | Actual Result      |
-|---------------------|----------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------|--------------------|
-| Page Title          | Navigate to the Login page.                                                            | The page title should be "Login".                                                                                | Works as expected  |
-| Error warnings      | Submit the form with incorrect data.                                                   | Error messages are displayed at the top of the fields.                                                           | Works as expected  |
-| Invalid Username    | Enter a username that is not registered, a password and submit the form.               | An error message is displayed indicating the username does not exist.                                            | Works as expected  |
-| Invalid Password    | Enter a registered username, an invalid password and submit the form.                  | An error message is displayed indicating the password is incorrect.                                              | Works as expected  |
-| Submit Button       | Fill out the form with valid data and click the "Login" button.                        | The form is submitted, and the user is logged in and redirected to the appropriate page.                         | Works as expected  |
-| Contact form link   | Click on the "contact form" link.                                                      | The user is redirected to the Contact Us section so they can leave a message to the admins asking for password assistance. | Works as expected  |
+| Feature           | Action                                                                   | Expected Result                                                                                                            | Actual Result     |
+| ----------------- | ------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------- | ----------------- |
+| Page Title        | Navigate to the Login page.                                              | The page title should be "Login".                                                                                          | Works as expected |
+| Error warnings    | Submit the form with incorrect data.                                     | Error messages are displayed at the top of the fields.                                                                     | Works as expected |
+| Invalid Username  | Enter a username that is not registered, a password and submit the form. | An error message is displayed indicating the username does not exist.                                                      | Works as expected |
+| Invalid Password  | Enter a registered username, an invalid password and submit the form.    | An error message is displayed indicating the password is incorrect.                                                        | Works as expected |
+| Submit Button     | Fill out the form with valid data and click the "Login" button.          | The form is submitted, and the user is logged in and redirected to the appropriate page.                                   | Works as expected |
+| Contact form link | Click on the "contact form" link.                                        | The user is redirected to the Contact Us section so they can leave a message to the admins asking for password assistance. | Works as expected |
 
 ---
+
 ### User's Profile Page
 
-| Feature                     | Action                                                                                          | Expected Result                                                                                                 | Actual Result      |
-|-----------------------------|-------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------|--------------------|
-| Page Title                  | Navigate to the User Profile page.                                                              | The page title should be "User Profile".                                                                       | Works as expected  |
-| Full Name                   | Verify the full name is displayed.                                                              | The full name is displayed correctly.                                                                          | Works as expected  |
-| Username                    | Verify the username is displayed.                                                               | The username is displayed correctly.                                                                           | Works as expected  |
-| Email (if displayed)        | Verify the email is displayed if the display_email flag is set.                                 | The email is displayed correctly.                                                                              | Works as expected  |
-| Location                    | Verify the location is displayed.                                                               | The location is displayed correctly.                                                                           | Works as expected  |
-| Bio                         | Verify the bio is displayed.                                                                    | The bio is displayed correctly.                                                                                | Works as expected  |
-| Profile Photo               | Verify the profile photo is displayed.                                                          | The profile photo is displayed correctly.                                                                      | Works as expected  |
-| Profile management options  | As a logged-in user, visit the Profile page of another user by clicking on a post comment's link.| There are no "Edit," "Delete," and "View my comments" buttons displayed under the user's profile.               | Works as expected  |
-| Edit Profile Button         | As the current user, verify the presence and click the "Edit Profile" button.                   | The user is redirected to the profile edit page.                                                               | Works as expected  |
-| View Comments Button        | As the current user, verify the presence and click the "View My Comments" button.               | The comments section expands, displaying the user's comments.                                                  | Works as expected  |
-| Comment Link                | As the current user, in the comments section, click on a comment link.                         | The user is redirected to the specific comment on the post detail page.                                         | Works as expected  |
-| No Comments Message         | As a current user that has not written any comments, click the button "View My Comments".       | A message is displayed indicating that the user has no comments yet.                                            | Works as expected  |
-| Delete Account Button       | As the current user, click the "Delete Account" button.                                         | A modal confirming account deletion is displayed.                                                              | Works as expected  |
-| Delete Account Modal        | In the delete account modal, click "Delete Account".                                            | The account is deleted, and the user is redirected to the home page.                                            | Works as expected  |
+| Feature                    | Action                                                                                            | Expected Result                                                                                   | Actual Result     |
+| -------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ----------------- |
+| Page Title                 | Navigate to the User Profile page.                                                                | The page title should be "User Profile".                                                          | Works as expected |
+| Full Name                  | Verify the full name is displayed.                                                                | The full name is displayed correctly.                                                             | Works as expected |
+| Username                   | Verify the username is displayed.                                                                 | The username is displayed correctly.                                                              | Works as expected |
+| Email (if displayed)       | Verify the email is displayed if the display_email flag is set.                                   | The email is displayed correctly.                                                                 | Works as expected |
+| Location                   | Verify the location is displayed.                                                                 | The location is displayed correctly.                                                              | Works as expected |
+| Bio                        | Verify the bio is displayed.                                                                      | The bio is displayed correctly.                                                                   | Works as expected |
+| Profile Photo              | Verify the profile photo is displayed.                                                            | The profile photo is displayed correctly.                                                         | Works as expected |
+| Profile management options | As a logged-in user, visit the Profile page of another user by clicking on a post comment's link. | There are no "Edit," "Delete," and "View my comments" buttons displayed under the user's profile. | Works as expected |
+| Edit Profile Button        | As the current user, verify the presence and click the "Edit Profile" button.                     | The user is redirected to the profile edit page.                                                  | Works as expected |
+| View Comments Button       | As the current user, verify the presence and click the "View My Comments" button.                 | The comments section expands, displaying the user's comments.                                     | Works as expected |
+| Comment Link               | As the current user, in the comments section, click on a comment link.                            | The user is redirected to the specific comment on the post detail page.                           | Works as expected |
+| No Comments Message        | As a current user that has not written any comments, click the button "View My Comments".         | A message is displayed indicating that the user has no comments yet.                              | Works as expected |
+| Delete Account Button      | As the current user, click the "Delete Account" button.                                           | A modal confirming account deletion is displayed.                                                 | Works as expected |
+| Delete Account Modal       | In the delete account modal, click "Delete Account".                                              | The account is deleted, and the user is redirected to the home page.                              | Works as expected |
 
 ---
 
 ### Update Profile Page
 
-| Feature                | Action                                                                                                 | Expected Result                                                                                                                     | Actual Result      |
-|------------------------|--------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------|--------------------|
-| Page Title             | Navigate to the Update Profile page.                                                                   | The page title should be "Update Profile".                                                                                          | Works as expected  |
-| Full Name              | Enter a name in the Full Name field and click the "Update" button.                                     | The entered name is displayed on the Profile Page.                                                                                  | Works as expected  |
-| Email                  | Enter an email address in the Email field and click the "Update" button.                               | The email address is accepted, or an error message is displayed if invalid format.                                                  | Works as expected  |
-| Display Email Checkbox | 1. Check the "I would like for other users to see my e-mail" checkbox and click update. 2. Go back to the Update Profile Page and uncheck the checkbox, click the "Update" button. | E-mail is displayed on Profile Page or not displayed according to the checkbox being checked or unchecked.                           | Works as expected  |
-| Profile Photo Upload   | Upload a new profile photo and click the "Update" button.                                              | The new profile photo is previewed and accepted, or an error message is displayed if the file is too large.                          | Works as expected  |
-| Delete Profile Photo   | Check the "Delete photo" checkbox and click the "Update" button.                                       | The standard placeholder image is displayed on the Profile Page.                                                                     | Works as expected  |
-| Bio                    | Enter text in the Bio field and click the "Update" button.                                             | The text of maximum 500 characters is shown on the Profile Page.                                                                     | Works as expected  |
-| Location               | Pick a location from the list.                                                                         | The location is displayed on the Profile Page.                                                                                       | Works as expected  |
-| Custom Location        | Click "Other" from the Locations list. Enter a custom location in the Custom Location field provided   | The custom location is displayed on the Profile Page.                                                                               | Works as expected  |
-| Submit Button          | Fill out the form and click the "Update Profile" button.                                               | The form is submitted, and the profile is updated successfully.                                                                      | Works as expected  |
-| File Size Modal        | Upload a profile photo larger than 2MB.                                                                | A modal is displayed indicating the file size must be less than 2MB.                                                                 | Works as expected  |
-
+| Feature                | Action                                                                                                                                                                             | Expected Result                                                                                             | Actual Result     |
+| ---------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- | ----------------- |
+| Page Title             | Navigate to the Update Profile page.                                                                                                                                               | The page title should be "Update Profile".                                                                  | Works as expected |
+| Full Name              | Enter a name in the Full Name field and click the "Update" button.                                                                                                                 | The entered name is displayed on the Profile Page.                                                          | Works as expected |
+| Email                  | Enter an email address in the Email field and click the "Update" button.                                                                                                           | The email address is accepted, or an error message is displayed if invalid format.                          | Works as expected |
+| Display Email Checkbox | 1. Check the "I would like for other users to see my e-mail" checkbox and click update. 2. Go back to the Update Profile Page and uncheck the checkbox, click the "Update" button. | E-mail is displayed on Profile Page or not displayed according to the checkbox being checked or unchecked.  | Works as expected |
+| Profile Photo Upload   | Upload a new profile photo and click the "Update" button.                                                                                                                          | The new profile photo is previewed and accepted, or an error message is displayed if the file is too large. | Works as expected |
+| Delete Profile Photo   | Check the "Delete photo" checkbox and click the "Update" button.                                                                                                                   | The standard placeholder image is displayed on the Profile Page.                                            | Works as expected |
+| Bio                    | Enter text in the Bio field and click the "Update" button.                                                                                                                         | The text of maximum 500 characters is shown on the Profile Page.                                            | Works as expected |
+| Location               | Pick a location from the list.                                                                                                                                                     | The location is displayed on the Profile Page.                                                              | Works as expected |
+| Custom Location        | Click "Other" from the Locations list. Enter a custom location in the Custom Location field provided                                                                               | The custom location is displayed on the Profile Page.                                                       | Works as expected |
+| Submit Button          | Fill out the form and click the "Update Profile" button.                                                                                                                           | The form is submitted, and the profile is updated successfully.                                             | Works as expected |
+| File Size Modal        | Upload a profile photo larger than 2MB.                                                                                                                                            | A modal is displayed indicating the file size must be less than 2MB.                                        | Works as expected |
 
 ---
 
-
 ### Logout Page
 
-| Feature             | Action                                                           | Expected Result                                                                                           | Actual Result      |
-|---------------------|------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------|--------------------|
-| Page Title          | Navigate to the Logout page.                                     | The page title should be "Logout".                                                                        | Works as expected  |
-| Confirmation Text   | Click on the Logout on the navigation menu.                      | Logout page opens and the confirmation text "Are you sure you want to log out?" is displayed.              | Works as expected  |
-| Logout Button       | Click the "Logout" button.                                       | The form is submitted, and the user is logged out and redirected to the home page.                         | Works as expected  |
+| Feature           | Action                                      | Expected Result                                                                               | Actual Result     |
+| ----------------- | ------------------------------------------- | --------------------------------------------------------------------------------------------- | ----------------- |
+| Page Title        | Navigate to the Logout page.                | The page title should be "Logout".                                                            | Works as expected |
+| Confirmation Text | Click on the Logout on the navigation menu. | Logout page opens and the confirmation text "Are you sure you want to log out?" is displayed. | Works as expected |
+| Logout Button     | Click the "Logout" button.                  | The form is submitted, and the user is logged out and redirected to the home page.            | Works as expected |
 
 ---
 
