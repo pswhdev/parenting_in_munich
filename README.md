@@ -454,12 +454,26 @@ The text area for the bio is limited to 500 characters, and this limit is displa
 Overview of the update profile page with all the described features:
 ![Overview profile update](documentation/features/update-profile-page.png)
 
+
 ### Signup page
+
+I have added a checkbox for users to accept the site rules before signing up. The rules, which focus on maintaining the quality of discussions and ensuring a positive and respectful community environment, explicitly state that comments will be retained to preserve the coherence of discussions. The link to the policies on the signup page opens in a new tab so the signup process is not disrupted.
+
+Additionally, since email authentication is not configured, I have included a note advising users to write down their passwords and keep them in a safe place, as password recovery is not possible if forgotten.
+
+![Signup page](documentation/features/signup-page.png)
+
+To retain users' comments upon account termination, I have used Django signals to append "Deactivated" to the username before deleting the account. This prevents the reuse of usernames that have previously been used on the website, avoiding potential impersonation of former users. If a new user attempts to use a username that has been used before, they will be shown a message explaining that the username has already been used and cannot be reused.
+
+An example of an attempt to use a username that has been used
+![Attempt to use a username that has been used](documentation/features/reuse-username.png)
 
 
 ### Login page
 
+I have personalized the login page to remove the "Forgot your password" link because email authentication is not configured, and email would not work as a recovery option. Instead, I have added an alternative for users to fill up the contact form by including a link to the "Contact Us" section on the About Us page.
 
+![Login page](documentation/features/login-page.png)
 
 ### Logout page
 
