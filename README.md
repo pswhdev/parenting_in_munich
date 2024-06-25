@@ -58,8 +58,11 @@ Visit ythe deployed site [Parenting in Munich](https://parenting-in-munich-site-
       - [Profile Photo:](#profile-photo)
       - [Location](#location)
       - [Bio](#bio)
+    - [Signup page](#signup-page)
+    - [Login page](#login-page)
     - [Logout page](#logout-page)
     - [Site rules](#site-rules)
+    - [Validation of Entries](#validation-of-entries)
       - [Restricted Area](#restricted-area)
     - [404, 403 and 500 Error Pages](#404-403-and-500-error-pages)
     - [Future Features](#future-features)
@@ -451,6 +454,13 @@ The text area for the bio is limited to 500 characters, and this limit is displa
 Overview of the update profile page with all the described features:
 ![Overview profile update](documentation/features/update-profile-page.png)
 
+### Signup page
+
+
+### Login page
+
+
+
 ### Logout page
 
 When users choose to log out, they are asked to confirm their action. Upon confirmation, a thank you message is displayed, acknowledging their visit.
@@ -465,6 +475,16 @@ Thank you message:
 
 The website includes a page with the site rules. The link for this page is both included on the footer of the page (as "Policy") and on the signup page. On the signup page, the link opens in a new window in order not to disturb the ongoing signing up process for a better user experience.
 
+### Validation of Entries
+
+Validation has been implemented to avoid duplication of categories, posts, topics (for the useful links section), and events.
+
+- Categories: The system checks for duplicate category names.
+- Posts: The system checks for duplicate post titles.
+- Topics: The system checks for duplicate topics in the useful links section.
+- Events: The system checks for duplicate events based on the combination of name, location, description, and dates.
+- When the admin creates a new record, the system verifies if it already exists in the database. If a duplicate is found, the record is not added, and a message is displayed stating that the specific item already exists.
+
 #### Restricted Area
 
 Unauthorized users are promt to register in order to see the content.
@@ -476,14 +496,13 @@ Unauthorized users are promt to register in order to see the content.
 Custom user-friendly 404 Page not Found, 403 Forbidden and 500 Internal Server Error appear if a page is not found, a user tries to access a restricted resource and the server encounters an unexpected condition that prevents it from fulfilling the request respectivelly. The user is then prompted to return to the main page by either clicking on a provided link or the image itself, ensuring a smooth and intuitive user experience.
 
 - 404 Page not Found:
-![404 Error Page](documentation/features/error-page.png)
-
+  ![404 Error Page](documentation/features/error-page.png)
 
 - 403 Forbidden:
-![403 Error Page](documentation/features/error-forbidden.png)
+  ![403 Error Page](documentation/features/error-forbidden.png)
 
 - 500 Internal Server Error
-![500 Error Page](documentation/features/error-internal-server.png)
+  ![500 Error Page](documentation/features/error-internal-server.png)
 
 ### Future Features
 
